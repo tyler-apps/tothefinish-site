@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>To The Finish · My AI coaching team, at work</title>
+<meta name="description" content="A 258 lb dad of two is chasing a sub-3 marathon at Chicago on Oct 10, 2027, coached by four AI coaches. Real Garmin data, animated.">
+<meta property="og:title" content="To The Finish">
+<meta property="og:description" content="My AI coaching team, at work. A 258 lb dad of two chasing sub-3 at Chicago, Oct 10, 2027.">
+<meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
+<meta property="og:url" content="https://tothefinish.ai/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+@font-face{font-family:"Barlow Condensed";src:url(assets/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:-.5px;margin:0}
+.kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--orange);font-size:18px;margin:0 0 14px}
+.o{color:var(--orange)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+
+/* top */
+.top{padding:28px 0 64px}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+.mark{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-decoration:none}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:18px}
+.nav a:hover{color:var(--white)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(64px,11vw,132px)}
+.hero p.lead{font-size:20px;color:#e7e1db;margin:22px 0 28px;max-width:30ch;line-height:1.4}
+.hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
+
+/* form */
+form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
+form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2);color:var(--white);font-size:16px}
+form.join input::placeholder{color:#8a837c}
+form.join input.wide{flex-basis:100%}
+form.join button{flex:1 1 100%;padding:16px;border:0;border-radius:10px;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+form.join button:hover{filter:brightness(1.06)}
+.fine{font-size:13px;color:var(--muted);margin-top:10px}
+.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-2);border:1px solid var(--orange);font-size:17px;line-height:1.45}
+
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.story h2{font-size:clamp(44px,6vw,72px)}
+.story p:not(.kicker){font-size:19px;line-height:1.5;color:#e7e1db;margin:0 0 14px}
+
+/* coaches */
+.coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--ink-2);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.card .t{padding:16px}
+.card h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
+.card .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px}
+.card .line{color:#e7e1db;font-size:16px;margin:0}
+
+/* episode */
+.episode{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.episode h2{font-size:clamp(44px,6vw,72px)}
+.episode p:not(.kicker){font-size:19px;color:#e7e1db;line-height:1.5}
+.soon{aspect-ratio:9/16;width:min(100%,300px);margin:0 auto;border-radius:16px;background:var(--paper) url(assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
+.soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
+
+/* club + waitlist */
+.club,.waitlist{text-align:left}
+.club h2,.waitlist h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+.club p:not(.kicker),.waitlist p:not(.kicker){font-size:19px;color:#e7e1db;line-height:1.5;max-width:40ch;margin:0 0 24px}
+.btn{display:inline-block;padding:16px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase}
+
+footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:14px}
+footer .links a{margin-right:18px;text-decoration:none;color:#e7e1db}
+footer p{margin:14px 0 0;line-height:1.5}
+
+@media (max-width:860px){
+  .hero,.story,.episode{grid-template-columns:1fr;gap:28px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .nav{display:none}
+  section{padding:56px 0}
+  .bar{margin-bottom:32px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
+      <nav class="nav"><a href="#coaches">The coaches</a><a href="#episode">Episodes</a><a href="#club">Train with us</a></nav>
+    </div>
+    <div class="hero">
+      <div>
+        <p class="kicker">My AI coaching team, at work</p>
+        <h1 class="display">To the<br><span class="o">finish.</span></h1>
+        <p class="lead">Four AI coaches. One dad of two. One sub-3 attempt at Chicago, Oct 10, 2027.</p>
+        <form class="join" id="join-top" data-thanks="thanks-top">
+          <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
+          <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
+          <button type="submit">Join the team</button>
+        </form>
+        <div class="thanks" id="thanks-top">You're on the team. Watch your inbox, and tell us what you're training for.</div>
+        <p class="fine">One email a week. Unsubscribe anytime.</p>
+      </div>
+      <img src="assets/lineup.jpg" alt="The four To The Finish coaches: Rook, Kai, Bo and Juno" width="1400" height="933">
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap story">
+    <h2 class="display">Not built for it.<br><span class="o">Training for it anyway.</span></h2>
+    <div>
+      <p>A 258 lb dad of two is chasing a sub-3 marathon at Chicago on October 10, 2027.</p>
+      <p>Four AI coaches plan every run, lift and meal from his real Garmin data, change the plan when life happens, and send the next workout to his watch. Every episode is a real week, animated.</p>
+    </div>
+  </div>
+</section>
+
+<section id="coaches" class="coaches">
+  <div class="wrap">
+    <p class="kicker">The team</p>
+    <h2 class="display">Meet the <span class="o">coaches.</span></h2>
+    <div class="grid">
+      <div class="card"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="line">"Chicago first."</p></div></div>
+      <div class="card"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="line">"The hill decides."</p></div></div>
+      <div class="card"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="line">"BOOM. BOOM. BOOM."</p></div></div>
+      <div class="card"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="line">"Eat enough."</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="episode">
+  <div class="wrap episode">
+    <div>
+      <p class="kicker">Episode 1</p>
+      <h2 class="display">Can a 258 lb dad run a <span class="o">sub-3 marathon?</span></h2>
+      <p>The first episode drops Sunday, November 22. Watch on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> or <a href="https://x.com/tothefinishai">X</a>.</p>
+    </div>
+    <div class="soon" role="img" aria-label="Episode 1 coming Sunday, November 22"><span>Sun, Nov 22</span></div>
+  </div>
+</section>
+
+<section id="club" class="club">
+  <div class="wrap">
+    <p class="kicker">Train with us</p>
+    <h2 class="display">One club session <span class="o">a week.</span></h2>
+    <p>Every week the coaches post one session to the Strava club. Do your version, post it, and the best stories show up in the show. Run your own pace.</p>
+    <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
+  </div>
+</section>
+
+<section class="waitlist">
+  <div class="wrap">
+    <p class="kicker">Coming next</p>
+    <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
+    <p>Everyone on the list gets first access.</p>
+    <form class="join" id="join-bottom" data-thanks="thanks-bottom">
+      <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
+      <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
+      <input class="wide" name="entry.1063777465" placeholder="What are you training for? (race and date)">
+      <button type="submit">Get on the list</button>
+    </form>
+    <div class="thanks" id="thanks-bottom">You're on the list. We'll be in touch.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="links"><a href="https://www.youtube.com/@tothefinishai">YouTube</a><a href="https://www.instagram.com/tothefinishai/">Instagram</a><a href="https://www.tiktok.com/@tothefinishai">TikTok</a><a href="https://x.com/tothefinishai">X</a><a href="https://www.strava.com/clubs/tothefinish">Strava</a></div>
+    <p>Contact: <a href="mailto:tothefinishai@gmail.com">tothefinishai@gmail.com</a></p>
+    <p>Tyler's personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters. Run the miles.</p>
+  </div>
+</footer>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
+<script>
+document.querySelectorAll('form.join').forEach(function(f){
+  f.action='https://docs.google.com/forms/d/e/1FAIpQLSdT7jrtoY9IUlszIVzIwiGMmslxgxhaaF6xuuoQdDOyEhB0Kg/formResponse';
+  f.method='POST';
+  f.target='hidden_iframe';
+  f.addEventListener('submit',function(){
+    var t=document.getElementById(f.dataset.thanks);
+    setTimeout(function(){f.style.display='none';t.style.display='block';},300);
+  });
+});
+</script>
+</body>
+</html>
