@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>To The Finish · My AI coaching team, at work</title>
-<meta name="description" content="A 258 lb dad of two is chasing a sub-3 marathon at Chicago on Oct 10, 2027, coached by four AI coaches. Real Garmin data, animated.">
+<title>To The Finish · A 258 lb dad, four AI coaches, one sub-3 marathon</title>
+<meta name="description" content="I started at 258 lb. I have two kids and 47 weeks to run a sub-3 marathon at Chicago. Four AI coaches run my plan from my Garmin data, and every week becomes an animated episode.">
 <meta property="og:title" content="To The Finish">
-<meta property="og:description" content="My AI coaching team, at work. A 258 lb dad of two chasing sub-3 at Chicago, Oct 10, 2027.">
+<meta property="og:description" content="A 258 lb dad of two, four AI coaches, and 47 weeks to run a sub-3 marathon at Chicago.">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/">
 <meta name="twitter:card" content="summary_large_image">
@@ -14,15 +14,18 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
 @font-face{font-family:"Barlow Condensed";src:url(assets/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-display:swap}
-:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25}
+:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:-.5px;margin:0}
+.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:-.5px;margin:0}
 .kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--orange);font-size:18px;margin:0 0 14px}
 .o{color:var(--orange)}
 section{padding:72px 0;border-top:1px solid var(--line)}
+p.body{font-size:19px;line-height:1.55;color:var(--soft);margin:0 0 14px;max-width:46ch}
+p.body.turn{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05;color:var(--white);margin:0 0 6px}
+p.body.turn b{color:var(--orange)}
 
 /* top */
 .top{padding:28px 0 64px}
@@ -32,7 +35,7 @@ section{padding:72px 0;border-top:1px solid var(--line)}
 .nav a:hover{color:var(--white)}
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .hero h1{font-size:clamp(64px,11vw,132px)}
-.hero p.lead{font-size:20px;color:#e7e1db;margin:22px 0 28px;max-width:30ch;line-height:1.4}
+.hero p.lead{font-size:20px;color:var(--soft);margin:22px 0 28px;max-width:34ch;line-height:1.45}
 .hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
 
 /* form */
@@ -45,44 +48,59 @@ form.join button:hover{filter:brightness(1.06)}
 .fine{font-size:13px;color:var(--muted);margin-top:10px}
 .thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-2);border:1px solid var(--orange);font-size:17px;line-height:1.45}
 
-/* story */
-.story{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.story h2{font-size:clamp(44px,6vw,72px)}
-.story p:not(.kicker){font-size:19px;line-height:1.5;color:#e7e1db;margin:0 0 14px}
+/* progress */
+.gap-head{font-size:clamp(52px,9vw,112px)}
+.gap-head .arrow{color:var(--muted);font-size:.55em;vertical-align:.25em;padding:0 .12em}
+.chart{margin:30px 0 10px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px 14px 10px}
+.chart svg{display:block;width:100%;height:auto}
+.chart .t{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800}
+.chart .m{font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;font-weight:600}
+.note{font-size:13px;color:var(--muted);margin:8px 2px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two h2,.year h2,.races h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+
+/* races */
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.race{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.race.final{border-color:var(--orange)}
+.race .d{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.race h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:4px 0 14px;line-height:1}
+.race .k{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
+.race .v.o{color:var(--orange)}
 
 /* coaches */
-.coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:32px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
 .card{background:var(--ink-2);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .card .t{padding:16px}
 .card h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
 .card .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px}
-.card .line{color:#e7e1db;font-size:16px;margin:0}
+.card .job{color:var(--muted);font-size:15px;margin:0 0 10px;line-height:1.4}
+.card .line{color:var(--white);font-size:17px;margin:0;line-height:1.35}
 
 /* episode */
 .episode{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.episode h2{font-size:clamp(44px,6vw,72px)}
-.episode p:not(.kicker){font-size:19px;color:#e7e1db;line-height:1.5}
+.episode h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
 .soon{aspect-ratio:9/16;width:min(100%,300px);margin:0 auto;border-radius:16px;background:var(--paper) url(assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
 .soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
 
-/* club + waitlist */
-.club,.waitlist{text-align:left}
 .club h2,.waitlist h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
-.club p:not(.kicker),.waitlist p:not(.kicker){font-size:19px;color:#e7e1db;line-height:1.5;max-width:40ch;margin:0 0 24px}
-.btn{display:inline-block;padding:16px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase}
+.btn{display:inline-block;padding:16px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;margin-top:10px}
 
 footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:14px}
-footer .links a{margin-right:18px;text-decoration:none;color:#e7e1db}
+footer .sign{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;color:var(--white);margin:0 0 18px;line-height:1}
+footer .links a{margin-right:18px;text-decoration:none;color:var(--soft)}
 footer p{margin:14px 0 0;line-height:1.5}
 
 @media (max-width:860px){
-  .hero,.story,.episode{grid-template-columns:1fr;gap:28px}
-  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero,.two,.episode{grid-template-columns:1fr;gap:28px}
+  .grid,.rgrid{grid-template-columns:repeat(2,1fr)}
   .nav{display:none}
   section{padding:56px 0}
   .bar{margin-bottom:32px}
+  .chart{padding:12px 8px 6px}
 }
 </style>
 </head>
@@ -92,33 +110,69 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav"><a href="#coaches">The coaches</a><a href="#episode">Episodes</a><a href="#club">Train with us</a></nav>
+      <nav class="nav"><a href="#progress">Progress</a><a href="#coaches">The coaches</a><a href="#episode">Episodes</a><a href="#club">Train with us</a></nav>
     </div>
     <div class="hero">
       <div>
-        <p class="kicker">My AI coaching team, at work</p>
+        <p class="kicker">Episode 1 · Sunday, Nov 22</p>
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
-        <p class="lead">Four AI coaches. One dad of two. One sub-3 attempt at Chicago, Oct 10, 2027.</p>
+        <p class="lead">I started this at 258 lb, with two kids and a goal I'm not built for: a sub-3 marathon at Chicago on October 10, 2027. My watch says I'd run <b data-k="now">4:34:04</b> today. Four AI coaches run my plan, and every week becomes an animated episode.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
           <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
           <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
-          <button type="submit">Join the team</button>
+          <button type="submit">Follow along</button>
         </form>
-        <div class="thanks" id="thanks-top">You're on the team. Watch your inbox, and tell us what you're training for.</div>
-        <p class="fine">One email a week. Unsubscribe anytime.</p>
+        <div class="thanks" id="thanks-top">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
+        <p class="fine">One email every Sunday: my week's miles and the new episode.</p>
       </div>
       <img src="assets/lineup.jpg" alt="The four To The Finish coaches: Rook, Kai, Bo and Juno" width="1400" height="933">
     </div>
   </div>
 </header>
 
+<section id="progress">
+  <div class="wrap">
+    <p class="kicker">Where I am</p>
+    <h2 class="display gap-head"><span data-k="now">4:34:04</span><span class="arrow">to</span><span class="o">2:59:59</span></h2>
+    <p class="body" style="margin-top:22px">The first number is my marathon time today, according to my Garmin. The second is what I need at Chicago. That's <b data-k="togo">1:34:05</b> to find, which works out to about <b data-k="perweek">2 minutes</b> faster every week until race day. Since <span data-k="firstday">October 19</span> it's come down <b data-k="sofar">5:45</b>.</p>
+    <div class="chart"><svg id="c-gap" viewBox="0 0 1000 440" role="img" aria-label="Garmin marathon prediction by day against the 2:59:59 goal"></svg></div>
+    <p class="note">Garmin race predictor, updated after every run. First reading <span data-k="first">Oct 19, 2026: 4:39:49</span>. Last update <span data-k="updated">Nov 18, 2026</span>.</p>
+  </div>
+</section>
+
 <section>
-  <div class="wrap story">
-    <h2 class="display">Not built for it.<br><span class="o">Training for it anyway.</span></h2>
+  <div class="wrap two">
     <div>
-      <p>A 258 lb dad of two is chasing a sub-3 marathon at Chicago on October 10, 2027.</p>
-      <p>Four AI coaches plan every run, lift and meal from his real Garmin data, change the plan when life happens, and send the next workout to his watch. Every episode is a real week, animated.</p>
+      <p class="kicker">Where I've been</p>
+      <h2 class="display">I've been <span class="o">faster.</span></h2>
+      <p class="body">In June 2024 I ran a half marathon in <b data-k="halfpr">1:32:31</b>.</p>
+      <p class="body">By <span data-k="ltbestdate">August 2025</span> my threshold pace, roughly the fastest pace I can hold for an hour, was down to <b data-k="ltbest">6:42</b> a mile.</p>
+      <p class="body turn">Then our second kid was born.</p>
+      <p class="body turn">Today it's <b data-k="lt1">7:55</b>.</p>
     </div>
+    <div>
+      <div class="chart" style="margin-top:0"><svg id="c-engine" viewBox="0 0 1000 560" role="img" aria-label="Lactate threshold pace from late 2024 to today"></svg></div>
+      <p class="note">Lactate-threshold pace from my Garmin, per mile. Higher on the chart is faster.</p>
+    </div>
+  </div>
+</section>
+
+<section class="year">
+  <div class="wrap">
+    <p class="kicker">What's ahead</p>
+    <h2 class="display"><span data-k="weeksleft">47</span> weeks. <span class="o">Up to <span data-k="peak">90</span> miles a week.</span></h2>
+    <p class="body">Each bar is a week. The outlines are the plan, built from Brad Hudson's <i>Run Faster</i>: 32 miles a week now, climbing toward the peak in September. Orange is what I've actually run, including the eight weeks before the plan started.</p>
+    <div class="chart"><svg id="c-year" viewBox="0 0 1000 380" role="img" aria-label="Planned and actual weekly miles to Chicago"></svg></div>
+    <p class="note">Weekly miles, Monday to Sunday, from my Garmin. Race weeks are marked.</p>
+  </div>
+</section>
+
+<section class="races">
+  <div class="wrap">
+    <p class="kicker">The races</p>
+    <h2 class="display">Three races, <span class="o">then Chicago.</span></h2>
+    <div class="rgrid" id="races"></div>
+    <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today.</p>
   </div>
 </section>
 
@@ -126,11 +180,12 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <p class="kicker">The team</p>
     <h2 class="display">Meet the <span class="o">coaches.</span></h2>
+    <p class="body">They're AI. They read my watch, my lifts and my meals, then argue about my week.</p>
     <div class="grid">
-      <div class="card"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="line">"Chicago first."</p></div></div>
-      <div class="card"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="line">"The hill decides."</p></div></div>
-      <div class="card"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="line">"BOOM. BOOM. BOOM."</p></div></div>
-      <div class="card"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="line">"Eat enough."</p></div></div>
+      <div class="card"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="job">Settles it when the others disagree.</p><p class="line">"Not yet. Shoes on."</p></div></div>
+      <div class="card"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="job">Plans every run from my Garmin data.</p><p class="line">"Easy days slower than his ego wants."</p></div></div>
+      <div class="card"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="job">Fits four short lifts around the running.</p><p class="line">"I want his legs. Twice a week."</p></div></div>
+      <div class="card"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="job">Plans my meals around the training.</p><p class="line">"Fight over him all you want. I feed him first."</p></div></div>
     </div>
   </div>
 </section>
@@ -138,9 +193,9 @@ footer p{margin:14px 0 0;line-height:1.5}
 <section id="episode">
   <div class="wrap episode">
     <div>
-      <p class="kicker">Episode 1</p>
+      <p class="kicker">Episode 1 · The Hiring</p>
       <h2 class="display">Can a 258 lb dad run a <span class="o">sub-3 marathon?</span></h2>
-      <p>The first episode drops Sunday, November 22. Watch on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> or <a href="https://x.com/tothefinishai">X</a>.</p>
+      <p class="body">Episode 1 is out Sunday, November 22, on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> and <a href="https://x.com/tothefinishai">X</a>. The times in it come straight off my watch.</p>
     </div>
     <div class="soon" role="img" aria-label="Episode 1 coming Sunday, November 22"><span>Sun, Nov 22</span></div>
   </div>
@@ -149,32 +204,33 @@ footer p{margin:14px 0 0;line-height:1.5}
 <section id="club" class="club">
   <div class="wrap">
     <p class="kicker">Train with us</p>
-    <h2 class="display">One club session <span class="o">a week.</span></h2>
-    <p>Every week the coaches post one session to the Strava club. Do your version, post it, and the best stories show up in the show. Run your own pace.</p>
+    <h2 class="display">One session <span class="o">a week.</span></h2>
+    <p class="body">Each week the coaches post one session to the Strava club. Run your version, at your own pace, and post it. If your run has a story, it might end up in the show.</p>
     <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
   </div>
 </section>
 
 <section class="waitlist">
   <div class="wrap">
-    <p class="kicker">Coming next</p>
+    <p class="kicker">Coming later</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p>Everyone on the list gets first access.</p>
+    <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
     <form class="join" id="join-bottom" data-thanks="thanks-bottom">
       <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
       <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="entry.1063777465" placeholder="What are you training for? (race and date)">
       <button type="submit">Get on the list</button>
     </form>
-    <div class="thanks" id="thanks-bottom">You're on the list. We'll be in touch.</div>
+    <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
+    <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
     <div class="links"><a href="https://www.youtube.com/@tothefinishai">YouTube</a><a href="https://www.instagram.com/tothefinishai/">Instagram</a><a href="https://www.tiktok.com/@tothefinishai">TikTok</a><a href="https://x.com/tothefinishai">X</a><a href="https://www.strava.com/clubs/tothefinish">Strava</a></div>
     <p>Contact: <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
-    <p>Tyler's personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters. Run the miles.</p>
+    <p>My personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters.</p>
   </div>
 </footer>
 
@@ -189,6 +245,102 @@ document.querySelectorAll('form.join').forEach(function(f){
     setTimeout(function(){f.style.display='none';t.style.display='block';},300);
   });
 });
+</script>
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';
+  function el(svg,tag,a,txt){if(a['class']&&!a.fill)a.fill=a['class']==='t'?WH:'#a8a29e';var e=document.createElementNS(NS,tag);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+  function sec(t){var p=t.split(':').map(Number);return p.length===3?p[0]*3600+p[1]*60+p[2]:p[0]*60+p[1];}
+  function hms(s){s=Math.round(s);var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return h+':'+String(m).padStart(2,'0')+':'+String(x).padStart(2,'0');}
+  function day(d){return new Date(d+'T12:00:00');}
+  var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function md(d){var x=day(d);return MON[x.getMonth()]+' '+x.getDate();}
+  function set(k,v){document.querySelectorAll('[data-k="'+k+'"]').forEach(function(n){n.textContent=v;});}
+
+  fetch('data/progress.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(D){
+    var race=day('2027-10-10'), now=day(D.now.date);
+    var weeksLeft=Math.max(1,Math.round((race-now)/6048e5));
+    set('now',D.now.marathon); set('togo',hms(D.to_go_s));
+    var fd=day(D.start.date); set('firstday',['January','February','March','April','May','June','July','August','September','October','November','December'][fd.getMonth()]+' '+fd.getDate());
+    var so=sec(D.start.marathon)-sec(D.now.marathon); set('sofar',Math.floor(so/60)+':'+String(so%60).padStart(2,'0'));
+    var pw=D.to_go_s/weeksLeft/60; set('perweek',(Math.round(pw*2)/2)+' minutes');
+    var u=day(D.updated); set('updated',MON[u.getMonth()]+' '+u.getDate()+', '+u.getFullYear());
+    if(D.half_pr) set('halfpr',D.half_pr.time);
+    if(D.engine.length){set('lt1',D.engine[D.engine.length-1].pace);var bst=D.engine.reduce(function(a,b){return sec(b.pace)<sec(a.pace)?b:a;});set('ltbest',bst.pace);var bd=day(bst.date);set('ltbestdate',['January','February','March','April','May','June','July','August','September','October','November','December'][bd.getMonth()]+' '+bd.getFullYear());}
+    set('weeksleft',weeksLeft);
+    set('peak',Math.max.apply(null,D.year.map(function(w){return w.plan||0;})));
+
+    /* 1. the gap: prediction by day, the goal line, the race date */
+    (function(){
+      var s=document.getElementById('c-gap'),N=s.clientWidth<600,F=N?1.8:1,W=N?600:1000,H=N?520:440,L=70,R=40,T=30,B=50;
+      var t0=day(D.gap[0].date), t1=race, y0=sec('2:45:00'), y1=sec('4:50:00');
+      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=96;B=64;T=40;} function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(v){return T+(y1-v)/(y1-y0)*(H-T-B);}
+      [3,3.5,4,4.5].forEach(function(h){var y=Y(h*3600);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID,'stroke-width':1});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},hms(h*3600).replace(/:00$/,''));});
+      var gy=Y(sec(D.goal));
+      el(s,'line',{x1:L,x2:W-R,y1:gy,y2:gy,stroke:OR,'stroke-width':3,'stroke-dasharray':'10 8'});
+      el(s,'text',{x:W-R,y:gy+34,'text-anchor':'end',class:'t','font-size':26*F,fill:OR},N?'GOAL 2:59:59':'GOAL 2:59:59 · CHICAGO, OCT 10, 2027');
+      var last=D.gap[D.gap.length-1];
+      el(s,'line',{x1:X(last.date),y1:Y(sec(last.marathon)),x2:X('2027-10-10'),y2:gy,stroke:WH,'stroke-opacity':.35,'stroke-width':2,'stroke-dasharray':'3 7'});
+      var mid=(X(last.date)+X('2027-10-10'))/2, my=(Y(sec(last.marathon))+gy)/2;
+      el(s,'text',{x:mid+10,y:my-12,class:'m','font-size':18*F},N?'~'+(Math.round(pw*2)/2)+' min a week':'about '+(Math.round(pw*2)/2)+' min faster a week');
+      var d=D.gap.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(sec(p.marathon)).toFixed(1);}).join(' ');
+      el(s,'path',{d:d,fill:'none',stroke:WH,'stroke-width':4,'stroke-linejoin':'round'});
+      el(s,'circle',{cx:X(last.date),cy:Y(sec(last.marathon)),r:7,fill:WH});
+      el(s,'text',{x:X(last.date)+14,y:Y(sec(last.marathon))-14,class:'t','font-size':30*F},'TODAY '+last.marathon);
+      set('first',md(D.gap[0].date)+', '+day(D.gap[0].date).getFullYear()+': '+D.gap[0].marathon);
+      [['2026-11-15','Nov'],['2027-01-15','Jan'],['2027-03-15','Mar'],['2027-05-15','May'],['2027-07-15','Jul'],['2027-09-15','Sep']].forEach(function(m){el(s,'text',{x:X(m[0]),y:H-16,'text-anchor':'middle',class:'m','font-size':17*F},m[1]);});
+    })();
+
+    /* 2. the engine: threshold pace since late 2024, faster is higher */
+    (function(){
+      var s=document.getElementById('c-engine'),N=s.clientWidth<600,F=N?1.6:1,W=N?600:1000,H=N?520:560,L=80,R=40,T=40,B=50,P=D.engine;
+      var t0=day(P[0].date),t1=day(P[P.length-1].date),v=P.map(function(p){return sec(p.pace);});
+      var lo=Math.min.apply(null,v)-10, hi=Math.max.apply(null,v)+10;
+      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=96;B=64;} function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(x){return T+(x-lo)/(hi-lo)*(H-T-B);}
+      [6*60+45,7*60,7*60+15,7*60+30,7*60+45,8*60].forEach(function(p){if(p<lo||p>hi)return;var y=Y(p);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':18*F},Math.floor(p/60)+':'+String(p%60).padStart(2,'0'));});
+      var d=P.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(sec(p.pace)).toFixed(1);}).join(' ');
+      el(s,'path',{d:d,fill:'none',stroke:OR,'stroke-width':4,'stroke-linejoin':'round'});
+      var a=P[0],z=P[P.length-1];
+      el(s,'circle',{cx:X(a.date),cy:Y(sec(a.pace)),r:7,fill:OR});el(s,'circle',{cx:X(z.date),cy:Y(sec(z.pace)),r:7,fill:WH});
+      var bp=P.reduce(function(m,p){return sec(p.pace)<sec(m.pace)?p:m;});
+      el(s,'circle',{cx:X(bp.date),cy:Y(sec(bp.pace)),r:7,fill:OR});
+      el(s,'text',{x:X(bp.date)+14,y:Y(sec(bp.pace))+10,class:'t','font-size':30*F},'BEST '+bp.pace);
+      el(s,'text',{x:X(z.date)-12,y:Y(sec(z.pace))+38,'text-anchor':'end',class:'t','font-size':30*F},'NOW '+z.pace);
+      ['2025-01-15','2025-07-15','2026-01-15','2026-07-15'].forEach(function(m){var x=day(m);if(x<t0||x>t1)return;el(s,'text',{x:X(m),y:H-14,'text-anchor':'middle',class:'m','font-size':18*F},MON[x.getMonth()]+' '+String(x.getFullYear()).slice(2));});
+    })();
+
+    /* 3. the year: plan outlines, actual miles, race weeks */
+    (function(){
+      var s=document.getElementById('c-year'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?460:380,L=50,R=10,T=40,B=50,NB=0;
+      var all=D.before.map(function(w){return {monday:w.monday,plan:null,done:w.done,pre:true};}).concat(D.year);
+      var max=Math.max.apply(null,all.map(function(w){return Math.max(w.plan||0,w.done||0);}))*1.08;
+      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=60;B=64;T=56;}
+      var bw=(W-L-R)/all.length;
+      function Y(m){return T+(1-m/max)*(H-T-B);}
+      [0,30,60,90].forEach(function(m){var y=Y(m);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-8,y:y+5,'text-anchor':'end',class:'m','font-size':15*F},m);});
+      var races={'2027-02-01':'5K','2027-05-10':'10K','2027-08-30':'HALF','2027-10-04':'CHICAGO'};
+      all.forEach(function(w,i){
+        var x=L+i*bw+bw*.12, w2=bw*.76;
+        if(w.plan){el(s,'rect',{x:x,y:Y(w.plan),width:w2,height:Y(0)-Y(w.plan),fill:'none',stroke:'#6b645d','stroke-width':1.5,rx:1.5});}
+        if(w.done){el(s,'rect',{x:x,y:Y(w.done),width:w2,height:Y(0)-Y(w.done),fill:OR,rx:1.5});}
+        if(w.current){el(s,'text',{x:x+w2/2,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'middle',class:'t','font-size':18*F},N?'NOW':'THIS WEEK');}
+        if(races[w.monday]){var last=races[w.monday]==='CHICAGO';el(s,'text',{x:last?x+w2:x+w2/2,y:last&&N?Y(w.plan||0)-12:H-16,'text-anchor':last?'end':'middle',class:'t','font-size':17*F,fill:last?OR:WH},races[w.monday]);}
+      });
+      var pre=D.before.length; el(s,'line',{x1:L+pre*bw,x2:L+pre*bw,y1:T-10,y2:Y(0),stroke:MUT,'stroke-dasharray':'4 5'});
+      el(s,'text',{x:L+pre*bw/2,y:T-14,'text-anchor':'middle',class:'m','font-size':14*F},N?'BEFORE':'BEFORE THE PLAN');
+    })();
+
+    /* 4. the races */
+    var g=document.getElementById('races'), DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    D.races.forEach(function(r){
+      var x=day(r.date), c=document.createElement('div'); c.className='race'+(r.goal?' final':'');
+      var h='<div class="d">'+DOW[x.getDay()]+' · '+md(r.date)+', '+x.getFullYear()+'</div><h3>'+r.name+'</h3><div class="k">Watch says today</div><div class="v">'+r.today+'</div>';
+      if(r.goal) h+='<div class="k">Goal</div><div class="v o">'+r.goal+'</div>';
+      if(r.name==='Half marathon'&&D.half_pr) h+='<div class="k">My best</div><div class="v">'+D.half_pr.time+'</div>';
+      c.innerHTML=h; g.appendChild(c);
+    });
+  }).catch(function(){});
+})();
 </script>
 </body>
 </html>

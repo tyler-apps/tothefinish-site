@@ -1,0 +1,721 @@
+{
+ "updated": "2026-11-18",
+ "goal": "2:59:59",
+ "start": {
+  "date": "2026-10-19",
+  "marathon": "4:39:49"
+ },
+ "now": {
+  "date": "2026-11-18",
+  "marathon": "4:34:04"
+ },
+ "to_go_s": 5645,
+ "gap": [
+  {
+   "date": "2026-10-19",
+   "marathon": "4:39:49"
+  },
+  {
+   "date": "2026-10-20",
+   "marathon": "4:39:53"
+  },
+  {
+   "date": "2026-10-21",
+   "marathon": "4:36:52"
+  },
+  {
+   "date": "2026-10-22",
+   "marathon": "4:36:54"
+  },
+  {
+   "date": "2026-10-23",
+   "marathon": "4:36:38"
+  },
+  {
+   "date": "2026-10-24",
+   "marathon": "4:36:51"
+  },
+  {
+   "date": "2026-10-25",
+   "marathon": "4:36:20"
+  },
+  {
+   "date": "2026-10-26",
+   "marathon": "4:36:41"
+  },
+  {
+   "date": "2026-10-27",
+   "marathon": "4:28:19"
+  },
+  {
+   "date": "2026-10-28",
+   "marathon": "4:28:10"
+  },
+  {
+   "date": "2026-10-29",
+   "marathon": "4:28:10"
+  },
+  {
+   "date": "2026-10-30",
+   "marathon": "4:28:21"
+  },
+  {
+   "date": "2026-10-31",
+   "marathon": "4:28:24"
+  },
+  {
+   "date": "2026-11-01",
+   "marathon": "4:29:07"
+  },
+  {
+   "date": "2026-11-02",
+   "marathon": "4:29:22"
+  },
+  {
+   "date": "2026-11-03",
+   "marathon": "4:28:33"
+  },
+  {
+   "date": "2026-11-04",
+   "marathon": "4:29:24"
+  },
+  {
+   "date": "2026-11-05",
+   "marathon": "4:29:45"
+  },
+  {
+   "date": "2026-11-06",
+   "marathon": "4:29:44"
+  },
+  {
+   "date": "2026-11-07",
+   "marathon": "4:29:46"
+  },
+  {
+   "date": "2026-11-08",
+   "marathon": "4:29:58"
+  },
+  {
+   "date": "2026-11-09",
+   "marathon": "4:30:42"
+  },
+  {
+   "date": "2026-11-10",
+   "marathon": "4:30:51"
+  },
+  {
+   "date": "2026-11-11",
+   "marathon": "4:30:59"
+  },
+  {
+   "date": "2026-11-12",
+   "marathon": "4:30:46"
+  },
+  {
+   "date": "2026-11-13",
+   "marathon": "4:30:42"
+  },
+  {
+   "date": "2026-11-14",
+   "marathon": "4:31:08"
+  },
+  {
+   "date": "2026-11-15",
+   "marathon": "4:32:08"
+  },
+  {
+   "date": "2026-11-16",
+   "marathon": "4:32:37"
+  },
+  {
+   "date": "2026-11-17",
+   "marathon": "4:32:32"
+  },
+  {
+   "date": "2026-11-18",
+   "marathon": "4:34:04"
+  }
+ ],
+ "engine": [
+  {
+   "date": "2024-11-17",
+   "pace": "7:16"
+  },
+  {
+   "date": "2024-11-21",
+   "pace": "7:22"
+  },
+  {
+   "date": "2024-12-02",
+   "pace": "7:22"
+  },
+  {
+   "date": "2024-12-04",
+   "pace": "7:29"
+  },
+  {
+   "date": "2024-12-18",
+   "pace": "7:26"
+  },
+  {
+   "date": "2024-12-31",
+   "pace": "7:22"
+  },
+  {
+   "date": "2025-02-04",
+   "pace": "7:26"
+  },
+  {
+   "date": "2025-02-25",
+   "pace": "7:26"
+  },
+  {
+   "date": "2025-03-17",
+   "pace": "7:26"
+  },
+  {
+   "date": "2025-03-19",
+   "pace": "7:29"
+  },
+  {
+   "date": "2025-03-21",
+   "pace": "7:29"
+  },
+  {
+   "date": "2025-03-22",
+   "pace": "7:29"
+  },
+  {
+   "date": "2025-04-02",
+   "pace": "7:26"
+  },
+  {
+   "date": "2025-05-14",
+   "pace": "7:26"
+  },
+  {
+   "date": "2025-05-21",
+   "pace": "7:16"
+  },
+  {
+   "date": "2025-05-28",
+   "pace": "7:03"
+  },
+  {
+   "date": "2025-06-05",
+   "pace": "7:03"
+  },
+  {
+   "date": "2025-06-22",
+   "pace": "7:09"
+  },
+  {
+   "date": "2025-06-25",
+   "pace": "7:03"
+  },
+  {
+   "date": "2025-07-02",
+   "pace": "7:03"
+  },
+  {
+   "date": "2025-07-10",
+   "pace": "7:09"
+  },
+  {
+   "date": "2025-08-14",
+   "pace": "7:12"
+  },
+  {
+   "date": "2025-08-24",
+   "pace": "6:42"
+  },
+  {
+   "date": "2025-08-30",
+   "pace": "7:16"
+  },
+  {
+   "date": "2025-09-17",
+   "pace": "7:09"
+  },
+  {
+   "date": "2025-09-24",
+   "pace": "7:00"
+  },
+  {
+   "date": "2025-09-30",
+   "pace": "6:54"
+  },
+  {
+   "date": "2025-10-05",
+   "pace": "6:48"
+  },
+  {
+   "date": "2025-11-04",
+   "pace": "6:42"
+  },
+  {
+   "date": "2025-11-25",
+   "pace": "6:48"
+  },
+  {
+   "date": "2026-01-02",
+   "pace": "6:57"
+  },
+  {
+   "date": "2026-01-04",
+   "pace": "6:57"
+  },
+  {
+   "date": "2026-02-14",
+   "pace": "7:06"
+  },
+  {
+   "date": "2026-06-11",
+   "pace": "7:43"
+  },
+  {
+   "date": "2026-07-04",
+   "pace": "8:03"
+  },
+  {
+   "date": "2026-07-10",
+   "pace": "8:15"
+  },
+  {
+   "date": "2026-07-17",
+   "pace": "8:07"
+  },
+  {
+   "date": "2026-08-18",
+   "pace": "8:03"
+  },
+  {
+   "date": "2026-08-25",
+   "pace": "7:55"
+  },
+  {
+   "date": "2026-08-27",
+   "pace": "7:55"
+  },
+  {
+   "date": "2026-09-08",
+   "pace": "7:40"
+  },
+  {
+   "date": "2026-09-25",
+   "pace": "7:40"
+  },
+  {
+   "date": "2026-10-01",
+   "pace": "7:47"
+  },
+  {
+   "date": "2026-10-18",
+   "pace": "7:59"
+  },
+  {
+   "date": "2026-10-25",
+   "pace": "8:03"
+  },
+  {
+   "date": "2026-10-27",
+   "pace": "7:55"
+  }
+ ],
+ "half_pr": {
+  "time": "1:32:31",
+  "date": "2024-06-02"
+ },
+ "vo2max": 49.9,
+ "year": [
+  {
+   "week": 4,
+   "monday": "2026-11-16",
+   "plan": 32,
+   "done": 14.7,
+   "current": true
+  },
+  {
+   "week": 5,
+   "monday": "2026-11-23",
+   "plan": 32,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 6,
+   "monday": "2026-11-30",
+   "plan": 39,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 7,
+   "monday": "2026-12-07",
+   "plan": 41,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 8,
+   "monday": "2026-12-14",
+   "plan": 44,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 9,
+   "monday": "2026-12-21",
+   "plan": 40,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 10,
+   "monday": "2026-12-28",
+   "plan": 48,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 11,
+   "monday": "2027-01-04",
+   "plan": 51,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 12,
+   "monday": "2027-01-11",
+   "plan": 49,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 13,
+   "monday": "2027-01-18",
+   "plan": 49,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 14,
+   "monday": "2027-01-25",
+   "plan": 43,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 15,
+   "monday": "2027-02-01",
+   "plan": 30,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 16,
+   "monday": "2027-02-08",
+   "plan": 45,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 17,
+   "monday": "2027-02-15",
+   "plan": 50,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 18,
+   "monday": "2027-02-22",
+   "plan": 53,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 19,
+   "monday": "2027-03-01",
+   "plan": 55,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 20,
+   "monday": "2027-03-08",
+   "plan": 56,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 21,
+   "monday": "2027-03-15",
+   "plan": 53,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 22,
+   "monday": "2027-03-22",
+   "plan": 52,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 23,
+   "monday": "2027-03-29",
+   "plan": 52,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 24,
+   "monday": "2027-04-05",
+   "plan": 62,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 25,
+   "monday": "2027-04-12",
+   "plan": 59,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 26,
+   "monday": "2027-04-19",
+   "plan": 58,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 27,
+   "monday": "2027-04-26",
+   "plan": 59,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 28,
+   "monday": "2027-05-03",
+   "plan": 55,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 29,
+   "monday": "2027-05-10",
+   "plan": 41,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 30,
+   "monday": "2027-05-17",
+   "plan": 48,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 31,
+   "monday": "2027-05-24",
+   "plan": 58,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 32,
+   "monday": "2027-05-31",
+   "plan": 64,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 33,
+   "monday": "2027-06-07",
+   "plan": 63,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 34,
+   "monday": "2027-06-14",
+   "plan": 63,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 35,
+   "monday": "2027-06-21",
+   "plan": 70,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 36,
+   "monday": "2027-06-28",
+   "plan": 69,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 37,
+   "monday": "2027-07-05",
+   "plan": 63,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 38,
+   "monday": "2027-07-12",
+   "plan": 70,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 39,
+   "monday": "2027-07-19",
+   "plan": 77,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 40,
+   "monday": "2027-07-26",
+   "plan": 65,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 41,
+   "monday": "2027-08-02",
+   "plan": 75,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 42,
+   "monday": "2027-08-09",
+   "plan": 78,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 43,
+   "monday": "2027-08-16",
+   "plan": 62,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 44,
+   "monday": "2027-08-23",
+   "plan": 70,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 45,
+   "monday": "2027-08-30",
+   "plan": 79,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 46,
+   "monday": "2027-09-06",
+   "plan": 77,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 47,
+   "monday": "2027-09-13",
+   "plan": 81,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 48,
+   "monday": "2027-09-20",
+   "plan": 90,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 49,
+   "monday": "2027-09-27",
+   "plan": 69,
+   "done": null,
+   "current": false
+  },
+  {
+   "week": 50,
+   "monday": "2027-10-04",
+   "plan": 65,
+   "done": null,
+   "current": false
+  }
+ ],
+ "before": [
+  {
+   "monday": "2026-09-21",
+   "done": 0
+  },
+  {
+   "monday": "2026-09-28",
+   "done": 7.5
+  },
+  {
+   "monday": "2026-10-05",
+   "done": 0
+  },
+  {
+   "monday": "2026-10-12",
+   "done": 12.9
+  },
+  {
+   "monday": "2026-10-19",
+   "done": 27.1
+  },
+  {
+   "monday": "2026-10-26",
+   "done": 16.3
+  },
+  {
+   "monday": "2026-11-02",
+   "done": 26.8
+  },
+  {
+   "monday": "2026-11-09",
+   "done": 24.7
+  }
+ ],
+ "races": [
+  {
+   "name": "5K",
+   "date": "2027-02-06",
+   "today": "24:27",
+   "goal": null
+  },
+  {
+   "name": "10K",
+   "date": "2027-05-15",
+   "today": "53:07",
+   "goal": null
+  },
+  {
+   "name": "Half marathon",
+   "date": "2027-09-05",
+   "today": "2:01:48",
+   "goal": null
+  },
+  {
+   "name": "Chicago Marathon",
+   "date": "2027-10-10",
+   "today": "4:34:04",
+   "goal": "2:59:59"
+  }
+ ]
+}
