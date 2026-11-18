@@ -118,8 +118,8 @@ footer p{margin:14px 0 0;line-height:1.5}
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
         <p class="lead">I started this at 258 lb, with two kids and a goal I'm not built for: a sub-3 marathon at Chicago on October 10, 2027. My watch says I'd run <b data-k="now">4:34:04</b> today. Four AI coaches run my plan, and every week becomes an animated episode.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
-          <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
-          <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
+          <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
+          <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
           <button type="submit">Follow along</button>
         </form>
         <div class="thanks" id="thanks-top">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
@@ -216,9 +216,9 @@ footer p{margin:14px 0 0;line-height:1.5}
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
     <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
     <form class="join" id="join-bottom" data-thanks="thanks-bottom">
-      <input name="entry.1812362059" placeholder="First name" autocomplete="given-name">
-      <input name="entry.902791458" type="email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="entry.1063777465" placeholder="What are you training for? (race and date)">
+      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
+      <input class="wide" name="fields[training_for]" placeholder="What are you training for? (race and date)">
       <button type="submit">Get on the list</button>
     </form>
     <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
@@ -237,7 +237,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
 <script>
 document.querySelectorAll('form.join').forEach(function(f){
-  f.action='https://docs.google.com/forms/d/e/1FAIpQLSdT7jrtoY9IUlszIVzIwiGMmslxgxhaaF6xuuoQdDOyEhB0Kg/formResponse';
+  f.action='https://app.kit.com/forms/10209840/subscriptions';
   f.method='POST';
   f.target='hidden_iframe';
   f.addEventListener('submit',function(){
