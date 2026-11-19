@@ -5,8 +5,8 @@
   html{scroll-behavior:smooth}
   @view-transition{navigation:auto}
   ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:var(--ease)}
-  .reveal{opacity:0;transform:translateY(8px);transition:opacity .25s var(--ease),transform .25s var(--ease)}
-  .reveal.in{opacity:1;transform:none}
+  .reveal{opacity:0;transform:translateY(8px)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
   a{transition:color .15s var(--ease),text-decoration-color .15s var(--ease)}
   p a,.note a,.prose a,.rmain h3 a{text-decoration-thickness:1px;text-underline-offset:3px}
   p a:hover,.note a:hover,.prose a:hover{color:var(--orange)}
