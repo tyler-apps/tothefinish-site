@@ -1,0 +1,106 @@
+@font-face{font-family:"Barlow Condensed";src:url(/assets/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-display:swap}
+:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:-.5px;margin:0}
+.kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--orange);font-size:18px;margin:0 0 14px}
+.o{color:var(--orange)}
+section{padding:72px 0;border-top:1px solid var(--line)}
+p.body{font-size:19px;line-height:1.55;color:var(--soft);margin:0 0 14px;max-width:46ch}
+p.body.turn{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05;color:var(--white);margin:0 0 6px}
+p.body.turn b{color:var(--orange)}
+
+/* top */
+.top{padding:28px 0 64px}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+.mark{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-decoration:none}
+.nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:18px}
+.nav a:hover{color:var(--white)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(64px,11vw,132px)}
+.hero p.lead{font-size:20px;color:var(--soft);margin:22px 0 28px;max-width:34ch;line-height:1.45}
+.hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
+
+/* form */
+form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
+form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2);color:var(--white);font-size:16px}
+form.join input::placeholder{color:#8a837c}
+form.join input.wide{flex-basis:100%}
+form.join button{flex:1 1 100%;padding:16px;border:0;border-radius:10px;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+form.join button:hover{filter:brightness(1.06)}
+.fine{font-size:13px;color:var(--muted);margin-top:10px}
+.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-2);border:1px solid var(--orange);font-size:17px;line-height:1.45}
+
+/* progress */
+.gap-head{font-size:clamp(52px,9vw,112px)}
+.gap-head .arrow{color:var(--muted);font-size:.55em;vertical-align:.25em;padding:0 .12em}
+.chart{margin:30px 0 10px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px 14px 10px}
+.chart svg{display:block;width:100%;height:auto}
+.chart .t{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800}
+.chart .m{font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;font-weight:600}
+.note{font-size:13px;color:var(--muted);margin:8px 2px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two h2,.year h2,.races h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+
+/* races */
+.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.race{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.race.final{border-color:var(--orange)}
+.race .d{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.race h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:4px 0 14px;line-height:1}
+.race .k{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
+.race .v.o{color:var(--orange)}
+
+/* coaches */
+.coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.card{background:var(--ink-2);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.card .t{padding:16px}
+.card h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
+.card .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px}
+.card .job{color:var(--muted);font-size:15px;margin:0 0 10px;line-height:1.4}
+.card .line{color:var(--white);font-size:17px;margin:0;line-height:1.35}
+
+/* episode */
+.episode{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.episode h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+.soon{aspect-ratio:9/16;width:min(100%,300px);margin:0 auto;border-radius:16px;background:var(--paper) url(/assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
+.soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
+
+.club h2,.waitlist h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+.btn{display:inline-block;padding:16px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;margin-top:10px}
+
+footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:14px}
+footer .sign{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;color:var(--white);margin:0 0 18px;line-height:1}
+footer .links a{margin-right:18px;text-decoration:none;color:var(--soft)}
+footer p{margin:14px 0 0;line-height:1.5}
+
+@media (max-width:860px){
+  .hero,.two,.episode{grid-template-columns:1fr;gap:28px}
+  .grid,.rgrid{grid-template-columns:repeat(2,1fr)}
+  .nav{display:none}
+  section{padding:56px 0}
+  .bar{margin-bottom:32px}
+  .chart{padding:12px 8px 6px}
+}
+
+/* sub pages (episodes, ai running coach) */
+.page-top{padding:28px 0 40px}
+.page-top .bar{margin-bottom:40px}
+.page h1{font-size:clamp(52px,9vw,104px)}
+.page p.lead{font-size:20px;color:var(--soft);margin:22px 0 28px;max-width:44ch;line-height:1.45}
+.prose p{font-size:19px;line-height:1.6;color:var(--soft);margin:0 0 16px;max-width:62ch}
+.prose h2{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:40px;line-height:1;margin:36px 0 14px}
+.video{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--ink-2);border:1px solid var(--line)}
+.video.vertical{max-width:360px;aspect-ratio:9/16}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.eplist{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.eplist a{display:block;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px;text-decoration:none}
+.eplist a:hover{border-color:var(--orange)}
+.eplist .n{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+.eplist h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:4px 0 6px;line-height:1}
+.eplist p{margin:0;color:var(--muted);font-size:15px;line-height:1.4}
