@@ -290,7 +290,7 @@ def question_page(q, all_q):
   <div class="wrap">
     <p class="kicker">Follow the test</p>
     {FORM.format(id='q', button='Follow along')}
-    <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/ai-running-coach/">How my AI running coach works</a></li></ul></div>
+    <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/ai-running-coach/">How my AI running coach works</a></li><li><a href="/chicago-marathon-2027/">Chicago Marathon 2027: dates, lottery and qualifying times</a></li><li><a href="/san-diego-races/">Upcoming San Diego races</a></li></ul></div>
   </div>
 </section>
 """ + FOOT

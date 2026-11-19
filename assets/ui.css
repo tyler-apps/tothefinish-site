@@ -16,7 +16,7 @@
 .nav{display:flex;align-items:center}
 .nav a{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:860px){.bar .nav{display:none}}
-.mark{display:inline-flex;align-items:center;min-height:44px}
+.mark{display:inline-flex;align-items:center;gap:.28em;min-height:44px}
 @media (max-width:860px){.mnav{display:block}}
 
 /* 14 px floor (small labels, notes, tags were 12 to 13 px) */

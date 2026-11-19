@@ -42,7 +42,7 @@ p.body.turn b{color:var(--orange)}
 .mark{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-decoration:none}
 .nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:18px}
 .nav a:hover{color:var(--white)}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(64px,11vw,132px)}
 .hero p.lead{font-size:20px;color:var(--soft);margin:22px 0 28px;max-width:34ch;line-height:1.45}
 .hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
@@ -112,8 +112,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   .chart{padding:12px 8px 6px}
 }
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=6980ca2d">
-<link rel="stylesheet" href="/assets/motion.css?v=6980ca2d">
+<link rel="stylesheet" href="/assets/ui.css?v=59ad5cd8">
+<link rel="stylesheet" href="/assets/motion.css?v=59ad5cd8">
 </head>
 <body>
 
@@ -251,8 +251,8 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/join.js?v=6980ca2d"></script>
-<script src="/assets/motion.js?v=6980ca2d" defer></script>
+<script src="/assets/join.js?v=59ad5cd8"></script>
+<script src="/assets/motion.js?v=59ad5cd8" defer></script>
 <script>
 (function(){
   var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';
@@ -330,7 +330,7 @@ footer p{margin:14px 0 0;line-height:1.5}
         var x=L+i*bw+bw*.12, w2=bw*.76;
         if(w.plan){el(s,'rect',{x:x,y:Y(w.plan),width:w2,height:Y(0)-Y(w.plan),fill:'none',stroke:'#6b645d','stroke-width':1.5,rx:1.5});}
         if(w.done){el(s,'rect',{x:x,y:Y(w.done),width:w2,height:Y(0)-Y(w.done),fill:OR,rx:1.5});}
-        if(w.current){el(s,'text',{x:x+w2/2,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'middle',class:'t','font-size':18*F,'paint-order':'stroke',stroke:'#2a2622','stroke-width':8*F,'stroke-linejoin':'round'},N?'NOW':'THIS WEEK');}
+        if(w.current){var lbl=el(s,'text',{x:x+2*F,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'start',class:'t','font-size':18*F,'paint-order':'stroke',stroke:'#2a2622','stroke-width':8*F,'stroke-linejoin':'round'},N?'NOW':'THIS WEEK');setTimeout(function(){s.appendChild(lbl);},0);}
         if(races[w.monday]){var last=races[w.monday]==='CHICAGO';el(s,'text',{x:last?x+w2:x+w2/2,y:last&&N?Y(w.plan||0)-12:H-16,'text-anchor':last?'end':'middle',class:'t','font-size':17*F,fill:last?OR:WH},races[w.monday]);}
       });
       var pre=D.before.length; el(s,'line',{x1:L+pre*bw,x2:L+pre*bw,y1:T-10,y2:Y(0),stroke:MUT,'stroke-dasharray':'4 5'});

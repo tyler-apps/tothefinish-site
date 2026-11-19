@@ -35,7 +35,7 @@
   .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--spring)}
   .nav a:hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
   .nav a[aria-current]{color:var(--white)}
-  .mark{display:inline-block;transition:transform .25s var(--spring)}
+  .mark{transition:transform .25s var(--spring)}
   .mark:hover{transform:translateX(4px)}
 
   /* buttons: lift on hover, a hard press on tap */
