@@ -86,6 +86,34 @@ FOOT = """<footer>
 """
 
 
+ROBOTS = """# tothefinish.ai robots.txt (reviewed 2026-11-18; Brain: brain/methods/social/sources/aeo-t1.md)
+
+# Search and answer engines: needed to be cited in AI answers
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: Applebot
+Allow: /
+
+# Model training and Gemini grounding: allowed on purpose
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: {site}/sitemap.xml
+"""
+
+
 def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
 
@@ -220,7 +248,7 @@ def main():
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><changefreq>{f}</changefreq></url>" for u, f in urls]
     sm.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sm) + "\n")
-    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
+    (ROOT / "robots.txt").write_text(ROBOTS.format(site=SITE))
     print(f"built {len(eps)} episode page(s), episodes index, ai-running-coach, sitemap ({len(urls)} urls), robots.txt")
 
 
