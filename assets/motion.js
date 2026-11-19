@@ -26,6 +26,8 @@
     seen.add(el);
     if (el.getBoundingClientRect().top < vh * 0.9) return; // on screen already: leave it
     el.classList.add('reveal');
+    // the race list is for finding a race fast (Tyler 2026-11-19): short, no stagger, in before it reaches the screen
+    if (el.closest('.rlist, .rmonth')) { el.classList.add('quick'); delay = 0; }
     if (delay) el.style.transitionDelay = delay + 'ms';
     items.push(el);
   }
@@ -95,9 +97,9 @@
   var left = items.slice(), ticking = false;
   function check() {
     ticking = false;
-    var edge = window.innerHeight * 0.92;
+    var edge = window.innerHeight * 0.92, early = window.innerHeight * 1.15;
     left = left.filter(function (el) {
-      if (el.getBoundingClientRect().top < edge) { el.classList.add('in'); return false; }
+      if (el.getBoundingClientRect().top < (el.classList.contains('quick') ? early : edge)) { el.classList.add('in'); return false; }
       return true;
     });
     charts.forEach(function (c) {

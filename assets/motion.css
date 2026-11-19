@@ -20,6 +20,9 @@
   .reveal.in{opacity:1;transform:none;transition:opacity .7s var(--spring),transform .8s var(--spring)}
   h2.reveal,.gap-head.reveal,.gapline.reveal{transform:translateY(56px)}
   .chart.reveal{transform:translateY(40px) scale(.96)}
+  /* race list: quick, so you can scan for your race (Tyler 2026-11-19) */
+  .reveal.quick{transform:translateY(10px)}
+  .reveal.quick.in{transition:opacity .18s var(--ease),transform .22s var(--ease)}
 
   @keyframes tf-rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
   @keyframes tf-in{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
