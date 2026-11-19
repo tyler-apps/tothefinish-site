@@ -16,12 +16,12 @@
   .motion .intro{animation:tf-rise .8s var(--spring) both}
 
   /* blocks rise in as they arrive */
-  .reveal{opacity:0;transform:translateY(40px) scale(.98)}
+  .reveal:not(.in){opacity:0;transform:translateY(40px) scale(.98)}
   .reveal.in{opacity:1;transform:none;transition:opacity .7s var(--spring),transform .8s var(--spring)}
-  h2.reveal,.gap-head.reveal,.gapline.reveal{transform:translateY(56px)}
-  .chart.reveal{transform:translateY(40px) scale(.96)}
+  h2.reveal:not(.in),.gap-head.reveal:not(.in),.gapline.reveal:not(.in){transform:translateY(56px)}
+  .chart.reveal:not(.in){transform:translateY(40px) scale(.96)}
   /* race list: quick, so you can scan for your race (Tyler 2026-11-19) */
-  .reveal.quick{transform:translateY(10px)}
+  .reveal.quick:not(.in){transform:translateY(10px)}
   .reveal.quick.in{transition:opacity .18s var(--ease),transform .22s var(--ease)}
 
   @keyframes tf-rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
