@@ -360,6 +360,7 @@ def main():
             ("/ai-running-coach/", "monthly", "2026-11-18")]
     if (ROOT / "data" / "races.json").exists():
         urls.append(("/san-diego-races/", "weekly", json.loads((ROOT / "data" / "races.json").read_text())["updated"]))
+    urls.append(("/chicago-marathon-2027/", "weekly", data_date))
     (ROOT / "episodes").mkdir(exist_ok=True)
     (ROOT / "episodes" / "index.html").write_text(episodes_index(eps))
     for e in eps:

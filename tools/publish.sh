@@ -15,6 +15,7 @@ echo "== $(date '+%Y-%m-%d %H:%M') publish: $MSG"
 git pull -q --rebase --autostash origin main || { echo "pull failed"; exit 1; }
 python3 tools/build_pages.py || { echo "build failed"; exit 1; }
 python3 tools/build_races.py || { echo "race page build failed"; exit 1; }
+python3 tools/build_chicago.py || { echo "chicago page build failed"; exit 1; }
 
 CHANGED=$(git status --porcelain -uall | awk '{print $NF}')
 if [ -z "$CHANGED" ]; then echo "no change"; exit 0; fi

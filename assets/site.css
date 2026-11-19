@@ -167,3 +167,23 @@ ul.qlist{padding-left:18px;margin:0 0 10px}ul.qlist li{font-size:18px;line-heigh
   .rlab{width:100%}
   .rfilters{padding:14px}
 }
+
+/* chicago marathon 2027 page (2026-11-19) */
+.glance{padding-top:40px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.facts>div{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:4px}
+.facts .k,.gapline .k{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.facts b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:34px;line-height:1;text-transform:uppercase}
+.facts span:not(.k){color:var(--soft);font-size:15px}
+h2.sec{font-size:clamp(44px,6vw,72px);margin-bottom:16px}
+.entry{margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.ftable{width:100%;max-width:640px;border-collapse:collapse;margin:18px 0 10px;font-size:17px}
+.ftable th{text-align:left;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.ftable td{padding:11px 12px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.ftable tr.me td{color:var(--orange);font-weight:700}
+.gapline{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 22px;margin:18px 0 20px}
+.gapline b{display:block;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:clamp(40px,11vw,96px);line-height:.9}
+.gapline .arrow{color:var(--muted);font-size:22px;padding-bottom:12px}
+.mybuild .race .v{font-size:34px}
+.faq h3{font-size:20px;margin:22px 0 6px}
+@media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts b{font-size:28px}}
