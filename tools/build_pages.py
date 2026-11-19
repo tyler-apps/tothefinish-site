@@ -276,28 +276,105 @@ def question_page(q, all_q):
 """ + FOOT
 
 
+
+# ---------- live numbers (Tyler 2026-11-18: "Yes, auto-publish numbers") ----------
+# Question pages write {placeholders}; values come from data/progress.json (built from Garmin by the Brain's
+# scripts/site_progress.py). A page's "Updated" date moves only when one of ITS numbers changes
+# (state in pages/.facts-state.json), so a rebuild with nothing new changes nothing.
+import hashlib, re
+
+def _sec(p):
+    a = [int(x) for x in p.split(":")]
+    return a[0] * 3600 + a[1] * 60 + a[2] if len(a) == 3 else a[0] * 60 + a[1]
+
+
+def facts():
+    d = json.loads((ROOT / "data" / "progress.json").read_text())
+    D = dt.date.fromisoformat
+    long_ = lambda x: D(x).strftime("%B %-d, %Y")
+    short = lambda x: D(x).strftime("%b %-d, %Y")
+    month = lambda x: D(x).strftime("%b %Y")
+    eng = d.get("engine") or []
+    best = min(eng, key=lambda x: _sec(x["pace"])) if eng else {"pace": "", "date": d["updated"]}
+    last = eng[-1] if eng else best
+    cur = next((w for w in d.get("year", []) if w.get("current")), None)
+    return {
+        "start_marathon": d["start"]["marathon"], "start_date_long": long_(d["start"]["date"]),
+        "start_date_short": short(d["start"]["date"]),
+        "now_marathon": d["now"]["marathon"], "now_date_long": long_(d["now"]["date"]),
+        "now_date_short": short(d["now"]["date"]),
+        "threshold_best": best["pace"], "threshold_best_month": month(best["date"]),
+        "threshold_now": last["pace"], "threshold_now_month": month(last["date"]),
+        "half_pr": (d.get("half_pr") or {}).get("time", ""),
+        "half_pr_month": month((d.get("half_pr") or {}).get("date", d["updated"])),
+        "week_plan_miles": str(cur["plan"]) if cur else "",
+        "data_date": d["updated"],
+    }
+
+
+PH = re.compile(r"\{([a-z_]+)\}")
+
+
+def fill(obj, F, used):
+    if isinstance(obj, str):
+        def rep(m):
+            k = m.group(1)
+            if k not in F:
+                raise SystemExit(f"unknown placeholder {{{k}}} in pages/questions.json")
+            used.add(k)
+            return F[k]
+        return PH.sub(rep, obj)
+    if isinstance(obj, list):
+        return [fill(x, F, used) for x in obj]
+    if isinstance(obj, dict):
+        return {k: (fill(v, F, used) if k not in ("slug", "updated", "published") else v) for k, v in obj.items()}
+    return obj
+
+
+def live_questions(qs):
+    F = facts()
+    sp = ROOT / "pages" / ".facts-state.json"
+    state = json.loads(sp.read_text()) if sp.exists() else {}
+    out = []
+    for q in qs:
+        used = set()
+        fq = fill(q, F, used)
+        h = hashlib.sha256(json.dumps({k: F[k] for k in sorted(used)}).encode()).hexdigest()[:16]
+        prev = state.get(q["slug"])
+        if prev and prev["hash"] != h:          # one of this page's numbers changed
+            prev = {"hash": h, "updated": max(q["updated"], F["data_date"])}
+        elif not prev:                           # first build: keep the hand-set date
+            prev = {"hash": h, "updated": q["updated"]}
+        fq["updated"] = max(q["updated"], prev["updated"])
+        state[q["slug"]] = prev
+        out.append(fq)
+    sp.write_text(json.dumps(state, indent=1) + "\n")
+    return out
+
 def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text())
     eps.sort(key=lambda e: e["number"])
-    urls = [("/", "weekly"), ("/episodes/", "weekly"), ("/ai-running-coach/", "monthly")]
+    data_date = json.loads((ROOT / "data" / "progress.json").read_text())["updated"]
+    urls = [("/", "weekly", data_date), ("/episodes/", "weekly", max([e["date"] for e in eps] or ["2026-11-18"])),
+            ("/ai-running-coach/", "monthly", "2026-11-18")]
     (ROOT / "episodes").mkdir(exist_ok=True)
     (ROOT / "episodes" / "index.html").write_text(episodes_index(eps))
     for e in eps:
         d = ROOT / "episodes" / e["slug"]
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(episode_page(e))
-        urls.append((f"/episodes/{e['slug']}/", "monthly"))
-    qs = json.loads((ROOT / "pages" / "questions.json").read_text())
+        urls.append((f"/episodes/{e['slug']}/", "monthly", e["date"]))
+    qs = live_questions(json.loads((ROOT / "pages" / "questions.json").read_text()))
     for q in qs:
         d = ROOT / q["slug"]
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(question_page(q, qs))
-        urls.append((f"/{q['slug']}/", "monthly"))
+        urls.append((f"/{q['slug']}/", "monthly", q["updated"]))
     d = ROOT / "ai-running-coach"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(coach_page(qs))
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><changefreq>{f}</changefreq></url>" for u, f in urls]
+    sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><changefreq>{f}</changefreq></url>" for u, f, m in urls]
     sm.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sm) + "\n")
     (ROOT / "robots.txt").write_text(ROBOTS.format(site=SITE))
