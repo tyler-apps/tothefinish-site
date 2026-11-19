@@ -154,6 +154,8 @@ ul.qlist{padding-left:18px;margin:0 0 10px}ul.qlist li{font-size:18px;line-heigh
 .rb.plan{background:transparent;border:1px solid var(--orange);color:var(--orange)}
 .rgo{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;color:var(--orange);white-space:nowrap}
 .rgo.off{color:var(--muted);font-size:16px}
+.rtrain{display:inline-block;margin-top:8px;font-size:13px;color:var(--muted)}
+.rtrain:hover{color:var(--orange)}
 .rempty{color:var(--soft);font-size:18px;padding:24px 0}
 .finder .note{margin-top:28px}
 .sunday h2{font-size:clamp(44px,6vw,72px);margin-bottom:14px}

@@ -11,7 +11,6 @@ small script that only hides rows. "On my plan" marks races on the weekend of a 
 """
 import datetime as dt
 import json
-import re
 from pathlib import Path
 
 from build_pages import FOOT, FORM, SITE, esc, head
@@ -102,7 +101,8 @@ def main():
             f' data-plan="{1 if on_plan else 0}" data-mine="{1 if me else 0}">'
             f'<div class="rdate"><span class="dw">{day:%a}</span><span class="dn">{day.day}</span><span class="dm">{day:%b}</span></div>'
             f'<div class="rmain"><h3>{name}</h3><p class="rmeta">{meta}{" · " + esc(nice(day, end)) if end != day else ""}</p>'
-            f'<div class="rtags">{tags}{badges}</div></div>{link}</li>')
+            f'<div class="rtags">{tags}{badges}</div>'
+            f'<a class="rtrain" href="#show" data-race="{esc(r["name"])} ({day:%b} {day.day})">Training for this one?</a></div>{link}</li>')
         ev = {"@type": "SportsEvent", "name": r["name"], "startDate": r["date"], "endDate": r.get("end") or r["date"],
               "eventStatus": "https://schema.org/EventScheduled", "sport": "Running",
               "location": {"@type": "Place", "name": r["city"],
@@ -131,7 +131,14 @@ def main():
     SHOW_NEXT = ('<a href="/episodes/">Watch the episodes</a>.' if eps
                  else "Episode 1 comes out Sunday, Nov 22.")
     # the shared sign-up form, without its one-line summary (the paragraph above already says it)
-    SUNDAY_FORM = re.sub(r'\n<p class="fine">.*?</p>', "", FORM.format(id="races", button="Send me the Sunday email"))
+    WAITLIST_FORM = """<form class="join" id="join-races" data-thanks="thanks-races">
+      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
+      <input class="wide" id="race-field" name="fields[training_for]" placeholder="Your race and date (like La Jolla Half, May 15)">
+      <button type="submit">Get on the list</button>
+    </form>
+    <div class="thanks" id="thanks-races">You're on the list. Good luck with your race.</div>
+    <p class="fine">You'll also get my Sunday email: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>"""
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">San Diego races</p>
       <h1 class="display">San Diego <span class="o">races.</span></h1>
@@ -169,21 +176,21 @@ def main():
     <p class="note">Listings come from RunSignup and the races' own sites, checked {updated:%b} {updated.day}, {updated.year}. Dates change, so check the race's page before you register. {AFFILIATE}Know a San Diego race I missed? <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
   </div>
 </section>
+<section class="sunday" id="show">
+  <div class="wrap">
+    <p class="kicker">Got a race coming up?</p>
+    <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
+    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches read my watch, my lifts and my meals, then argue about my week. {SHOW_NEXT}</p>
+    <p class="body">Right now they coach one runner: me. If they get me to Chicago, the people on this list get to try them first. Tell me your race so I know who to build it for.</p>
+    {WAITLIST_FORM}
+  </div>
+</section>
 <section class="mine" id="mine">
   <div class="wrap">
     <p class="kicker">Where I'm racing</p>
     <h2 class="display">My race <span class="o">calendar.</span></h2>
     <p class="body">My AI running coach, Kai, set the dates on the way to Chicago. I pick the races that fill them.</p>
     <div class="rgrid">{"".join(cards)}</div>
-  </div>
-</section>
-<section class="sunday" id="show">
-  <div class="wrap">
-    <p class="kicker">Free weekly email</p>
-    <h2 class="display">Follow me to <span class="o">Chicago.</span></h2>
-    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches read my watch, my lifts and my meals, then argue about my week. {SHOW_NEXT}</p>
-    <p class="body">Every Sunday I send one short email: my miles for the week and the new episode. It's free, and you can unsubscribe anytime.</p>
-    {SUNDAY_FORM}
   </div>
 </section>
 <script src="/assets/races.js" defer></script>
