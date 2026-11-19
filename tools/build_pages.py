@@ -81,6 +81,7 @@ FOOT = """<footer>
 </footer>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
 <script src="/assets/join.js"></script>
+<script src="/assets/motion.js" defer></script>
 </body>
 </html>
 """
