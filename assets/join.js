@@ -11,12 +11,13 @@
       if (!pending) return;
       var f = pending; pending = null;
       var type = formType(f);
-      window.dataLayer.push({
-        event: type === 'waitlist' ? 'waitlist_signup' : 'follow_along_signup',
-        form_type: type,
-        form_location: f.id.replace(/^join-/, ''),
-        page_path: location.pathname
-      });
+      var params = { form_type: type, form_location: f.id.replace(/^join-/, '') };
+      if (type === 'waitlist') { params.lead_source = 'waitlist'; }
+      else { params.method = 'follow_along'; }
+      // Sent straight to GA4 by the Google tag (G-3J00LR0ES7); no Tag Manager tags needed.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', type === 'waitlist' ? 'generate_lead' : 'sign_up', params);
+      }
     });
   }
   document.querySelectorAll('form.join').forEach(function (f) {
