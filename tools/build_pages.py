@@ -161,7 +161,7 @@ def episode_page(e):
 def episodes_index(eps):
     path = "/episodes/"
     desc = ("Every episode of To The Finish, the AI running coach show: a 258 lb dad of two training for a sub-3 marathon at Chicago, "
-            "coached by four AI coaches, with the real numbers from his Garmin.")
+            "coached by five AI coaches, with the real numbers from his Garmin.")
     if eps:
         items = "".join(
             f'<li><a href="/episodes/{e["slug"]}/"><span class="n">Episode {e["number"]} · '
@@ -190,14 +190,14 @@ def episodes_index(eps):
 
 def coach_page(qs=()):
     path = "/ai-running-coach/"
-    desc = ("My AI running coach is a team of four: running, strength, nutrition and a head coach who settles "
+    desc = ("My AI running coach is a team of five: running, strength, nutrition, recovery and a head coach who settles "
             "it when they disagree. It reads my Garmin data and plans my week toward a sub-3 marathon.")
     org = {"@context": "https://schema.org", "@type": "WebPage", "name": "AI running coach | To The Finish",
            "url": SITE + path, "description": desc}
-    return head("AI Running Coach: four coaches, one sub-3 attempt | To The Finish", desc, path, ld(org)) + """    <div class="page">
+    return head("AI Running Coach: five coaches, one sub-3 attempt | To The Finish", desc, path, ld(org)) + """    <div class="page">
       <p class="kicker">The coaches</p>
       <h1 class="display">My AI running <span class="o">coach.</span></h1>
-      <p class="lead">My AI running coach isn't one coach. It's four, and they argue. Right now the setup coaches one runner: me, starting at 258 lb, training for a sub-3 marathon at Chicago on October 10, 2027.</p>
+      <p class="lead">My AI running coach is a team of five, and they argue. Right now the setup coaches one runner: me, starting at 258 lb, training for a sub-3 marathon at Chicago on October 10, 2027.</p>
     </div>
   </div>
 </header>
@@ -207,7 +207,8 @@ def coach_page(qs=()):
     <p><b>Kai</b> plans every run from my Garmin data: the easy days, the hill sprints, the long run, and the paces each one should feel like.</p>
     <p><b>Bo</b> fits four short lifts around the running, and he always wants my legs on the wrong day.</p>
     <p><b>Juno</b> plans my meals around the training and makes sure I eat enough to run.</p>
-    <p><b>Rook</b> is the head coach. When the other three want different things from the same week, he decides.</p>
+    <p><b>Mo</b> keeps me healthy enough to keep training: sleep, aches and pains, prehab, and when I need an easier week.</p>
+    <p><b>Rook</b> is the head coach. When the others want different things from the same week, he decides.</p>
     <h2>How it decides</h2>
     <p>Rook settles every clash in the same order: anything I report, like pain, comes first. Then the race in Chicago. Then my weight. Then strength. So when Bo wants heavy legs the day before a hard run, the run usually wins.</p>
     <p>The plan comes from real coaching methods, and every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>

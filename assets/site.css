@@ -56,7 +56,7 @@ form.join button:hover{filter:brightness(1.06)}
 
 /* coaches */
 .coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px}
 .card{background:var(--ink-2);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .card .t{padding:16px}
