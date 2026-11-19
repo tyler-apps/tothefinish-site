@@ -120,14 +120,14 @@ def ld(obj):
 
 def episode_page(e):
     path = f"/episodes/{e['slug']}/"
-    title = f"Episode {e['number']}: {e['title']} | To The Finish"
+    title = f"Episode {e['number']}: {e['title']} | To The Finish, the AI running coach show"
     thumb = f"https://i.ytimg.com/vi/{e['youtube_id']}/maxresdefault.jpg"
     video = {
         "@context": "https://schema.org", "@type": "VideoObject",
         "name": f"To The Finish, Episode {e['number']}: {e['title']}",
         "description": e["description"], "thumbnailUrl": [thumb],
         "uploadDate": e["date"], "embedUrl": f"https://www.youtube.com/embed/{e['youtube_id']}",
-        "partOfSeries": {"@type": "CreativeWorkSeries", "name": "To The Finish", "url": SITE + "/"},
+        "partOfSeries": {"@type": "CreativeWorkSeries", "name": "To The Finish", "alternateName": "To The Finish AI running coach", "url": SITE + "/"},
     }
     if e.get("duration"):
         video["duration"] = e["duration"]
@@ -160,7 +160,7 @@ def episode_page(e):
 
 def episodes_index(eps):
     path = "/episodes/"
-    desc = ("Every episode of To The Finish: a 258 lb dad of two training for a sub-3 marathon at Chicago, "
+    desc = ("Every episode of To The Finish, the AI running coach show: a 258 lb dad of two training for a sub-3 marathon at Chicago, "
             "coached by four AI coaches, with the real numbers from his Garmin.")
     if eps:
         items = "".join(
@@ -172,7 +172,7 @@ def episodes_index(eps):
         listing = '<p class="body">Episode 1 comes out Sunday, November 22. Sign up and it lands in your inbox.</p>'
     series = {"@context": "https://schema.org", "@type": "CreativeWorkSeries", "name": "To The Finish",
               "url": SITE + "/", "description": desc}
-    return head("Episodes | To The Finish", desc, path, ld(series)) + f"""    <div class="page">
+    return head("Episodes | To The Finish, the AI running coach show", desc, path, ld(series)) + f"""    <div class="page">
       <p class="kicker">Season 1: The 5K</p>
       <h1 class="display">The <span class="o">episodes.</span></h1>
       <p class="lead">One episode every Sunday, from the first week of training to the start line in Chicago. The numbers in them come off my watch.</p>
@@ -255,7 +255,7 @@ def question_page(q, all_q):
             out += f'<div class="tablewrap"><table class="qt"><thead><tr>{th}</tr></thead><tbody>{tb}</tbody></table></div>'
         out += "".join(f"<p>{esc(p)}</p>" for p in sec.get("paras", []))
     others = "".join(f'<li><a href="/{o["slug"]}/">{esc(o["question"])}</a></li>' for o in all_q if o["slug"] != q["slug"])
-    return head(q["title"] + " | To The Finish", q["description"], path, ld(art)) + f"""    <div class="page">
+    return head(q["title"] + " | To The Finish AI running coach", q["description"], path, ld(art)) + f"""    <div class="page">
       <p class="kicker">Updated {upd}</p>
       <h1 class="display" style="font-size:clamp(40px,6.5vw,76px)">{esc(q['question'])}</h1>
     </div>
