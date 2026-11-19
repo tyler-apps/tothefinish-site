@@ -107,7 +107,7 @@ def main():
 
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">Chicago Marathon 2027</p>
-      <h1 class="display">Chicago <span class="o">2027</span></h1>
+      <h1 class="display">Chicago <span class="o">2027.</span></h1>
       <p class="lead">Sunday, October 10, 2027, starting and finishing in Grant Park. Here's every way into the race, the 2027 qualifying times, and how I'm training to run it in under 3 hours.</p>
     </div>
   </div>
@@ -128,7 +128,7 @@ def main():
 <section>
   <div class="wrap">
     <p class="kicker">How to get in</p>
-    <h2 class="display sec">Every way <span class="o">in</span></h2>
+    <h2 class="display sec">Every way <span class="o">in.</span></h2>
     <p class="body">{LOTTERY}</p>
     <div class="rgrid entry">{entry_rows}</div>
   </div>
@@ -136,7 +136,7 @@ def main():
 <section>
   <div class="wrap">
     <p class="kicker">Qualifying times</p>
-    <h2 class="display sec">2027 time <span class="o">standards</span></h2>
+    <h2 class="display sec">2027 time <span class="o">standards.</span></h2>
     <p class="body">These get you a guaranteed entry. They go by your age on race day, October 10, 2027. Non-binary standards match the women's.</p>
     <table class="ftable"><thead><tr><th>Age on race day</th><th>Men</th><th>Women</th></tr></thead><tbody>{std_rows}</tbody></table>
     <p class="note">The qualifying window for 2027 (Jan 1, 2025 to Oct 29, 2026) is closed.</p>
@@ -145,7 +145,7 @@ def main():
 <section class="mybuild">
   <div class="wrap">
     <p class="kicker">My sub-3 build</p>
-    <h2 class="display sec">Under 3 hours, <span class="o">at 44</span></h2>
+    <h2 class="display sec">Under 3 hours, <span class="o">at 44.</span></h2>
     <p class="body">I'll be 44 on race day, and 3:00:00 is exactly Chicago's qualifying time for men 40 to 44. {esc(in_line)}</p>
     <div class="gapline"><div><span class="k">Watch says today</span><b>{esc(prog["now"]["marathon"])}</b></div><div class="arrow">to</div><div><span class="k">Goal</span><b class="o">{esc(prog["goal"])}</b></div></div>
     <p class="body">That's {gap_min} minutes to find in {weeks} weeks. The first number is Garmin's marathon prediction for me today. My AI running coach, Kai, has me at {now_plan} miles a week now, building to {peak} in September, with hill sprints every week at Mission Trails.</p>

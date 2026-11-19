@@ -73,7 +73,7 @@ def head(title, desc, path, extra=""):
 <header class="page-top">
   <div class="wrap">
     <div class="bar">
-      <a class="mark" href="/">TO THE <span class="o">FINISH</span></a>
+      <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
       <nav class="nav"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/#club">Train with us</a></nav>
     </div>
 """
@@ -89,7 +89,7 @@ FORM = """<form class="join" id="join-{id}" data-thanks="thanks-{id}">
 
 FOOT = """<footer>
   <div class="wrap">
-    <p class="sign">Not built for it. <span class="o">Training for it anyway</span></p>
+    <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
     <div class="links"><a href="https://www.youtube.com/@tothefinishai">YouTube</a><a href="https://www.instagram.com/tothefinishai/">Instagram</a><a href="https://www.tiktok.com/@tothefinishai">TikTok</a><a href="https://x.com/tothefinishai">X</a><a href="https://www.strava.com/clubs/tothefinish">Strava</a></div>
     <p>Contact: <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
     <p>My personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters.</p>
@@ -167,7 +167,7 @@ def episode_page(e):
 <section>
   <div class="wrap">
     <p class="kicker">Follow along</p>
-    <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">The next episode, <span class="o">every Sunday</span></h2>
+    <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">The next episode, <span class="o">every Sunday.</span></h2>
     {FORM.format(id='ep', button='Follow along')}
     <p class="body" style="margin-top:22px"><a href="/episodes/">All episodes</a></p>
   </div>
@@ -191,7 +191,7 @@ def episodes_index(eps):
               "url": SITE + "/", "description": desc}
     return head("Episodes | To The Finish, the AI running coach show", desc, path, ld(series)) + f"""    <div class="page">
       <p class="kicker">Season 1: The 5K</p>
-      <h1 class="display">The <span class="o">episodes</span></h1>
+      <h1 class="display">The <span class="o">episodes.</span></h1>
       <p class="lead">One episode every Sunday, from the first week of training to the start line in Chicago. The numbers in them come off my watch.</p>
     </div>
   </div>
@@ -213,7 +213,7 @@ def coach_page(qs=()):
            "url": SITE + path, "description": desc}
     return head("AI Running Coach: five coaches, one sub-3 attempt | To The Finish", desc, path, ld(org)) + """    <div class="page">
       <p class="kicker">The coaches</p>
-      <h1 class="display">My AI running <span class="o">coach</span></h1>
+      <h1 class="display">My AI running <span class="o">coach.</span></h1>
       <p class="lead">My AI running coach is a team of five, and they argue. Right now the setup coaches one runner: me, starting at 258 lb, training for a sub-3 marathon at Chicago on October 10, 2027.</p>
     </div>
   </div>
