@@ -112,7 +112,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   .chart{padding:12px 8px 6px}
 }
 </style>
-<link rel="stylesheet" href="/assets/motion.css?v=23c76793">
+<link rel="stylesheet" href="/assets/ui.css?v=6980ca2d">
+<link rel="stylesheet" href="/assets/motion.css?v=6980ca2d">
 </head>
 <body>
 
@@ -120,7 +121,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav"><a href="#progress">Progress</a><a href="#coaches">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">Races</a><a href="#club">Train with us</a></nav>
+      <nav class="nav" aria-label="Main"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
     </div>
     <div class="hero">
       <div>
@@ -128,8 +130,8 @@ footer p{margin:14px 0 0;line-height:1.5}
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
         <p class="lead">I started this at 258 lb, with two kids and a goal I'm not built for: a sub-3 marathon at Chicago on October 10, 2027. When I started, my watch said I'd run a 4:39:49 marathon. Today it says <b data-k="now">4:34:04</b>. Five AI coaches run my plan, and every week becomes an animated episode.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
-          <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-          <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
+          <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+          <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
           <button type="submit">Follow along</button>
         </form>
         <div class="thanks" id="thanks-top">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
@@ -182,8 +184,10 @@ footer p{margin:14px 0 0;line-height:1.5}
     <h2 class="display">Three races, <span class="o">then Chicago.</span></h2>
     <div class="rgrid" id="races"></div>
     <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today.</p>
-    <p class="body" style="margin-top:22px">Racing in San Diego? <a href="/san-diego-races/">Every upcoming 5K, 10K, half and marathon near San Diego</a>.</p>
-    <p class="body" style="margin-top:10px">Running Chicago in 2027? <a href="/chicago-marathon-2027/">Lottery dates, qualifying times and my plan</a>.</p>
+    <div class="golinks">
+      <a class="golink" href="/san-diego-races/"><span class="k">Racing in San Diego?</span><b>Every upcoming 5K, 10K, half and marathon</b><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="golink" href="/chicago-marathon-2027/"><span class="k">Running Chicago in 2027?</span><b>Lottery dates, qualifying times and my plan</b><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -228,9 +232,9 @@ footer p{margin:14px 0 0;line-height:1.5}
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
     <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
     <form class="join" id="join-bottom" data-thanks="thanks-bottom">
-      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" placeholder="What are you training for? (race and date)">
+      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
       <button type="submit">Get on the list</button>
     </form>
     <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
@@ -247,8 +251,8 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/join.js?v=23c76793"></script>
-<script src="/assets/motion.js?v=23c76793" defer></script>
+<script src="/assets/join.js?v=6980ca2d"></script>
+<script src="/assets/motion.js?v=6980ca2d" defer></script>
 <script>
 (function(){
   var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';
@@ -326,7 +330,7 @@ footer p{margin:14px 0 0;line-height:1.5}
         var x=L+i*bw+bw*.12, w2=bw*.76;
         if(w.plan){el(s,'rect',{x:x,y:Y(w.plan),width:w2,height:Y(0)-Y(w.plan),fill:'none',stroke:'#6b645d','stroke-width':1.5,rx:1.5});}
         if(w.done){el(s,'rect',{x:x,y:Y(w.done),width:w2,height:Y(0)-Y(w.done),fill:OR,rx:1.5});}
-        if(w.current){el(s,'text',{x:x+w2/2,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'middle',class:'t','font-size':18*F},N?'NOW':'THIS WEEK');}
+        if(w.current){el(s,'text',{x:x+w2/2,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'middle',class:'t','font-size':18*F,'paint-order':'stroke',stroke:'#2a2622','stroke-width':8*F,'stroke-linejoin':'round'},N?'NOW':'THIS WEEK');}
         if(races[w.monday]){var last=races[w.monday]==='CHICAGO';el(s,'text',{x:last?x+w2:x+w2/2,y:last&&N?Y(w.plan||0)-12:H-16,'text-anchor':last?'end':'middle',class:'t','font-size':17*F,fill:last?OR:WH},races[w.monday]);}
       });
       var pre=D.before.length; el(s,'line',{x1:L+pre*bw,x2:L+pre*bw,y1:T-10,y2:Y(0),stroke:MUT,'stroke-dasharray':'4 5'});

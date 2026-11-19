@@ -33,7 +33,7 @@ def asset_ver():
     """Short hash of the shared CSS and JS, added as ?v= so browsers fetch a changed file at once."""
     import hashlib
     h = hashlib.sha1()
-    for f in ("site.css", "motion.css", "motion.js", "join.js", "races.js"):
+    for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js"):
         p = ROOT / "assets" / f
         if p.exists():
             h.update(p.read_bytes())
@@ -66,6 +66,7 @@ def head(title, desc, path, extra=""):
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v={VER}">
+<link rel="stylesheet" href="/assets/ui.css?v={VER}">
 <link rel="stylesheet" href="/assets/motion.css?v={VER}">
 {extra}
 </head>
@@ -74,14 +75,15 @@ def head(title, desc, path, extra=""):
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/#club">Train with us</a></nav>
+      <nav class="nav" aria-label="Main"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">Races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
     </div>
 """
 
 
 FORM = """<form class="join" id="join-{id}" data-thanks="thanks-{id}">
-  <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-  <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
+  <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+  <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
   <button type="submit">{button}</button>
 </form>
 <div class="thanks" id="thanks-{id}">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
@@ -238,9 +240,9 @@ def coach_page(qs=()):
 <section>
   <div class="wrap">
     <form class="join" id="join-coach" data-thanks="thanks-coach">
-      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" placeholder="What are you training for? (race and date)">
+      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
       <button type="submit">Get on the list</button>
     </form>
     <div class="thanks" id="thanks-coach">You're on the list. Reply to the first email with your race. I want to know.</div>
@@ -268,7 +270,7 @@ def question_page(q, all_q):
         out += f"<h2>{esc(sec['h2'])}</h2>"
         if sec.get("table"):
             rows = sec["table"]
-            th = "".join(f"<th>{esc(c)}</th>" for c in rows[0])
+            th = "".join(f'<th scope="col">{esc(c)}</th>' for c in rows[0])
             tb = "".join("<tr>" + "".join(f'<td data-label="{esc(h)}">{esc(c)}</td>' for h, c in zip(rows[0], r)) + "</tr>" for r in rows[1:])
             out += f'<div class="tablewrap"><table class="qt"><thead><tr>{th}</tr></thead><tbody>{tb}</tbody></table></div>'
         out += "".join(f"<p>{esc(p)}</p>" for p in sec.get("paras", []))
@@ -396,7 +398,7 @@ def main():
     (d / "index.html").write_text(coach_page(qs))
     home = ROOT / "index.html"
     h = home.read_text()
-    h = re.sub(r'(/assets/(?:motion\.css|motion\.js|join\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
     home.write_text(h)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><changefreq>{f}</changefreq></url>" for u, f, m in urls]

@@ -9,6 +9,15 @@
     var h = a.getAttribute('href') || '';
     if (h.charAt(0) === '/' && h.length > 1 && h.indexOf('#') < 0 && path.indexOf(h) === 0) a.setAttribute('aria-current', 'page');
   });
+  // phone menu: mark the current page, close the sheet after a tap (a same-page #link would leave it open)
+  [].slice.call(document.querySelectorAll('.mnav nav a')).forEach(function (a) {
+    var h = a.getAttribute('href') || '';
+    if (h.charAt(0) === '/' && h.length > 1 && h.indexOf('#') < 0 && path.indexOf(h) === 0) a.setAttribute('aria-current', 'page');
+    a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });
+  });
+  document.addEventListener('click', function (e) {
+    [].slice.call(document.querySelectorAll('.mnav[open]')).forEach(function (d) { if (!d.contains(e.target)) d.open = false; });
+  });
   if (!window.requestAnimationFrame || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.documentElement.classList.add('motion');
 

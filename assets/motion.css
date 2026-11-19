@@ -64,3 +64,10 @@
   /* sign-up thanks */
   .thanks{animation:tf-in .45s var(--spring)}
 }
+@media (prefers-reduced-motion:no-preference){
+  .golink{transition:transform .35s var(--spring),border-color .2s var(--ease)}
+  .golink:hover{transform:translateY(-4px)}
+  .golink .arrow{transition:transform .25s var(--spring)}
+  .golink:hover .arrow{transform:translateX(6px)}
+  .mnav[open] nav{animation:tf-in .25s var(--spring)}
+}

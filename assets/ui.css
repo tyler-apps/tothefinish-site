@@ -1,0 +1,49 @@
+/* ui.css: shared fixes from the 2026-11-19 design, UI and UX audit (Tyler: "do a design, ui, ux audit on the whole
+   website and improve"). Loaded on every page, the home page included. First Light rules: 14 px text floor, 44 px
+   tap targets, a menu on phones (links collapse into a sheet), AA contrast. */
+
+/* menu: desktop row, phone sheet (a <details>, so it works without JavaScript) */
+.bar{position:relative}
+.mnav{display:none}
+.mnav summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid #5a524a;border-radius:6px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:17px;letter-spacing:1.5px;text-transform:uppercase;color:var(--white)}
+.mnav summary::-webkit-details-marker{display:none}
+.mnav summary::after{content:"";width:14px;height:10px;background:linear-gradient(currentColor 0 0) 0 0/100% 2px no-repeat,linear-gradient(currentColor 0 0) 0 50%/100% 2px no-repeat,linear-gradient(currentColor 0 0) 0 100%/100% 2px no-repeat}
+.mnav[open] summary{border-color:var(--orange)}
+.mnav[open] summary::after{background:linear-gradient(45deg,transparent 45%,currentColor 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,currentColor 45% 55%,transparent 55%)}
+.mnav nav{position:absolute;right:0;top:calc(100% + 10px);z-index:50;min-width:230px;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 24px 48px -12px rgba(0,0,0,.7);display:flex;flex-direction:column}
+.mnav nav a{display:flex;align-items:center;min-height:48px;padding:0 14px;border-radius:8px;text-decoration:none;color:var(--soft);font-size:17px}
+.mnav nav a:hover,.mnav nav a[aria-current]{background:#38322c;color:var(--white)}
+.nav{display:flex;align-items:center}
+.nav a{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:860px){.bar .nav{display:none}}
+.mark{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:860px){.mnav{display:block}}
+
+/* 14 px floor (small labels, notes, tags were 12 to 13 px) */
+.fine,.note,.race .d,.race .k,.card .role,.rlab,.rdates,.rd,.rb,.rtrain,.facts .k,.gapline .k,.ftable th,.k{font-size:14px}
+.rd,.rb{padding:4px 9px;letter-spacing:.3px}
+.rlab{letter-spacing:.8px;width:96px}
+@media (max-width:860px){.rlab{width:100%}}
+.rdate .dw,.rdate .dm{font-size:14px}
+
+/* 44 px tap targets */
+.chip{min-height:46px;padding:0 16px;display:inline-flex;align-items:center;gap:6px}
+.rdates input{min-height:44px}
+.rclear{min-height:44px;padding:0 6px}
+.rgo{display:inline-flex;align-items:center;min-height:44px}
+.rtrain{display:inline-flex;align-items:center;min-height:44px;margin-top:2px}
+.race .rlink{display:inline-flex;align-items:center;min-height:46px;margin-top:4px}
+footer .links{display:flex;flex-wrap:wrap;column-gap:6px}
+footer .links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 6px;margin-right:4px}
+.qlist a,.eplist a{min-height:46px}
+.qlist li{margin:4px 0}
+.qlist a{display:inline-flex;align-items:center}
+
+/* home: links to the race pages as cards */
+.golinks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.golink{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 16px;padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:var(--ink-2);text-decoration:none}
+.golink .k{grid-column:1;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+.golink b{grid-column:1;font-size:18px;font-weight:600;color:var(--white);line-height:1.3}
+.golink .arrow{grid-column:2;grid-row:1 / span 2;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;color:var(--orange)}
+.golink:hover{border-color:var(--orange)}
+@media (max-width:860px){.golinks{grid-template-columns:1fr}}

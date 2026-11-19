@@ -97,9 +97,9 @@ def main():
     extra = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>'
 
     form = """<form class="join" id="join-chicago" data-thanks="thanks-chicago">
-      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" placeholder="Your race and date (like Chicago, Oct 10, 2027)">
+      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like Chicago, Oct 10, 2027)">
       <button type="submit">Get on the list</button>
     </form>
     <div class="thanks" id="thanks-chicago">You're on the list. See you in Grant Park.</div>
@@ -138,7 +138,7 @@ def main():
     <p class="kicker">Qualifying times</p>
     <h2 class="display sec">2027 time <span class="o">standards.</span></h2>
     <p class="body">These get you a guaranteed entry. They go by your age on race day, October 10, 2027. Non-binary standards match the women's.</p>
-    <table class="ftable"><thead><tr><th>Age on race day</th><th>Men</th><th>Women</th></tr></thead><tbody>{std_rows}</tbody></table>
+    <table class="ftable"><thead><tr><th scope="col">Age on race day</th><th scope="col">Men</th><th scope="col">Women</th></tr></thead><tbody>{std_rows}</tbody></table>
     <p class="note">The qualifying window for 2027 (Jan 1, 2025 to Oct 29, 2026) is closed.</p>
   </div>
 </section>

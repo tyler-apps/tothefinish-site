@@ -132,9 +132,9 @@ def main():
                  else "Episode 1 comes out Sunday, Nov 22.")
     # the shared sign-up form, without its one-line summary (the paragraph above already says it)
     WAITLIST_FORM = """<form class="join" id="join-races" data-thanks="thanks-races">
-      <input name="fields[first_name]" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" placeholder="Email" required autocomplete="email">
-      <input class="wide" id="race-field" name="fields[training_for]" placeholder="Your race and date (like La Jolla Half, May 15)">
+      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+      <input class="wide" id="race-field" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like La Jolla Half, May 15)">
       <button type="submit">Get on the list</button>
     </form>
     <div class="thanks" id="thanks-races">You're on the list. Good luck with your race.</div>
