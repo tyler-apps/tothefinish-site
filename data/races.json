@@ -1,0 +1,1139 @@
+{
+ "updated": "2026-11-19",
+ "near": "35 miles of San Diego",
+ "races": [
+  {
+   "id": "rsu-217143",
+   "name": "Harvest Hustle 5K 2026 Grace Church San Diego",
+   "date": "2026-11-21",
+   "end": "2026-11-21",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/HarvestHustle5KGraceChurchSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-209962",
+   "name": "Grateful Run 5K/10K",
+   "date": "2026-11-22",
+   "end": "2026-11-22",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:15",
+   "url": "https://runsignup.com/Race/CA/SanDiego/GratefulRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-162637",
+   "name": "25th Annual Run for Hope Thanksgiving Day 5K",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:15",
+   "url": "https://runsignup.com/Race/CA/SanDiego/FJV5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-171874",
+   "name": "Coronado Turkey Trot presented by Rady Children\u2019s Hospital Auxiliary",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "Coronado",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/Coronado/CoronadoTurkeyTrotPresentedByRadyChildrensHospital?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "encinitas-turkey-trot-2026",
+   "name": "Encinitas Turkey Trot",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "Encinitas",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "",
+   "source": "race site"
+  },
+  {
+   "id": "rsu-216314",
+   "name": "Rancho San Pasqual Turkey Trot",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "Escondido",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/Escondido/RANCHOSANPASQUALTURKEYTROT?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-2240",
+   "name": "Running of the Turkeys 5K & 10K Trail Run",
+   "date": "2026-11-26",
+   "end": "2026-11-29",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/TurkeyTrot5K10K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-186747",
+   "name": "San Diego-North County Turkey Trot",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:15",
+   "url": "https://runsignup.com/Race/CA/SanDiego/NCTT?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-185641",
+   "name": "Thankful Paws Turkey Trot",
+   "date": "2026-11-26",
+   "end": "2026-11-26",
+   "city": "Bonita",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "08:30",
+   "url": "https://runsignup.com/Race/CA/Bonita/ThankfulPawsTurkeyTrot?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-201479",
+   "name": "Coffee Lovers Run 5K/10K/13.1 San Diego",
+   "date": "2026-11-28",
+   "end": "2026-11-28",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/CoffeeLoversRun5K10KSANDIEGO1128?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-193834",
+   "name": "Festival Of Lights Run",
+   "date": "2026-12-06",
+   "end": "2026-12-06",
+   "city": "La Jolla",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "09:00",
+   "url": "https://runsignup.com/Race/CA/LaJolla/HannukahHappening?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-134376",
+   "name": "Ohana Holiday Run",
+   "date": "2026-12-06",
+   "end": "2026-12-06",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/OhanaHolidayRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-204862",
+   "name": "Run for Breast Cancer 5K/10K/13.1 San Diego",
+   "date": "2026-12-12",
+   "end": "2026-12-12",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForBreastCancer5K10KSANDIEGO1212?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-206280",
+   "name": "The Improve Every Day Half Marathon",
+   "date": "2026-12-12",
+   "end": "2026-12-12",
+   "city": "San Diego",
+   "distances": [
+    "Half"
+   ],
+   "other": [
+    "4.4 mi"
+   ],
+   "start": "06:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/TheImproveEveryDayHalfMarathon?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-153231",
+   "name": "Jingle Bell Run - San Diego, CA",
+   "date": "2026-12-13",
+   "end": "2026-12-13",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/JingleBellRunSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-84976",
+   "name": "San Diego Holiday Half Marathon & 5K",
+   "date": "2026-12-19",
+   "end": "2026-12-19",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiegoHolidayHalf?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-160069",
+   "name": "\u2018A Charlie Brown Christmas 5K/10K\u2019 (San Diego, CA)",
+   "date": "2026-12-19",
+   "end": "2026-12-19",
+   "city": "Escondido",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/Escondido/charliebrown5k10k?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-205022",
+   "name": "A Merry Christmas Run 5K/10K/13.1 San Diego",
+   "date": "2026-12-26",
+   "end": "2026-12-26",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/AMerryChristmasRun5K10KSANDIEGO1226?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-208019",
+   "name": "New Year's Run 5K/10K/13.1 San Diego",
+   "date": "2026-12-26",
+   "end": "2026-12-26",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/NewYearSRun5K10KSANDIEGO1226?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-215620",
+   "name": "Port of San Diego Game Day 5K Run/Walk",
+   "date": "2026-12-28",
+   "end": "2026-12-28",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:45",
+   "url": "https://runsignup.com/Race/CA/SanDiego/PorOfSanDiegoGameDay5KRunWalk?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-116123",
+   "name": "San Diego 50 & Trail Runs",
+   "date": "2027-01-09",
+   "end": "2027-01-09",
+   "city": "Escondido",
+   "distances": [
+    "Half",
+    "Marathon"
+   ],
+   "other": [
+    "10 mi",
+    "5 mi",
+    "50 mi"
+   ],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/Escondido/SanDiego50?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-209366",
+   "name": "MLK Jr. Freedom Run 5K/10K/13.1 San Diego",
+   "date": "2027-01-16",
+   "end": "2027-01-16",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/MLKJrFreedomRun5K10KSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-210575",
+   "name": "Sunrise Marathon 5K/10K/13.1 San Diego",
+   "date": "2027-01-16",
+   "end": "2027-01-16",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SunriseMarathon5K10KSANDIEGO0116?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "carlsbad-marathon-2027",
+   "name": "Carlsbad Marathon, Half Marathon & 5K",
+   "date": "2027-01-17",
+   "end": "2027-01-17",
+   "city": "Carlsbad",
+   "distances": [
+    "5K",
+    "Half",
+    "Marathon"
+   ],
+   "other": [],
+   "start": null,
+   "url": "https://inmotionevents.com/event/carlsbad-marathon/",
+   "source": "race site"
+  },
+  {
+   "id": "rsu-216159",
+   "name": "Isnt She Lovely Lowrider Run",
+   "date": "2027-01-23",
+   "end": "2027-01-23",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:10",
+   "url": "https://runsignup.com/Race/CA/SanDiego/IsntSheLovelyLowriderRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-206257",
+   "name": "Roasted Run 5K",
+   "date": "2027-01-23",
+   "end": "2027-01-23",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RoastedRun5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-209513",
+   "name": "Coffee Lovers Run San Diego",
+   "date": "2027-01-30",
+   "end": "2027-01-30",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/CoffeeLoverRunSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-210607",
+   "name": "Run for Donuts San Diego",
+   "date": "2027-01-30",
+   "end": "2027-01-30",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForDonutSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-28418",
+   "name": "Hungry Dog Dash",
+   "date": "2027-02-07",
+   "end": "2027-02-07",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/HungryDogDash?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-219059",
+   "name": "Teddy Bear Love Run 5K/10K",
+   "date": "2027-02-07",
+   "end": "2027-02-07",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/TeddyBearLoveRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-210831",
+   "name": "Run for Chocolate 5K/10K/13.1 San Diego",
+   "date": "2027-02-13",
+   "end": "2027-02-13",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForChocolate5k10kSANDIEGO0213?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-210076",
+   "name": "Valentine's Day Run 5K/10K/13.1 San Diego",
+   "date": "2027-02-13",
+   "end": "2027-02-13",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/ValentineSDayRun5K10KSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-201615",
+   "name": "Coronado Valentine's Day 10K, 5K and 1 Mile Fun Run/Walk",
+   "date": "2027-02-14",
+   "end": "2027-02-14",
+   "city": "Coronado",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/Coronado/CoronadoValentineSDay10K5KAnd1MileFunRunWalk?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-217926",
+   "name": "Heart & Hustle 5K Walk/Run",
+   "date": "2027-02-19",
+   "end": "2027-02-19",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/HeartHustle5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-214143",
+   "name": "Run For Mental Health San Diego",
+   "date": "2027-02-27",
+   "end": "2027-02-27",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForMentalHealthSANDIEGO227?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-212681",
+   "name": "Run Together Against Breast Cancer San Diego",
+   "date": "2027-02-27",
+   "end": "2027-02-27",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunTogetherAgainstBreastCancerSANDIEGO227?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-194111",
+   "name": "Navy Ten-Miler",
+   "date": "2027-02-28",
+   "end": "2027-03-28",
+   "city": "Chula Vista",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [
+    "10 mi"
+   ],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/ChulaVista/NavyTenMiler?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-185622",
+   "name": "Beer City Half\u2122 San Diego",
+   "date": "2027-03-13",
+   "end": "2027-03-13",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/BeerCityHalfSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-192903",
+   "name": "Mission Hills 5K",
+   "date": "2027-03-20",
+   "end": "2027-03-20",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/MissionHills5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-212773",
+   "name": "St. Paddy's Day Lucky Run 5K/10K/13.1 San Diego",
+   "date": "2027-03-20",
+   "end": "2027-03-20",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/StPaddySDayLuckyRun5K10KSANDIEGO320?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-211568",
+   "name": "Sunrise Marathon 5K/10K/13.1 San Diego",
+   "date": "2027-03-20",
+   "end": "2027-03-20",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SunriseMarathon5K10KSANDIEGO320?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "san-diego-half-2027",
+   "name": "San Diego Half Marathon & 5K",
+   "date": "2027-03-21",
+   "end": "2027-03-21",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [],
+   "start": null,
+   "url": "https://inmotionevents.com/event/san-diego-half-marathon-5k/",
+   "source": "race site"
+  },
+  {
+   "id": "rsu-212966",
+   "name": "Always Hope Easter Run San Diego",
+   "date": "2027-03-27",
+   "end": "2027-03-27",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/AlwaysHopeEasterRunSANDIEGO327?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-214211",
+   "name": "SuperHeroes Run San Diego",
+   "date": "2027-03-27",
+   "end": "2027-03-27",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SuperHeroesRunSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-216760",
+   "name": "San Diego 5K, 10K, 10 Mile & Half Marathon at Mission Bay",
+   "date": "2027-03-28",
+   "end": "2027-03-28",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "06:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiego5K10K10MileHalfMarathonAtMissionBay?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-215481",
+   "name": "Run for PB&J 5k/10k/13.1 San Diego",
+   "date": "2027-04-10",
+   "end": "2027-04-10",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForPBJ5k10kSANDIEGO410?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-193380",
+   "name": "San Diego Beach & Bay Half Marathon",
+   "date": "2027-04-10",
+   "end": "2027-04-10",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "06:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiegoBeachBayHalfMarathon?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-211432",
+   "name": "Sloth Run 5K/10K/13.1 San Diego",
+   "date": "2027-04-10",
+   "end": "2027-04-10",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForBagels5K10KSANDIEGO?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-211464",
+   "name": "Coffee Lovers Run San Diego",
+   "date": "2027-04-24",
+   "end": "2027-04-24",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/CoffeeLoverRunSANDIEGO424?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-214382",
+   "name": "Run for Donuts San Diego",
+   "date": "2027-04-24",
+   "end": "2027-04-24",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunForDonutSANDIEGO424?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-125730",
+   "name": "Abrazo 5K Walk & 10K Run",
+   "date": "2027-05-01",
+   "end": "2027-05-01",
+   "city": "San Ysidro",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "06:30",
+   "url": "https://runsignup.com/Race/CA/SanYsidro/CasaFamiliar5k?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-212351",
+   "name": "Spring Sprint Triathlon & San Diego Tri Series 5K",
+   "date": "2027-05-02",
+   "end": "2027-05-02",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "06:45",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SpringSprintTriathlonSanDiegoTriSeries5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-116383",
+   "name": "La Jolla Half Marathon, 10K, & 5K",
+   "date": "2027-05-15",
+   "end": "2027-05-15",
+   "city": "La Jolla",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "06:30",
+   "url": "https://runsignup.com/Race/CA/LaJolla/LaJollaHalfMarathon5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-12665",
+   "name": "The Navy's 40th Bay Bridge Run/Walk",
+   "date": "2027-05-16",
+   "end": "2027-05-16",
+   "city": "San Diego",
+   "distances": [
+    "10K"
+   ],
+   "other": [
+    "4 mi"
+   ],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/NavysBayBridgeRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-216101",
+   "name": "SuperHeroes Run San Diego",
+   "date": "2027-05-29",
+   "end": "2027-05-29",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SuperHeroesRunSANDIEGO529?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rock-n-roll-san-diego-2027",
+   "name": "Rock 'n' Roll San Diego Marathon & Half",
+   "date": "2027-06-05",
+   "end": "2027-06-06",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "Half",
+    "Marathon"
+   ],
+   "other": [],
+   "start": null,
+   "url": "https://www.runrocknroll.com/events/san-diego",
+   "source": "race site"
+  },
+  {
+   "id": "rsu-215224",
+   "name": "Run Juneteenth Day 5K/10K/13.1 San Diego",
+   "date": "2027-06-19",
+   "end": "2027-06-19",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RunJuneteenthDay5K10KSANDIEGO619?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-87538",
+   "name": "Coronado Rotary Low Tide Ride & Stride",
+   "date": "2027-06-26",
+   "end": "2027-06-26",
+   "city": "Coronado",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/Coronado/CoronadoLowTideStride?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-214440",
+   "name": "San Diego International Triathlon & Waterfront 5.6K",
+   "date": "2027-06-27",
+   "end": "2027-06-27",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "06:35",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiegoInternationalTriathlon?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-201086",
+   "name": "Seaport Village 5K",
+   "date": "2027-06-27",
+   "end": "2027-06-27",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SeaportVillage5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-179116",
+   "name": "3rd Annual San Diego 4th of July 5K & 10K",
+   "date": "2027-07-04",
+   "end": "2027-07-04",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "08:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiego4thOfJuly5k?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-158823",
+   "name": "Joggin' for Frogmen 5K - San Diego, CA",
+   "date": "2027-07-24",
+   "end": "2027-07-24",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "09:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/JogginforFrogmen5KSanDiegoCA?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-220937",
+   "name": "Sunrise Marathon San Diego",
+   "date": "2027-07-24",
+   "end": "2027-07-24",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SunriseMarathonSANDIEGO724?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-196162",
+   "name": "Solana Beach Triathlon & Duathlon and Solana Beach 5K",
+   "date": "2027-07-25",
+   "end": "2027-07-25",
+   "city": "Solana Beach",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/SolanaBeach/TriathlonDuathlon5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-211899",
+   "name": "Margaritaville Run San Diego Gaslamp 10K & 5K",
+   "date": "2027-08-14",
+   "end": "2027-08-14",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/PRESALEMargaritavilleRunSanDiegoGaslamp10K5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "afc-half-2027",
+   "name": "America's Finest City Half Marathon & 5K",
+   "date": "2027-08-15",
+   "end": "2027-08-15",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [],
+   "start": null,
+   "url": "https://inmotionevents.com/event/afc-half/",
+   "source": "race site"
+  },
+  {
+   "id": "rsu-196477",
+   "name": "CVC San Diego Triathlon and San Diego Tri Series 5K",
+   "date": "2027-08-15",
+   "end": "2027-08-15",
+   "city": "Chula Vista",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "06:40",
+   "url": "https://runsignup.com/Race/CA/ChulaVista/CVCSanDiegoTriathlonAndSanDiegoTriSeries5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-197989",
+   "name": "San Diego Tri Classic & San Diego 5K",
+   "date": "2027-09-11",
+   "end": "2027-09-11",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/SanDiegoTriClassicSanDiego5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-200996",
+   "name": "Aloha Run San Diego",
+   "date": "2027-09-12",
+   "end": "2027-09-12",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/AlohaRunSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-180124",
+   "name": "Race to Cure Sarcoma San Diego",
+   "date": "2027-09-18",
+   "end": "2027-09-18",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "08:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RaceToCureSarcomaSD?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-196930",
+   "name": "XTERRA Wetsuits Mission Bay Triathlon & San Diego 5K",
+   "date": "2027-10-10",
+   "end": "2027-10-10",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:15",
+   "url": "https://runsignup.com/Race/CA/SanDiego/XTERRAWETSUITSMissionBayTriathlonSanDiego5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-32430",
+   "name": "Lake Hodges Trail Festival",
+   "date": "2027-10-16",
+   "end": "2027-10-16",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "10K"
+   ],
+   "other": [
+    "15.6 mi",
+    "31.06 mi",
+    "9.3 mi"
+   ],
+   "start": "09:00",
+   "url": "https://runsignup.com/Race/CA/SanDiego/LakeHodgesTrailFest?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-194224",
+   "name": "Thrive San Diego Half Marathon & 5K",
+   "date": "2027-11-07",
+   "end": "2027-11-07",
+   "city": "San Diego",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [],
+   "start": "07:15",
+   "url": "https://runsignup.com/Race/CA/SanDiego/PRESALEThriveSanDiegoHalfMarathon5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
+   "id": "rsu-218079",
+   "name": "Silver Strand Veterans Day Half Marathon, 10 Miler, 12K & 5K - San Diego",
+   "date": "2027-11-14",
+   "end": "2027-11-14",
+   "city": "Coronado",
+   "distances": [
+    "5K",
+    "Half"
+   ],
+   "other": [
+    "10 mi",
+    "12K"
+   ],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/Coronado/SilverStrandVeteransDayHalfMarathon10Miler12K5KSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  }
+ ]
+}

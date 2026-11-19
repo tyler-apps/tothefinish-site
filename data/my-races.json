@@ -1,0 +1,7 @@
+{
+ "note": "Races Tyler is entered in. Source of truth: the brain (brain/methods/running/races/). Edit here when he signs up for one; match_id ties an entry to a row in races.json so the list can tag it.",
+ "races": [
+  {"name": "Encinitas Turkey Trot 10K", "date": "2026-11-26", "city": "Encinitas", "status": "Signed up, but skipping it to stay on my training plan", "match_id": "encinitas-turkey-trot-2026"},
+  {"name": "Chicago Marathon", "date": "2027-10-10", "city": "Chicago", "status": "Entered the drawing. Results come Dec 8", "match_id": null, "goal": true}
+ ]
+}
