@@ -47,3 +47,10 @@ footer .links a{display:inline-flex;align-items:center;justify-content:center;mi
 .golink .arrow{grid-column:2;grid-row:1 / span 2;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;color:var(--orange)}
 .golink:hover{border-color:var(--orange)}
 @media (max-width:860px){.golinks{grid-template-columns:1fr}}
+
+/* races page: quick answers (2026-11-19) */
+.answers .prose h3{font-size:20px;margin:24px 0 6px;color:var(--white)}
+.answers .prose ul{margin:0 0 14px;padding-left:20px;color:var(--soft);font-size:18px;line-height:1.6;max-width:62ch}
+.answers .prose li{margin:4px 0}
+.answers .prose li b{color:var(--white)}
+.prose p.kicker{color:var(--orange);font-size:18px;line-height:1;margin:0 0 14px;max-width:none}

@@ -88,12 +88,9 @@ def main():
     title = "Chicago Marathon 2027: Date, Lottery, Qualifying Times and a Sub-3 Training Plan | To The Finish"
     desc = ("The 2027 Chicago Marathon is Sunday, October 10. Lottery results, every way in, the 2027 qualifying "
             "times by age, and how I'm training to run it under 3 hours.")
-    schema = [
-        {"@context": "https://schema.org", "@type": "FAQPage",
-         "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]},
-        {"@context": "https://schema.org", "@type": "WebPage", "name": "Chicago Marathon 2027 | To The Finish",
-         "url": SITE + PATH, "description": desc},
-    ]
+    # no FAQPage markup: the AEO playbook rules it out (the rich result is gone); the answers stay on the page
+    schema = {"@context": "https://schema.org", "@type": "WebPage", "name": "Chicago Marathon 2027 | To The Finish",
+              "url": SITE + PATH, "description": desc, "dateModified": prog["updated"]}
     extra = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>'
 
     form = """<form class="join" id="join-chicago" data-thanks="thanks-chicago">

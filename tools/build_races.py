@@ -119,9 +119,43 @@ def main():
     title = "San Diego Races: 5K, 10K, Half Marathon and Marathon Calendar | To The Finish"
     desc = (f"{n} upcoming 5Ks, 10Ks, half marathons and marathons within 35 miles of San Diego. "
             "Filter by distance and date or search by name. Updated every Sunday.")
-    schema = {"@context": "https://schema.org", "@type": "ItemList", "name": "Upcoming San Diego races",
-              "url": SITE + PATH, "numberOfItems": n, "itemListElement": ld}
+    schema = {"@context": "https://schema.org", "@type": "WebPage", "name": "San Diego races", "url": SITE + PATH,
+              "description": desc, "dateModified": data["updated"],
+              "mainEntity": {"@type": "ItemList", "name": "Upcoming San Diego races", "numberOfItems": n, "itemListElement": ld}}
     extra = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>'
+
+    def when(r):
+        x, y = d(r["date"]), d(r.get("end") or r["date"])
+        return f"{x:%a %b} {x.day}" + (f" to {y:%a %b} {y.day}" if y != x else "")
+
+    def say(rs):
+        rs = [f"{esc(r['name'])} ({when(r)}, {esc(r['city'])})" for r in rs]
+        return rs[0] if len(rs) == 1 else ", ".join(rs[:-1]) + " and " + rs[-1]
+
+    def nxt(k, many=5):
+        return [r for r in races if k in r["distances"]][:many]
+
+    yr = today.year + 1 if today.month >= 11 else today.year
+    halves = [r for r in races if "Half" in r["distances"] and r["date"].startswith(str(yr))]
+    by_month = {}
+    for r in halves:
+        by_month.setdefault(d(r["date"]).strftime("%B"), []).append(r)
+    def say_some(rs, k=4):
+        if len(rs) <= k:
+            return say(rs)
+        return ", ".join(f"{esc(r['name'])} ({when(r)}, {esc(r['city'])})" for r in rs[:k]) + f" and {len(rs) - k} more"
+    month_lines = "".join(f"<li><b>{m}:</b> {say_some(rs)}.</li>" for m, rs in by_month.items())
+    last = d(races[-1]["date"]) if races else today
+    QA = [
+        ("What are the next half marathons in San Diego?", f"The next ones are {say(nxt('Half'))}."),
+        (f"Which half marathons are in San Diego in {yr}?", f"<ul>{month_lines}</ul>" if month_lines else "None are posted yet."),
+        ("What 5K races are coming up in San Diego?", f"The next 5Ks are {say(nxt('5K'))}."),
+        ("What 10K races are coming up in San Diego?", f"The next 10Ks are {say(nxt('10K'))}."),
+        ("Are there marathons in San Diego?", f"{len(nxt('Marathon', 10))} on the list right now: {say(nxt('Marathon', 10))}." if nxt('Marathon') else "None are posted yet."),
+        ("How many races are on this list?", f"{n} races between now and {last:%B} {last.year}: {counts['5K']} with a 5K, {counts['10K']} with a 10K, "
+                                             f"{counts['Half']} with a half marathon and {counts['Marathon']} with a marathon. Many races offer more than one distance."),
+    ]
+    QA_HTML = "".join(f"<h3>{q}</h3>" + (a if a.startswith("<ul>") else f"<p>{a}</p>") for q, a in QA)
 
     # paid-link disclosure whenever the RunSignup links carry the affiliate token (voice gate: disclose paid links)
     AFFILIATE = ("If you register through a RunSignup link here, RunSignup shares a small part of its fee with me. "
@@ -140,7 +174,7 @@ def main():
     <div class="thanks" id="thanks-races">You're on the list. Good luck with your race.</div>
     <p class="fine">You'll also get my Sunday email: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>"""
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
-      <p class="kicker">San Diego races</p>
+      <p class="kicker">San Diego races · Updated {updated:%b} {updated.day}, {updated.year}</p>
       <h1 class="display">San Diego <span class="o">races.</span></h1>
       <p class="lead">Every 5K, 10K, half marathon and marathon within 35 miles of San Diego, in one list. Pick a distance and dates, or search by name. It updates every Sunday.</p>
       <p class="body">I'm Tyler, and I'm training for a sub-3 marathon in Chicago with five AI coaches on my show, <a href="#show">To The Finish</a>. I use this list to pick my own races, so the ones I'm running are marked. <a href="#mine">See where I'm racing</a>.</p>
@@ -174,6 +208,14 @@ def main():
     <div id="rall">{"".join(rows)}</div>
     <p class="rempty" id="rempty" hidden>No races match. Try more dates or another distance.</p>
     <p class="note">Listings come from RunSignup and the races' own sites, checked {updated:%b} {updated.day}, {updated.year}. Dates change, so check the race's page before you register. {AFFILIATE}Know a San Diego race I missed? <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
+  </div>
+</section>
+<section class="answers">
+  <div class="wrap prose">
+    <p class="kicker">Quick answers</p>
+    <h2 class="display sec">San Diego races, <span class="o">at a glance.</span></h2>
+    {QA_HTML}
+    <p class="note">Built from the list above, updated {updated:%b} {updated.day}, {updated.year}. Check each race's page before you register.</p>
   </div>
 </section>
 <section class="sunday" id="show">
