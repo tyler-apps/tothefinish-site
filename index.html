@@ -243,18 +243,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script>
-document.querySelectorAll('form.join').forEach(function(f){
-  f.action='https://app.kit.com/forms/10209840/subscriptions';
-  f.method='POST';
-  f.target='hidden_iframe';
-  f.addEventListener('submit',function(){
-    var t=document.getElementById(f.dataset.thanks);
-    if(window.gtag){gtag('event','sign_up',{method:'waitlist',form_location:f.id==='join-top'?'top':'bottom'});}
-    setTimeout(function(){f.style.display='none';t.style.display='block';},300);
-  });
-});
-</script>
+<script src="/assets/join.js"></script>
 <script>
 (function(){
   var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';

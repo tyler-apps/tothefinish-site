@@ -188,7 +188,7 @@ def episodes_index(eps):
 """ + FOOT
 
 
-def coach_page():
+def coach_page(qs=()):
     path = "/ai-running-coach/"
     desc = ("My AI running coach is a team of four: running, strength, nutrition and a head coach who settles "
             "it when they disagree. It reads my Garmin data and plans my week toward a sub-3 marathon.")
@@ -211,6 +211,8 @@ def coach_page():
     <h2>How it decides</h2>
     <p>Rook settles every clash in the same order: anything I report, like pain, comes first. Then the race in Chicago. Then my weight. Then strength. So when Bo wants heavy legs the day before a hard run, the run usually wins.</p>
     <p>The plan comes from real coaching methods, and every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
+    <h2>Questions people ask</h2>
+    <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
     <p>Not yet. It has to get me to Chicago first. If it does, the people on this list get to try it first.</p>
   </div>
@@ -230,6 +232,50 @@ def coach_page():
 """ + FOOT
 
 
+AUTHOR = {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/ai-running-coach/"}
+
+
+def question_page(q, all_q):
+    path = f"/{q['slug']}/"
+    upd = dt.date.fromisoformat(q["updated"]).strftime("%B %-d, %Y")
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": q["title"][:110],
+           "description": q["description"], "author": AUTHOR,
+           "datePublished": q.get("published", q["updated"]) + "T08:00:00-08:00",
+           "dateModified": q["updated"] + "T08:00:00-08:00",
+           "publisher": {"@type": "Organization", "name": "To The Finish", "url": SITE + "/",
+                         "logo": {"@type": "ImageObject", "url": SITE + "/assets/logo.png"}},
+           "mainEntityOfPage": SITE + path}
+    out = "".join(f"<p>{esc(p)}</p>" for p in q["answer"])
+    for sec in q.get("sections", []):
+        out += f"<h2>{esc(sec['h2'])}</h2>"
+        if sec.get("table"):
+            rows = sec["table"]
+            th = "".join(f"<th>{esc(c)}</th>" for c in rows[0])
+            tb = "".join("<tr>" + "".join(f'<td data-label="{esc(h)}">{esc(c)}</td>' for h, c in zip(rows[0], r)) + "</tr>" for r in rows[1:])
+            out += f'<div class="tablewrap"><table class="qt"><thead><tr>{th}</tr></thead><tbody>{tb}</tbody></table></div>'
+        out += "".join(f"<p>{esc(p)}</p>" for p in sec.get("paras", []))
+    others = "".join(f'<li><a href="/{o["slug"]}/">{esc(o["question"])}</a></li>' for o in all_q if o["slug"] != q["slug"])
+    return head(q["title"] + " | To The Finish", q["description"], path, ld(art)) + f"""    <div class="page">
+      <p class="kicker">Updated {upd}</p>
+      <h1 class="display" style="font-size:clamp(40px,6.5vw,76px)">{esc(q['question'])}</h1>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="wrap prose">{out}
+    <p class="note">By Tyler Stewart. Numbers from my Garmin (chest-strap heart rate). Not medical or nutrition advice; the coaches are AI characters.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <p class="kicker">Follow the test</p>
+    {FORM.format(id='q', button='Follow along')}
+    <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/ai-running-coach/">How my AI running coach works</a></li></ul></div>
+  </div>
+</section>
+""" + FOOT
+
+
 def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text())
     eps.sort(key=lambda e: e["number"])
@@ -241,9 +287,15 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(episode_page(e))
         urls.append((f"/episodes/{e['slug']}/", "monthly"))
+    qs = json.loads((ROOT / "pages" / "questions.json").read_text())
+    for q in qs:
+        d = ROOT / q["slug"]
+        d.mkdir(exist_ok=True)
+        (d / "index.html").write_text(question_page(q, qs))
+        urls.append((f"/{q['slug']}/", "monthly"))
     d = ROOT / "ai-running-coach"
     d.mkdir(exist_ok=True)
-    (d / "index.html").write_text(coach_page())
+    (d / "index.html").write_text(coach_page(qs))
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{TODAY}</lastmod><changefreq>{f}</changefreq></url>" for u, f in urls]
     sm.append("</urlset>")
