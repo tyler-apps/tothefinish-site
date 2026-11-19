@@ -4,7 +4,7 @@
 # Usage: tools/publish.sh "commit message" [--numbers-only]
 #   --numbers-only: refuse to publish if anything other than Garmin-driven files changed
 #   (data/progress.json, built pages, sitemap, pages/.facts-state.json). This is the auto-publish path
-#   (Tyler 2026-11-18: "Yes, auto-publish numbers"); wording changes, new pages and bios wait for "approve week".
+#   (Tyler 2026-11-18: "Yes, auto-publish numbers"); wording changes and new pages ship without it, through the voice gate (brain/social/voice-gate.md, since 2026-11-18).
 set -u
 SITE="$(cd "$(dirname "$0")/.." && pwd)"
 MSG="${1:-Site update}"
