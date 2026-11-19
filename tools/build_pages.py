@@ -20,12 +20,27 @@ Only published episodes go in the file. Every word follows the To The Finish voi
 import datetime as dt
 import html
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://tothefinish.ai"
 GTM = "GTM-5Q6Q2KFL"
 TODAY = dt.date.today().isoformat()
+
+
+def asset_ver():
+    """Short hash of the shared CSS and JS, added as ?v= so browsers fetch a changed file at once."""
+    import hashlib
+    h = hashlib.sha1()
+    for f in ("site.css", "motion.css", "motion.js", "join.js", "races.js"):
+        p = ROOT / "assets" / f
+        if p.exists():
+            h.update(p.read_bytes())
+    return h.hexdigest()[:8]
+
+
+VER = asset_ver()
 
 
 def esc(s):
@@ -50,7 +65,8 @@ def head(title, desc, path, extra=""):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v={VER}">
+<link rel="stylesheet" href="/assets/motion.css?v={VER}">
 {extra}
 </head>
 <body>
@@ -80,11 +96,11 @@ FOOT = """<footer>
   </div>
 </footer>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/join.js"></script>
-<script src="/assets/motion.js" defer></script>
+<script src="/assets/join.js?v=VERSION"></script>
+<script src="/assets/motion.js?v=VERSION" defer></script>
 </body>
 </html>
-"""
+""".replace("VERSION", VER)
 
 
 ROBOTS = """# tothefinish.ai robots.txt (reviewed 2026-11-18; Brain: brain/methods/social/sources/aeo-t1.md)
@@ -378,6 +394,10 @@ def main():
     d = ROOT / "ai-running-coach"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(coach_page(qs))
+    home = ROOT / "index.html"
+    h = home.read_text()
+    h = re.sub(r'(/assets/(?:motion\.css|motion\.js|join\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    home.write_text(h)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><changefreq>{f}</changefreq></url>" for u, f, m in urls]
     sm.append("</urlset>")

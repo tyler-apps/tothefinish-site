@@ -13,7 +13,7 @@ import datetime as dt
 import json
 from pathlib import Path
 
-from build_pages import FOOT, FORM, SITE, esc, head
+from build_pages import FOOT, FORM, SITE, VER, esc, head
 
 ROOT = Path(__file__).resolve().parents[1]
 PATH = "/san-diego-races/"
@@ -193,7 +193,7 @@ def main():
     <div class="rgrid">{"".join(cards)}</div>
   </div>
 </section>
-<script src="/assets/races.js" defer></script>
+<script src="/assets/races.js?v={VER}" defer></script>
 {FOOT}"""
     out = ROOT / "san-diego-races"
     out.mkdir(exist_ok=True)

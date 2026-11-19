@@ -1,0 +1,35 @@
+/* motion (2026-11-19): quiet, per DESIGN.md §7. Timing 150 ms presses, 200-250 ms reveals, one easing. */
+:root{--ease:cubic-bezier(.2,.8,.2,1)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  @view-transition{navigation:auto}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:var(--ease)}
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity .25s var(--ease),transform .25s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  a{transition:color .15s var(--ease),text-decoration-color .15s var(--ease)}
+  p a,.note a,.prose a,.rmain h3 a{text-decoration-thickness:1px;text-underline-offset:3px}
+  p a:hover,.note a:hover,.prose a:hover{color:var(--orange)}
+  .nav a{position:relative}
+  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .2s var(--ease)}
+  .nav a:hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
+  .nav a[aria-current]{color:var(--white)}
+  .mark{display:inline-block;transition:transform .15s var(--ease)}
+  .mark:hover{transform:translateX(2px)}
+  form.join button,.btn,.chip,.rclear{transition:transform .15s var(--ease),filter .15s var(--ease),background-color .15s var(--ease),border-color .15s var(--ease),color .15s var(--ease)}
+  form.join button:hover,.btn:hover{transform:translateY(-1px)}
+  form.join button:active,.btn:active,.chip:active{transform:scale(.97)}
+  form.join input,.rfilters input{transition:border-color .15s var(--ease)}
+  form.join input:focus,.rfilters input:focus{border-color:var(--orange);outline:none}
+  .rgo span{display:inline-block;transition:transform .15s var(--ease)}
+  .rgo:hover span{transform:translateX(4px)}
+  .race,.card,.rrow,.facts>div,.eplist a{transition:transform .2s var(--ease),border-color .2s var(--ease)}
+  .rrow:hover,.eplist a:hover,.card:hover{border-color:#4a433c;transform:translateY(-2px)}
+  .race:hover{border-color:#4a433c}
+  .race.final:hover{border-color:var(--orange)}
+  .card img{transition:transform .25s var(--ease)}
+  .card:hover img{transform:scale(1.02)}
+  .thanks{animation:tf-in .25s var(--ease)}
+  .rrow:not([hidden]){animation:tf-in .2s var(--ease) both}
+  @keyframes tf-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
