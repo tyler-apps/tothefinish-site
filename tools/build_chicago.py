@@ -33,7 +33,7 @@ ENTRY = [
     ("Drawing (lottery)", "Not guaranteed", "Applications ran Oct 8 to Oct 29, 2026. Results by email Tue Dec 8, 2026; pay by Tue Dec 15.", "Closed"),
     ("Time qualifier", "Guaranteed", "Run the standard for your age between Jan 1, 2025 and Oct 29, 2026.", "Closed"),
     ("Charity", "Guaranteed", "Raise money for an official charity. First come, first served until Fri Sep 10, 2027.", "Open"),
-    ("Tour operator", "Guaranteed", "Through an official tour operator, from Tue Dec 8, 2026.", "Opens Dec 8"),
+    ("Tour operator", "Guaranteed", "Through an official tour operator, from Tue Dec 8, 2026.", "TOUR"),
     ("Legacy", "Guaranteed", "For runners who finished five or more times in the last 10 years.", "Closed"),
 ]
 FAQ = [
@@ -63,18 +63,28 @@ def main():
     now_plan = next((w["plan"] for w in prog["year"] if w.get("current")), prog["year"][0]["plan"])
     gap_min = round(prog["to_go_s"] / 60)
     updated = d(prog["updated"])
+    results_out = today >= dt.date(2026, 12, 8)
+    entry = [(n, g, t, ("Open" if results_out else "Opens Dec 8") if st == "TOUR" else st) for n, g, t, st in ENTRY]
+    # my entry status comes from data/my-races.json (the races page reads the same line)
+    mine = json.loads((ROOT / "data" / "my-races.json").read_text())["races"]
+    chi = next((m for m in mine if "Chicago" in m["name"]), None)
+    in_line = ("I'm in the drawing, and I find out December 8." if chi and "drawing" in chi["status"].lower() and not results_out
+               else (chi["status"].rstrip(".") + "." if chi else ""))
     stops = [r for r in prog["races"] if r["date"] >= today.isoformat() and "Chicago" not in r["name"]]
 
     me = ' class="me"'
     std_rows = "".join(f'<tr{me if a == "40 to 44" else ""}><td>{a}</td><td>{m}</td><td>{w}</td></tr>' for a, m, w in STANDARDS)
     entry_rows = "".join(
         f'<div class="race{" final" if st == "Open" else ""}"><div class="d">{esc(st)}</div><h3>{esc(n)}</h3>'
-        f'<div class="k">{esc(g)}</div><p class="rstatus">{esc(t)}</p></div>' for n, g, t, st in ENTRY)
+        f'<div class="k">{esc(g)}</div><p class="rstatus">{esc(t)}</p></div>' for n, g, t, st in entry)
     stop_cards = "".join(
         f'<div class="race"><div class="d">{esc(nice(d(r["date"])))}</div><h3>{esc(r["name"])}</h3>'
         f'<div class="k">Watch says today</div><div class="v">{esc(r["today"])}</div></div>' for r in stops)
     faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in FAQ)
 
+    LOTTERY = ("Lottery results went out <b>Tuesday, December 8, 2026</b>. If you weren't picked, charity entries stay open until September 10, 2027, and tour operators have entries too."
+               if results_out else
+               "Lottery results come out <b>Tuesday, December 8, 2026</b>. If you're not picked, charity entries stay open until September 10, 2027.")
     title = "Chicago Marathon 2027: Date, Lottery, Qualifying Times and a Sub-3 Training Plan | To The Finish"
     desc = ("The 2027 Chicago Marathon is Sunday, October 10. Lottery results, every way in, the 2027 qualifying "
             "times by age, and how I'm training to run it under 3 hours.")
@@ -119,7 +129,7 @@ def main():
   <div class="wrap">
     <p class="kicker">How to get in</p>
     <h2 class="display sec">Every way <span class="o">in.</span></h2>
-    <p class="body">Lottery results come out <b>Tuesday, December 8, 2026</b>. If you're not picked, charity entries stay open until September 10, 2027.</p>
+    <p class="body">{LOTTERY}</p>
     <div class="rgrid entry">{entry_rows}</div>
   </div>
 </section>
@@ -136,7 +146,7 @@ def main():
   <div class="wrap">
     <p class="kicker">My sub-3 build</p>
     <h2 class="display sec">Under 3 hours, <span class="o">at 44.</span></h2>
-    <p class="body">I'll be 44 on race day, and 3:00:00 is exactly Chicago's qualifying time for men 40 to 44. I'm in the drawing, and I find out December 8.</p>
+    <p class="body">I'll be 44 on race day, and 3:00:00 is exactly Chicago's qualifying time for men 40 to 44. {esc(in_line)}</p>
     <div class="gapline"><div><span class="k">Watch says today</span><b>{esc(prog["now"]["marathon"])}</b></div><div class="arrow">to</div><div><span class="k">Goal</span><b class="o">{esc(prog["goal"])}</b></div></div>
     <p class="body">That's {gap_min} minutes to find in {weeks} weeks. The first number is Garmin's marathon prediction for me today. My AI running coach, Kai, has me at {now_plan} miles a week now, building to {peak} in September, with hill sprints every week at Mission Trails.</p>
     <div class="rgrid">{stop_cards}<div class="race final"><div class="d">{esc(nice(race_day))}</div><h3>Chicago Marathon</h3><div class="k">Goal</div><div class="v o">{esc(prog["goal"])}</div></div></div>
