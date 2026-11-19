@@ -1,35 +1,63 @@
-/* motion (2026-11-19): quiet, per DESIGN.md §7. Timing 150 ms presses, 200-250 ms reveals, one easing. */
-:root{--ease:cubic-bezier(.2,.8,.2,1)}
+/* motion.css: motion for every tothefinish.ai page (loaded on its own: the home page has inline styles, not site.css).
+   2026-11-19, Tyler: "harder animation and i want the charts/graphs animated" (his call over the quiet-motion default).
+   Reduced motion turns every rule here off; nothing loops; content shows without JavaScript. */
+:root{--ease:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.16,1,.3,1)}
 :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
 @media (prefers-reduced-motion:no-preference){
   html{scroll-behavior:smooth}
+
+  /* page to page: the old page lifts away, the new one rises in */
   @view-transition{navigation:auto}
-  ::view-transition-old(root),::view-transition-new(root){animation-duration:.22s;animation-timing-function:var(--ease)}
-  .reveal{opacity:0;transform:translateY(8px)}
-  .reveal.in{opacity:1;transform:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+  ::view-transition-old(root){animation:tf-out .28s var(--ease) both}
+  ::view-transition-new(root){animation:tf-rise .5s var(--spring) both}
+  @keyframes tf-out{to{opacity:0;transform:translateY(-24px)}}
+
+  /* the page opens: header lines rise in one after another (delays set by motion.js) */
+  .motion .intro{animation:tf-rise .8s var(--spring) both}
+
+  /* blocks rise in as they arrive */
+  .reveal{opacity:0;transform:translateY(40px) scale(.98)}
+  .reveal.in{opacity:1;transform:none;transition:opacity .7s var(--spring),transform .8s var(--spring)}
+  h2.reveal,.gap-head.reveal,.gapline.reveal{transform:translateY(56px)}
+  .chart.reveal{transform:translateY(40px) scale(.96)}
+
+  @keyframes tf-rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+  @keyframes tf-in{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+
+  /* links */
   a{transition:color .15s var(--ease),text-decoration-color .15s var(--ease)}
   p a,.note a,.prose a,.rmain h3 a{text-decoration-thickness:1px;text-underline-offset:3px}
   p a:hover,.note a:hover,.prose a:hover{color:var(--orange)}
   .nav a{position:relative}
-  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .2s var(--ease)}
+  .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--spring)}
   .nav a:hover::after,.nav a[aria-current]::after{transform:scaleX(1)}
   .nav a[aria-current]{color:var(--white)}
-  .mark{display:inline-block;transition:transform .15s var(--ease)}
-  .mark:hover{transform:translateX(2px)}
-  form.join button,.btn,.chip,.rclear{transition:transform .15s var(--ease),filter .15s var(--ease),background-color .15s var(--ease),border-color .15s var(--ease),color .15s var(--ease)}
-  form.join button:hover,.btn:hover{transform:translateY(-1px)}
-  form.join button:active,.btn:active,.chip:active{transform:scale(.97)}
-  form.join input,.rfilters input{transition:border-color .15s var(--ease)}
-  form.join input:focus,.rfilters input:focus{border-color:var(--orange);outline:none}
-  .rgo span{display:inline-block;transition:transform .15s var(--ease)}
-  .rgo:hover span{transform:translateX(4px)}
-  .race,.card,.rrow,.facts>div,.eplist a{transition:transform .2s var(--ease),border-color .2s var(--ease)}
-  .rrow:hover,.eplist a:hover,.card:hover{border-color:#4a433c;transform:translateY(-2px)}
-  .race:hover{border-color:#4a433c}
+  .mark{display:inline-block;transition:transform .25s var(--spring)}
+  .mark:hover{transform:translateX(4px)}
+
+  /* buttons: lift on hover, a hard press on tap */
+  form.join button,.btn,.chip,.rclear{transition:transform .2s var(--spring),filter .2s var(--ease),background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease)}
+  form.join button:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(255,106,31,.55)}
+  form.join button:active,.btn:active{transform:translateY(0) scale(.95);box-shadow:none}
+  .chip:hover{transform:translateY(-2px)}
+  .chip:active{transform:scale(.92)}
+  .chip[aria-pressed=true]{animation:tf-pop .3s var(--spring)}
+  @keyframes tf-pop{0%{transform:scale(.88)}100%{transform:scale(1)}}
+  form.join input,.rfilters input{transition:border-color .2s var(--ease),box-shadow .2s var(--ease)}
+  form.join input:focus,.rfilters input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,106,31,.18);outline:none}
+  .rgo span{display:inline-block;transition:transform .25s var(--spring)}
+  .rgo:hover span{transform:translateX(7px)}
+  .rtrain{transition:color .15s var(--ease)}
+
+  /* cards lift toward you */
+  .race,.card,.rrow,.facts>div,.eplist a{transition:transform .35s var(--spring),border-color .2s var(--ease),box-shadow .35s var(--spring)}
+  .rrow:hover,.eplist a:hover,.card:hover,.race:hover,.facts>div:hover{transform:translateY(-5px);border-color:#4a433c;box-shadow:0 18px 32px -18px rgba(0,0,0,.8)}
   .race.final:hover{border-color:var(--orange)}
-  .card img{transition:transform .25s var(--ease)}
-  .card:hover img{transform:scale(1.02)}
-  .thanks{animation:tf-in .25s var(--ease)}
-  .rrow:not([hidden]){animation:tf-in .2s var(--ease) both}
-  @keyframes tf-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card img{transition:transform .5s var(--spring)}
+  .card:hover img{transform:scale(1.05)}
+  .ftable tbody tr{transition:background-color .15s var(--ease)}
+  .ftable tbody tr:hover{background:#221e1b}
+
+  /* sign-up thanks */
+  .thanks{animation:tf-in .45s var(--spring)}
 }

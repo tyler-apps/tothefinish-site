@@ -141,7 +141,7 @@ def main():
     <p class="fine">You'll also get my Sunday email: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>"""
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">San Diego races</p>
-      <h1 class="display">San Diego <span class="o">races.</span></h1>
+      <h1 class="display">San Diego <span class="o">races</span></h1>
       <p class="lead">Every 5K, 10K, half marathon and marathon within 35 miles of San Diego, in one list. Pick a distance and dates, or search by name. It updates every Sunday.</p>
       <p class="body">I'm Tyler, and I'm training for a sub-3 marathon in Chicago with five AI coaches on my show, <a href="#show">To The Finish</a>. I use this list to pick my own races, so the ones I'm running are marked. <a href="#mine">See where I'm racing</a>.</p>
     </div>
@@ -188,7 +188,7 @@ def main():
 <section class="mine" id="mine">
   <div class="wrap">
     <p class="kicker">Where I'm racing</p>
-    <h2 class="display">My race <span class="o">calendar.</span></h2>
+    <h2 class="display">My race <span class="o">calendar</span></h2>
     <p class="body">My AI running coach, Kai, set the dates on the way to Chicago. I pick the races that fill them.</p>
     <div class="rgrid">{"".join(cards)}</div>
   </div>
