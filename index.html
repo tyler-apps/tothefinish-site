@@ -82,6 +82,16 @@ form.join button:hover{filter:brightness(1.06)}
 .race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
 .race .v.o{color:var(--orange)}
 
+/* machine */
+.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+.loop .step{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.loop .n{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;color:var(--orange)}
+.loop h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;margin:2px 0 6px;line-height:1}
+.loop p{color:var(--muted);font-size:15px;line-height:1.4;margin:0}
+.machine .sub{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:40px 0 0}
+@media (max-width:900px){.loop{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.loop{grid-template-columns:1fr}}
+
 /* coaches */
 .coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:12px}
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px}
@@ -183,6 +193,16 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <p class="kicker">The race number</p>
+    <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
+    <p class="body" style="margin-top:18px">VDOT is a race fitness score: one number that turns any race time into the times you can run at every other distance. Sub-3 at Chicago takes about <b>53.5</b>. My best race ever scored <b data-k="vdbest">49.4</b>. Today my threshold pace says about <b data-k="vdnow2">41.8</b>. The rings are Kai's targets for each race on the way.</p>
+    <div class="chart"><svg id="c-vdot" viewBox="0 0 1000 440" role="img" aria-label="Race fitness score (VDOT) from races and threshold pace, with the targets to a sub-3 Chicago"></svg></div>
+    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, and the watch's threshold reading runs rough, so read it as a trend. Every race on the plan adds a dot and resets my paces.</p>
+  </div>
+</section>
+
 <section class="year">
   <div class="wrap">
     <p class="kicker">What's ahead</p>
@@ -203,6 +223,35 @@ footer p{margin:14px 0 0;line-height:1.5}
       <a class="golink" href="/san-diego-races/"><span class="k">Racing in San Diego?</span><b>Every upcoming 5K, 10K, half and marathon</b><span class="arrow" aria-hidden="true">→</span></a>
       <a class="golink" href="/chicago-marathon-2027/"><span class="k">Running Chicago in 2027?</span><b>Lottery dates, qualifying times and my plan</b><span class="arrow" aria-hidden="true">→</span></a>
     </div>
+  </div>
+</section>
+
+
+<section class="machine">
+  <div class="wrap">
+    <p class="kicker">How the coaching works</p>
+    <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:12px">Every run, read. <span class="o">The plan rewrites itself.</span></h2>
+    <p class="body">No one types my workouts in. The watch and a chest strap record every run. The coaches read it within minutes, change what the research says to change, and send the new workout back to my wrist. These are the live counts.</p>
+    <div class="rgrid" id="m-stats"></div>
+    <div class="loop" id="m-loop">
+      <div class="step"><div class="n">1</div><h3>Record</h3><p>Watch and chest strap: every lap, every heartbeat, every climb.</p></div>
+      <div class="step"><div class="n">2</div><h3>Sync</h3><p>Checked every 10 minutes. A new run is pulled in as soon as it lands.</p></div>
+      <div class="step"><div class="n">3</div><h3>Read</h3><p>Kai reads the run: paces, heart rate, the ground. Bo, Juno and Mo check their lanes.</p></div>
+      <div class="step"><div class="n">4</div><h3>Decide</h3><p>Targets, zones and the next sessions move by the research's rules, and each change is logged.</p></div>
+      <div class="step"><div class="n">5</div><h3>Send</h3><p>The new workouts go to the watch, with the pace or heart-rate range on every step.</p></div>
+    </div>
+
+    <h3 class="sub">Decisions, logged</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 360" role="img" aria-label="Logged coaching decisions by week"></svg></div>
+    <p class="note">Each one is a dated line in the coaches' logs: a pace target that moved, a run rewritten, a zone reset, a plan change. Orange are Kai's own automatic calls from the data. White are head-coach decisions across the plan.</p>
+
+    <h3 class="sub">Measured, not guessed</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-meas" viewBox="0 0 1000 360" role="img" aria-label="Garmin's estimates against what my strap and races measured"></svg></div>
+    <p class="note">Watches estimate from formulas. The coaches measure from my own strap and races, then set those numbers on the watch. Garmin's max heart rate guess was one I have never reached in two years of runs.</p>
+
+    <h3 class="sub">My heart-rate zones, set from my own race</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-zones" viewBox="0 0 1000 200" role="img" aria-label="Heart-rate zones on my watch"></svg></div>
+    <p class="note">Threshold comes from my last race, minute 10 to the finish. The coaches re-check the zones after every sync and put them back if the watch moves them. Next, the strap's beat-to-beat data will measure exactly where easy ends.</p>
   </div>
 </section>
 
@@ -387,6 +436,67 @@ footer p{margin:14px 0 0;line-height:1.5}
       el(s,'text',{x:X(z.monday)-12,y:Y(z.mpb)-16,'text-anchor':'end',class:'t','font-size':28*F},'NOW '+z.mpb.toFixed(2));
       el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'METERS PER BEAT':'METERS PER HEARTBEAT · HIGHER IS FITTER');
       P.forEach(function(p){var x=day(p.monday);if(x.getDate()<=7)el(s,'text',{x:X(p.monday),y:H-16,'text-anchor':'middle',class:'m','font-size':16*F},MON[x.getMonth()]);});
+    })();
+
+    /* 3c. the race number: VDOT from races (dots), the threshold estimate (line), Kai's targets (rings), sub-3 */
+    (function(){
+      var V=D.vdot; if(!V||!V.line||V.line.length<2) return;
+      set('vdnow',V.now.toFixed(1)); set('vdnow2',V.now.toFixed(1)); set('vdbest',V.best.toFixed(1));
+      var s=document.getElementById('c-vdot'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?520:440,L=60,R=40,T=44,B=50;
+      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=74;B=64;}
+      var t0=day('2024-05-01'),t1=day('2027-10-31'),lo=38,hi=56;
+      function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(x){return T+(hi-x)/(hi-lo)*(H-T-B);}
+      [40,45,50,55].forEach(function(m){var y=Y(m);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},m);});
+      ['2025','2026','2027'].forEach(function(yr){var x=X(yr+'-01-01');el(s,'line',{x1:x,x2:x,y1:T,y2:H-B,stroke:GRID});el(s,'text',{x:x+6,y:H-16,class:'m','font-size':16*F},yr);});
+      var g=Y(V.goal); el(s,'line',{x1:L,x2:W-R,y1:g,y2:g,stroke:OR,'stroke-width':2,'stroke-dasharray':'8 6'});
+      el(s,'text',{x:W-R,y:g-10,'text-anchor':'end',class:'t','font-size':24*F,fill:OR},'SUB-3 · '+V.goal);
+      var d=V.line.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(p.vdot).toFixed(1);}).join(' ');
+      el(s,'path',{d:d,fill:'none',stroke:WH,'stroke-opacity':0.55,'stroke-width':2.5,'stroke-linejoin':'round'});
+      V.targets.forEach(function(t){el(s,'circle',{cx:X(t.date),cy:Y(t.vdot),r:8,fill:'none',stroke:OR,'stroke-width':3});});
+      V.races.forEach(function(r){el(s,'circle',{cx:X(r.date),cy:Y(r.vdot),r:8,fill:OR});});
+      var b=V.races.reduce(function(a,c){return c.vdot>a.vdot?c:a;});
+      el(s,'text',{x:X(b.date)+14,y:Y(b.vdot)-12,class:'m','font-size':16*F},(N?'':'BEST RACE ')+b.vdot.toFixed(1));
+      var z=V.line[V.line.length-1];
+      el(s,'circle',{cx:X(z.date),cy:Y(z.vdot),r:7,fill:WH});
+      el(s,'text',{x:X(z.date),y:Y(z.vdot)+34,'text-anchor':'middle',class:'t','font-size':26*F},'NOW '+z.vdot.toFixed(1));
+      el(s,'text',{x:L,y:T-16,class:'m','font-size':15*F},N?'VDOT · HIGHER IS FITTER':'RACE FITNESS SCORE (VDOT) · HIGHER IS FITTER');
+    })();
+
+    /* 3d. the machine: live counts, decisions by week, measured vs guessed, zones */
+    (function(){
+      var S=D.system; if(!S) return;
+      var st=document.getElementById('m-stats');
+      [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Sync check','10 min']].forEach(function(t){
+        var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+t[1]+'</div>'; st.appendChild(c);});
+      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=60,R=30,T=40,B=50,P=S.decisions;
+      s.setAttribute('viewBox','0 0 '+W+' '+H);
+      if(P.length){var mx=Math.max.apply(null,P.map(function(p){return p.kai+p.rook;}))||1,top=Math.ceil(mx/10)*10,bw=(W-L-R)/P.length;
+        function Y(v){return T+(1-v/top)*(H-T-B);}
+        [0,top/2,top].forEach(function(v){var y=Y(v);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},Math.round(v));});
+        P.forEach(function(p,i){var x=L+i*bw+bw*0.18,w=bw*0.64;
+          if(p.kai) el(s,'rect',{x:x,y:Y(p.kai),width:w,height:H-B-Y(p.kai),fill:OR,rx:3});
+          if(p.rook) el(s,'rect',{x:x,y:Y(p.kai+p.rook),width:w,height:Y(p.kai)-Y(p.kai+p.rook),fill:WH,rx:3});
+          el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':16*F},md(p.monday));});
+        el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'DECISIONS A WEEK':'LOGGED DECISIONS A WEEK · KAI AUTOMATIC (ORANGE) · HEAD COACH (WHITE)');}
+      var m=document.getElementById('c-meas'),M=S.measured||[];
+      if(M.length){var Wm=N?600:1000,Hm=60+M.length*(N?130:100); m.setAttribute('viewBox','0 0 '+Wm+' '+Hm);
+        var Lm=N?20:300,Rm=40;
+        M.forEach(function(r,i){var y=40+i*(N?130:100),mxv=Math.max(r.garmin,r.ours),sc=(Wm-Lm-(N?300:290))/mxv,ty=N?y:y+30;
+          el(m,'text',{x:N?Lm:20,y:N?y:y+34,class:'t','font-size':(N?30:26)},r.what.toUpperCase());
+          var y1=N?y+18:y+6,y2=y1+32;
+          el(m,'rect',{x:Lm,y:y1,width:r.garmin*sc,height:24,fill:MUT,rx:3});
+          el(m,'text',{x:Lm+r.garmin*sc+8,y:y1+19,class:'m','font-size':N?21:17},(r.glabel||'Garmin guess')+' '+r.garmin+(r.unit?' '+r.unit:''));
+          el(m,'rect',{x:Lm,y:y2,width:r.ours*sc,height:24,fill:OR,rx:3});
+          el(m,'text',{x:Lm+r.ours*sc+8,y:y2+19,class:'m','font-size':N?21:17},(r.olabel||'Measured')+' '+r.ours+(r.unit?' '+r.unit:''));});}
+      var z=document.getElementById('c-zones'),Zf=S.zones,Zm=S.zones_max;
+      if(Zf&&Zm){var Wz=N?600:1000,Hz=N?260:200; z.setAttribute('viewBox','0 0 '+Wz+' '+Hz);
+        var lo=Zf[0],sc2=(Wz-40)/(Zm-lo),names=['WARM-UP','EASY','STEADY','THRESHOLD','5K+'],fills=['#4a433c','#6b625a',MUT,'#ffa36b',OR];
+        Zf.forEach(function(f,i){var t=(i<4?Zf[i+1]:Zm+1),x=20+(f-lo)*sc2,w=(t-f)*sc2;
+          el(z,'rect',{x:x,y:40,width:Math.max(w-3,2),height:70,fill:fills[i],rx:4});
+          el(z,'text',{x:x+w/2,y:82,'text-anchor':'middle',class:'t','font-size':N?(w>66?19:0):24,fill:i>2?'#1a1715':WH},(N?w>66:w>60)?names[i]:'');
+          el(z,'text',{x:x+4,y:140,class:'m','font-size':N?22:16},f);});
+        el(z,'text',{x:Wz-20,y:172,'text-anchor':'end',class:'m','font-size':N?22:16},'max '+Zm);
+        el(z,'text',{x:20,y:28,class:'m','font-size':N?20:15},'BEATS PER MINUTE');}
     })();
 
     /* 4. the races */
