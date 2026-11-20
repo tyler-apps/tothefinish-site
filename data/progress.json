@@ -528,133 +528,133 @@
   {
    "week": 31,
    "monday": "2027-05-24",
-   "plan": 55,
+   "plan": 58,
    "done": null,
    "current": false
   },
   {
    "week": 32,
    "monday": "2027-05-31",
-   "plan": 60,
+   "plan": 63,
    "done": null,
    "current": false
   },
   {
    "week": 33,
    "monday": "2027-06-07",
-   "plan": 65,
+   "plan": 68,
    "done": null,
    "current": false
   },
   {
    "week": 34,
    "monday": "2027-06-14",
-   "plan": 50,
+   "plan": 54,
    "done": null,
    "current": false
   },
   {
    "week": 35,
    "monday": "2027-06-21",
-   "plan": 66,
+   "plan": 72,
    "done": null,
    "current": false
   },
   {
    "week": 36,
    "monday": "2027-06-28",
-   "plan": 69,
+   "plan": 75,
    "done": null,
    "current": false
   },
   {
    "week": 37,
    "monday": "2027-07-05",
-   "plan": 61,
+   "plan": 64,
    "done": null,
    "current": false
   },
   {
    "week": 38,
    "monday": "2027-07-12",
-   "plan": 71,
+   "plan": 80,
    "done": null,
    "current": false
   },
   {
    "week": 39,
    "monday": "2027-07-19",
-   "plan": 56,
+   "plan": 62,
    "done": null,
    "current": false
   },
   {
    "week": 40,
    "monday": "2027-07-26",
-   "plan": 72,
+   "plan": 82,
    "done": null,
    "current": false
   },
   {
    "week": 41,
    "monday": "2027-08-02",
-   "plan": 75,
+   "plan": 86,
    "done": null,
    "current": false
   },
   {
    "week": 42,
    "monday": "2027-08-09",
-   "plan": 77,
+   "plan": 88,
    "done": null,
    "current": false
   },
   {
    "week": 43,
    "monday": "2027-08-16",
-   "plan": 62,
+   "plan": 70,
    "done": null,
    "current": false
   },
   {
    "week": 44,
    "monday": "2027-08-23",
-   "plan": 78,
+   "plan": 90,
    "done": null,
    "current": false
   },
   {
    "week": 45,
    "monday": "2027-08-30",
-   "plan": 68,
+   "plan": 69,
    "done": null,
    "current": false
   },
   {
    "week": 46,
    "monday": "2027-09-06",
-   "plan": 74,
+   "plan": 86,
    "done": null,
    "current": false
   },
   {
    "week": 47,
    "monday": "2027-09-13",
-   "plan": 76,
+   "plan": 81,
    "done": null,
    "current": false
   },
   {
    "week": 48,
    "monday": "2027-09-20",
-   "plan": 61,
+   "plan": 70,
    "done": null,
    "current": false
   },
   {
    "week": 49,
    "monday": "2027-09-27",
-   "plan": 50,
+   "plan": 56,
    "done": null,
    "current": false
   },
@@ -1487,14 +1487,14 @@
  },
  "to_go_txt": "1:35:19",
  "lines": {
-  "rook": "Tyler, 1:35:19 to find. About two minutes a week. Shoes on.",
-  "kai_eff": "Tyler, 1.14 meters a beat. Flat for now. Trail weeks hide it. Patience, it climbs.",
-  "kai_vdot": "41.8 today, 49.4 at your best. The Dec 26 5K puts a real dot on this. Race it honest.",
-  "kai_engine": "You've held this pace before, Tyler. The engine remembers. Easy miles bring it back.",
-  "kai_year": "Out the door. Miles go up a little at a time, with a down week every few weeks.",
-  "mo_easy": "Tyler, 69% easy last week. The research asks for 80. Slow the easy days down.",
-  "mo_spike": "Your longest run lately sets the ceiling. Nothing past about 110 minutes until a new long run moves it. One piece at a time.",
-  "bo": "Tyler! 295 on the box squat. Heavy and fast makes every stride cheaper. Run first, then we lift. BOOM.",
-  "juno": "Tyler. About 223 grams of carbs on hard days, 134 on easy ones. Carbs follow the work. Don't you dare skip the banana."
+  "rook": "Tyler, 1:35:19 to find. That's about two minutes a week, every week until Chicago. The runs stay at the top of the board.",
+  "kai_eff": "Flat, Tyler. Mission Trails dirt hides it for now. This line moves on the days you let me slow you down, and we both know which days those are.",
+  "kai_vdot": "41.8 on paper. 49.4 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
+  "kai_engine": "6:42 happened, Tyler. I've seen the file. We go get it back the long way: easy dirt at Mission Trails, threshold on the Serra Trail Fridays.",
+  "kai_year": "32 this week, 90 in August. I want every one of them, and I want most of them slow.",
+  "mo_easy": "69% easy last week. The number is 80. So where did the other 31% come from, Tyler? The climbs, or the first mile out the door?",
+  "mo_spike": "Your ceiling right now is about 110 minutes. Anything longer waits until a long run earns it. I'll be the one saying no.",
+  "bo": "Tyler, 295 on the box squat. Kai gets your legs in the morning. I get what's left after lunch. That's the deal. BOOM.",
+  "juno": "Tyler. 223 grams of carbs on the hard days. You'll want to skip the banana before Friday's run because it's early and you're not hungry. Don't."
  }
 }

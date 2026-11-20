@@ -56,7 +56,7 @@
       {
         "h2": "How the AI coaching works",
         "paras": [
-          "Kai, the running coach, builds every week from the latest marathon research and my Garmin data: speed first for a 5K, then a 10K, a half marathon, then Chicago. The plan climbs from about {week_plan_miles} miles a week now to a peak of about 78 in August 2027, with hills every week.",
+          "Kai, the running coach, builds every week from the latest marathon research and my Garmin data: speed first for a 5K, then a 10K, a half marathon, then Chicago. The plan climbs from about {week_plan_miles} miles a week now to a peak of about 90 in August 2027, with hills every week.",
           "Rook, the head coach, settles it when the running, strength and nutrition coaches want different things. Anything I report, like pain, comes first. Then the race. Every change is written down with the rule behind it."
         ]
       },
@@ -187,7 +187,7 @@
       {
         "h2": "What hasn't changed because of my weight",
         "paras": [
-          "The goal. The plan builds speed first, a 5K in February and a 10K in May, then marathon training: hills every week, long runs, and a peak of about 78 miles a week in August 2027. The numbers on this site show whether that works."
+          "The goal. The plan builds speed first, a 5K in February and a 10K in May, then marathon training: hills every week, long runs, and a peak of about 90 miles a week in August 2027. The numbers on this site show whether that works."
         ]
       }
     ]
