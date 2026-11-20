@@ -416,7 +416,7 @@
   {
    "week": 15,
    "monday": "2027-02-01",
-   "plan": 34,
+   "plan": 31,
    "done": null,
    "current": false
   },
@@ -703,7 +703,7 @@
  "races": [
   {
    "name": "5K",
-   "date": "2027-02-06",
+   "date": "2027-02-07",
    "today": "24:34",
    "goal": null
   },
