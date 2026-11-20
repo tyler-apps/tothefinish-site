@@ -1,195 +1,195 @@
 [
-  {
-    "slug": "can-an-ai-coach-get-you-to-a-sub-3-marathon",
-    "question": "Can an AI coach get you to a sub-3 marathon?",
-    "title": "Can an AI coach get you to a sub-3 marathon? One runner is testing it",
-    "description": "Not proven yet. I'm testing it on myself: five AI coaches plan my training for a sub-3 marathon at Chicago on October 10, 2027. Here are my real Garmin numbers, updated every month.",
-    "updated": "2026-11-18",
-    "answer": [
-      "Not proven yet. I'm testing it on myself. Five AI coaches plan my running, lifting, food and recovery for a sub-3 marathon at the Chicago Marathon on October 10, 2027, and I publish the numbers as they come in.",
-      "On {start_date_long}, my Garmin predicted a {start_marathon} marathon. On {now_date_long}, it said {now_marathon}. I need 2:59:59."
+ {
+  "slug": "can-an-ai-coach-get-you-to-a-sub-3-marathon",
+  "question": "Can an AI coach get you to a sub-3 marathon?",
+  "title": "Can an AI coach get you to a sub-3 marathon? One runner is testing it",
+  "description": "Not proven yet. I'm the test: five AI coaches plan my training for a sub-3 marathon at Chicago on October 10, 2027, and every real Garmin number goes up here, the bad ones too.",
+  "updated": "2026-11-20",
+  "answer": [
+   "Not proven yet. I'm the test. Five AI coaches plan my running, lifting, food and recovery for a sub-3 marathon at Chicago on October 10, 2027, and every number goes up here as it comes in, including the ones I'd rather hide.",
+   "On {start_date_long}, my Garmin said I'd run a {start_marathon} marathon. On {now_date_long}, it said {now_marathon}. Chicago asks for 2:59:59."
+  ],
+  "sections": [
+   {
+    "h2": "Where I am, from my Garmin",
+    "table": [
+     [
+      "Measure",
+      "Number",
+      "Date"
+     ],
+     [
+      "Garmin marathon prediction, first reading",
+      "{start_marathon}",
+      "{start_date_short}"
+     ],
+     [
+      "Garmin marathon prediction, latest",
+      "{now_marathon}",
+      "{now_date_short}"
+     ],
+     [
+      "Goal at Chicago",
+      "2:59:59",
+      "Oct 10, 2027"
+     ],
+     [
+      "Best threshold pace (per mile)",
+      "{threshold_best}",
+      "{threshold_best_month}"
+     ],
+     [
+      "Threshold pace now (per mile)",
+      "{threshold_now}",
+      "{threshold_now_month}"
+     ],
+     [
+      "Half marathon best",
+      "{half_pr}",
+      "{half_pr_month}"
+     ]
     ],
-    "sections": [
-      {
-        "h2": "Where I am, from my Garmin",
-        "table": [
-          [
-            "Measure",
-            "Number",
-            "Date"
-          ],
-          [
-            "Garmin marathon prediction, first reading",
-            "{start_marathon}",
-            "{start_date_short}"
-          ],
-          [
-            "Garmin marathon prediction, latest",
-            "{now_marathon}",
-            "{now_date_short}"
-          ],
-          [
-            "Goal at Chicago",
-            "2:59:59",
-            "Oct 10, 2027"
-          ],
-          [
-            "Best threshold pace (per mile)",
-            "{threshold_best}",
-            "{threshold_best_month}"
-          ],
-          [
-            "Threshold pace now (per mile)",
-            "{threshold_now}",
-            "{threshold_now_month}"
-          ],
-          [
-            "Half marathon best",
-            "{half_pr}",
-            "{half_pr_month}"
-          ]
-        ],
-        "paras": [
-          "Threshold pace is roughly the fastest pace I can hold for an hour, measured by my Garmin with a chest strap. I've been faster than I am today, which is part of why I think the gap can close."
-        ]
-      },
-      {
-        "h2": "How the AI coaching works",
-        "paras": [
-          "Kai, the running coach, builds every week from the latest marathon research and my Garmin data: speed first for a 5K, then a 10K, a half marathon, then Chicago. The plan climbs from about {week_plan_miles} miles a week now to a peak of about 90 in August 2027, with hills every week.",
-          "Rook, the head coach, settles it when the running, strength and nutrition coaches want different things. Anything I report, like pain, comes first. Then the race. Every change is written down with the rule behind it."
-        ]
-      },
-      {
-        "h2": "How you'll know if it worked",
-        "paras": [
-          "The test has checkpoints: a 5K on February 7, 2027, a 10K on May 15, a half marathon on September 5, then Chicago. Each result goes on this site with the official time. If the AI coaching falls short, that goes on here too."
-        ]
-      }
+    "paras": [
+     "Threshold pace is about the fastest pace I can hold for an hour, measured by my Garmin with a chest strap. I've been faster than I am today. That's a big part of why I think the gap can close."
     ]
-  },
-  {
-    "slug": "ai-coach-for-running-and-lifting",
-    "question": "Is there an AI coach for running and lifting together?",
-    "title": "AI coach for running and lifting together: how mine keeps them from colliding",
-    "description": "My AI coaching team plans running and strength training together. The head coach decides when they clash, so heavy leg work never lands the day before a hard run.",
-    "updated": "2026-11-18",
-    "answer": [
-      "Yes. Mine is a team: Kai plans the runs, Bo plans four short lifts a week, and Rook, the head coach, decides when they clash. The main rule: heavy leg work goes after the hard runs, never the day before one.",
-      "I'm using it to train for a sub-3 marathon at Chicago on October 10, 2027, and this is how my week actually looks."
+   },
+   {
+    "h2": "How the AI coaching works",
+    "paras": [
+     "Kai, the running coach, builds every week from the marathon research and my Garmin data. Speed comes first, for a 5K and then a 10K, before the half marathon and Chicago. The plan climbs from about {week_plan_miles} miles a week now to about 90 in August 2027, with hills every week.",
+     "Rook, the head coach, settles it when the others want different things from the same week. Pain I report goes on top, then the race. Every change gets written down with the rule behind it."
+    ]
+   },
+   {
+    "h2": "How you'll know if it worked",
+    "paras": [
+     "The test has checkpoints: a 5K on December 26, another on February 7, 2027, a 10K on May 15 and a half marathon on September 5. Then Chicago. Each result goes on this site with the official time. If the coaching falls short, that goes up here too."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "ai-coach-for-running-and-lifting",
+  "question": "Is there an AI coach for running and lifting together?",
+  "title": "AI coach for running and lifting together: how mine keeps them from colliding",
+  "description": "My AI coaching team plans running and strength together. Heavy leg work goes on the hard-run days, hours after the run, and never the day before a hard run or the long run.",
+  "updated": "2026-11-20",
+  "answer": [
+   "Mine is a team. Kai plans the runs, Bo plans three short lifts a week, and Rook, the head coach, decides when they collide. The rule that settles most fights: heavy leg work goes on the hard-run days, hours after the run, never the day before one.",
+   "I'm using it to train for a sub-3 marathon at Chicago on October 10, 2027. This is what my week actually looks like right now."
+  ],
+  "sections": [
+   {
+    "h2": "My week, running and lifting together",
+    "table": [
+     [
+      "Day",
+      "Run (morning)",
+      "Lift (about 1:30 PM)"
+     ],
+     [
+      "Monday",
+      "Easy run plus hill sprints",
+      "No lift"
+     ],
+     [
+      "Tuesday",
+      "Hill repeats or speed work",
+      "Heavy lower body, sets of three"
+     ],
+     [
+      "Wednesday",
+      "Easy run on Mission Trails",
+      "No lift"
+     ],
+     [
+      "Thursday",
+      "Rest or cross-train",
+      "Upper body, kept light enough to hold"
+     ],
+     [
+      "Friday",
+      "Threshold run",
+      "Jumps and power"
+     ],
+     [
+      "Saturday",
+      "Easy run",
+      "No legs: the long run is next"
+     ],
+     [
+      "Sunday",
+      "Long run",
+      "No lift"
+     ]
     ],
-    "sections": [
-      {
-        "h2": "My week, running and lifting together",
-        "table": [
-          [
-            "Day",
-            "Run",
-            "Lift"
-          ],
-          [
-            "Monday",
-            "Easy run",
-            "Speed bench press"
-          ],
-          [
-            "Tuesday",
-            "Easy run plus hill sprints",
-            "Heavy lower body, after the run"
-          ],
-          [
-            "Wednesday",
-            "Easy run",
-            "No lift"
-          ],
-          [
-            "Thursday",
-            "Rest or cross-train",
-            "Heavy upper body"
-          ],
-          [
-            "Friday",
-            "Fartlek (fast pickups)",
-            "Speed lower body, after the run"
-          ],
-          [
-            "Saturday",
-            "Rest",
-            "No legs: the long run is next"
-          ],
-          [
-            "Sunday",
-            "Long run",
-            "No lift"
-          ]
-        ],
-        "paras": [
-          "Each lift is short, about 40 to 45 minutes, and always after that day's run."
-        ]
-      },
-      {
-        "h2": "How the coaches settle a clash",
-        "paras": [
-          "Bo, the strength coach, wants my legs strong. Kai, the running coach, wants them fresh for the hard days. When they disagree, Rook decides in the same order every time: anything I report, like pain, first. Then the marathon. Then my weight. Then strength. So the run usually wins.",
-          "Lower-body days sit on the same days as the hard runs, after the run, so the legs get a full day or more before the next hard effort. Saturday stays free of leg work before the Sunday long run."
-        ]
-      },
-      {
-        "h2": "Who this is for",
-        "paras": [
-          "Right now it coaches one runner: me. If it gets me to Chicago, the people on the waitlist get to try it first. It isn't medical advice, and the coaches are AI characters."
-        ]
-      }
+    "paras": [
+     "Each lift is short, about 40 to 45 minutes, and always hours after that day's run."
     ]
-  },
-  {
-    "slug": "ai-running-coach-for-heavier-runners",
-    "question": "Is there an AI running coach for heavier runners?",
-    "title": "AI running coach for heavier runners: what mine watches for a 258 lb start",
-    "description": "I started training for a sub-3 marathon at 258 lb. Here is what my AI running coaches watch for me: easy effort by heart rate, daily foot checks, and steady eating.",
-    "updated": "2026-11-18",
-    "answer": [
-      "I started this at 258 lb, chasing a sub-3 marathon at Chicago in October 2027. My AI coaches don't treat that as a reason to go easy on the goal. They watch three things closely: how hard my easy runs really are, how my feet feel each morning, and whether I'm eating enough to run.",
-      "This is one heavier runner's setup, not medical advice."
+   },
+   {
+    "h2": "How the coaches settle a clash",
+    "paras": [
+     "Bo wants my legs strong. Kai wants them fresh for the hard days. When they disagree, Rook decides in the same order every time: pain I report first, then the marathon, then my weight, then strength. So the run usually wins, and Bo takes it better than you'd think.",
+     "Lower-body days land on the hard-run days, after the run, so my legs get a full day or more before the next hard effort. Saturday stays free of leg work before the Sunday long run."
+    ]
+   },
+   {
+    "h2": "Who this is for",
+    "paras": [
+     "Right now it coaches one runner: me. If it gets me to Chicago, the people on the waitlist get to try it first. It isn't medical advice, and the coaches are AI characters."
+    ]
+   }
+  ]
+ },
+ {
+  "slug": "ai-running-coach-for-heavier-runners",
+  "question": "Is there an AI running coach for heavier runners?",
+  "title": "AI running coach for heavier runners: what mine watches for a 258 lb start",
+  "description": "I started training for a sub-3 marathon at 258 lb. Here is what my AI coaches watch for me: easy runs by heart rate, a foot check every morning, and eating enough to run.",
+  "updated": "2026-11-20",
+  "answer": [
+   "I started this at 258 lb, chasing a sub-3 marathon at Chicago in October 2027. My coaches don't treat my size as a reason to shrink the goal. They treat it as a reason to watch a few things closely: how hard my easy runs really are, how my feet feel at first light, and whether I'm eating enough to do the work.",
+   "This is one heavier runner's setup, not medical advice."
+  ],
+  "sections": [
+   {
+    "h2": "What my coaches watch",
+    "table": [
+     [
+      "What",
+      "How",
+      "Why"
+     ],
+     [
+      "Easy runs stay easy",
+      "A heart-rate range learned from my own easy runs (109 to 120 bpm right now)",
+      "Pace alone would push me too hard on easy days"
+     ],
+     [
+      "Feet",
+      "A 0 to 10 check each morning, first steps out of bed",
+      "Pain I report goes to the top of the board and can change that day's run"
+     ],
+     [
+      "Weight comes down slowly",
+      "No more than about 2 lb a week, eating to hunger",
+      "The training needs the fuel"
+     ],
+     [
+      "Stroller runs",
+      "Logged for miles, left out of my pace readings",
+      "Pushing a jogging stroller up a hill makes pace meaningless"
+     ]
     ],
-    "sections": [
-      {
-        "h2": "What my coaches watch",
-        "table": [
-          [
-            "What",
-            "How",
-            "Why"
-          ],
-          [
-            "Easy runs stay easy",
-            "A heart-rate range learned from my own easy runs (109 to 120 bpm right now)",
-            "Pace alone would push me too hard on easy days"
-          ],
-          [
-            "Feet",
-            "A 0 to 10 check each morning, first steps out of bed",
-            "Pain I report is the one signal that changes a run that day"
-          ],
-          [
-            "Weight comes down slowly",
-            "No more than about 2 lb a week, eating to hunger",
-            "The training needs the fuel"
-          ],
-          [
-            "Stroller runs",
-            "Logged for miles, left out of my pace readings",
-            "Pushing my son in the jogging stroller makes pace meaningless"
-          ]
-        ],
-        "paras": []
-      },
-      {
-        "h2": "What hasn't changed because of my weight",
-        "paras": [
-          "The goal. The plan builds speed first, a 5K in February and a 10K in May, then marathon training: hills every week, long runs, and a peak of about 90 miles a week in August 2027. The numbers on this site show whether that works."
-        ]
-      }
+    "paras": []
+   },
+   {
+    "h2": "What hasn't changed because of my weight",
+    "paras": [
+     "The goal. Speed comes first, a 5K in February and a 10K in May, then marathon training with hills every week and about 90 miles a week at the peak in August 2027. The numbers on this site will show whether a runner my size can carry that."
     ]
-  }
+   }
+  ]
+ }
 ]

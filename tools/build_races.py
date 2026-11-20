@@ -222,8 +222,8 @@ def main():
   <div class="wrap">
     <p class="kicker">Got a race coming up?</p>
     <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
-    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches read my watch, my lifts and my meals, then argue about my week. {SHOW_NEXT}</p>
-    <p class="body">Right now they coach one runner: me. If they get me to Chicago, the people on this list get to try them first. Tell me your race so I know who to build it for.</p>
+    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches see everything my watch sees and argue about my week like it's theirs. {SHOW_NEXT}</p>
+    <p class="body">Right now they coach one runner: me. If they get me to Chicago, the people on this list are next. Tell me your race so I know who I'm building it for.</p>
     {WAITLIST_FORM}
   </div>
 </section>

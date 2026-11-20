@@ -188,20 +188,20 @@ def episodes_index(eps):
             f'<p>{esc(e["description"])}</p></a></li>' for e in reversed(eps))
         listing = f'<ul class="eplist">{items}</ul>'
     else:
-        listing = '<p class="body">Episode 1 comes out Sunday, November 22. Sign up and it lands in your inbox.</p>'
+        listing = '<p class="body">Episode 1 comes out Sunday, November 22. It&#x27;s the week the coaches got hired, and the first time they disagreed about me.</p>'
     series = {"@context": "https://schema.org", "@type": "CreativeWorkSeries", "name": "To The Finish",
               "url": SITE + "/", "description": desc}
     return head("Episodes | To The Finish, the AI running coach show", desc, path, ld(series)) + f"""    <div class="page">
       <p class="kicker">Season 1: The 5K</p>
       <h1 class="display">The <span class="o">episodes.</span></h1>
-      <p class="lead">One episode every Sunday, from the first week of training to the start line in Chicago. The numbers in them come off my watch.</p>
+      <p class="lead">One episode every Sunday, from the first week of training to the start line in Chicago. Each one is the week that really happened, with the times straight off my watch, including the runs that went sideways.</p>
     </div>
   </div>
 </header>
 <section>
   <div class="wrap">
     {listing}
-    <div style="margin-top:36px">{FORM.format(id='idx', button='Follow along')}</div>
+    <div style="margin-top:36px">{FORM.format(id='idx', button='Get the Sunday letter')}</div>
   </div>
 </section>
 """ + FOOT
@@ -216,25 +216,25 @@ def coach_page(qs=()):
     return head("AI Running Coach: five coaches, one sub-3 attempt | To The Finish", desc, path, ld(org)) + """    <div class="page">
       <p class="kicker">The coaches</p>
       <h1 class="display">My AI running <span class="o">coach.</span></h1>
-      <p class="lead">My AI running coach is a team of five, and they argue. Right now the setup coaches one runner: me, starting at 258 lb, training for a sub-3 marathon at Chicago on October 10, 2027.</p>
+      <p class="lead">My AI running coach is a team of five, and they argue. Right now they coach one runner: me. I started at 258 lb and I'm training for a sub-3 marathon at Chicago on October 10, 2027.</p>
     </div>
   </div>
 </header>
 <section>
   <div class="wrap prose">
     <h2>Who does what</h2>
-    <p><b>Kai</b> plans every run from my Garmin data: the easy days, the hill sprints, the long run, and the paces each one should feel like.</p>
-    <p><b>Bo</b> fits four short lifts around the running, and he always wants my legs on the wrong day.</p>
-    <p><b>Juno</b> plans my meals around the training and makes sure I eat enough to run.</p>
-    <p><b>Mo</b> keeps me healthy enough to keep training: sleep, aches and pains, prehab, and when I need an easier week.</p>
-    <p><b>Rook</b> is the head coach. When the others want different things from the same week, he decides.</p>
+    <p><b>Kai</b> plans every run from my Garmin data. He's usually facing east before the sun is up, already talking about the hill. His one law: easy days stay easy, even when I don't want them to.</p>
+    <p><b>Bo</b> fits short, heavy lifts around the running. He laughs louder than anyone and leaves chalk on everything, and he'll cut his own session short to protect a long run.</p>
+    <p><b>Juno</b> plans every meal around the training. She's quick and she teases, and she has no patience at all for me skipping breakfast before a hard run.</p>
+    <p><b>Mo</b> keeps me in one piece. He carries a roll of tape and a lacrosse ball, asks one precise question, and never clears pain to train.</p>
+    <p><b>Rook</b> is the head coach. When the others want different things from the same week, he moves a card on the board, says one line, and that's the call.</p>
     <h2>How it decides</h2>
-    <p>Rook settles every clash in the same order: anything I report, like pain, comes first. Then the race in Chicago. Then my weight. Then strength. So when Bo wants heavy legs the day before a hard run, the run usually wins.</p>
-    <p>The plan comes from real coaching methods, and every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
+    <p>Rook settles every clash in the same order. Pain I report comes first, then the race in Chicago, then my weight, then strength. So when Bo wants heavy legs the day before a hard run, the run wins, and Bo takes it better than you'd think.</p>
+    <p>The plan comes from the research and from coaching methods that have built real marathoners. Every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
-    <p>Not yet. It has to get me to Chicago first. If it does, the people on this list get to try it first.</p>
+    <p>Not yet. It has to get me to Chicago first. If it does, the people on this list are next.</p>
   </div>
 </section>
 <section>
