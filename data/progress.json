@@ -1,15 +1,15 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-20",
  "goal": "2:59:59",
  "start": {
   "date": "2026-10-19",
   "marathon": "4:39:49"
  },
  "now": {
-  "date": "2026-11-18",
-  "marathon": "4:34:04"
+  "date": "2026-11-20",
+  "marathon": "4:35:18"
  },
- "to_go_s": 5645,
+ "to_go_s": 5719,
  "gap": [
   {
    "date": "2026-10-19",
@@ -134,6 +134,14 @@
   {
    "date": "2026-11-18",
    "marathon": "4:34:04"
+  },
+  {
+   "date": "2026-11-19",
+   "marathon": "4:34:27"
+  },
+  {
+   "date": "2026-11-20",
+   "marathon": "4:35:18"
   }
  ],
  "engine": [
@@ -338,140 +346,140 @@
   {
    "week": 5,
    "monday": "2026-11-23",
-   "plan": 32,
+   "plan": 33,
    "done": null,
    "current": false
   },
   {
    "week": 6,
    "monday": "2026-11-30",
-   "plan": 39,
+   "plan": 37,
    "done": null,
    "current": false
   },
   {
    "week": 7,
    "monday": "2026-12-07",
-   "plan": 41,
+   "plan": 39,
    "done": null,
    "current": false
   },
   {
    "week": 8,
    "monday": "2026-12-14",
-   "plan": 44,
+   "plan": 31,
    "done": null,
    "current": false
   },
   {
    "week": 9,
    "monday": "2026-12-21",
-   "plan": 40,
+   "plan": 33,
    "done": null,
    "current": false
   },
   {
    "week": 10,
    "monday": "2026-12-28",
-   "plan": 48,
+   "plan": 42,
    "done": null,
    "current": false
   },
   {
    "week": 11,
    "monday": "2027-01-04",
-   "plan": 51,
+   "plan": 46,
    "done": null,
    "current": false
   },
   {
    "week": 12,
    "monday": "2027-01-11",
-   "plan": 49,
+   "plan": 36,
    "done": null,
    "current": false
   },
   {
    "week": 13,
    "monday": "2027-01-18",
-   "plan": 49,
+   "plan": 47,
    "done": null,
    "current": false
   },
   {
    "week": 14,
    "monday": "2027-01-25",
-   "plan": 43,
+   "plan": 46,
    "done": null,
    "current": false
   },
   {
    "week": 15,
    "monday": "2027-02-01",
-   "plan": 30,
+   "plan": 34,
    "done": null,
    "current": false
   },
   {
    "week": 16,
    "monday": "2027-02-08",
-   "plan": 45,
+   "plan": 40,
    "done": null,
    "current": false
   },
   {
    "week": 17,
    "monday": "2027-02-15",
-   "plan": 50,
+   "plan": 45,
    "done": null,
    "current": false
   },
   {
    "week": 18,
    "monday": "2027-02-22",
-   "plan": 53,
+   "plan": 50,
    "done": null,
    "current": false
   },
   {
    "week": 19,
    "monday": "2027-03-01",
-   "plan": 55,
+   "plan": 53,
    "done": null,
    "current": false
   },
   {
    "week": 20,
    "monday": "2027-03-08",
-   "plan": 56,
+   "plan": 43,
    "done": null,
    "current": false
   },
   {
    "week": 21,
    "monday": "2027-03-15",
-   "plan": 53,
+   "plan": 55,
    "done": null,
    "current": false
   },
   {
    "week": 22,
    "monday": "2027-03-22",
-   "plan": 52,
+   "plan": 59,
    "done": null,
    "current": false
   },
   {
    "week": 23,
    "monday": "2027-03-29",
-   "plan": 52,
+   "plan": 60,
    "done": null,
    "current": false
   },
   {
    "week": 24,
    "monday": "2027-04-05",
-   "plan": 62,
+   "plan": 47,
    "done": null,
    "current": false
   },
@@ -485,70 +493,70 @@
   {
    "week": 26,
    "monday": "2027-04-19",
-   "plan": 58,
+   "plan": 62,
    "done": null,
    "current": false
   },
   {
    "week": 27,
    "monday": "2027-04-26",
-   "plan": 59,
+   "plan": 61,
    "done": null,
    "current": false
   },
   {
    "week": 28,
    "monday": "2027-05-03",
-   "plan": 55,
+   "plan": 56,
    "done": null,
    "current": false
   },
   {
    "week": 29,
    "monday": "2027-05-10",
-   "plan": 41,
+   "plan": 44,
    "done": null,
    "current": false
   },
   {
    "week": 30,
    "monday": "2027-05-17",
-   "plan": 48,
+   "plan": 44,
    "done": null,
    "current": false
   },
   {
    "week": 31,
    "monday": "2027-05-24",
-   "plan": 58,
+   "plan": 55,
    "done": null,
    "current": false
   },
   {
    "week": 32,
    "monday": "2027-05-31",
-   "plan": 64,
+   "plan": 60,
    "done": null,
    "current": false
   },
   {
    "week": 33,
    "monday": "2027-06-07",
-   "plan": 63,
+   "plan": 65,
    "done": null,
    "current": false
   },
   {
    "week": 34,
    "monday": "2027-06-14",
-   "plan": 63,
+   "plan": 50,
    "done": null,
    "current": false
   },
   {
    "week": 35,
    "monday": "2027-06-21",
-   "plan": 70,
+   "plan": 66,
    "done": null,
    "current": false
   },
@@ -562,28 +570,28 @@
   {
    "week": 37,
    "monday": "2027-07-05",
-   "plan": 63,
+   "plan": 61,
    "done": null,
    "current": false
   },
   {
    "week": 38,
    "monday": "2027-07-12",
-   "plan": 70,
+   "plan": 71,
    "done": null,
    "current": false
   },
   {
    "week": 39,
    "monday": "2027-07-19",
-   "plan": 77,
+   "plan": 56,
    "done": null,
    "current": false
   },
   {
    "week": 40,
    "monday": "2027-07-26",
-   "plan": 65,
+   "plan": 72,
    "done": null,
    "current": false
   },
@@ -597,7 +605,7 @@
   {
    "week": 42,
    "monday": "2027-08-09",
-   "plan": 78,
+   "plan": 77,
    "done": null,
    "current": false
   },
@@ -611,49 +619,49 @@
   {
    "week": 44,
    "monday": "2027-08-23",
-   "plan": 70,
+   "plan": 78,
    "done": null,
    "current": false
   },
   {
    "week": 45,
    "monday": "2027-08-30",
-   "plan": 79,
+   "plan": 68,
    "done": null,
    "current": false
   },
   {
    "week": 46,
    "monday": "2027-09-06",
-   "plan": 77,
+   "plan": 74,
    "done": null,
    "current": false
   },
   {
    "week": 47,
    "monday": "2027-09-13",
-   "plan": 81,
+   "plan": 76,
    "done": null,
    "current": false
   },
   {
    "week": 48,
    "monday": "2027-09-20",
-   "plan": 90,
+   "plan": 61,
    "done": null,
    "current": false
   },
   {
    "week": 49,
    "monday": "2027-09-27",
-   "plan": 69,
+   "plan": 50,
    "done": null,
    "current": false
   },
   {
    "week": 50,
    "monday": "2027-10-04",
-   "plan": 65,
+   "plan": 30,
    "done": null,
    "current": false
   }
@@ -696,25 +704,25 @@
   {
    "name": "5K",
    "date": "2027-02-06",
-   "today": "24:27",
+   "today": "24:34",
    "goal": null
   },
   {
    "name": "10K",
    "date": "2027-05-15",
-   "today": "53:07",
+   "today": "53:22",
    "goal": null
   },
   {
    "name": "Half marathon",
    "date": "2027-09-05",
-   "today": "2:01:48",
+   "today": "2:02:22",
    "goal": null
   },
   {
    "name": "Chicago Marathon",
    "date": "2027-10-10",
-   "today": "4:34:04",
+   "today": "4:35:18",
    "goal": "2:59:59"
   }
  ]
