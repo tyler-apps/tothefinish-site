@@ -1191,10 +1191,10 @@
    {
     "monday": "2026-11-16",
     "kai": 7,
-    "rook": 49
+    "rook": 50
    }
   ],
-  "decisions_total": 68,
+  "decisions_total": 69,
   "watch_days": 73,
   "zones": [
    86,
@@ -1482,6 +1482,43 @@
     "carbs": 103,
     "protein": 154,
     "work": "rest"
+   }
+  ]
+ },
+ "board": {
+  "cards": [
+   "Pain I report",
+   "Chicago sub-3",
+   "Weight",
+   "Strength"
+  ],
+  "rulings": [
+   {
+    "date": "2026-11-20",
+    "card": "Chicago sub-3",
+    "coaches": [
+     "Juno",
+     "Kai"
+    ],
+    "text": "Juno was keeping carbs low to bring my weight down. Kai wanted fuel for the hard days. Chicago sits above weight, so rice, honey and sweet potatoes came back around the hard runs."
+   },
+   {
+    "date": "2026-11-16",
+    "card": "Chicago sub-3",
+    "coaches": [
+     "Bo",
+     "Kai"
+    ],
+    "text": "Bo's lower-body day was on Saturday, the day before Kai's long run. The legs moved to Friday, a few hours after the hard run, and Saturday stays legs-free."
+   },
+   {
+    "date": "2026-11-15",
+    "card": "Chicago sub-3",
+    "coaches": [
+     "Bo",
+     "Kai"
+    ],
+    "text": "Bo wanted fast box squats on Wednesday. Kai had threshold at dawn on Thursday and wanted fresh legs for it. Chicago sits above strength, so the squats moved to Saturday."
    }
   ]
  },

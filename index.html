@@ -82,6 +82,19 @@ form.join button:hover{filter:brightness(1.06)}
 .race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
 .race .v.o{color:var(--orange)}
 
+/* the board */
+.boardimg{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
+.cards{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+.cards li{display:flex;align-items:center;gap:14px;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;line-height:1}
+.cards li .n{color:var(--muted);font-size:20px;width:22px}
+.cards li.won{border-color:var(--orange)}
+.cards li .mag{margin-left:auto;width:22px;height:22px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px rgba(255,106,31,.7)}
+.ruling{margin-top:16px;padding:14px 16px;border-left:4px solid var(--orange);background:var(--ink-2);border-radius:10px}
+.ruling .d{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.ruling p{margin:6px 0 0;font-size:17px;line-height:1.45}
+.ruling.old{border-left-color:var(--line)}
+.ruling.old p{color:var(--muted);font-size:15px}
+
 /* coach strip + coach lines */
 .chips{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
 .chip{display:flex;flex-direction:column;gap:6px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--white)}
@@ -183,13 +196,28 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <p class="kicker">Who's watching what</p>
     <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Every coach guards <span class="o">a number.</span></h2>
-    <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on the board and that's the end of it. Pain always goes on top. Tap a coach to see what they're watching this week.</p>
+    <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on <a href="#board">the board</a> and that's the end of it. Tap a coach to see what they're watching this week.</p>
     <div class="chips">
       <a class="chip" href="#progress"><img src="assets/rook.jpg" alt=""><b>Rook</b><span>Head coach · the gap to sub-3, every call logged</span></a>
       <a class="chip" href="#kai"><img src="assets/kai.jpg" alt=""><b>Kai</b><span>Running · threshold pace, race fitness, easy-run efficiency, miles, zones</span></a>
       <a class="chip" href="#mo"><img src="assets/mo.jpg" alt=""><b>Mo</b><span>Recovery · how easy the easy days are, no big jumps in run length</span></a>
       <a class="chip" href="#bo"><img src="assets/bo.jpg" alt=""><b>Bo</b><span>Strength · heavy top sets, short lifts after the run</span></a>
       <a class="chip" href="#juno"><img src="assets/juno.jpg" alt=""><b>Juno</b><span>Fuel · carbs that follow the work</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="board" id="board">
+  <div class="wrap two">
+    <div>
+      <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
+    </div>
+    <div>
+      <p class="kicker">Rook · The board</p>
+      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Four cards. <span class="o">One magnet.</span></h2>
+      <p class="body" style="margin-top:14px">When two coaches want the same morning, Rook doesn't debate it. He checks where their cards sit and moves one. The magnet shows who won. Pain I report always goes on top.</p>
+      <ol class="cards" id="b-cards"></ol>
+      <div id="b-rulings"></div>
     </div>
   </div>
 </section>
@@ -614,6 +642,18 @@ footer p{margin:14px 0 0;line-height:1.5}
           el(s3,'text',{x:bx+w/2,y:H3-B3+24,'text-anchor':'middle',class:'m','font-size':16*F3},DW[day(x.date).getDay()]);
           el(s3,'text',{x:bx+w/2,y:H3-B3+46,'text-anchor':'middle',class:'m','font-size':13*F3,fill:hot?OR:'#a8a29e'},TAG[x.work]||'');});
         el(s3,'text',{x:L3,y:T3-14,class:'m','font-size':15*F3},'GRAMS OF CARBS A DAY · NEXT 7 DAYS');}
+    })();
+
+    /* 3f. the board: priority cards, the magnet on the newest ruling's card, the rulings */
+    (function(){
+      var B=D.board; if(!B||!B.cards) return;
+      var won=B.rulings&&B.rulings.length?B.rulings[0].card:null, ol=document.getElementById('b-cards');
+      B.cards.forEach(function(c,i){var li=document.createElement('li'); if(c===won) li.className='won';
+        li.innerHTML='<span class="n">'+(i+1)+'</span>'+c+(c===won?'<span class="mag" aria-label="Rook\'s magnet"></span>':'');
+        if(i===0&&c!==won) li.title='Nothing on this card yet. When there is, it wins.'; ol.appendChild(li);});
+      var rb=document.getElementById('b-rulings');
+      (B.rulings||[]).forEach(function(r,i){var x=day(r.date),d=document.createElement('div');d.className='ruling'+(i?' old':'');
+        d.innerHTML='<div class="d">'+(i?'':'Latest call · ')+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+md(r.date)+' · '+r.coaches.join(' vs ')+'</div><p>'+r.text+'</p>';rb.appendChild(d);});
     })();
 
     /* 4. the races */
