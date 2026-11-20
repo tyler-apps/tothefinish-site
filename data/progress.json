@@ -1204,31 +1204,297 @@
    164
   ],
   "zones_max": 171,
-  "measured": [
+  "easy_top": null
+ },
+ "mo": {
+  "easy": [
    {
-    "what": "Max heart rate",
-    "garmin": 185,
-    "ours": 171,
-    "unit": "bpm",
-    "how": "highest on the chest strap in a year, plus 5"
+    "monday": "2026-09-28",
+    "easy": 64,
+    "steady": 36,
+    "hard": 0,
+    "minutes": 85
    },
    {
-    "what": "Threshold heart rate",
-    "garmin": 161,
-    "ours": 160,
-    "unit": "bpm",
-    "how": "from my last race, minute 10 to the finish"
+    "monday": "2026-10-12",
+    "easy": 48,
+    "steady": 52,
+    "hard": 0,
+    "minutes": 176
    },
    {
-    "what": "Fitness",
-    "garmin": 49.9,
-    "ours": 41.8,
-    "unit": "",
-    "glabel": "Garmin VO2 max",
-    "olabel": "Race fitness score",
-    "how": "race fitness (VDOT) from threshold pace; races confirm it"
+    "monday": "2026-10-19",
+    "easy": 44,
+    "steady": 56,
+    "hard": 0,
+    "minutes": 324
+   },
+   {
+    "monday": "2026-10-26",
+    "easy": 86,
+    "steady": 14,
+    "hard": 0,
+    "minutes": 204
+   },
+   {
+    "monday": "2026-11-02",
+    "easy": 65,
+    "steady": 35,
+    "hard": 0,
+    "minutes": 319
+   },
+   {
+    "monday": "2026-11-09",
+    "easy": 69,
+    "steady": 31,
+    "hard": 0,
+    "minutes": 305
+   },
+   {
+    "monday": "2026-11-16",
+    "easy": 76,
+    "steady": 24,
+    "hard": 0,
+    "minutes": 204
    }
   ],
-  "easy_top": null
+  "spike": [
+   {
+    "date": "2026-09-29",
+    "minutes": 45,
+    "cap": 79
+   },
+   {
+    "date": "2026-10-01",
+    "minutes": 40,
+    "cap": 79
+   },
+   {
+    "date": "2026-10-13",
+    "minutes": 35,
+    "cap": 50
+   },
+   {
+    "date": "2026-10-16",
+    "minutes": 85,
+    "cap": 50
+   },
+   {
+    "date": "2026-10-18",
+    "minutes": 55,
+    "cap": 94
+   },
+   {
+    "date": "2026-10-19",
+    "minutes": 79,
+    "cap": 94
+   },
+   {
+    "date": "2026-10-21",
+    "minutes": 53,
+    "cap": 94
+   },
+   {
+    "date": "2026-10-22",
+    "minutes": 22,
+    "cap": 94
+   },
+   {
+    "date": "2026-10-23",
+    "minutes": 100,
+    "cap": 94
+   },
+   {
+    "date": "2026-10-25",
+    "minutes": 69,
+    "cap": 110
+   },
+   {
+    "date": "2026-10-26",
+    "minutes": 19,
+    "cap": 110
+   },
+   {
+    "date": "2026-10-27",
+    "minutes": 70,
+    "cap": 110
+   },
+   {
+    "date": "2026-10-28",
+    "minutes": 67,
+    "cap": 110
+   },
+   {
+    "date": "2026-10-30",
+    "minutes": 18,
+    "cap": 110
+   },
+   {
+    "date": "2026-10-31",
+    "minutes": 29,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-02",
+    "minutes": 40,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-03",
+    "minutes": 53,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-04",
+    "minutes": 60,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-05",
+    "minutes": 53,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-06",
+    "minutes": 69,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-07",
+    "minutes": 44,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-09",
+    "minutes": 76,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-11",
+    "minutes": 65,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-12",
+    "minutes": 81,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-13",
+    "minutes": 47,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-14",
+    "minutes": 36,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-16",
+    "minutes": 40,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-17",
+    "minutes": 79,
+    "cap": 110
+   },
+   {
+    "date": "2026-11-18",
+    "minutes": 85,
+    "cap": 110
+   }
+  ],
+  "next_cap": 110,
+  "easy_top": 120,
+  "hard_from": 152
+ },
+ "bo": {
+  "best": [
+   {
+    "lift": "Box squat",
+    "lb": 295,
+    "reps": 1,
+    "date": "2026-11-09",
+    "first_lb": 255,
+    "first_date": "2026-05-25"
+   },
+   {
+    "lift": "Overhead press",
+    "lb": 120,
+    "reps": 1,
+    "date": "2026-11-06",
+    "first_lb": 120,
+    "first_date": "2026-11-06"
+   },
+   {
+    "lift": "Bench press",
+    "lb": 150,
+    "reps": 1,
+    "date": "2026-11-11",
+    "first_lb": 150,
+    "first_date": "2026-11-11"
+   }
+  ],
+  "sessions": 5,
+  "since": "2026-05-25"
+ },
+ "juno": {
+  "week": [
+   {
+    "date": "2026-11-20",
+    "carbs": 216,
+    "protein": 156,
+    "work": "hard"
+   },
+   {
+    "date": "2026-11-21",
+    "carbs": 172,
+    "protein": 158,
+    "work": "easy"
+   },
+   {
+    "date": "2026-11-22",
+    "carbs": 238,
+    "protein": 158,
+    "work": "long"
+   },
+   {
+    "date": "2026-11-23",
+    "carbs": 151,
+    "protein": 156,
+    "work": "easy"
+   },
+   {
+    "date": "2026-11-24",
+    "carbs": 216,
+    "protein": 156,
+    "work": "hard"
+   },
+   {
+    "date": "2026-11-25",
+    "carbs": 110,
+    "protein": 152,
+    "work": "easy"
+   },
+   {
+    "date": "2026-11-26",
+    "carbs": 103,
+    "protein": 154,
+    "work": "rest"
+   }
+  ]
+ },
+ "to_go_txt": "1:35:19",
+ "lines": {
+  "rook": "Tyler, 1:35:19 to find. About two minutes a week. Shoes on.",
+  "kai_eff": "Tyler, 1.14 meters a beat. Flat for now. Trail weeks hide it. Patience, it climbs.",
+  "kai_vdot": "41.8 today, 49.4 at your best. The Dec 26 5K puts a real dot on this. Race it honest.",
+  "kai_engine": "You've held this pace before, Tyler. The engine remembers. Easy miles bring it back.",
+  "kai_year": "Out the door. Miles go up a little at a time, with a down week every few weeks.",
+  "mo_easy": "Tyler, 69% easy last week. The research asks for 80. Slow the easy days down.",
+  "mo_spike": "Your longest run lately sets the ceiling. Nothing past about 110 minutes until a new long run moves it. One piece at a time.",
+  "bo": "Tyler! 295 on the box squat. Heavy and fast makes every stride cheaper. Run first, then we lift. BOOM.",
+  "juno": "Tyler. About 223 grams of carbs on hard days, 134 on easy ones. Carbs follow the work. Don't you dare skip the banana."
  }
 }

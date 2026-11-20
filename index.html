@@ -82,13 +82,27 @@ form.join button:hover{filter:brightness(1.06)}
 .race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
 .race .v.o{color:var(--orange)}
 
+/* coach strip + coach lines */
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+.chip{display:flex;flex-direction:column;gap:6px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--white)}
+.chip:hover{border-color:var(--orange)}
+.chip img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.chip b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
+.chip span{color:var(--muted);font-size:14px;line-height:1.35}
+.say{display:flex;gap:14px;align-items:flex-start;margin:18px 0 0;padding:16px 18px;background:var(--ink-2);border-left:4px solid var(--orange);border-radius:10px}
+.say img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.say p{margin:0;font-size:18px;line-height:1.45;color:var(--white)}
+.say cite{display:block;margin-top:6px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+@media (max-width:900px){.chips{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.chips{grid-template-columns:1fr}.chip{flex-direction:row;align-items:center}.chip img{width:44px;height:44px}}
+
 /* machine */
 .loop{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
 .loop .step{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
 .loop .n{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;color:var(--orange)}
 .loop h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;margin:2px 0 6px;line-height:1}
 .loop p{color:var(--muted);font-size:15px;line-height:1.4;margin:0}
-.machine .sub{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:40px 0 0}
+.sub{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:40px 0 0}
 @media (max-width:900px){.loop{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.loop{grid-template-columns:1fr}}
 
@@ -156,20 +170,35 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </header>
 
+<section class="coachstrip">
+  <div class="wrap">
+    <p class="kicker">Who tracks what</p>
+    <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Five coaches. <span class="o">Each one owns a number.</span></h2>
+    <div class="chips">
+      <a class="chip" href="#progress"><img src="assets/rook.jpg" alt=""><b>Rook</b><span>Head coach · the gap to sub-3, every call logged</span></a>
+      <a class="chip" href="#kai"><img src="assets/kai.jpg" alt=""><b>Kai</b><span>Running · threshold pace, race fitness, easy-run efficiency, miles, zones</span></a>
+      <a class="chip" href="#mo"><img src="assets/mo.jpg" alt=""><b>Mo</b><span>Recovery · how easy the easy days are, no big jumps in run length</span></a>
+      <a class="chip" href="#bo"><img src="assets/bo.jpg" alt=""><b>Bo</b><span>Strength · heavy top sets, short lifts after the run</span></a>
+      <a class="chip" href="#juno"><img src="assets/juno.jpg" alt=""><b>Juno</b><span>Fuel · carbs that follow the work</span></a>
+    </div>
+  </div>
+</section>
+
 <section id="progress">
   <div class="wrap">
-    <p class="kicker">Where I am</p>
+    <p class="kicker">Rook · Where I am</p>
     <h2 class="display gap-head"><span data-k="now">4:34:04</span><span class="arrow">to</span><span class="o">2:59:59</span></h2>
     <p class="body" style="margin-top:22px">The first number is my marathon time today, according to my Garmin. The second is what I need at Chicago. That's <b data-k="togo">1:34:05</b> to find, which works out to about <b data-k="perweek">2 minutes</b> faster every week until race day. Since <span data-k="firstday">October 19</span> it's come down <b data-k="sofar">5:45</b>.</p>
     <div class="chart"><svg id="c-gap" viewBox="0 0 1000 440" role="img" aria-label="Garmin marathon prediction by day against the 2:59:59 goal"></svg></div>
     <p class="note">Garmin race predictor, updated after every run. First reading <span data-k="first">Oct 19, 2026: 4:39:49</span>. Last update <span data-k="updated">Nov 18, 2026</span>.</p>
+    <blockquote class="say"><img src="assets/rook.jpg" alt="" width="48" height="48"><div><p data-line="rook"></p><cite>Rook</cite></div></blockquote>
   </div>
 </section>
 
-<section>
+<section id="kai">
   <div class="wrap two">
     <div>
-      <p class="kicker">Where I've been</p>
+      <p class="kicker">Kai · Where I've been</p>
       <h2 class="display">I've been <span class="o">faster.</span></h2>
       <p class="body">In June 2024 I ran a half marathon in <b data-k="halfpr">1:32:31</b>.</p>
       <p class="body">By <span data-k="ltbestdate">August 2025</span> my threshold pace, roughly the fastest pace I can hold for an hour, was down to <b data-k="ltbest">6:42</b> a mile.</p>
@@ -178,6 +207,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <div>
       <div class="chart" style="margin-top:0"><svg id="c-engine" viewBox="0 0 1000 560" role="img" aria-label="Lactate threshold pace from late 2024 to today"></svg></div>
       <p class="note">Lactate-threshold pace from my Garmin, per mile. Higher on the chart is faster.</p>
+      <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_engine"></p><cite>Kai</cite></div></blockquote>
     </div>
   </div>
 </section>
@@ -185,37 +215,40 @@ footer p{margin:14px 0 0;line-height:1.5}
 
 <section>
   <div class="wrap">
-    <p class="kicker">The honest line</p>
+    <p class="kicker">Kai · The honest line</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">Fitter at the <span class="o">same heart rate.</span></h2>
     <p class="body" style="margin-top:18px">How far I go for every heartbeat on an easy run. When the engine builds, the same easy effort covers more ground, so this line climbs. It's the slowest, most honest number on this page. Right now it's <b data-k="mpbnow">1.14</b> meters a beat.</p>
     <div class="chart"><svg id="c-eff" viewBox="0 0 1000 380" role="img" aria-label="Meters per heartbeat on easy runs, four-week rolling"></svg></div>
     <p class="note">Easy runs only (average heart rate under 125, two miles or more, no stroller runs), hills evened out with Garmin's grade-adjusted pace, four-week rolling middle. Most of my easy miles moved onto Mission Trails dirt this month, and trails add noise this measure doesn't fully remove.</p>
+    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_eff"></p><cite>Kai</cite></div></blockquote>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="kicker">The race number</p>
+    <p class="kicker">Kai · The race number</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
     <p class="body" style="margin-top:18px">VDOT is a race fitness score: one number that turns any race time into the times you can run at every other distance. Sub-3 at Chicago takes about <b>53.5</b>. My best race ever scored <b data-k="vdbest">49.4</b>. Today my threshold pace says about <b data-k="vdnow2">41.8</b>. The rings are Kai's targets for each race on the way.</p>
     <div class="chart"><svg id="c-vdot" viewBox="0 0 1000 440" role="img" aria-label="Race fitness score (VDOT) from races and threshold pace, with the targets to a sub-3 Chicago"></svg></div>
-    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, and the watch's threshold reading runs rough, so read it as a trend. Every race on the plan adds a dot and resets my paces.</p>
+    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, so read it as a trend. Every race on the plan adds a dot and resets my paces.</p>
+    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_vdot"></p><cite>Kai</cite></div></blockquote>
   </div>
 </section>
 
 <section class="year">
   <div class="wrap">
-    <p class="kicker">What's ahead</p>
+    <p class="kicker">Kai · What's ahead</p>
     <h2 class="display"><span data-k="weeksleft">47</span> weeks. <span class="o">Up to <span data-k="peak">78</span> miles a week.</span></h2>
     <p class="body">Each bar is a week. The outlines are Kai's plan: <span data-k="nowplan">32</span> miles a week now, climbing toward the peak in <span data-k="peakmonth">August</span>. Orange is what I've actually run, including the eight weeks before the plan started.</p>
     <div class="chart"><svg id="c-year" viewBox="0 0 1000 380" role="img" aria-label="Planned and actual weekly miles to Chicago"></svg></div>
     <p class="note">Weekly miles, Monday to Sunday, from my Garmin. Race weeks are marked.</p>
+    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_year"></p><cite>Kai</cite></div></blockquote>
   </div>
 </section>
 
 <section class="races">
   <div class="wrap">
-    <p class="kicker">The races</p>
+    <p class="kicker">Kai · The races</p>
     <h2 class="display">Four races, <span class="o">then Chicago.</span></h2>
     <div class="rgrid" id="races"></div>
     <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today. "Kai's target" is the time that keeps sub-3 on track at that point in the year.</p>
@@ -227,9 +260,47 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 
+<section id="mo">
+  <div class="wrap">
+    <p class="kicker">Mo · Recovery</p>
+    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Easy days easy. <span class="o">No big jumps.</span></h2>
+    <p class="body" style="margin-top:18px">Two numbers from my runs keep me in one piece. World-class distance runners keep at least 80% of their running easy. And in a study of 5,205 runners on Garmin watches, one run more than 10% longer than the longest of the 30 days before it raised overuse injury risk 1.64 times. Weekly mileage rules predicted nothing.</p>
+    <h3 class="sub">How easy were the easy days?</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-easy" viewBox="0 0 1000 360" role="img" aria-label="Share of running time easy, steady and hard by week"></svg></div>
+    <p class="note">Running time by lap heart rate: easy is my zone 2 or below (under <span data-k="easytop">121</span>), hard is threshold and up (<span data-k="hardfrom">152</span>+), steady is everything between. Hills on Mission Trails push some easy miles into steady.</p>
+    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_easy"></p><cite>Mo</cite></div></blockquote>
+    <h3 class="sub">No run too far past the last long one</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-spike" viewBox="0 0 1000 360" role="img" aria-label="Each run's minutes against the safe ceiling"></svg></div>
+    <p class="note">Each dot is a run, in minutes (trail miles are slower, so time is the fair measure). The line is 10% past the longest run of the 30 days before it.</p>
+    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_spike"></p><cite>Mo</cite></div></blockquote>
+  </div>
+</section>
+
+<section id="bo">
+  <div class="wrap">
+    <p class="kicker">Bo · Strength</p>
+    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Heavy and fast. <span class="o">After the run.</span></h2>
+    <p class="body" style="margin-top:18px">Across the studies, heavy lifting plus jumps gave the biggest gain in race performance of any strength method. Light circuits did nothing for running economy. In masters marathoners around 44, heavy work made marathon pace 6.2% cheaper. So the lifts are short, heavy, sets of three, never a grind, hours after the morning run. Four days a week now, three from February, two in the marathon block.</p>
+    <div class="rgrid" id="bo-lifts"></div>
+    <blockquote class="say"><img src="assets/bo.jpg" alt="" width="48" height="48"><div><p data-line="bo"></p><cite>Bo</cite></div></blockquote>
+  </div>
+</section>
+
+<section id="juno">
+  <div class="wrap">
+    <p class="kicker">Juno · Fuel</p>
+    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Carbs follow <span class="o">the work.</span></h2>
+    <p class="body" style="margin-top:18px">Hard and long days get rice, honey, fruit and potatoes around the run. Easy days stay light. Protein holds steady every day. Any run past an hour gets about 60 grams of carbs an hour during it.</p>
+    <div class="chart"><svg id="c-fuel" viewBox="0 0 1000 380" role="img" aria-label="Grams of carbs a day for the next seven days, by the run that day"></svg></div>
+    <p class="note">Grams of carbs a day from my meal plan, the next seven days. Orange days have a hard or long run.</p>
+    <blockquote class="say"><img src="assets/juno.jpg" alt="" width="48" height="48"><div><p data-line="juno"></p><cite>Juno</cite></div></blockquote>
+  </div>
+</section>
+
+
 <section class="machine">
   <div class="wrap">
-    <p class="kicker">How the coaching works</p>
+    <p class="kicker">Rook · How the coaching works</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:12px">Every run, read. <span class="o">The plan rewrites itself.</span></h2>
     <p class="body">No one types my workouts in. The watch and a chest strap record every run. The coaches read it within minutes, change what the research says to change, and send the new workout back to my wrist. These are the live counts.</p>
     <div class="rgrid" id="m-stats"></div>
@@ -245,13 +316,9 @@ footer p{margin:14px 0 0;line-height:1.5}
     <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 360" role="img" aria-label="Logged coaching decisions by week"></svg></div>
     <p class="note">Each one is a dated line in the coaches' logs: a pace target that moved, a run rewritten, a zone reset, a plan change. Orange are Kai's own automatic calls from the data. White are head-coach decisions across the plan.</p>
 
-    <h3 class="sub">Measured, not guessed</h3>
-    <div class="chart" style="margin-top:12px"><svg id="c-meas" viewBox="0 0 1000 360" role="img" aria-label="Garmin's estimates against what my strap and races measured"></svg></div>
-    <p class="note">Watches estimate from formulas. The coaches measure from my own strap and races, then set those numbers on the watch. Garmin's max heart rate guess was one I have never reached in two years of runs.</p>
-
-    <h3 class="sub">My heart-rate zones, set from my own race</h3>
+    <h3 class="sub">My heart-rate zones, set by Kai from my own race</h3>
     <div class="chart" style="margin-top:12px"><svg id="c-zones" viewBox="0 0 1000 200" role="img" aria-label="Heart-rate zones on my watch"></svg></div>
-    <p class="note">Threshold comes from my last race, minute 10 to the finish. The coaches re-check the zones after every sync and put them back if the watch moves them. Next, the strap's beat-to-beat data will measure exactly where easy ends.</p>
+    <p class="note">Threshold comes from my last race, minute 10 to the finish. Kai re-checks them after every sync and moves them only on a race or a field test. Next, the strap's beat-to-beat data will measure exactly where easy ends.</p>
   </div>
 </section>
 
@@ -462,13 +529,13 @@ footer p{margin:14px 0 0;line-height:1.5}
       el(s,'text',{x:L,y:T-16,class:'m','font-size':15*F},N?'VDOT · HIGHER IS FITTER':'RACE FITNESS SCORE (VDOT) · HIGHER IS FITTER');
     })();
 
-    /* 3d. the machine: live counts, decisions by week, measured vs guessed, zones */
+    /* 3d. the machine: live counts, decisions by week, zones */
     (function(){
       var S=D.system; if(!S) return;
       var st=document.getElementById('m-stats');
       [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Sync check','10 min']].forEach(function(t){
         var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+t[1]+'</div>'; st.appendChild(c);});
-      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=60,R=30,T=40,B=50,P=S.decisions;
+      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=N?80:60,R=30,T=40,B=50,P=S.decisions;
       s.setAttribute('viewBox','0 0 '+W+' '+H);
       if(P.length){var mx=Math.max.apply(null,P.map(function(p){return p.kai+p.rook;}))||1,top=Math.ceil(mx/10)*10,bw=(W-L-R)/P.length;
         function Y(v){return T+(1-v/top)*(H-T-B);}
@@ -476,18 +543,8 @@ footer p{margin:14px 0 0;line-height:1.5}
         P.forEach(function(p,i){var x=L+i*bw+bw*0.18,w=bw*0.64;
           if(p.kai) el(s,'rect',{x:x,y:Y(p.kai),width:w,height:H-B-Y(p.kai),fill:OR,rx:3});
           if(p.rook) el(s,'rect',{x:x,y:Y(p.kai+p.rook),width:w,height:Y(p.kai)-Y(p.kai+p.rook),fill:WH,rx:3});
-          el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':16*F},md(p.monday));});
+          el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':N?22:16},md(p.monday));});
         el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'DECISIONS A WEEK':'LOGGED DECISIONS A WEEK · KAI AUTOMATIC (ORANGE) · HEAD COACH (WHITE)');}
-      var m=document.getElementById('c-meas'),M=S.measured||[];
-      if(M.length){var Wm=N?600:1000,Hm=60+M.length*(N?130:100); m.setAttribute('viewBox','0 0 '+Wm+' '+Hm);
-        var Lm=N?20:300,Rm=40;
-        M.forEach(function(r,i){var y=40+i*(N?130:100),mxv=Math.max(r.garmin,r.ours),sc=(Wm-Lm-(N?300:290))/mxv,ty=N?y:y+30;
-          el(m,'text',{x:N?Lm:20,y:N?y:y+34,class:'t','font-size':(N?30:26)},r.what.toUpperCase());
-          var y1=N?y+18:y+6,y2=y1+32;
-          el(m,'rect',{x:Lm,y:y1,width:r.garmin*sc,height:24,fill:MUT,rx:3});
-          el(m,'text',{x:Lm+r.garmin*sc+8,y:y1+19,class:'m','font-size':N?21:17},(r.glabel||'Garmin guess')+' '+r.garmin+(r.unit?' '+r.unit:''));
-          el(m,'rect',{x:Lm,y:y2,width:r.ours*sc,height:24,fill:OR,rx:3});
-          el(m,'text',{x:Lm+r.ours*sc+8,y:y2+19,class:'m','font-size':N?21:17},(r.olabel||'Measured')+' '+r.ours+(r.unit?' '+r.unit:''));});}
       var z=document.getElementById('c-zones'),Zf=S.zones,Zm=S.zones_max;
       if(Zf&&Zm){var Wz=N?600:1000,Hz=N?260:200; z.setAttribute('viewBox','0 0 '+Wz+' '+Hz);
         var lo=Zf[0],sc2=(Wz-40)/(Zm-lo),names=['WARM-UP','EASY','STEADY','THRESHOLD','5K+'],fills=['#4a433c','#6b625a',MUT,'#ffa36b',OR];
@@ -497,6 +554,54 @@ footer p{margin:14px 0 0;line-height:1.5}
           el(z,'text',{x:x+4,y:140,class:'m','font-size':N?22:16},f);});
         el(z,'text',{x:Wz-20,y:172,'text-anchor':'end',class:'m','font-size':N?22:16},'max '+Zm);
         el(z,'text',{x:20,y:28,class:'m','font-size':N?20:15},'BEATS PER MINUTE');}
+    })();
+
+    /* 3e. coach lines, Mo, Bo, Juno */
+    (function(){
+      var Ln=D.lines||{};
+      [].forEach.call(document.querySelectorAll('[data-line]'),function(e){var t=Ln[e.getAttribute('data-line')];if(t)e.textContent=t;else{var q=e.closest('.say');if(q)q.remove();}});
+      var MO=D.mo||{};
+      if(MO.easy_top){set('easytop',MO.easy_top+1);set('hardfrom',MO.hard_from);}
+      var s=document.getElementById('c-easy'),P=MO.easy||[];
+      if(s&&P.length){var N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=N?92:60,R=30,T=40,B=50,bw=(W-L-R)/P.length;
+        s.setAttribute('viewBox','0 0 '+W+' '+H);
+        function Y(v){return T+(1-v/100)*(H-T-B);}
+        [0,50,80,100].forEach(function(v){var y=Y(v);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F,fill:v===80?OR:'#a8a29e'},v+'%');});
+        P.forEach(function(p,i){var x=L+i*bw+bw*0.18,w=bw*0.64,y0=H-B;
+          [['easy',OR],['steady',MUT],['hard',WH]].forEach(function(k){var h=p[k[0]]/100*(H-T-B);if(h>0){el(s,'rect',{x:x,y:y0-h,width:w,height:h,fill:k[1]});y0-=h;}});
+          el(s,'text',{x:x+w/2,y:Y(p.easy)+(p.easy>12?24:-8),'text-anchor':'middle',class:'t','font-size':(N?24:20),fill:p.easy>12?'#1a1715':WH},p.easy+'%');
+          if(!N||(P.length-1-i)%2===0)el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':N?22:16},md(p.monday));});
+        el(s,'line',{x1:L,x2:W-R,y1:Y(80),y2:Y(80),stroke:WH,'stroke-width':2.5,'stroke-dasharray':'8 6'});
+        el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'SHARE OF RUNNING TIME':'SHARE OF RUNNING TIME · EASY (ORANGE) · STEADY (GRAY) · HARD (WHITE) · GOAL 80% EASY');}
+      var s2=document.getElementById('c-spike'),Q=(MO.spike||[]).filter(function(p){return p.minutes>0;});
+      if(s2&&Q.length>1){var N2=s2.clientWidth<600,F2=N2?1.7:1,W2=N2?600:1000,H2=N2?440:360,L2=N2?80:60,R2=30,T2=40,B2=50;
+        s2.setAttribute('viewBox','0 0 '+W2+' '+H2);
+        var t0=day(Q[0].date),t1=day(Q[Q.length-1].date),mx=Math.max.apply(null,Q.map(function(p){return Math.max(p.minutes,p.cap||0);}))*1.1;
+        function X2(d){return L2+(day(d)-t0)/((t1-t0)||1)*(W2-L2-R2);} function Y2(v){return T2+(1-v/mx)*(H2-T2-B2);}
+        [0,30,60,90,120,150,180].forEach(function(v){if(v>mx)return;var y=Y2(v);el(s2,'line',{x1:L2,x2:W2-R2,y1:y,y2:y,stroke:GRID});el(s2,'text',{x:L2-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F2},v);});
+        var d=Q.filter(function(p){return p.cap;}).map(function(p,i){return (i?'L':'M')+X2(p.date).toFixed(1)+' '+Y2(p.cap).toFixed(1);}).join(' ');
+        el(s2,'path',{d:d,fill:'none',stroke:OR,'stroke-width':3,'stroke-dasharray':'8 6'});
+        Q.forEach(function(p){el(s2,'circle',{cx:X2(p.date),cy:Y2(p.minutes),r:6,fill:(p.cap&&p.minutes>p.cap)?OR:WH});});
+        var seenM={};Q.forEach(function(p){var x=day(p.date),k=x.getMonth();if(seenM[k])return;seenM[k]=1;if(p!==Q[0])el(s2,'text',{x:X2(p.date),y:H2-16,'text-anchor':'middle',class:'m','font-size':16*F2},MON[x.getMonth()]);});
+        el(s2,'text',{x:L2,y:T2-14,class:'m','font-size':15*F2},N2?'MINUTES PER RUN':'MINUTES PER RUN · DASHED LINE = THE CEILING');}
+      var bl=document.getElementById('bo-lifts'),BO=(D.bo||{}).best||[];
+      BO.forEach(function(b){var c=document.createElement('div');c.className='race';
+        var h='<div class="d">Top set · '+md(b.date)+'</div><h3>'+b.lift+'</h3><div class="v o">'+b.lb+' lb</div><div class="k">'+(b.reps>1?b.reps+' reps':'single')+'</div>';
+        if(b.first_lb&&b.first_lb<b.lb) h+='<div class="k" style="margin-top:8px">From '+b.first_lb+' in '+MON[day(b.first_date).getMonth()]+'</div>';
+        c.innerHTML=h;bl.appendChild(c);});
+      var s3=document.getElementById('c-fuel'),J=((D.juno||{}).week)||[];
+      if(s3&&J.length){var N3=s3.clientWidth<600,F3=N3?1.7:1,W3=N3?600:1000,H3=N3?460:380,L3=N3?86:60,R3=30,T3=40,B3=64,bw3=(W3-L3-R3)/J.length;
+        s3.setAttribute('viewBox','0 0 '+W3+' '+H3);
+        var top=Math.ceil(Math.max.apply(null,J.map(function(x){return x.carbs;}))/50)*50;
+        function Y3(v){return T3+(1-v/top)*(H3-T3-B3);}
+        [0,top/2,top].forEach(function(v){var y=Y3(v);el(s3,'line',{x1:L3,x2:W3-R3,y1:y,y2:y,stroke:GRID});el(s3,'text',{x:L3-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F3},v);});
+        var DW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],TAG={hard:'HARD',long:'LONG',easy:'EASY',rest:'REST'};
+        J.forEach(function(x,i){var bx=L3+i*bw3+bw3*0.18,w=bw3*0.64,hot=(x.work==='hard'||x.work==='long');
+          el(s3,'rect',{x:bx,y:Y3(x.carbs),width:w,height:H3-B3-Y3(x.carbs),fill:hot?OR:MUT,rx:3});
+          el(s3,'text',{x:bx+w/2,y:Y3(x.carbs)-10,'text-anchor':'middle',class:'t','font-size':N3?26:22},x.carbs+'g');
+          el(s3,'text',{x:bx+w/2,y:H3-B3+24,'text-anchor':'middle',class:'m','font-size':16*F3},DW[day(x.date).getDay()]);
+          el(s3,'text',{x:bx+w/2,y:H3-B3+46,'text-anchor':'middle',class:'m','font-size':13*F3,fill:hot?OR:'#a8a29e'},TAG[x.work]||'');});
+        el(s3,'text',{x:L3,y:T3-14,class:'m','font-size':15*F3},'GRAMS OF CARBS A DAY · NEXT 7 DAYS');}
     })();
 
     /* 4. the races */
