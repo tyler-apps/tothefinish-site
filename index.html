@@ -152,6 +152,24 @@ footer p{margin:14px 0 0;line-height:1.5}
   .bar{margin-bottom:32px}
   .chart{padding:12px 8px 6px}
 }
+
+/* coach bands + floating tag (2026-11-21, Tyler: "make it more clear ... which coach is covering which section") */
+.coachhead{display:flex;gap:20px;align-items:flex-start;margin:0 0 40px;padding:20px 22px;background:var(--ink-2);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:14px}
+.coachhead img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
+.coachhead .ch-k{margin:0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:14px;color:var(--muted)}
+.coachhead .ch-n{margin:2px 0 0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:44px;line-height:1}
+.coachhead .ch-n span{font-size:20px;letter-spacing:1px;color:var(--orange);margin-left:6px;vertical-align:.35em}
+.coachhead ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.coachhead li{position:relative;padding-left:18px;font-size:16px;line-height:1.45;color:#e7e2dc}
+.coachhead li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--orange)}
+.coachhead .want{display:inline-block;margin-top:14px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
+.coachhead .want:hover{text-decoration:underline}
+@media (max-width:520px){.coachhead{flex-direction:column;gap:12px;padding:18px}.coachhead img{width:64px;height:64px}.coachhead .ch-n{font-size:38px}.coachhead .ch-n span{display:block;margin:6px 0 0;vertical-align:0}}
+.coachtag{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:10px;padding:5px 16px 5px 5px;background:rgba(18,16,14,.94);border:1px solid var(--line);border-radius:999px;color:var(--white);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .25s;pointer-events:none}
+.coachtag.on{opacity:1;transform:none;pointer-events:auto}
+.coachtag img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.coachtag span b{color:var(--orange);font-weight:800}
+@media (prefers-reduced-motion:reduce){.coachtag{transition:none;transform:none}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -200,14 +218,15 @@ footer p{margin:14px 0 0;line-height:1.5}
     <div class="chips">
       <a class="chip" href="#progress"><img src="assets/rook.jpg" alt=""><b>Rook</b><span>Head coach · the gap to sub-3, every call logged</span></a>
       <a class="chip" href="#kai"><img src="assets/kai.jpg" alt=""><b>Kai</b><span>Running · threshold pace, race fitness, easy-run efficiency, miles, zones</span></a>
-      <a class="chip" href="#mo"><img src="assets/mo.jpg" alt=""><b>Mo</b><span>Recovery · how easy the easy days are, no big jumps in run length</span></a>
+      <a class="chip" href="#mo"><img src="assets/mo.jpg" alt=""><b>Mo</b><span>Recovery · sleep, easy days that stay easy, no big jumps in run length</span></a>
       <a class="chip" href="#bo"><img src="assets/bo.jpg" alt=""><b>Bo</b><span>Strength · heavy top sets, short lifts after the run</span></a>
       <a class="chip" href="#juno"><img src="assets/juno.jpg" alt=""><b>Juno</b><span>Fuel · carbs that follow the work</span></a>
     </div>
   </div>
 </section>
 
-<section class="board" id="board">
+<section class="board" id="board" data-coach="Rook">
+  <div class="wrap"><div class="coachhead" id="coach-rook"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p><ul><li>Ranks what matters, so every clash between coaches ends in one call.</li><li>Tracks the gap to sub-3 every morning.</li><li>Logs every decision the team makes.</li></ul><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div></div>
   <div class="wrap two">
     <div>
       <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
@@ -222,7 +241,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="progress">
+<section id="progress" data-coach="Rook">
   <div class="wrap">
     <p class="kicker">Rook · Where I am</p>
     <h2 class="display gap-head"><span data-k="now">4:34:04</span><span class="arrow">to</span><span class="o">2:59:59</span></h2>
@@ -233,13 +252,14 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="kai">
+<section id="kai" data-coach="Kai">
+  <div class="wrap"><div class="coachhead" id="coach-kai"><img src="assets/kai.jpg" alt="Kai, the AI running coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Kai <span>AI running coach</span></p><ul><li>Builds the year race by race: a 5K, a 10K, a half, then the marathon.</li><li>Sets my paces and heart-rate zones from my own runs and races.</li><li>Reads the ground. A mile up a climb counts as the flat mile it equals.</li><li>Keeps the easy days easy, which is the hard part.</li></ul><a class="want" href="#waitlist" data-coach="Kai">Want Kai on your running? <span aria-hidden="true">→</span></a></div></div></div>
   <div class="wrap two">
     <div>
       <p class="kicker">Kai · Where I've been</p>
       <h2 class="display">I've been <span class="o">faster.</span></h2>
       <p class="body">June 2024. A half marathon in <b data-k="halfpr">1:32:31</b>, on close to 80 miles a week.</p>
-      <p class="body">By <span data-k="ltbestdate">August 2025</span>By <span data-k="ltbestdate">August 2025</span> my threshold pace, about the fastest I can hold for an hour, had come down to <b data-k="ltbest">6:42</b> a mile. Kai thinks that runner is still in there.</p>
+      <p class="body">By <span data-k="ltbestdate">August 2025</span> my threshold pace, about the fastest I can hold for an hour, had come down to <b data-k="ltbest">6:42</b> a mile. Kai thinks that runner is still in there.</p>
       <p class="body turn">Today it's <b data-k="lt1">7:55</b>.</p>
     </div>
     <div>
@@ -251,7 +271,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 
-<section>
+<section data-coach="Kai">
   <div class="wrap">
     <p class="kicker">Kai · The honest line</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">Fitter at the <span class="o">same heart rate.</span></h2>
@@ -262,7 +282,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section>
+<section data-coach="Kai">
   <div class="wrap">
     <p class="kicker">Kai · The race number</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
@@ -273,7 +293,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="year">
+<section class="year" data-coach="Kai">
   <div class="wrap">
     <p class="kicker">Kai · What's ahead</p>
     <h2 class="display"><span data-k="weeksleft">47</span> weeks. <span class="o">Up to <span data-k="peak">90</span> miles a week.</span></h2>
@@ -284,7 +304,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="races">
+<section class="races" data-coach="Kai">
   <div class="wrap">
     <p class="kicker">Kai · The races</p>
     <h2 class="display">Four races, <span class="o">then Chicago.</span></h2>
@@ -298,7 +318,8 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 
-<section id="mo">
+<section id="mo" data-coach="Mo">
+  <div class="wrap"><div class="coachhead" id="coach-mo"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Mo <span>AI recovery coach</span></p><ul><li>Reads my sleep and resting heart rate. They can only make a day easier.</li><li>Checks every run against my longest of the month, where overuse injuries start.</li><li>Builds the warm-ups, prehab and down weeks around the plan.</li></ul><a class="want" href="#waitlist" data-coach="Mo">Want Mo on your recovery? <span aria-hidden="true">→</span></a></div></div></div>
   <div class="wrap">
     <p class="kicker">Mo · Recovery</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">My best trait, <span class="o">on the wrong day.</span></h2>
@@ -321,7 +342,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="bo">
+<section id="bo" data-coach="Bo">
+  <div class="wrap"><div class="coachhead" id="coach-bo"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Bo <span>AI strength coach</span></p><ul><li>Heavy sets of three and jumps: the strength work that makes runners faster.</li><li>Fits the lift around the run, never the other way around.</li><li>Two or three short sessions a week, fewer as the miles climb.</li></ul><a class="want" href="#waitlist" data-coach="Bo">Want Bo on your strength? <span aria-hidden="true">→</span></a></div></div></div>
   <div class="wrap">
     <p class="kicker">Bo · Strength</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">The bar waits <span class="o">for the miles.</span></h2>
@@ -331,7 +353,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="juno">
+<section id="juno" data-coach="Juno">
+  <div class="wrap"><div class="coachhead" id="coach-juno"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Juno <span>AI nutritionist</span></p><ul><li>Plans each day's food around the run it has to fuel.</li><li>Carbs before, during and after the hard and long runs. Easy days stay lighter.</li><li>Protein at every meal, and no skipped breakfasts.</li></ul><a class="want" href="#waitlist" data-coach="Juno">Want Juno on your fuel? <span aria-hidden="true">→</span></a></div></div></div>
   <div class="wrap">
     <p class="kicker">Juno · Fuel</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Friday decides <span class="o">Thursday's dinner.</span></h2>
@@ -343,7 +366,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 
-<section class="machine">
+<section class="machine" data-coach="Rook">
   <div class="wrap">
     <p class="kicker">Rook · How the coaching works</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:12px">The run ends. <span class="o">The coaches start.</span></h2>
@@ -417,7 +440,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="waitlist">
+<section class="waitlist" id="waitlist">
   <div class="wrap">
     <p class="kicker">Coming later</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
@@ -432,6 +455,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
+<a class="coachtag" id="coachtag" href="#" aria-hidden="true" tabindex="-1"><img src="" alt="" width="32" height="32"><span></span></a>
+
 <footer>
   <div class="wrap">
     <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
@@ -442,6 +467,26 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
+<script>
+/* which coach owns what's on screen; coach links retitle the waitlist and count interest (no new Kit field) */
+(function(){
+  var ROLE={Rook:'head coach',Kai:'running',Mo:'recovery',Bo:'strength',Juno:'fuel'};
+  var tag=document.getElementById('coachtag'),img=tag.querySelector('img'),lab=tag.querySelector('span'),cur=null;
+  var secs=[].slice.call(document.querySelectorAll('section[data-coach]'));
+  function show(c){if(c===cur)return;cur=c;if(!c){tag.classList.remove('on');return;}
+    img.src='assets/'+c.toLowerCase()+'.jpg';lab.innerHTML=c+' · <b>'+ROLE[c]+'</b>';
+    tag.href='#coach-'+c.toLowerCase();tag.classList.add('on');}
+  function pick(){var mid=innerHeight*0.45,c=null;
+    secs.forEach(function(sec){var r=sec.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)c=sec.getAttribute('data-coach');});
+    show(c);}
+  addEventListener('scroll',pick,{passive:true});addEventListener('resize',pick);pick();
+  var h=document.querySelector('#waitlist h2');
+  [].forEach.call(document.querySelectorAll('a.want[data-coach]'),function(a){a.addEventListener('click',function(){
+    var c=a.getAttribute('data-coach');
+    if(h)h.innerHTML='Want <span class="o">'+c+'</span> on your training?';
+    if(typeof window.gtag==='function')window.gtag('event','coach_interest',{coach:c});});});
+})();
+</script>
 <script src="/assets/join.js?v=a666946e"></script>
 <script src="/assets/motion.js?v=a666946e" defer></script>
 <script>
