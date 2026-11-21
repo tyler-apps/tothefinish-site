@@ -212,6 +212,23 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
 .team .card .line,.loop .step p{font-size:16px}
 .team .card .job{font-size:14px}
 @media (max-width:520px){p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:17px}.hero p.lead{font-size:19px}}
+/* folds (2026-11-21): each coach's deeper charts behind one bar; open without JavaScript, closed once the charts are drawn */
+details.more>summary{list-style:none;cursor:pointer;display:block}
+details.more>summary::-webkit-details-marker{display:none}
+details.more:not(.in)>summary{padding:8px 0 40px}
+details.more.in{margin-top:36px}
+.more-bar{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
+details.more>summary:hover .more-bar,details.more>summary:focus-visible .more-bar{border-color:var(--orange)}
+.more-bar img{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none}
+.more-bar .mt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.more-bar .mt b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:20px;line-height:1.1}
+.more-bar .mt span{font-size:14px;color:var(--muted);line-height:1.3}
+.more-bar i{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;border:1px solid #4a433c;position:relative}
+.more-bar i::before,.more-bar i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--orange)}
+.more-bar i::after{transform:rotate(90deg);transition:transform .2s}
+details.more[open]>summary .more-bar i::after{transform:rotate(0)}
+details.more:not(.in)[open]>summary{padding-bottom:0}
+@media (prefers-reduced-motion:reduce){.more-bar,.more-bar i::after{transition:none}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -303,6 +320,7 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
   </div>
 </section>
 
+<details class="more" data-fold open><summary><span class="wrap"><span class="more-bar"><img src="assets/kai.jpg" alt="" width="36" height="36"><span class="mt"><b>More from Kai</b><span>Fitter at the same heart rate · the race number</span></span><i aria-hidden="true"></i></span></span></summary>
 <section data-coach="Kai" class="cont" data-ch="kai">
   <div class="wrap">
     <p class="kicker">Kai · The honest line</p>
@@ -324,6 +342,7 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
     <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_vdot"></p><cite>Kai</cite></div></blockquote>
   </div>
 </section>
+</details>
 
 <section class="cont year" data-coach="Kai" data-ch="kai">
   <div class="wrap">
@@ -360,16 +379,18 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
     <div class="chart" style="margin-top:12px"><svg id="c-easy" viewBox="0 0 1000 360" role="img" aria-label="Share of running time easy, steady and hard by week"></svg></div>
     <p class="note">Running time by lap heart rate: easy is my zone 2 or below (under <span data-k="easytop">121</span>), hard is threshold and up (<span data-k="hardfrom">152</span>+), steady is everything between. Hills on Mission Trails push some easy miles into steady.</p>
     <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_easy"></p><cite>Mo</cite></div></blockquote>
-    <h3 class="sub">No run too far past the last long one</h3>
-    <p class="body" style="margin-top:10px">A study of 5,205 runners on Garmin watches went looking for what sets up overuse injuries. Weekly mileage rules predicted nothing. A single run more than 10% longer than the longest of the month before made an injury 1.64 times more likely. So Mo watches each run, more than the week.</p>
-    <div class="chart" style="margin-top:12px"><svg id="c-spike" viewBox="0 0 1000 360" role="img" aria-label="Each run's minutes against the safe ceiling"></svg></div>
-    <p class="note">Each dot is a run, in minutes (trail miles are slower, so time is the fair measure). The line is 10% past the longest run of the 30 days before it.</p>
-    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_spike"></p><cite>Mo</cite></div></blockquote>
     <h3 class="sub">How much did I sleep?</h3>
     <p class="body" style="margin-top:10px">Sleep is the recovery tool with the best evidence behind it. With a baby in the house, it's also the one I'm shortest on. On a calorie cut, short nights shift the weight you lose from fat toward muscle, and under six hours the risk of catching a cold runs about four times higher. Mo counts hours asleep and ignores the sleep score. A short night can make a hard run easier. A long one never adds reps.</p>
     <div class="chart" style="margin-top:12px"><svg id="c-sleep" viewBox="0 0 1000 360" role="img" aria-label="Hours asleep each night against seven hours"></svg></div>
     <p class="note">Hours asleep each night, from my watch. The dashed line is 7 hours. Orange nights made it. Watches count a broken night long, so the faded bars sit a little lower in real life.</p>
     <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_sleep"></p><cite>Mo</cite></div></blockquote>
+    <details class="more in" data-fold open><summary><span class="more-bar"><img src="assets/mo.jpg" alt="" width="36" height="36"><span class="mt"><b>More from Mo</b><span>No run too far past the last long one</span></span><i aria-hidden="true"></i></span></summary>
+    <h3 class="sub">No run too far past the last long one</h3>
+    <p class="body" style="margin-top:10px">A study of 5,205 runners on Garmin watches went looking for what sets up overuse injuries. Weekly mileage rules predicted nothing. A single run more than 10% longer than the longest of the month before made an injury 1.64 times more likely. So Mo watches each run, more than the week.</p>
+    <div class="chart" style="margin-top:12px"><svg id="c-spike" viewBox="0 0 1000 360" role="img" aria-label="Each run's minutes against the safe ceiling"></svg></div>
+    <p class="note">Each dot is a run, in minutes (trail miles are slower, so time is the fair measure). The line is 10% past the longest run of the 30 days before it.</p>
+    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_spike"></p><cite>Mo</cite></div></blockquote>
+    </details>
   </div>
 </section>
 
@@ -430,9 +451,11 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
     <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 400" role="img" aria-label="Logged coaching decisions by coach"></svg></div>
     <p class="note">Every call is a dated line in the coaches' logs: a pace target moved, a run rewritten, a zone reset, a plan change. Orange are Kai's automatic calls, made from my watch data with nobody asking. White are a coach's own calls. Gray are the times I overruled one.</p>
 
+    <details class="more in" data-fold open><summary><span class="more-bar"><img src="assets/kai.jpg" alt="" width="36" height="36"><span class="mt"><b>More: my heart-rate zones</b><span>Set by Kai from my own race</span></span><i aria-hidden="true"></i></span></summary>
     <h3 class="sub">My heart-rate zones, set by Kai from my own race</h3>
     <div class="chart" style="margin-top:12px"><svg id="c-zones" viewBox="0 0 1000 200" role="img" aria-label="Heart-rate zones on my watch"></svg></div>
     <p class="note">Threshold comes from my last race, minute 10 to the finish. Kai re-checks them after every sync and moves them only on a race or a field test. Next, the strap's beat-to-beat data will measure exactly where easy ends.</p>
+    </details>
   </div>
 </section>
 
@@ -764,6 +787,8 @@ p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
         h+='<div class="k">My watch</div><div class="v">'+r.result.time+'</div><a class="rlink" href="/races/'+r.date+'-'+sl+'/">Race report</a>';}
       c.innerHTML=h; g.appendChild(c);
     });
+    [].forEach.call(document.querySelectorAll('details[data-fold]'),function(d){d.open=false;});
+    if(location.hash){var tgt=document.getElementById(location.hash.slice(1));if(tgt)tgt.scrollIntoView();}
   }).catch(function(){});
 })();
 </script>
