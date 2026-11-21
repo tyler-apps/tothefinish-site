@@ -480,7 +480,7 @@
   {
    "week": 23,
    "monday": "2027-03-29",
-   "plan": 60,
+   "plan": 45,
    "done": null,
    "current": false
   },
@@ -1203,17 +1203,17 @@
    {
     "monday": "2026-11-16",
     "kai": 9,
-    "rook": 51
+    "rook": 52
    }
   ],
-  "decisions_total": 72,
+  "decisions_total": 73,
   "watch_days": 74,
   "hilly_laps": 5116,
   "calls": [
    {
     "coach": "Kai",
     "auto": 16,
-    "called": 18,
+    "called": 19,
     "yours": 7
    },
    {
@@ -1253,6 +1253,46 @@
   "easy_top": null
  },
  "mo": {
+  "sleep": [
+   {
+    "date": "2026-11-15",
+    "hours": 6.2,
+    "broken": false
+   },
+   {
+    "date": "2026-11-16",
+    "hours": 7.5,
+    "broken": false
+   },
+   {
+    "date": "2026-11-17",
+    "hours": 8.3,
+    "broken": false
+   },
+   {
+    "date": "2026-11-18",
+    "hours": 5.3,
+    "broken": true
+   },
+   {
+    "date": "2026-11-19",
+    "hours": 5.9,
+    "broken": true
+   },
+   {
+    "date": "2026-11-20",
+    "hours": 7.2,
+    "broken": false
+   },
+   {
+    "date": "2026-11-21",
+    "hours": 6.6,
+    "broken": true
+   }
+  ],
+  "sleep_avg7": 6.7,
+  "sleep_7plus": 3,
+  "sleep_worn7": 7,
   "easy": [
    {
     "monday": "2026-09-28",
@@ -1582,6 +1622,7 @@
   "kai_year": "32 this week, 90 in August. I want every one of them, and I want most of them slow.",
   "mo_easy": "69% easy last week. The number is 80. So where did the other 31% come from, Tyler? The climbs, or the first mile out the door?",
   "mo_spike": "Your ceiling right now is about 110 minutes. Anything longer waits until a long run earns it. I'll be the one saying no.",
+  "mo_sleep": "3 of the last 7 nights reached seven hours. Average 6.7. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
   "bo": "Tyler, 295 on the box squat. Kai gets your legs in the morning. I get what's left after lunch. That's the deal. BOOM.",
   "juno": "Tyler. 223 grams of carbs on the hard days. You'll want to skip the banana before Friday's run because it's early and you're not hungry. Don't."
  }
