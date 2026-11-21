@@ -13,7 +13,7 @@
 <title>The coaches · To The Finish</title>
 <meta name="description" content="What each of my five AI coaches watches, what they do with it, and the numbers they're watching right now: running, recovery, strength, fuel and the calls between them.">
 <meta property="og:title" content="The coaches · To The Finish">
-<meta property="og:description" content="Five AI coaches read every run, night, lift and meal I log. Here's what each one is watching right now.">
+<meta property="og:description" content="Five AI coaches read my runs, sleep, lifts and meals as they happen, and change my plan on their own. Here's what each one is watching right now.">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/coaches/">
 <link rel="canonical" href="https://tothefinish.ai/coaches/">
@@ -138,6 +138,27 @@ footer p{margin:14px 0 0;line-height:1.5}
   .hero p.lead{font-size:19px}
   .joincard{padding:22px}
 }
+/* the road + how it works (2026-11-21) */
+.road{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.road li{position:relative;padding:28px 14px 0 0}
+.road li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:2px solid #5f5750}
+.road li.goal::before{background:var(--orange);border-color:var(--orange)}
+.road .when{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.road b{display:block;margin-top:6px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.road li.goal b{color:var(--orange)}
+.road .tgt{display:block;margin-top:6px;font-size:14px;color:var(--soft)}
+.steps.four{grid-template-columns:repeat(4,1fr)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.side{border-radius:14px;padding:22px;border:1px solid var(--line);background:var(--ink-2)}
+.side.them{border-color:var(--orange)}
+.side .h{margin:0 0 12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:22px}
+.side.them .h{color:var(--orange)}
+.side ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.side li{position:relative;padding-left:18px;font-size:16px;line-height:1.45;color:var(--soft)}
+.side li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:#5f5750}
+.side.them li::before{background:var(--orange)}
+@media (max-width:860px){.road{grid-template-columns:1fr;gap:18px}.road::before{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto}.road li{padding:0 0 0 32px}.road li::before{top:4px}.steps.four,.split{grid-template-columns:1fr}}
 </style>
 <style>
 .intro{padding:24px 0 56px}
@@ -199,7 +220,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 <div class="intro"><div class="wrap">
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
-  <p class="lead">Five AI coaches read every run, night, lift and meal I log. Between them they've read <b data-k="c_all">597</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
+  <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">597</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
   <nav class="jump" aria-label="Coaches"><a href="#kai"><img src="/assets/kai.jpg" alt="">Kai</a><a href="#mo"><img src="/assets/mo.jpg" alt="">Mo</a><a href="#bo"><img src="/assets/bo.jpg" alt="">Bo</a><a href="#juno"><img src="/assets/juno.jpg" alt="">Juno</a><a href="#rook"><img src="/assets/rook.jpg" alt="">Rook</a></nav>
 </div></div>
 
@@ -249,10 +270,10 @@ footer p{margin:14px 0 0;line-height:1.5}
       <div>
         <p class="kicker">AI strength coach</p>
         <h2 class="display">Bo</h2>
-        <p class="proof"><b data-k="c_bo_studies">27</b> studies read · <b data-k="c_bo_live">16</b> lifts logged</p>
+        <p class="proof"><b data-k="c_bo_studies">27</b> studies read · <b data-k="c_bo_live">16</b> lifts tracked</p>
       </div>
-      <p class="does">Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run and never the other way around. Sets my next weights from the sets I've logged.</p>
-      <div class="tags" aria-label="What Bo watches"><span>Every set I log</span><span>The run calendar</span><span>Which days carry a hard run</span></div>
+      <p class="does">Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run and never the other way around. Sets my next weights from my last top sets.</p>
+      <div class="tags" aria-label="What Bo watches"><span>The top set I text after each lift</span><span>The run calendar</span><span>Which days carry a hard run</span></div>
     </div>
     <div class="vizgrid one">
       <div class="lifts" id="p-lifts"></div>
@@ -270,7 +291,7 @@ footer p{margin:14px 0 0;line-height:1.5}
         <p class="proof"><b data-k="c_juno_studies">200</b> studies read · <b data-k="c_juno_live">53</b> foods measured</p>
       </div>
       <p class="does">Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more than 2 lb a week.</p>
-      <div class="tags" aria-label="What Juno watches"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>Every meal I log</span><span>My 7-day weigh-in trend</span></div>
+      <div class="tags" aria-label="What Juno watches"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>The meals on the plan</span><span>My 7-day weigh-in trend</span></div>
     </div>
     <div class="vizgrid one">
       <figure class="viz" id="v-fuel"><figcaption><p class="q">Does the food follow the work?</p><p class="take" data-take="fuel">&nbsp;</p></figcaption><div class="plot" id="p-fuel" role="img"></div><p class="src">Grams of carbs a day from my meal plan, the next seven days. Orange days carry a hard or long run.</p></figure>
@@ -285,14 +306,14 @@ footer p{margin:14px 0 0;line-height:1.5}
       <div>
         <p class="kicker">AI head coach</p>
         <h2 class="display">Rook</h2>
-        <p class="proof"><b data-k="c_rook_studies">166</b> studies read · <b data-k="c_rook_live">57</b> calls logged</p>
+        <p class="proof"><b data-k="c_rook_studies">166</b> studies read · <b data-k="c_rook_live">57</b> decisions made</p>
       </div>
-      <p class="does">Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, then strength. Tracks the gap to sub-3 every morning and logs every decision the team makes.</p>
+      <p class="does">Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes.</p>
       <div class="tags" aria-label="What Rook watches"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div>
     </div>
     <div class="vizgrid">
       <figure class="viz" id="v-gap"><figcaption><p class="q">Am I closing the gap?</p><p class="take" data-take="gap">&nbsp;</p></figcaption><div class="plot" id="p-gap" role="img"></div><p class="src">Garmin's marathon prediction after every run since October 19, against what Chicago asks for.</p></figure>
-      <figure class="viz" id="v-calls"><figcaption><p class="q">Who makes the calls?</p><p class="take" data-take="calls">&nbsp;</p></figcaption><div class="plot" id="p-calls" role="img"></div><p class="src">Every logged decision since Nov 9. Orange are automatic calls from my watch data, white a coach's own call, gray the times I overruled one.</p></figure>
+      <figure class="viz" id="v-calls"><figcaption><p class="q">Who makes the calls?</p><p class="take" data-take="calls">&nbsp;</p></figcaption><div class="plot" id="p-calls" role="img"></div><p class="src">Every decision the coaches wrote down since Nov 9. Orange were made automatically from my watch data, white are a coach's own call, gray the times I overruled one.</p></figure>
     </div>
     <blockquote class="say"><img src="/assets/rook.jpg" alt="" width="44" height="44"><p data-line="rook"></p></blockquote>
   </div>

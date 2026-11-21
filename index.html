@@ -139,6 +139,27 @@ footer p{margin:14px 0 0;line-height:1.5}
   .hero p.lead{font-size:19px}
   .joincard{padding:22px}
 }
+/* the road + how it works (2026-11-21) */
+.road{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.road li{position:relative;padding:28px 14px 0 0}
+.road li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:2px solid #5f5750}
+.road li.goal::before{background:var(--orange);border-color:var(--orange)}
+.road .when{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.road b{display:block;margin-top:6px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
+.road li.goal b{color:var(--orange)}
+.road .tgt{display:block;margin-top:6px;font-size:14px;color:var(--soft)}
+.steps.four{grid-template-columns:repeat(4,1fr)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.side{border-radius:14px;padding:22px;border:1px solid var(--line);background:var(--ink-2)}
+.side.them{border-color:var(--orange)}
+.side .h{margin:0 0 12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:22px}
+.side.them .h{color:var(--orange)}
+.side ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.side li{position:relative;padding-left:18px;font-size:16px;line-height:1.45;color:var(--soft)}
+.side li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:#5f5750}
+.side.them li::before{background:var(--orange)}
+@media (max-width:860px){.road{grid-template-columns:1fr;gap:18px}.road::before{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto}.road li{padding:0 0 0 32px}.road li::before{top:4px}.steps.four,.split{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -192,12 +213,27 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
+<section id="road">
+  <div class="wrap">
+    <p class="kicker">The road to Chicago</p>
+    <h2 class="display">Slower to get <span class="o">faster.</span></h2>
+    <p class="body">The plan builds race by race. Most of my miles are easy, on Mission Trails dirt and up hills, so the hard days can be hard. The miles climb from <b data-k="wkplan2">32</b> a week now to <b>90</b> in August, and every race resets the paces for the block after it.</p>
+    <ol class="road">
+      <li><span class="when">Sat Dec 26</span><b>5K</b><span class="tgt">Kai's target 22:40</span></li>
+      <li><span class="when">Sun Feb 7</span><b>5K</b><span class="tgt">Kai's target 21:30</span></li>
+      <li><span class="when">Sat May 15</span><b>10K</b><span class="tgt">Kai's target 40:00</span></li>
+      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's target 1:26:00</span></li>
+      <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">The goal: 2:59:59</span></li>
+    </ol>
+  </div>
+</section>
+
 <section id="team">
   <div class="wrap">
     <p class="kicker">The team</p>
     <h2 class="display">Every coach guards <span class="o">a number.</span></h2>
     <p class="body">They see everything my watch sees, and they argue about my week like it's theirs. This isn't only a running coach. Kai has the miles, Bo the lifting, Mo my sleep and recovery, Juno the food, and when two of them want the same morning, Rook makes the call.</p>
-    <p class="teamline">Between them they've read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
+    <p class="teamline">Between them they've read <b data-k="c_all">597</b> studies, and every run, night of sleep and weigh-in reaches them on its own.</p>
     <div class="coaches">
       <article class="coach">
         <img src="assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy">
@@ -216,7 +252,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Bo</h3>
           <p class="does">Heavy sets and jumps, the lifting that makes runners faster, fitted around the run.</p>
           <p class="line">"I want his legs. Three days a week."</p>
-          <p class="proof"><b data-k="c_bo_studies">27</b> studies · <b data-k="c_bo_live">16</b> lifts logged</p>
+          <p class="proof"><b data-k="c_bo_studies">27</b> studies · <b data-k="c_bo_live">16</b> lifts tracked</p>
         </div>
       </article>
       <article class="coach">
@@ -246,7 +282,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Rook</h3>
           <p class="does">Runs the team. When two coaches want the same morning, Rook makes the call.</p>
           <p class="line">"Not yet. Shoes on."</p>
-          <p class="proof"><b data-k="c_rook_studies">166</b> studies · <b data-k="c_rook_live">57</b> calls logged</p>
+          <p class="proof"><b data-k="c_rook_studies">166</b> studies · <b data-k="c_rook_live">57</b> decisions made</p>
         </div>
       </article>
     </div>
@@ -258,17 +294,23 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <p class="kicker">How it works</p>
     <h2 class="display">The run ends. <span class="o">The coaches start.</span></h2>
-    <p class="body">All of it runs on its own, from real data: my watch and chest strap, the scale, my lift log and photos of my grocery receipts. No one types a workout in, and every number on this site comes straight from those.</p>
+    <p class="body">Nobody types a run in. My watch, chest strap and scale feed the coaches on their own, and the coaches change my plan on their own. Every number on this site updates the same way.</p>
     <div class="facts">
       <div><b>10 min</b><span class="l">between checks for a new run</span></div>
       <div><b data-k="sys_runs">440</b><span class="l">runs read, every lap</span></div>
       <div><b data-k="sys_watch">74</b><span class="l">workouts sent to my watch</span></div>
     </div>
-    <ol class="steps">
-      <li><h3>I run</h3><p>The watch and a chest strap catch every lap and every heartbeat. I stop the watch, and my part is done.</p></li>
-      <li><h3>They read it</h3><p>Within minutes the coaches have the file. Kai reads the paces and the hills, Bo fits the next lift around them, Mo checks my sleep and recovery, and Juno sizes the day's food.</p></li>
-      <li><h3>Tomorrow lands</h3><p>The next run goes to my watch with a pace or heart-rate range on every step, with the lift, the warm-up and the day's meals beside it.</p></li>
+    <ol class="steps four">
+      <li><h3>It records</h3><p>The watch and a chest strap catch every lap and every heartbeat. Overnight the watch catches my sleep, and the scale catches my weight.</p></li>
+      <li><h3>It syncs</h3><p>Every 10 minutes the system checks for a new run and pulls it in. No upload, no typing.</p></li>
+      <li><h3>They decide</h3><p>Kai reads the paces and the hills, Mo the sleep and recovery. Bo fits the next lift around the run and Juno sizes the day's food. They change the plan themselves.</p></li>
+      <li><h3>Tomorrow lands</h3><p>The next run is on my watch with a range on every step, and by 4:50 AM the day's lift, warm-up and meals are on my phone.</p></li>
     </ol>
+    <div class="split">
+      <div class="side me"><p class="h">What I do</p><ul><li>Run the session on my watch</li><li>Text Bo my top set after a lift</li><li>Snap the grocery receipt</li><li>Sleep with the watch on</li><li>Say so when something hurts</li></ul></div>
+      <div class="side them"><p class="h">What the coaches do on their own</p><ul><li>Read every run, night and weigh-in</li><li>Move my paces, heart-rate zones and weights</li><li>Turn a hard day easy when the data says so</li><li>Build tomorrow's run, lift and meals</li><li>Write down every decision they make</li></ul></div>
+    </div>
+    <p class="rule"><b>A real one from this week:</b> Kai reset my heart-rate zones from the chest-strap data of my last race, and keeps re-figuring my easy pace from the last 28 days of runs. Nobody asked. The new ranges were on my watch the next morning.</p>
     <p class="rule"><b>The watch can only make a day easier.</b> A rough night turns a hard run into an easy one. A great morning never adds reps.</p>
   </div>
 </section>
@@ -334,7 +376,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     set('now',D.now.marathon);set('togo',hms(D.to_go_s));set('weeksleft',wl);
     set('perweek',(Math.round(D.to_go_s/wl/60*2)/2)+' minutes');
     var cw=(D.year||[]).filter(function(w){return w.current;})[0];
-    if(cw){set('wkdone',cw.done==null?0:cw.done);set('wkplan',cw.plan);}
+    if(cw){set('wkdone',cw.done==null?0:cw.done);set('wkplan',cw.plan);set('wkplan2',cw.plan);}
     var today=new Date().toISOString().slice(0,10),nx=(D.races||[]).filter(function(r){return r.date>=today;})[0];
     if(nx){var x=day(nx.date);set('nextrace',nx.name.replace(/^First\s+/,''));set('nextdate','next race · '+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+MON[x.getMonth()]+' '+x.getDate());}
     var CO=D.coaches||{};

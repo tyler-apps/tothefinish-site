@@ -37,29 +37,29 @@ COACHES = [
                  ("sleep", "Am I sleeping enough?",
                   "Hours asleep each night from my watch. Faded bars were broken nights, which watches count long.")],
          line="mo_sleep"),
-    dict(k="bo", n="Bo", role="AI strength coach", live="lifts logged",
-         watch=["Every set I log", "The run calendar", "Which days carry a hard run"],
+    dict(k="bo", n="Bo", role="AI strength coach", live="lifts tracked",
+         watch=["The top set I text after each lift", "The run calendar", "Which days carry a hard run"],
          does=("Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run "
-               "and never the other way around. Sets my next weights from the sets I've logged."),
+               "and never the other way around. Sets my next weights from my last top sets."),
          charts=[], line="bo"),
     dict(k="juno", n="Juno", role="AI nutritionist", live="foods measured",
          watch=["Today's and tomorrow's run", "The food in the house", "Grocery receipts and fridge photos",
-                "Every meal I log", "My 7-day weigh-in trend"],
+                "The meals on the plan", "My 7-day weigh-in trend"],
          does=("Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt "
                "or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more "
                "than 2 lb a week."),
          charts=[("fuel", "Does the food follow the work?",
                   "Grams of carbs a day from my meal plan, the next seven days. Orange days carry a hard or long run.")],
          line="juno"),
-    dict(k="rook", n="Rook", role="AI head coach", live="calls logged",
+    dict(k="rook", n="Rook", role="AI head coach", live="decisions made",
          watch=["Every coach's plan", "The priority board", "Every call the coaches make", "What I tell the coaches"],
          does=("Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, "
-               "then strength. Tracks the gap to sub-3 every morning and logs every decision the team makes."),
+               "then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes."),
          charts=[("gap", "Am I closing the gap?",
                   "Garmin's marathon prediction after every run since October 19, against what Chicago asks for."),
                  ("calls", "Who makes the calls?",
-                  "Every logged decision since Nov 9. Orange are automatic calls from my watch data, white a "
-                  "coach's own call, gray the times I overruled one.")],
+                  "Every decision the coaches wrote down since Nov 9. Orange were made automatically from my watch "
+                  "data, white are a coach's own call, gray the times I overruled one.")],
          line="rook"),
 ]
 
@@ -164,7 +164,7 @@ def main():
 {gtm}<title>The coaches · To The Finish</title>
 <meta name="description" content="What each of my five AI coaches watches, what they do with it, and the numbers they're watching right now: running, recovery, strength, fuel and the calls between them.">
 <meta property="og:title" content="The coaches · To The Finish">
-<meta property="og:description" content="Five AI coaches read every run, night, lift and meal I log. Here's what each one is watching right now.">
+<meta property="og:description" content="Five AI coaches read my runs, sleep, lifts and meals as they happen, and change my plan on their own. Here's what each one is watching right now.">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/coaches/">
 <link rel="canonical" href="https://tothefinish.ai/coaches/">
@@ -191,7 +191,7 @@ def main():
 <div class="intro"><div class="wrap">
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
-  <p class="lead">Five AI coaches read every run, night, lift and meal I log. Between them they've read <b data-k="c_all">{co['all_studies']}</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
+  <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">{co['all_studies']}</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
   <nav class="jump" aria-label="Coaches">{jump}</nav>
 </div></div>
 {body}

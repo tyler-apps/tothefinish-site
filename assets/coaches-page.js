@@ -90,7 +90,7 @@
     /* Bo: top sets */
     if (D.bo && D.bo.best && $('p-lifts')) {
       $('p-lifts').innerHTML = D.bo.best.map(function (b) {
-        var from = b.first_lb && b.first_lb < b.lb ? 'Up from ' + b.first_lb + ' lb in ' + MON[day(b.first_date).getMonth()] : 'First logged ' + md(b.first_date || b.date);
+        var from = b.first_lb && b.first_lb < b.lb ? 'Up from ' + b.first_lb + ' lb in ' + MON[day(b.first_date).getMonth()] : 'First tracked ' + md(b.first_date || b.date);
         return '<div class="lift"><p class="n">' + b.lift + ' · top set</p><p class="v">' + b.lb + '<small>lb × ' + b.reps + '</small></p><p class="s">' + from + '</p></div>';
       }).join('');
     }
@@ -121,7 +121,7 @@
       Cl.forEach(function (c) { tot += c.auto + c.called + c.yours; auto += c.auto; });
       take('calls', '<b>' + tot + '</b> calls since ' + md(D.system.calls_since) + ' <span>· ' + auto + ' automatic</span>');
       T.hbars($('p-calls'), { rows: Cl.map(function (c) { return { label: c.coach, parts: [{ v: c.auto, kind: 'auto' }, { v: c.called, kind: 'called' }, { v: c.yours, kind: 'yours' }] }; }),
-        kinds: { auto: { fill: T.C.orange }, called: { fill: T.C.white }, yours: { fill: T.C.muted } }, label: 'Logged decisions by coach' });
+        kinds: { auto: { fill: T.C.orange }, called: { fill: T.C.white }, yours: { fill: T.C.muted } }, label: 'Decisions by coach' });
     }
   }).catch(function () {});
 })();
