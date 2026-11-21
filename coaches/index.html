@@ -16,8 +16,12 @@
 <meta property="og:description" content="Five AI coaches read my runs, sleep, lifts and meals as they happen, and change my plan on their own. Here's what each one is watching right now.">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/coaches/">
+<meta property="og:type" content="website">
 <link rel="canonical" href="https://tothefinish.ai/coaches/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "The coaches | To The Finish", "url": "https://tothefinish.ai/coaches/", "description": "What each of my five AI coaches watches, what they do with it, and the numbers they're watching right now: running, recovery, strength, fuel and the calls between them.", "isPartOf": {"@type": "WebSite", "name": "To The Finish", "url": "https://tothefinish.ai/"}}</script>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tothefinish.ai/assets/og.jpg">
+<link rel="preload" as="font" type="font/woff2" href="/assets/barlow-condensed-800.woff2" crossorigin>
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <style>
@@ -27,6 +31,7 @@
 html{scroll-padding-top:16px}
 html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
+picture{display:contents}picture>source{display:none}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 .display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.5px;margin:0}
 .kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--orange);font-size:15px;margin:0 0 14px}
@@ -51,8 +56,8 @@ p.body{font-size:18px;line-height:1.6;color:var(--soft);margin:18px 0 0;max-widt
 
 /* forms */
 form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
-form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-3);color:var(--white);font-size:16px}
-form.join input::placeholder{color:#8a837c}
+form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #8a837c;background:var(--ink-3);color:var(--white);font-size:16px}
+form.join input::placeholder{color:var(--muted);opacity:1}
 form.join input.wide{flex-basis:100%}
 form.join button{flex:1 1 100%;padding:16px;border:0;border-radius:10px;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 form.join button:hover{filter:brightness(1.06)}
@@ -76,10 +81,12 @@ form.join button:hover{filter:brightness(1.06)}
 .coach .ct{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
 .coach .lane{margin:0 0 4px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--orange)}
 .coach h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
-.coach .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 12px}
+.coach .role{color:var(--orange);font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 12px}
 .coach .line{font-size:14px;line-height:1.4;margin:10px 0 0;color:var(--muted);font-style:italic}
 .coach .does{font-size:15px;line-height:1.45;margin:10px 0 0;color:var(--soft)}
-.coach .proof{margin:auto 0 0;padding-top:14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:16px}
+.coach .guard{margin:10px 0 0;font-size:14px;line-height:1.4;color:var(--white);font-weight:600}
+.coach .guard span{display:block;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.coach .proof{margin:auto 0 0;padding-top:14px;font-size:14px;color:var(--muted);border-top:1px solid var(--line);margin-top:16px}
 .coach .proof b{color:var(--orange);font-weight:700}
 .more{display:inline-block;margin-top:24px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
 .more:hover{text-decoration:underline}
@@ -107,6 +114,7 @@ form.join button:hover{filter:brightness(1.06)}
 footer{border-top:1px solid var(--line);padding:44px 0 56px;color:var(--muted);font-size:14px}
 footer .sign{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;color:var(--white);margin:0 0 18px;line-height:1}
 footer .links a{margin-right:18px;text-decoration:none;color:var(--soft)}
+footer .links.site{margin-top:4px}
 footer p{margin:14px 0 0;line-height:1.5}
 
 @media (max-width:1000px){.coaches{grid-template-columns:repeat(3,1fr)}}
@@ -131,7 +139,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   .facts{grid-template-columns:1fr 1fr 1fr;gap:8px}
   .facts div{padding:12px}
   .facts b{font-size:28px}
-  .facts .l{font-size:12px}
+  .facts .l{font-size:14px}
   p.body,.teamline,.rule{font-size:17px}
   .hero p.lead{font-size:19px}
   .joincard{padding:22px}
@@ -142,7 +150,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 .road li{position:relative;padding:28px 14px 0 0}
 .road li::before{content:"";position:absolute;left:0;top:2px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:2px solid #5f5750}
 .road li.goal::before{background:var(--orange);border-color:var(--orange)}
-.road .when{display:block;font-size:13px;color:var(--muted);font-weight:600}
+.road .when{display:block;font-size:14px;color:var(--muted);font-weight:600}
 .road b{display:block;margin-top:6px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;line-height:1}
 .road li.goal b{color:var(--orange)}
 .road .tgt{display:block;margin-top:6px;font-size:14px;color:var(--soft)}
@@ -164,11 +172,11 @@ footer p{margin:14px 0 0;line-height:1.5}
 .viz .take b{color:var(--orange);font-weight:800}
 .viz .take span{color:var(--muted)}
 .plot{width:100%;min-height:220px}
-.src{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
 .rcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
 .rc{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:20px}
 .rc .lane{margin:0 0 12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--orange)}
-.rc .rk{margin:12px 0 4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.rc .rk{margin:12px 0 4px;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
 .rc .rk:first-of-type{margin-top:0}
 .rc .rr{margin:0;font-size:15px;line-height:1.5;color:var(--soft)}
 .rc .rp{margin:0;font-size:15px;line-height:1.5;color:var(--white);font-weight:600}
@@ -189,7 +197,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 .joinbar{position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(18,16,14,.94);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateY(-100%);transition:transform .25s}
 .joinbar.on{transform:none}
 .joinbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.joinbar .btn{background:var(--orange);color:var(--ink);padding:10px 16px;font-size:17px}
+.joinbar .btn{background:var(--orange);color:var(--ink);padding:10px 16px;font-size:17px;white-space:nowrap}
+.joinbar .mark{white-space:nowrap;flex:none}
 @media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
 @media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
 </style>
@@ -211,7 +220,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 .ch .does{margin:14px 0 0;font-size:18px;line-height:1.55;color:var(--soft);max-width:62ch}
 .ch .does,.ch .tags{grid-column:2}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.tags span{padding:5px 11px;border-radius:999px;border:1px solid #4a433c;font-size:13px;color:#e7e2dc}
+.tags span{padding:5px 11px;border-radius:999px;border:1px solid #4a433c;font-size:14px;color:#e7e2dc}
 .vizgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .vizgrid.one{grid-template-columns:1fr}
 .viz{margin:0;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;min-width:0}
@@ -221,7 +230,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 .viz .take b{color:var(--orange);font-weight:800}
 .viz .take span{color:var(--muted)}
 .plot{width:100%;min-height:200px}
-.src{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
 .lifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .lift{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px}
 .lift .n{font-size:14px;font-weight:600;color:var(--muted);margin:0}
@@ -235,8 +244,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:860px){.vizgrid{grid-template-columns:1fr}.lifts{grid-template-columns:1fr}}
 @media (max-width:640px){.ch{grid-template-columns:88px 1fr;gap:16px}.ch img{grid-row:auto;width:88px;height:110px}.ch .does,.ch .tags{grid-column:1/-1}.cs{padding:64px 0}.viz{padding:18px 16px 14px}.viz .take{font-size:26px}.intro .lead{font-size:18px}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=6cdc4b63">
-<link rel="stylesheet" href="/assets/motion.css?v=6cdc4b63">
+<link rel="stylesheet" href="/assets/ui.css?v=04cfa9ef">
+<link rel="stylesheet" href="/assets/motion.css?v=04cfa9ef">
 </head>
 <body>
 
@@ -244,8 +253,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/coaches/" aria-current="page">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a class="navcta" href="/#club">Join</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/coaches/">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Join</a></nav></details>
+      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/coaches/" aria-current="page">The coaches</a><a href="/ai-running-coach/">AI running coach</a><a href="/episodes/">Episodes</a><a href="/races/">My races</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a class="navcta" href="/#join-top">Sunday letter</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/coaches/" aria-current="page">The coaches</a><a href="/ai-running-coach/">AI running coach</a><a href="/episodes/">Episodes</a><a href="/races/">My races</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#join-top">Sunday letter</a></nav></details>
     </div>
   </div>
 </header>
@@ -254,13 +263,13 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
   <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">597</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
-  <nav class="jump" aria-label="Coaches"><a href="#kai"><img src="/assets/kai.jpg" alt="">Kai</a><a href="#mo"><img src="/assets/mo.jpg" alt="">Mo</a><a href="#bo"><img src="/assets/bo.jpg" alt="">Bo</a><a href="#juno"><img src="/assets/juno.jpg" alt="">Juno</a><a href="#rook"><img src="/assets/rook.jpg" alt="">Rook</a></nav>
+  <nav class="jump" aria-label="Coaches"><a href="#kai"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Kai</a><a href="#mo"><picture><source type="image/webp" srcset="/assets/mo-96.webp"><img src="/assets/mo.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Mo</a><a href="#bo"><picture><source type="image/webp" srcset="/assets/bo-96.webp"><img src="/assets/bo.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Bo</a><a href="#juno"><picture><source type="image/webp" srcset="/assets/juno-96.webp"><img src="/assets/juno.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Juno</a><a href="#rook"><picture><source type="image/webp" srcset="/assets/rook-96.webp"><img src="/assets/rook.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Rook</a></nav>
 </div></div>
 
 <section class="cs" id="kai">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/kai-216.webp 216w, /assets/kai-432.webp 432w" sizes="(max-width:640px) 88px, 148px"><img src="/assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy" decoding="async"></picture>
       <div>
         <p class="kicker">AI running coach</p>
         <h2 class="display">Kai</h2>
@@ -274,32 +283,34 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <figure class="viz" id="v-eff"><figcaption><p class="q">Am I fitter at the same heart rate?</p><p class="take" data-take="eff">&nbsp;</p></figcaption><div class="plot" id="p-eff" role="img"></div><p class="src">Meters I travel for each heartbeat on easy runs, four-week average, hills evened out. Higher is fitter.</p></figure>
       <figure class="viz wide" id="v-miles"><figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption><div class="plot" id="p-miles" role="img"></div><p class="src">Planned miles each week to Chicago (outlines) and the miles I ran (filled).</p></figure>
     </div>
-    <blockquote class="say"><img src="/assets/kai.jpg" alt="" width="44" height="44"><p data-line="kai_year"></p></blockquote>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="kai_year"></p></blockquote>
+    <p class="invite">Kai could build your year the same way, race by race. <a href="/?coach=kai#waitlist" data-coach="kai">Get on the waitlist</a></p>
   </div>
 </section>
 <section class="cs" id="mo">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/mo-216.webp 216w, /assets/mo-432.webp 432w" sizes="(max-width:640px) 88px, 148px"><img src="/assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy" decoding="async"></picture>
       <div>
         <p class="kicker">AI recovery coach</p>
         <h2 class="display">Mo</h2>
         <p class="proof"><b data-k="c_mo_studies">178</b> studies read · <b data-k="c_mo_live">162</b> nights of sleep read</p>
       </div>
-      <p class="does">Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run against the longest of the month, where overuse injuries start, and builds the warm-ups, prehab and down weeks around the plan.</p>
+      <p class="does">Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, prehab and down weeks around the plan.</p>
       <div class="tags" aria-label="What Mo watches"><span>Hours asleep</span><span>Resting heart rate</span><span>Heart rate variability</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div>
     </div>
     <div class="vizgrid">
       <figure class="viz" id="v-easy"><figcaption><p class="q">Are the easy days easy?</p><p class="take" data-take="easy">&nbsp;</p></figcaption><div class="plot" id="p-easy" role="img"></div><p class="src">Share of each week's running time at easy heart rate, my zone 2 or below. The best distance runners keep at least 80% easy.</p></figure>
       <figure class="viz" id="v-sleep"><figcaption><p class="q">Am I sleeping enough?</p><p class="take" data-take="sleep">&nbsp;</p></figcaption><div class="plot" id="p-sleep" role="img"></div><p class="src">Hours asleep each night from my watch. Faded bars were broken nights, which watches count long.</p></figure>
     </div>
-    <blockquote class="say"><img src="/assets/mo.jpg" alt="" width="44" height="44"><p data-line="mo_sleep"></p></blockquote>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/mo-96.webp"><img src="/assets/mo.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="mo_sleep"></p></blockquote>
+    <p class="invite">Mo could keep the same watch on your sleep. <a href="/?coach=mo#waitlist" data-coach="mo">Get on the waitlist</a></p>
   </div>
 </section>
 <section class="cs" id="bo">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/bo-216.webp 216w, /assets/bo-432.webp 432w" sizes="(max-width:640px) 88px, 148px"><img src="/assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy" decoding="async"></picture>
       <div>
         <p class="kicker">AI strength coach</p>
         <h2 class="display">Bo</h2>
@@ -311,13 +322,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <div class="vizgrid one">
       <div class="lifts" id="p-lifts"></div>
     </div>
-    <blockquote class="say"><img src="/assets/bo.jpg" alt="" width="44" height="44"><p data-line="bo"></p></blockquote>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/bo-96.webp"><img src="/assets/bo.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="bo"></p></blockquote>
+    <p class="invite">Bo could fit the lifting around your runs too. <a href="/?coach=bo#waitlist" data-coach="bo">Get on the waitlist</a></p>
   </div>
 </section>
 <section class="cs" id="juno">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/juno-216.webp 216w, /assets/juno-432.webp 432w" sizes="(max-width:640px) 88px, 148px"><img src="/assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy" decoding="async"></picture>
       <div>
         <p class="kicker">AI nutritionist</p>
         <h2 class="display">Juno</h2>
@@ -329,13 +341,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <div class="vizgrid one">
       <figure class="viz" id="v-fuel"><figcaption><p class="q">Does the food follow the work?</p><p class="take" data-take="fuel">&nbsp;</p></figcaption><div class="plot" id="p-fuel" role="img"></div><p class="src">Grams of carbs a day from my meal plan, the next seven days. Orange days carry a hard or long run.</p></figure>
     </div>
-    <blockquote class="say"><img src="/assets/juno.jpg" alt="" width="44" height="44"><p data-line="juno"></p></blockquote>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/juno-96.webp"><img src="/assets/juno.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="juno"></p></blockquote>
+    <p class="invite">Juno could plan your food around your training too. <a href="/?coach=juno#waitlist" data-coach="juno">Get on the waitlist</a></p>
   </div>
 </section>
 <section class="cs" id="rook">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy">
+      <picture><source type="image/webp" srcset="/assets/rook-216.webp 216w, /assets/rook-432.webp 432w" sizes="(max-width:640px) 88px, 148px"><img src="/assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy" decoding="async"></picture>
       <div>
         <p class="kicker">AI head coach</p>
         <h2 class="display">Rook</h2>
@@ -348,7 +361,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <figure class="viz" id="v-gap"><figcaption><p class="q">Am I closing the gap?</p><p class="take" data-take="gap">&nbsp;</p></figcaption><div class="plot" id="p-gap" role="img"></div><p class="src">Garmin's marathon prediction after every run since October 19, against what Chicago asks for.</p></figure>
       <figure class="viz" id="v-calls"><figcaption><p class="q">Who makes the calls?</p><p class="take" data-take="calls">&nbsp;</p></figcaption><div class="plot" id="p-calls" role="img"></div><p class="src">Every decision the coaches wrote down since Nov 9. Orange were made automatically from my watch data, white are a coach's own call, gray the times I overruled one.</p></figure>
     </div>
-    <blockquote class="say"><img src="/assets/rook.jpg" alt="" width="44" height="44"><p data-line="rook"></p></blockquote>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/rook-96.webp"><img src="/assets/rook.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="rook"></p></blockquote>
+    <p class="invite">Rook could settle your week the same way. <a href="/?coach=rook#waitlist" data-coach="rook">Get on the waitlist</a></p>
   </div>
 </section>
 
@@ -357,7 +371,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <p class="kicker">Come along</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
     <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
-    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#club">Get on the list</a></p>
+    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
   </div>
 </section>
 
@@ -365,13 +379,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
     <div class="links"><a href="https://www.youtube.com/@tothefinishai">YouTube</a><a href="https://www.instagram.com/tothefinishai/">Instagram</a><a href="https://www.tiktok.com/@tothefinishai">TikTok</a><a href="https://x.com/tothefinishai">X</a><a href="https://www.strava.com/clubs/tothefinish">Strava</a></div>
+    <nav class="links site" aria-label="Site"><a href="/ai-running-coach/">AI running coach</a><a href="/coaches/">The coaches</a><a href="/episodes/">Episodes</a><a href="/races/">My races</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago Marathon 2027</a><a href="/privacy/">Privacy</a></nav>
     <p>Contact: <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
     <p>My personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters.</p>
   </div>
 </footer>
 
-<script src="/assets/charts.js?v=6cdc4b63"></script>
-<script src="/assets/coaches-page.js?v=6cdc4b63"></script>
-<script src="/assets/motion.js?v=6cdc4b63" defer></script>
+<script src="/assets/charts.js?v=04cfa9ef"></script>
+<script src="/assets/coaches-page.js?v=04cfa9ef"></script>
+<script src="/assets/motion.js?v=04cfa9ef" defer></script>
 </body>
 </html>

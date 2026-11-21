@@ -98,9 +98,9 @@ def main():
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like Chicago, Oct 10, 2027)">
-      <button type="submit">Get on the list</button>
+      <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-chicago">You're on the list. See you in Grant Park.</div>
+    <div class="thanks" id="thanks-chicago">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
     <p class="fine">You'll also get my Sunday letter: what the week really was, and the new episode. It's free, and you can unsubscribe anytime.</p>"""
 
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
@@ -155,7 +155,7 @@ def main():
   <div class="wrap">
     <p class="kicker">Running Chicago too?</p>
     <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
-    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see everything my watch sees and argue about my week like it's theirs. Right now they coach one runner: me. If they get me to Grant Park in time, the people on this list are next. Tell me your race.</p>
+    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see everything my watch sees and argue about my week like it's theirs. Right now they coach one runner: me. If they get me to Grant Park in time, the people on the waitlist are next. Tell me your race.</p>
     {form}
   </div>
 </section>

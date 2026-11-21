@@ -130,7 +130,7 @@ def report_page(r, nxt, prog):
         how = f"The time is Garmin's best {short(r['name'])} inside a longer run, so there are no splits for it."
 
     kai = "".join(f"<p>{esc(x)}</p>" for x in res.get("kai") or [])
-    kai_html = (f'<blockquote class="say"><img src="/assets/kai.jpg" alt="" width="48" height="48"><div>{kai}<cite>Kai</cite></div></blockquote>'
+    kai_html = (f'<blockquote class="say"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="48" height="48" loading="lazy"></picture><div>{kai}<cite>Kai</cite></div></blockquote>'
                 if kai else "")
 
     # splits + heart rate by mile
@@ -300,14 +300,14 @@ def index_page(prog):
   <div class="wrap">
     <p class="kicker">What are you training for?</p>
     <h2 class="display">Your race, <span class="o">next.</span></h2>
-    <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, the people on this list are next. Tell me your race.</p>
+    <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, the people on the waitlist are next. Tell me your race.</p>
     <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-myraces" data-thanks="thanks-myraces">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date">
-      <button type="submit">Get on the list</button>
+      <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-myraces">You're on the list. Good luck with your race.</div>
+    <div class="thanks" id="thanks-myraces">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
     <p class="fine">You'll also get my Sunday letter: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>
   </div>
 </section>

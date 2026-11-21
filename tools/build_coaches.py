@@ -9,6 +9,8 @@ import json
 import re
 from pathlib import Path
 
+from build_pages import site_footer, site_nav   # one nav and one footer for every page (read from index.html)
+
 ROOT = Path(__file__).resolve().parents[1]
 
 COACHES = [
@@ -24,24 +26,27 @@ COACHES = [
                   "Meters I travel for each heartbeat on easy runs, four-week average, hills evened out. Higher is fitter."),
                  ("miles", "Am I running the miles?",
                   "Planned miles each week to Chicago (outlines) and the miles I ran (filled).")],
-         line="kai_year"),
+         line="kai_year",
+         invite="Kai could build your year the same way, race by race."),
     dict(k="mo", n="Mo", role="AI recovery coach", live="nights of sleep read",
          watch=["Hours asleep", "Resting heart rate", "Heart rate variability", "Every run's length",
                 "Easy-day heart rate", "My legs and pain check-ins"],
          does=("Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run "
-               "against the longest of the month, where overuse injuries start, and builds the warm-ups, prehab and "
+               "against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, prehab and "
                "down weeks around the plan."),
          charts=[("easy", "Are the easy days easy?",
                   "Share of each week's running time at easy heart rate, my zone 2 or below. The best distance "
                   "runners keep at least 80% easy."),
                  ("sleep", "Am I sleeping enough?",
                   "Hours asleep each night from my watch. Faded bars were broken nights, which watches count long.")],
-         line="mo_sleep"),
+         line="mo_sleep",
+         invite="Mo could keep the same watch on your sleep."),
     dict(k="bo", n="Bo", role="AI strength coach", live="lifts tracked",
          watch=["The top set I text after each lift", "The run calendar", "Which days carry a hard run"],
          does=("Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run "
                "and never the other way around. Sets my next weights from my last top sets."),
-         charts=[], line="bo"),
+         charts=[], line="bo",
+         invite="Bo could fit the lifting around your runs too."),
     dict(k="juno", n="Juno", role="AI nutritionist", live="foods measured",
          watch=["Today's and tomorrow's run", "The food in the house", "Grocery receipts and fridge photos",
                 "The meals on the plan", "My 7-day weigh-in trend"],
@@ -50,7 +55,8 @@ COACHES = [
                "than 2 lb a week."),
          charts=[("fuel", "Does the food follow the work?",
                   "Grams of carbs a day from my meal plan, the next seven days. Orange days carry a hard or long run.")],
-         line="juno"),
+         line="juno",
+         invite="Juno could plan your food around your training too."),
     dict(k="rook", n="Rook", role="AI head coach", live="decisions made",
          watch=["Every coach's plan", "The priority board", "Every call the coaches make", "What I tell the coaches"],
          does=("Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, "
@@ -60,7 +66,8 @@ COACHES = [
                  ("calls", "Who makes the calls?",
                   "Every decision the coaches wrote down since Nov 9. Orange were made automatically from my watch "
                   "data, white are a coach's own call, gray the times I overruled one.")],
-         line="rook"),
+         line="rook",
+         invite="Rook could settle your week the same way."),
 ]
 
 CSS = """<style>
@@ -81,7 +88,7 @@ CSS = """<style>
 .ch .does{margin:14px 0 0;font-size:18px;line-height:1.55;color:var(--soft);max-width:62ch}
 .ch .does,.ch .tags{grid-column:2}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.tags span{padding:5px 11px;border-radius:999px;border:1px solid #4a433c;font-size:13px;color:#e7e2dc}
+.tags span{padding:5px 11px;border-radius:999px;border:1px solid #4a433c;font-size:14px;color:#e7e2dc}
 .vizgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .vizgrid.one{grid-template-columns:1fr}
 .viz{margin:0;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;min-width:0}
@@ -91,7 +98,7 @@ CSS = """<style>
 .viz .take b{color:var(--orange);font-weight:800}
 .viz .take span{color:var(--muted)}
 .plot{width:100%;min-height:200px}
-.src{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
 .lifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .lift{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px}
 .lift .n{font-size:14px;font-weight:600;color:var(--muted);margin:0}
@@ -105,6 +112,18 @@ CSS = """<style>
 @media (max-width:860px){.vizgrid{grid-template-columns:1fr}.lifts{grid-template-columns:1fr}}
 @media (max-width:640px){.ch{grid-template-columns:88px 1fr;gap:16px}.ch img{grid-row:auto;width:88px;height:110px}.ch .does,.ch .tags{grid-column:1/-1}.cs{padding:64px 0}.viz{padding:18px 16px 14px}.viz .take{font-size:26px}.intro .lead{font-size:18px}}
 </style>"""
+
+
+def portrait(k, alt, w, h, sizes):
+    """Coach portrait as WebP (216 and 432 px wide) with the original JPEG as the fallback."""
+    return (f'<picture><source type="image/webp" srcset="/assets/{k}-216.webp 216w, /assets/{k}-432.webp 432w" sizes="{sizes}">'
+            f'<img src="/assets/{k}.jpg" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"></picture>')
+
+
+def avatar(k, px):
+    """Small round coach picture (a 96 px WebP covers 44 px at 2x)."""
+    return (f'<picture><source type="image/webp" srcset="/assets/{k}-96.webp">'
+            f'<img src="/assets/{k}.jpg" alt="" width="{px}" height="{px}" loading="lazy" decoding="async"></picture>')
 
 
 def section(c, co):
@@ -124,7 +143,7 @@ def section(c, co):
 <section class="cs" id="{k}">
   <div class="wrap">
     <div class="ch">
-      <img src="/assets/{k}.jpg" alt="{c['n']}, the {c['role']}" width="400" height="500" loading="lazy">
+      {portrait(k, f"{c['n']}, the {c['role']}", 400, 500, "(max-width:640px) 88px, 148px")}
       <div>
         <p class="kicker">{c['role']}</p>
         <h2 class="display">{c['n']}</h2>
@@ -135,7 +154,8 @@ def section(c, co):
     </div>
     <div class="vizgrid{one}">{figs}
     </div>
-    <blockquote class="say"><img src="/assets/{k}.jpg" alt="" width="44" height="44"><p data-line="{c['line']}"></p></blockquote>
+    <blockquote class="say">{avatar(k, 44)}<p data-line="{c['line']}"></p></blockquote>
+    <p class="invite">{c['invite']} <a href="/?coach={k}#waitlist" data-coach="{k}">Get on the waitlist</a></p>
   </div>
 </section>"""
 
@@ -147,14 +167,13 @@ def main():
     ver = re.search(r"/assets/ui\.css\?v=(\w+)", home).group(1)
     gtm = home[home.index("<!-- Google tag"):home.index("<title>")]
     style = re.search(r"<style>.*?</style>", home, re.S).group(0).replace("url(assets/", "url(/assets/")
-    links = re.search(r'<div class="links">.*?</div>', home, re.S).group(0)
-    nav = ('<nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/coaches/" aria-current="page">The coaches</a>'
-           '<a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a>'
-           '<a class="navcta" href="/#club">Join</a></nav>')
-    mnav = ('<details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a>'
-            '<a href="/coaches/">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a>'
-            '<a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Join</a></nav></details>')
-    jump = "".join(f'<a href="#{c["k"]}"><img src="/assets/{c["k"]}.jpg" alt="">{c["n"]}</a>' for c in COACHES)
+    jump = "".join(f'<a href="#{c["k"]}">{avatar(c["k"], 28)}{c["n"]}</a>' for c in COACHES)
+    desc = ("What each of my five AI coaches watches, what they do with it, and the numbers they're watching right now: "
+            "running, recovery, strength, fuel and the calls between them.")
+    schema = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "The coaches | To The Finish",
+                         "url": "https://tothefinish.ai/coaches/", "description": desc,
+                         "isPartOf": {"@type": "WebSite", "name": "To The Finish", "url": "https://tothefinish.ai/"}},
+                        ensure_ascii=False)
     body = "".join(section(c, co) for c in COACHES)
     page = f"""<!doctype html>
 <html lang="en">
@@ -162,13 +181,17 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {gtm}<title>The coaches · To The Finish</title>
-<meta name="description" content="What each of my five AI coaches watches, what they do with it, and the numbers they're watching right now: running, recovery, strength, fuel and the calls between them.">
+<meta name="description" content="{desc}">
 <meta property="og:title" content="The coaches · To The Finish">
 <meta property="og:description" content="Five AI coaches read my runs, sleep, lifts and meals as they happen, and change my plan on their own. Here's what each one is watching right now.">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/coaches/">
+<meta property="og:type" content="website">
 <link rel="canonical" href="https://tothefinish.ai/coaches/">
+<script type="application/ld+json">{schema}</script>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tothefinish.ai/assets/og.jpg">
+<link rel="preload" as="font" type="font/woff2" href="/assets/barlow-condensed-800.woff2" crossorigin>
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 {style}
@@ -182,8 +205,7 @@ def main():
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      {nav}
-      {mnav}
+      {site_nav("/coaches/")}
     </div>
   </div>
 </header>
@@ -201,18 +223,11 @@ def main():
     <p class="kicker">Come along</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
     <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
-    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#club">Get on the list</a></p>
+    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
-    {links}
-    <p>Contact: <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
-    <p>My personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters.</p>
-  </div>
-</footer>
+{site_footer()}
 
 <script src="/assets/charts.js?v={ver}"></script>
 <script src="/assets/coaches-page.js?v={ver}"></script>

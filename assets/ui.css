@@ -15,9 +15,13 @@
 .mnav nav a:hover,.mnav nav a[aria-current]{background:#38322c;color:var(--white)}
 .nav{display:flex;align-items:center}
 .nav a{display:inline-flex;align-items:center;min-height:44px}
-@media (max-width:860px){.bar .nav{display:none}}
+.nav a.navcta{color:var(--ink);background:var(--orange);padding:0 16px;border-radius:10px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:17px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.nav a.navcta:hover{color:var(--ink);filter:brightness(1.06)}
+.nav a[aria-current]{color:var(--white)}
+/* 2026-11-21: seven links and the letter button need 1100 px; below that the menu takes over */
+@media (max-width:1100px){.bar .nav{display:none}}
 .mark{display:inline-flex;align-items:center;gap:.28em;min-height:44px}
-@media (max-width:860px){.mnav{display:block}}
+@media (max-width:1100px){.mnav{display:block}}
 
 /* 14 px floor (small labels, notes, tags were 12 to 13 px) */
 .fine,.note,.race .d,.race .k,.card .role,.rlab,.rdates,.rd,.rb,.rtrain,.facts .k,.gapline .k,.ftable th,.k{font-size:14px}
@@ -54,3 +58,15 @@ footer .links a{display:inline-flex;align-items:center;justify-content:center;mi
 .answers .prose li{margin:4px 0}
 .answers .prose li b{color:var(--white)}
 .prose p.kicker{color:var(--orange);font-size:18px;line-height:1;margin:0 0 14px;max-width:none}
+
+/* 2026-11-21 review fixes: picture wrappers lay out as their img, readable placeholders (4.5:1) and input borders
+   (3:1), the site links row in the footer, the form error line, the coach invitation on /coaches/ */
+picture{display:contents}picture>source{display:none}
+form.join input,form.join select,.rfilters input[type=search],.rdates input{border-color:#8a837c}
+form.join input::placeholder,.rfilters input[type=search]::placeholder{color:var(--muted);opacity:1}
+footer .links.site{margin-top:4px}
+.formerr{max-width:520px;margin:10px 0 0;font-size:15px;line-height:1.45;color:var(--white)}
+.formerr button{background:none;border:0;padding:0 2px;min-height:44px;color:var(--orange);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+.invite{margin:20px 0 0;font-size:16px;line-height:1.5;color:var(--soft);max-width:62ch}
+.invite a{color:var(--orange);font-weight:700;display:flex;align-items:center;min-height:44px;width:max-content}
+.eptop{margin:0 0 4px}

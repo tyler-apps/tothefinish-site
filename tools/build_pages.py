@@ -48,7 +48,27 @@ def esc(s):
     return html.escape(s or "", quote=True)
 
 
-def head(title, desc, path, extra=""):
+# One nav and one footer for the whole site (2026-11-21 review: the built pages had drifted from the home page).
+# Both are read from the hand-edited index.html; build_coaches.py uses the same two helpers.
+_HOME = (ROOT / "index.html").read_text()
+_NAV = re.search(r'<nav class="nav" aria-label="Main">.*?</nav>', _HOME, re.S).group(0)
+_MNAV = re.search(r'<details class="mnav">.*?</details>', _HOME, re.S).group(0)
+_FOOTER = re.search(r"<footer>.*?</footer>", _HOME, re.S).group(0)
+
+
+def site_nav(path=""):
+    """The desktop nav and the phone menu, with the current page marked."""
+    out = _NAV + "\n      " + _MNAV
+    return out.replace(f'<a href="{path}">', f'<a href="{path}" aria-current="page">') if path else out
+
+
+def site_footer():
+    return _FOOTER
+
+
+def head(title, desc, path, extra="", index=True):
+    canon = (f'<link rel="canonical" href="{SITE}{path}">' if index else '<meta name="robots" content="noindex">')
+    ogtype = "article" if '"@type": "Article"' in extra else "website"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -58,14 +78,17 @@ def head(title, desc, path, extra=""):
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());</script>
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="{SITE}{path}">
+{canon}
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:image" content="{SITE}/assets/og.jpg">
 <meta property="og:url" content="{SITE}{path}">
+<meta property="og:type" content="{ogtype}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{SITE}/assets/og.jpg">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="/assets/barlow-condensed-800.woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v={VER}">
 <link rel="stylesheet" href="/assets/ui.css?v={VER}">
 <link rel="stylesheet" href="/assets/motion.css?v={VER}">
@@ -76,8 +99,7 @@ def head(title, desc, path, extra=""):
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/coaches/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/coaches/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
+      {site_nav(path)}
     </div>
 """
 
@@ -87,17 +109,10 @@ FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscrip
   <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
   <button type="submit">{button}</button>
 </form>
-<div class="thanks" id="thanks-{id}">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
-<p class="fine">One email every Sunday: my week's miles, plus the new episode when one's out.</p>"""
+<div class="thanks" id="thanks-{id}">You're in. The first letter comes Sunday night.</div>
+<p class="fine">The Sunday letter is one email a week: my miles, what went sideways, and the new episode when one's out.</p>"""
 
-FOOT = """<footer>
-  <div class="wrap">
-    <p class="sign">Not built for it. <span class="o">Training for it anyway.</span></p>
-    <div class="links"><a href="https://www.youtube.com/@tothefinishai">YouTube</a><a href="https://www.instagram.com/tothefinishai/">Instagram</a><a href="https://www.tiktok.com/@tothefinishai">TikTok</a><a href="https://x.com/tothefinishai">X</a><a href="https://www.strava.com/clubs/tothefinish">Strava</a></div>
-    <p>Contact: <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a></p>
-    <p>My personal AI coaching setup. Not medical or nutrition advice. The coaches are AI characters.</p>
-  </div>
-</footer>
+FOOT = site_footer() + """
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
 <script src="/assets/join.js?v=VERSION"></script>
 <script src="/assets/motion.js?v=VERSION" defer></script>
@@ -169,9 +184,9 @@ def episode_page(e):
 </section>
 <section>
   <div class="wrap">
-    <p class="kicker">Follow along</p>
+    <p class="kicker">The Sunday letter</p>
     <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">Get the next episode <span class="o">when it's out.</span></h2>
-    {FORM.format(id='ep', button='Follow along')}
+    {FORM.format(id='ep', button='Get the Sunday letter')}
     <p class="body" style="margin-top:22px"><a href="/episodes/">All episodes</a></p>
   </div>
 </section>
@@ -196,6 +211,7 @@ def episodes_index(eps):
       <p class="kicker">Season 1: The 5K</p>
       <h1 class="display">The <span class="o">episodes.</span></h1>
       <p class="lead">Two episodes a month, on Sundays, from the first week of training to the start line in Chicago. Each one comes from the weeks that really happened, with the times straight off my watch, including the runs that went sideways.</p>
+      <p class="eptop"><a class="btn" href="https://www.youtube.com/@tothefinishai">Watch on YouTube</a></p>
     </div>
   </div>
 </header>
@@ -235,7 +251,7 @@ def coach_page(qs=()):
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
-    <p>Not yet. It has to get me to Chicago first. If it does, the people on this list are next.</p>
+    <p>Not yet. It has to get me to Chicago first. If it does, the people on the waitlist are next.</p>
   </div>
 </section>
 <section>
@@ -244,12 +260,58 @@ def coach_page(qs=()):
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
-      <button type="submit">Get on the list</button>
+      <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-coach">You're on the list. Reply to the first email with your race. I want to know.</div>
+    <div class="thanks" id="thanks-coach">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
     <p class="body" style="margin-top:22px"><a href="/episodes/">Watch the episodes</a></p>
   </div>
 </section>
+""" + FOOT
+
+
+def privacy_page():
+    path = "/privacy/"
+    desc = ("What tothefinish.ai collects when you sign up for the Sunday letter or the waitlist, where it goes, "
+            "and how to get off the list.")
+    page = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy | To The Finish",
+            "url": SITE + path, "description": desc}
+    return head("Privacy | To The Finish", desc, path, ld(page)) + """    <div class="page">
+      <p class="kicker">Updated November 21, 2026</p>
+      <h1 class="display">Privacy, in <span class="o">plain words.</span></h1>
+      <p class="lead">This is a one-person site. Here's what it collects and where that goes.</p>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="wrap prose">
+    <h2>What the forms collect</h2>
+    <p>The Sunday letter form asks for your first name and your email. The waitlist form asks for the same two, plus the race you're training for. That's all the forms ask for.</p>
+    <h2>Where it goes</h2>
+    <p>The forms send what you type to Kit, the email service I use to send the Sunday letter. I read the race you wrote so I know who I'm building this for.</p>
+    <h2>What the site counts</h2>
+    <p>The site uses Google Analytics to count visits and sign-ups, and which race gets picked on the San Diego list. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
+    <h2>Getting off the list</h2>
+    <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
+    <h2>The coaches</h2>
+    <p>Rook, Kai, Bo, Juno and Mo are AI characters. This is my personal coaching setup, and nothing here is medical or nutrition advice.</p>
+    <h2>Questions</h2>
+    <p>Write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a>.</p>
+  </div>
+</section>
+""" + FOOT
+
+
+def notfound_page():
+    desc = "There's no page at this address on tothefinish.ai."
+    return head("Page not found | To The Finish", desc, "/404.html", index=False) + """    <div class="page">
+      <p class="kicker">404</p>
+      <h1 class="display">Wrong <span class="o">turn.</span></h1>
+      <p class="lead">There's no page at this address. The home page has the whole story, and the coaches page has today's numbers.</p>
+      <p><a class="btn" href="/">Back to the start</a></p>
+      <p class="body" style="margin-top:22px"><a href="/coaches/">The coaches</a> · <a href="/episodes/">Episodes</a> · <a href="/races/">My races</a></p>
+    </div>
+  </div>
+</header>
 """ + FOOT
 
 
@@ -289,8 +351,8 @@ def question_page(q, all_q):
 </section>
 <section>
   <div class="wrap">
-    <p class="kicker">Follow the test</p>
-    {FORM.format(id='q', button='Follow along')}
+    <p class="kicker">The Sunday letter</p>
+    {FORM.format(id='q', button='Get the Sunday letter')}
     <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/ai-running-coach/">How my AI running coach works</a></li><li><a href="/chicago-marathon-2027/">Chicago Marathon 2027: dates, lottery and qualifying times</a></li><li><a href="/san-diego-races/">Upcoming San Diego races</a></li></ul></div>
   </div>
 </section>
@@ -399,6 +461,11 @@ def main():
     d = ROOT / "ai-running-coach"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(coach_page(qs))
+    d = ROOT / "privacy"
+    d.mkdir(exist_ok=True)
+    (d / "index.html").write_text(privacy_page())
+    urls.append(("/privacy/", "yearly", "2026-11-21"))
+    (ROOT / "404.html").write_text(notfound_page())
     home = ROOT / "index.html"
     h = home.read_text()
     h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
