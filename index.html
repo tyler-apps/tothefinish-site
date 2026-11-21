@@ -153,8 +153,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   .chart{padding:12px 8px 6px}
 }
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=67d5d654">
-<link rel="stylesheet" href="/assets/motion.css?v=67d5d654">
+<link rel="stylesheet" href="/assets/ui.css?v=a666946e">
+<link rel="stylesheet" href="/assets/motion.css?v=a666946e">
 </head>
 <body>
 
@@ -289,7 +289,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <p class="kicker">Kai · The races</p>
     <h2 class="display">Four races, <span class="o">then Chicago.</span></h2>
     <div class="rgrid" id="races"></div>
-    <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today. "Kai's target" is the time that keeps sub-3 on track at that point in the year.</p>
+    <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today. "Kai's target" is the time that keeps sub-3 on track at that point in the year. <a href="/races/">My race reports</a></p>
     <div class="golinks">
       <a class="golink" href="/san-diego-races/"><span class="k">Racing in San Diego?</span><b>Every upcoming 5K, 10K, half and marathon</b><span class="arrow" aria-hidden="true">→</span></a>
       <a class="golink" href="/chicago-marathon-2027/"><span class="k">Running Chicago in 2027?</span><b>Lottery dates, qualifying times and my plan</b><span class="arrow" aria-hidden="true">→</span></a>
@@ -437,8 +437,8 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/join.js?v=67d5d654"></script>
-<script src="/assets/motion.js?v=67d5d654" defer></script>
+<script src="/assets/join.js?v=a666946e"></script>
+<script src="/assets/motion.js?v=a666946e" defer></script>
 <script>
 (function(){
   var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';
@@ -665,6 +665,8 @@ footer p{margin:14px 0 0;line-height:1.5}
       if(r.goal) h+='<div class="k">Goal</div><div class="v o">'+r.goal+'</div>';
       if(r.target) h+='<div class="k">Kai\'s target</div><div class="v o">'+r.target+'</div>';
       if(r.name==='Half marathon'&&D.half_pr) h+='<div class="k">My best</div><div class="v">'+D.half_pr.time+'</div>';
+      if(r.result){var sl=r.name.toLowerCase().replace(/^first\s+/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        h+='<div class="k">My watch</div><div class="v">'+r.result.time+'</div><a class="rlink" href="/races/'+r.date+'-'+sl+'/">Race report</a>';}
       c.innerHTML=h; g.appendChild(c);
     });
   }).catch(function(){});

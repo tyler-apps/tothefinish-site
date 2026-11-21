@@ -14,6 +14,8 @@
       var params = { form_type: type, form_location: f.id.replace(/^join-/, '') };
       if (type === 'waitlist') { params.lead_source = 'waitlist'; }
       else { params.method = 'follow_along'; }
+      var pick = f.querySelector('select[name="fields[training_for]"]');
+      if (pick && pick.value) { params.race_pick = pick.selectedOptions[0].classList.contains('else') ? 'Something else' : pick.value; }  // typed text never goes to GA4
       // Sent straight to GA4 by the Google tag (G-3J00LR0ES7); no Tag Manager tags needed.
       if (typeof window.gtag === 'function') {
         window.gtag('event', type === 'waitlist' ? 'generate_lead' : 'sign_up', params);
@@ -25,6 +27,11 @@
     f.method = 'POST';
     f.target = 'hidden_iframe';
     f.addEventListener('submit', function () {
+      // race picker: "Something else" carries the typed race in the same Kit field (training_for)
+      var sel = f.querySelector('select[name="fields[training_for]"]'), other = f.querySelector('input.other');
+      if (sel && other && sel.selectedOptions[0] && sel.selectedOptions[0].classList.contains('else') && other.value.trim()) {
+        sel.selectedOptions[0].value = 'Something else: ' + other.value.trim();
+      }
       pending = f;
       var t = document.getElementById(f.dataset.thanks);
       setTimeout(function () { f.style.display = 'none'; t.style.display = 'block'; }, 300);

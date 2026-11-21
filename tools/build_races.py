@@ -164,20 +164,42 @@ def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text()) if (ROOT / "episodes" / "episodes.json").exists() else []
     SHOW_NEXT = ('<a href="/episodes/">Watch the episodes</a>.' if eps
                  else "Episode 1 comes out Sunday, Nov 22.")
-    # the shared sign-up form, without its one-line summary (the paragraph above already says it)
-    WAITLIST_FORM = """<form class="join" id="join-races" data-thanks="thanks-races">
+    # race picker (Tyler 2026-11-20, from the race-finder research: "what race are you training for?"): a select built from
+    # the list, sent to the same Kit form in the training_for field it already had; "Something else" opens a text box
+    # (CSS :has) and join.js folds the typed race into the same field. GA4 gets the pick as race_pick.
+    groups, gm = [], None
+    for r in races:
+        day = d(r["date"])
+        if (day.year, day.month) != gm:
+            gm = (day.year, day.month)
+            groups.append([f"{day:%B} {day.year}", []])
+        v = f'{r["name"]} ({day:%b} {day.day})'
+        groups[-1][1].append(f'<option value="{esc(v)}">{esc(r["name"])} · {day:%a %b} {day.day}</option>')
+    OPTS = "".join(f'<optgroup label="{g}">{"".join(o)}</optgroup>' for g, o in groups)
+    OPTS += ('<optgroup label="Further away"><option value="Chicago Marathon (Oct 10, 2027)">Chicago Marathon · Sun Oct 10, 2027</option></optgroup>'
+             '<option class="else" value="Something else">Something else</option>')
+
+    def picker(fid, thanks):
+        return f"""<form class="join" id="join-{fid}" data-thanks="thanks-{fid}">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <input class="wide" id="race-field" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like La Jolla Half, May 15)">
+      <select id="race-{fid}" name="fields[training_for]" aria-label="What race are you training for?"><option value="">Pick your race</option>{OPTS}</select>
+      <input class="wide other" aria-label="Your race and date" placeholder="Your race and date">
       <button type="submit">Get on the list</button>
     </form>
-    <div class="thanks" id="thanks-races">You're on the list. Good luck with your race.</div>
+    <div class="thanks" id="thanks-{fid}">{thanks}</div>"""
+
+    WAITLIST_FORM = picker("races", "You're on the list. Good luck with your race.") + """
     <p class="fine">You'll also get my Sunday email: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>"""
+    PICK_FORM = picker("pick", "You're on the list. Good luck with your race.")
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">San Diego races · Updated {updated:%b} {updated.day}, {updated.year}</p>
       <h1 class="display">San Diego <span class="o">races.</span></h1>
       <p class="lead">Every 5K, 10K, half marathon and marathon within 35 miles of San Diego, in one list. Pick a distance and dates, or search by name. It updates every Sunday.</p>
       <p class="body">I'm Tyler, and I'm training for a sub-3 marathon in Chicago with five AI coaches on my show, <a href="#show">To The Finish</a>. I use this list to pick my own races, so the ones I'm running are marked. <a href="#mine">See where I'm racing</a>.</p>
+      <p class="kicker" id="pick" style="margin-top:34px">What race are you training for?</p>
+      <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, this list tries them next, and I'll know whose races I'm building for.</p>
+      {PICK_FORM}
     </div>
   </div>
 </header>
@@ -233,6 +255,7 @@ def main():
     <h2 class="display">My race <span class="o">calendar.</span></h2>
     <p class="body">My AI running coach, Kai, set the dates on the way to Chicago. I pick the races that fill them.</p>
     <div class="rgrid">{"".join(cards)}</div>
+    <p class="body" style="margin-top:22px"><a href="/races/">My race reports and Kai's targets</a></p>
   </div>
 </section>
 <script src="/assets/races.js?v={VER}" defer></script>

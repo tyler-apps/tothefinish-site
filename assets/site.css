@@ -187,3 +187,13 @@ h2.sec{font-size:clamp(44px,6vw,72px);margin-bottom:16px}
 .mybuild .race .v{font-size:34px}
 .faq h3{font-size:20px;margin:22px 0 6px}
 @media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts b{font-size:28px}}
+
+/* race picker + race reports (2026-11-20): the select matches the inputs; .say is the home page's coach quote */
+form.join select{flex:1 1 100%;min-width:0;padding:15px 40px 15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8a29e' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--white);font-size:16px;-webkit-appearance:none;appearance:none}
+form.join input.other{display:none}
+form.join:has(option.else:checked) input.other{display:block}
+.page form.join{margin-top:6px}
+.say{display:flex;gap:14px;align-items:flex-start;margin:18px 0 0;padding:16px 18px;background:var(--ink-2);border-left:4px solid var(--orange);border-radius:10px;max-width:720px}
+.say img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.say p{margin:0 0 6px;font-size:18px;line-height:1.45;color:var(--white)}
+.say cite{display:block;margin-top:6px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}

@@ -380,6 +380,8 @@ def main():
     if (ROOT / "data" / "races.json").exists():
         urls.append(("/san-diego-races/", "weekly", json.loads((ROOT / "data" / "races.json").read_text())["updated"]))
     urls.append(("/chicago-marathon-2027/", "weekly", data_date))
+    from build_race_reports import report_urls   # /races/ and one report per race run (built by build_race_reports.py)
+    urls += [(u, "weekly", m) for u, m in report_urls(json.loads((ROOT / "data" / "progress.json").read_text()))]
     (ROOT / "episodes").mkdir(exist_ok=True)
     (ROOT / "episodes" / "index.html").write_text(episodes_index(eps))
     for e in eps:

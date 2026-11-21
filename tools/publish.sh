@@ -16,13 +16,14 @@ git pull -q --rebase --autostash origin main || { echo "pull failed"; exit 1; }
 python3 tools/build_pages.py || { echo "build failed"; exit 1; }
 python3 tools/build_races.py || { echo "race page build failed"; exit 1; }
 python3 tools/build_chicago.py || { echo "chicago page build failed"; exit 1; }
+python3 tools/build_race_reports.py || { echo "race report build failed"; exit 1; }
 
 CHANGED=$(git status --porcelain -uall | awk '{print $NF}')
 if [ -z "$CHANGED" ]; then echo "no change"; exit 0; fi
 
 if [ "$MODE" = "--numbers-only" ]; then
   # built pages are allowed only if their source (questions.json, build script, index.html) did not change
-  BAD=$(echo "$CHANGED" | grep -vE '^(data/(progress|races)\.json|sitemap\.xml|pages/\.facts-state\.json|[a-z0-9-]+/index\.html|episodes/index\.html)$' || true)
+  BAD=$(echo "$CHANGED" | grep -vE '^(data/(progress|races)\.json|sitemap\.xml|pages/\.facts-state\.json|[a-z0-9-]+/index\.html|races/[a-z0-9-]+/index\.html|episodes/index\.html)$' || true)
   if [ -n "$BAD" ]; then
     echo "numbers-only refused; these need approval: $(echo $BAD)"
     /usr/bin/osascript -e 'display notification "Site has non-number changes waiting for approval" with title "tothefinish.ai"' >/dev/null 2>&1
