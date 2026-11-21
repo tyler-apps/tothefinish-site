@@ -1625,5 +1625,28 @@
   "mo_sleep": "3 of the last 7 nights reached seven hours. Average 6.7. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
   "bo": "Tyler, 295 on the box squat. Kai gets your legs in the morning. I get what's left after lunch. That's the deal. BOOM.",
   "juno": "Tyler. 223 grams of carbs on the hard days. You'll want to skip the banana before Friday's run because it's early and you're not hungry. Don't."
+ },
+ "coaches": {
+  "Kai": {
+   "studies": 61,
+   "live": 440
+  },
+  "Mo": {
+   "studies": 178,
+   "live": 162
+  },
+  "Bo": {
+   "studies": 27,
+   "live": 16
+  },
+  "Juno": {
+   "studies": 200,
+   "live": 53
+  },
+  "Rook": {
+   "studies": 166,
+   "live": 57
+  },
+  "all_studies": 597
  }
 }

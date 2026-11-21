@@ -153,23 +153,37 @@ footer p{margin:14px 0 0;line-height:1.5}
   .chart{padding:12px 8px 6px}
 }
 
-/* coach bands + floating tag (2026-11-21, Tyler: "make it more clear ... which coach is covering which section") */
-.coachhead{display:flex;gap:20px;align-items:flex-start;margin:0 0 40px;padding:20px 22px;background:var(--ink-2);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:14px}
+/* coach panels + floating tag (2026-11-21, Tyler: "make it more clear ... which coach is covering which section" · "show how much expert insight I'm really getting") */
+.teamline{margin:14px 0 0;font-size:18px;line-height:1.45;color:#e7e2dc;max-width:760px}
+.teamline b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:1.35em;color:var(--orange)}
+.coachhead{margin:0 0 40px;padding:22px 24px;background:var(--ink-2);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:14px}
+.coachhead .ch-top{display:flex;gap:18px;align-items:center}
 .coachhead img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
 .coachhead .ch-k{margin:0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:14px;color:var(--muted)}
 .coachhead .ch-n{margin:2px 0 0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:44px;line-height:1}
 .coachhead .ch-n span{font-size:20px;letter-spacing:1px;color:var(--orange);margin-left:6px;vertical-align:.35em}
-.coachhead ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:6px}
+.coachhead .ch-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0}
+.coachhead .ch-stats div{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.coachhead .ch-stats b{display:block;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;color:var(--orange);font-variant-numeric:tabular-nums}
+.coachhead .ch-stats span{display:block;margin-top:4px;font-size:13px;line-height:1.3;color:var(--muted)}
+.coachhead .ch-cols{display:grid;grid-template-columns:2fr 3fr;gap:28px;margin-top:20px}
+.coachhead .ch-h{margin:0 0 10px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--white)}
+.coachhead .ch-tags{display:flex;flex-wrap:wrap;gap:8px}
+.coachhead .ch-tags span{padding:6px 11px;border-radius:999px;border:1px solid #4a433c;font-size:14px;line-height:1.25;color:#e7e2dc}
+.coachhead ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}
 .coachhead li{position:relative;padding-left:18px;font-size:16px;line-height:1.45;color:#e7e2dc}
 .coachhead li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--orange)}
-.coachhead .want{display:inline-block;margin-top:14px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
+.coachhead .ch-also{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.coachhead .want{display:inline-block;margin-top:18px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
 .coachhead .want:hover{text-decoration:underline}
-@media (max-width:520px){.coachhead{flex-direction:column;gap:12px;padding:18px}.coachhead img{width:64px;height:64px}.coachhead .ch-n{font-size:38px}.coachhead .ch-n span{display:block;margin:6px 0 0;vertical-align:0}}
+@media (max-width:760px){.coachhead .ch-cols{grid-template-columns:1fr;gap:18px}}
+@media (max-width:520px){.coachhead{padding:18px}.coachhead img{width:64px;height:64px}.coachhead .ch-n{font-size:36px}.coachhead .ch-n span{display:block;margin:6px 0 0;vertical-align:0;font-size:18px}.coachhead .ch-stats{gap:8px}.coachhead .ch-stats div{padding:10px}.coachhead .ch-stats b{font-size:30px}.coachhead .ch-stats span{font-size:12px}}
 .coachtag{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:10px;padding:5px 16px 5px 5px;background:rgba(18,16,14,.94);border:1px solid var(--line);border-radius:999px;color:var(--white);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .25s;pointer-events:none}
 .coachtag.on{opacity:1;transform:none;pointer-events:auto}
 .coachtag img{width:32px;height:32px;border-radius:50%;object-fit:cover}
 .coachtag span b{color:var(--orange);font-weight:800}
 @media (prefers-reduced-motion:reduce){.coachtag{transition:none;transform:none}}
+@media (max-width:520px){.coachtag{left:10px;bottom:10px;padding:4px 12px 4px 4px;font-size:15px}.coachtag img{width:28px;height:28px}.coachtag span b{display:none}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -215,6 +229,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <p class="kicker">Who's watching what</p>
     <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Every coach guards <span class="o">a number.</span></h2>
     <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on <a href="#board">the board</a> and that's the end of it. Tap a coach to see what they're watching this week.</p>
+    <p class="teamline">Between them, the five coaches have read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
     <div class="chips">
       <a class="chip" href="#progress"><img src="assets/rook.jpg" alt=""><b>Rook</b><span>Head coach · the gap to sub-3, every call logged</span></a>
       <a class="chip" href="#kai"><img src="assets/kai.jpg" alt=""><b>Kai</b><span>Running · threshold pace, race fitness, easy-run efficiency, miles, zones</span></a>
@@ -226,7 +241,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 <section class="board" id="board" data-coach="Rook">
-  <div class="wrap"><div class="coachhead" id="coach-rook"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p><ul><li>Ranks what matters, so every clash between coaches ends in one call.</li><li>Tracks the gap to sub-3 every morning.</li><li>Logs every decision the team makes.</li></ul><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div></div>
+  <div class="wrap"><div class="coachhead" id="coach-rook"><div class="ch-top"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_rook_studies">166</b><span>studies read</span></div><div><b data-k="c_rook_live">57</b><span>calls logged</span></div><div><b>4</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Rook watches</p><div class="ch-tags"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div></div><div><p class="ch-h">What Rook does with it</p><ul><li>Settles every clash between the coaches with one ranked board: what I say and any pain first, then Chicago, then weight, then strength.</li><li>Tracks the gap to sub-3 every morning.</li><li>Coaches the mental side: confidence, nerves, the last miles of a race.</li><li>Logs every decision the team makes.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap two">
     <div>
       <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
@@ -253,7 +268,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 <section id="kai" data-coach="Kai">
-  <div class="wrap"><div class="coachhead" id="coach-kai"><img src="assets/kai.jpg" alt="Kai, the AI running coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Kai <span>AI running coach</span></p><ul><li>Builds the year race by race: a 5K, a 10K, a half, then the marathon.</li><li>Sets my paces and heart-rate zones from my own runs and races.</li><li>Gives hills credit. A slow mile up a climb counts as the faster flat mile it took the same effort to run.</li><li>Keeps the easy days easy, which is the hard part.</li></ul><a class="want" href="#waitlist" data-coach="Kai">Want Kai on your running? <span aria-hidden="true">→</span></a></div></div></div>
+  <div class="wrap"><div class="coachhead" id="coach-kai"><div class="ch-top"><img src="assets/kai.jpg" alt="Kai, the AI running coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Kai <span>AI running coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_kai_studies">61</b><span>studies read</span></div><div><b data-k="c_kai_live">440</b><span>runs read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Kai watches</p><div class="ch-tags"><span>Every lap and split</span><span>Heart rate from a chest strap</span><span>Hills and grade</span><span>Heat and weather</span><span>Threshold pace</span><span>Race results</span></div></div><div><p class="ch-h">What Kai does with it</p><ul><li>Builds the year race by race: a 5K, a 10K, a half, then the marathon.</li><li>Sets my paces and heart-rate zones from my own runs and races.</li><li>Gives hills credit. A slow mile up a climb counts as the faster flat mile it took the same effort to run.</li><li>Keeps the easy days easy, which is the hard part.</li><li>Sends every workout to my watch with a pace range on each step.</li></ul><p class="ch-also">Also reads the training books of coaches who have coached Olympians.</p></div></div><a class="want" href="#waitlist" data-coach="Kai">Want Kai on your running? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap two">
     <div>
       <p class="kicker">Kai · Where I've been</p>
@@ -319,7 +334,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 
 
 <section id="mo" data-coach="Mo">
-  <div class="wrap"><div class="coachhead" id="coach-mo"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Mo <span>AI recovery coach</span></p><ul><li>Reads my sleep and resting heart rate. They can only make a day easier.</li><li>Checks every run against my longest of the month, where overuse injuries start.</li><li>Builds the warm-ups, prehab and down weeks around the plan.</li></ul><a class="want" href="#waitlist" data-coach="Mo">Want Mo on your recovery? <span aria-hidden="true">→</span></a></div></div></div>
+  <div class="wrap"><div class="coachhead" id="coach-mo"><div class="ch-top"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Mo <span>AI recovery coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_mo_studies">178</b><span>studies read</span></div><div><b data-k="c_mo_live">162</b><span>nights of sleep read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Mo watches</p><div class="ch-tags"><span>Hours asleep</span><span>Resting heart rate</span><span>Heart rate variability</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div></div><div><p class="ch-h">What Mo does with it</p><ul><li>Reads my sleep and resting heart rate. They can only make a day easier.</li><li>Checks every run against my longest of the month, where overuse injuries start.</li><li>Gives the warm-up before every session and the rolling and stretching after.</li><li>Builds the prehab and the down weeks around the plan.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Mo">Want Mo on your recovery? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Mo · Recovery</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">My best trait, <span class="o">on the wrong day.</span></h2>
@@ -343,7 +358,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 <section id="bo" data-coach="Bo">
-  <div class="wrap"><div class="coachhead" id="coach-bo"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Bo <span>AI strength coach</span></p><ul><li>Heavy sets of three and jumps: the strength work that makes runners faster.</li><li>Fits the lift around the run, never the other way around.</li><li>Two or three short sessions a week, fewer as the miles climb.</li></ul><a class="want" href="#waitlist" data-coach="Bo">Want Bo on your strength? <span aria-hidden="true">→</span></a></div></div></div>
+  <div class="wrap"><div class="coachhead" id="coach-bo"><div class="ch-top"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Bo <span>AI strength coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_bo_studies">27</b><span>studies read</span></div><div><b data-k="c_bo_live">16</b><span>lifts logged</span></div><div><b>3</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Bo watches</p><div class="ch-tags"><span>Every set I log</span><span>The run calendar</span><span>Which days carry a hard run</span></div></div><div><p class="ch-h">What Bo does with it</p><ul><li>Heavy sets of three and jumps: the strength work that makes runners faster.</li><li>Fits the lift around the run, never the other way around.</li><li>Sets my next weights from the sets I've logged.</li><li>Two or three short sessions a week, fewer as the miles climb.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Bo">Want Bo on your strength? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Bo · Strength</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">The bar waits <span class="o">for the miles.</span></h2>
@@ -354,7 +369,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </section>
 
 <section id="juno" data-coach="Juno">
-  <div class="wrap"><div class="coachhead" id="coach-juno"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Juno <span>AI nutritionist</span></p><ul><li>Plans each day's food around the run it has to fuel.</li><li>Carbs before, during and after the hard and long runs. Easy days stay lighter.</li><li>Protein at every meal, and no skipped breakfasts.</li></ul><a class="want" href="#waitlist" data-coach="Juno">Want Juno on your fuel? <span aria-hidden="true">→</span></a></div></div></div>
+  <div class="wrap"><div class="coachhead" id="coach-juno"><div class="ch-top"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Juno <span>AI nutritionist</span></p></div></div><div class="ch-stats"><div><b data-k="c_juno_studies">200</b><span>studies read</span></div><div><b data-k="c_juno_live">53</b><span>foods with measured macros</span></div><div><b>5</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Juno watches</p><div class="ch-tags"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>Every meal I log</span><span>My 7-day weigh-in trend</span></div></div><div><p class="ch-h">What Juno does with it</p><ul><li>Writes my food plan every day from the run it has to fuel and the food that's actually in the house.</li><li>Reads a photo of a grocery receipt or the fridge and updates what's in the house.</li><li>Sizes my portions from my 7-day weigh-in trend, checked weekly, so I lose no more than 2 lb a week.</li><li>Carbs before, during and after the hard and long runs. Easy days stay lighter.</li><li>Protein at every meal, and no skipped breakfasts.</li></ul><p class="ch-also">Also studied 80+ recorded talks on fueling endurance training.</p></div></div><a class="want" href="#waitlist" data-coach="Juno">Want Juno on your fuel? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Juno · Fuel</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Friday decides <span class="o">Thursday's dinner.</span></h2>
@@ -474,7 +489,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   var tag=document.getElementById('coachtag'),img=tag.querySelector('img'),lab=tag.querySelector('span'),cur=null;
   var secs=[].slice.call(document.querySelectorAll('section[data-coach]'));
   function show(c){if(c===cur)return;cur=c;if(!c){tag.classList.remove('on');return;}
-    img.src='assets/'+c.toLowerCase()+'.jpg';lab.innerHTML=c+' · <b>'+ROLE[c]+'</b>';
+    img.src='assets/'+c.toLowerCase()+'.jpg';lab.innerHTML=c+'<b> · '+ROLE[c]+'</b>';
     tag.href='#coach-'+c.toLowerCase();tag.classList.add('on');}
   function pick(){var mid=innerHeight*0.45,c=null;
     secs.forEach(function(sec){var r=sec.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)c=sec.getAttribute('data-coach');});
@@ -651,6 +666,10 @@ footer p{margin:14px 0 0;line-height:1.5}
     (function(){
       var Ln=D.lines||{};
       [].forEach.call(document.querySelectorAll('[data-line]'),function(e){var t=Ln[e.getAttribute('data-line')];if(t)e.textContent=t;else{var q=e.closest('.say');if(q)q.remove();}});
+      var CO=D.coaches||{};
+      ['Rook','Kai','Mo','Bo','Juno'].forEach(function(c){var x=CO[c];if(!x)return;var k=c.toLowerCase();
+        if(x.studies)set('c_'+k+'_studies',x.studies);if(x.live)set('c_'+k+'_live',x.live.toLocaleString('en-US'));});
+      if(CO.all_studies)set('c_all',CO.all_studies);
       var MO=D.mo||{};
       if(MO.easy_top){set('easytop',MO.easy_top+1);set('hardfrom',MO.hard_from);}
       var s=document.getElementById('c-easy'),P=MO.easy||[];
