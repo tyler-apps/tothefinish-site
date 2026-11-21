@@ -94,7 +94,7 @@ def main():
               "url": SITE + PATH, "description": desc, "dateModified": prog["updated"]}
     extra = f'<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>'
 
-    form = """<form class="join" id="join-chicago" data-thanks="thanks-chicago">
+    form = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-chicago" data-thanks="thanks-chicago">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like Chicago, Oct 10, 2027)">

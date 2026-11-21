@@ -185,7 +185,7 @@ def main():
              '<option class="else" value="Something else">Something else</option>')
 
     def picker(fid, thanks):
-        return f"""<form class="join" id="join-{fid}" data-thanks="thanks-{fid}">
+        return f"""<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-{fid}" data-thanks="thanks-{fid}">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <select id="race-{fid}" name="fields[training_for]" aria-label="What race are you training for?"><option value="">Pick your race</option>{OPTS}</select>

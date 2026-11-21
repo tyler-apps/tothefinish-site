@@ -16,7 +16,7 @@
       setText('when', 'now');
     } else {
       setText('body', 'Episode ' + ep.number + (ep.title ? ', ' + ep.title + ',' : '') +
-        ' is out now on YouTube, Instagram, TikTok and X. A new one comes every Sunday, built from the week that really happened.');
+        ' is out now on YouTube, Instagram, TikTok and X. A new one comes twice a month, built from the weeks that really happened.');
     }
     var d = q('date'); if (d) d.innerHTML = 'Out<br>now';
     setText('where', 'Episode ' + ep.number + name);

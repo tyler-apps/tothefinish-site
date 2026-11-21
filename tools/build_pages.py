@@ -82,13 +82,13 @@ def head(title, desc, path, extra=""):
 """
 
 
-FORM = """<form class="join" id="join-{id}" data-thanks="thanks-{id}">
+FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-{id}" data-thanks="thanks-{id}">
   <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
   <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
   <button type="submit">{button}</button>
 </form>
 <div class="thanks" id="thanks-{id}">You're in. The first email comes Sunday with the week's miles and the new episode.</div>
-<p class="fine">One email every Sunday: my week's miles and the new episode.</p>"""
+<p class="fine">One email every Sunday: my week's miles, plus the new episode when one's out.</p>"""
 
 FOOT = """<footer>
   <div class="wrap">
@@ -170,7 +170,7 @@ def episode_page(e):
 <section>
   <div class="wrap">
     <p class="kicker">Follow along</p>
-    <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">The next episode, <span class="o">every Sunday.</span></h2>
+    <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">Get the next episode <span class="o">when it's out.</span></h2>
     {FORM.format(id='ep', button='Follow along')}
     <p class="body" style="margin-top:22px"><a href="/episodes/">All episodes</a></p>
   </div>
@@ -195,7 +195,7 @@ def episodes_index(eps):
     return head("Episodes | To The Finish, the AI running coach show", desc, path, ld(series)) + f"""    <div class="page">
       <p class="kicker">Season 1: The 5K</p>
       <h1 class="display">The <span class="o">episodes.</span></h1>
-      <p class="lead">One episode every Sunday, from the first week of training to the start line in Chicago. Each one is the week that really happened, with the times straight off my watch, including the runs that went sideways.</p>
+      <p class="lead">Two episodes a month, on Sundays, from the first week of training to the start line in Chicago. Each one comes from the weeks that really happened, with the times straight off my watch, including the runs that went sideways.</p>
     </div>
   </div>
 </header>
@@ -240,7 +240,7 @@ def coach_page(qs=()):
 </section>
 <section>
   <div class="wrap">
-    <form class="join" id="join-coach" data-thanks="thanks-coach">
+    <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-coach" data-thanks="thanks-coach">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">

@@ -301,7 +301,7 @@ def index_page(prog):
     <p class="kicker">What are you training for?</p>
     <h2 class="display">Your race, <span class="o">next.</span></h2>
     <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, the people on this list are next. Tell me your race.</p>
-    <form class="join" id="join-myraces" data-thanks="thanks-myraces">
+    <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-myraces" data-thanks="thanks-myraces">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date">
