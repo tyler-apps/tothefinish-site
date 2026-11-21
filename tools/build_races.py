@@ -106,8 +106,7 @@ def main():
             f' data-plan="{1 if on_plan else 0}" data-mine="{1 if me else 0}">'
             f'<div class="rdate"><span class="dw">{day:%a}</span><span class="dn">{day.day}</span><span class="dm">{day:%b}</span></div>'
             f'<div class="rmain"><h3>{name}</h3><p class="rmeta">{meta}{" · " + esc(nice(day, end)) if end != day else ""}</p>'
-            f'<div class="rtags">{tags}{badges}</div>'
-            f'<a class="rtrain" href="#show" data-race="{esc(r["name"])} ({day:%b} {day.day})">Training for this one?</a></div>{link}</li>')
+            f'<div class="rtags">{tags}{badges}</div></div>{link}</li>')
         ev = {"@type": "SportsEvent", "name": r["name"], "startDate": r["date"], "endDate": r.get("end") or r["date"],
               "eventStatus": "https://schema.org/EventScheduled", "sport": "Running",
               "location": {"@type": "Place", "name": r["city"],
@@ -169,42 +168,20 @@ def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text()) if (ROOT / "episodes" / "episodes.json").exists() else []
     SHOW_NEXT = ('<a href="/episodes/">Watch the episodes</a>.' if eps
                  else "Episode 1 comes out Sunday, Nov 22.")
-    # race picker (Tyler 2026-11-20, from the race-finder research: "what race are you training for?"): a select built from
-    # the list, sent to the same Kit form in the training_for field it already had; "Something else" opens a text box
-    # (CSS :has) and join.js folds the typed race into the same field. GA4 gets the pick as race_pick.
-    groups, gm = [], None
-    for r in races:
-        day = d(r["date"])
-        if (day.year, day.month) != gm:
-            gm = (day.year, day.month)
-            groups.append([f"{day:%B} {day.year}", []])
-        v = f'{r["name"]} ({day:%b} {day.day})'
-        groups[-1][1].append(f'<option value="{esc(v)}">{esc(r["name"])} · {day:%a %b} {day.day}</option>')
-    OPTS = "".join(f'<optgroup label="{g}">{"".join(o)}</optgroup>' for g, o in groups)
-    OPTS += ('<optgroup label="Further away"><option value="Chicago Marathon (Oct 10, 2027)">Chicago Marathon · Sun Oct 10, 2027</option></optgroup>'
-             '<option class="else" value="Something else">Something else</option>')
-
-    def picker(fid, thanks):
-        return f"""<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-{fid}" data-thanks="thanks-{fid}">
+    # One sign-up: the Sunday letter (2026-11-21 evening, Tyler: "take down waitlist and make the Sunday letter the only
+    # sign up"). The race picker and the per-race "Training for this one?" links went with the waitlist.
+    LETTER_FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-races" data-thanks="thanks-races">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <select id="race-{fid}" name="fields[training_for]" aria-label="What race are you training for?"><option value="">Pick your race</option>{OPTS}</select>
-      <input class="wide other" aria-label="Your race and date" placeholder="Your race and date">
-      <button type="submit">Get on the waitlist</button>
+      <button type="submit">Get the Sunday letter</button>
     </form>
-    <div class="thanks" id="thanks-{fid}">{thanks}</div>"""
-
-    WAITLIST_FORM = picker("races", "You're on the waitlist. When the coaches are ready for a second runner, you hear first.") + """
-    <p class="fine">You'll also get the Sunday letter: my week's miles, and the new episode when one's out. One email a week. It's free, and you can unsubscribe anytime.</p>"""
-    PICK_FORM = picker("pick", "You're on the waitlist. When the coaches are ready for a second runner, you hear first.")
+    <div class="thanks" id="thanks-races">You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.</div>
+    <p class="fine">The Sunday letter: my week's miles, the races I picked and why, and the new episode when one's out. One email a week. It's free, and you can unsubscribe anytime.</p>"""
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">San Diego races · Updated {updated:%b} {updated.day}, {updated.year}</p>
       <h1 class="display">San Diego <span class="o">races.</span></h1>
       <p class="lead">Every 5K, 10K, half marathon and marathon within 35 miles of San Diego, in one list. Pick a distance and dates, or search by name. It updates every Sunday.</p>
       <p class="body">I'm Tyler, and I'm training for a sub-3 marathon in Chicago with five AI coaches on my show, <a href="#show">To The Finish</a>. I use this list to pick my own races, so the ones I'm running are marked. <a href="#mine">See where I'm racing</a>.</p>
-      <p class="kicker" id="pick" style="margin-top:34px">What race are you training for?</p>
-      <p class="body">Right now my coaches have one runner: me. When they're ready for a second, the waitlist hears first, and I'll know whose races I'm building for.</p>
-      {PICK_FORM}
     </div>
   </div>
 </header>
@@ -247,11 +224,10 @@ def main():
 </section>
 <section class="sunday" id="show">
   <div class="wrap">
-    <p class="kicker">Got a race coming up?</p>
-    <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
+    <p class="kicker">The show</p>
+    <h2 class="display">Follow the <span class="o">chase.</span></h2>
     <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches see what my watch records and what I tell them, and they argue over every run. {SHOW_NEXT}</p>
-    <p class="body">Right now they coach one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race so I know who I'm building it for.</p>
-    {WAITLIST_FORM}
+    {LETTER_FORM}
   </div>
 </section>
 <section class="mine" id="mine">

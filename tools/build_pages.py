@@ -251,19 +251,13 @@ def coach_page(qs=()):
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
-    <p>Not yet. Right now it coaches one runner. When it's ready for a second, the waitlist hears first.</p>
+    <p>The coaches have one runner, and it's me. You can follow every week of it in the Sunday letter.</p>
   </div>
 </section>
 <section>
   <div class="wrap">
-    <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-coach" data-thanks="thanks-coach">
-      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
-      <button type="submit">Get on the waitlist</button>
-    </form>
-    <div class="thanks" id="thanks-coach">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
-    <p class="fine">The waitlist comes with my Sunday letter. One email a week. Leave any time.</p>
+    <p class="kicker">The Sunday letter</p>
+    """ + FORM.format(id='coach', button='Get the Sunday letter') + """
     <p class="body" style="margin-top:22px"><a href="/episodes/">Watch the episodes</a></p>
   </div>
 </section>
@@ -272,7 +266,7 @@ def coach_page(qs=()):
 
 def privacy_page():
     path = "/privacy/"
-    desc = ("What tothefinish.ai collects when you sign up for the Sunday letter or the waitlist, where it goes, "
+    desc = ("What tothefinish.ai collects when you sign up for the Sunday letter, where it goes, "
             "and how to get off the list.")
     page = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy | To The Finish",
             "url": SITE + path, "description": desc}
@@ -286,11 +280,11 @@ def privacy_page():
 <section>
   <div class="wrap prose">
     <h2>What the forms collect</h2>
-    <p>The Sunday letter form asks for your first name and your email. The waitlist form asks for the same two, plus the race you're training for. That's all the forms ask for.</p>
+    <p>The Sunday letter form asks for your first name and your email. That's all it asks for.</p>
     <h2>Where it goes</h2>
-    <p>The forms send what you type to Kit, the email service I use to send the Sunday letter. I read the race you wrote so I know who I'm building this for.</p>
+    <p>The form sends what you type to Kit, the email service I use to send the Sunday letter.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits and sign-ups, and which race gets picked on the San Diego list. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
+    <p>The site uses Google Analytics to count visits and sign-ups. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>

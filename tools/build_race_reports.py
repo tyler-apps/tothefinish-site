@@ -298,17 +298,16 @@ def index_page(prog):
 </section>
 <section class="sunday">
   <div class="wrap">
-    <p class="kicker">What are you training for?</p>
-    <h2 class="display">Your race, <span class="o">next.</span></h2>
-    <p class="body">Right now my coaches have one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race.</p>
+    <p class="kicker">The Sunday letter</p>
+    <h2 class="display">The next race, <span class="o">first.</span></h2>
+    <p class="body">Every race report lands in the Sunday letter the week it happens, with the numbers off my watch.</p>
     <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-myraces" data-thanks="thanks-myraces">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date">
-      <button type="submit">Get on the waitlist</button>
+      <button type="submit">Get the Sunday letter</button>
     </form>
-    <div class="thanks" id="thanks-myraces">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
-    <p class="fine">You'll also get my Sunday letter: my week's miles, and the new episode when one's out. One email a week. It's free, and you can unsubscribe anytime.</p>
+    <div class="thanks" id="thanks-myraces">You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.</div>
+    <p class="fine">One email a week: my miles, and the new episode when one's out. It's free, and you can unsubscribe anytime.</p>
   </div>
 </section>
 """ + FOOT

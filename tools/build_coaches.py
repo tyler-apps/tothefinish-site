@@ -7,7 +7,9 @@ and type come from the homepage so both pages read as one site. Re-run by tools/
 
 2026-11-21, Sanderson full read (people before systems): each coach now opens with their own line on this week's
 numbers, then what they do and the one thing they can't, then the charts. The study and work counts sit in one line at
-the foot. One waitlist ask on the page, at the end; the per-coach interest links moved there (GA4 coach_interest).
+the foot. One Sunday letter ask on the page, at the end. 2026-11-21 evening: the waitlist and the per-coach interest
+links are gone (Tyler: "take down waitlist and make the Sunday letter the only sign up"; trademark read in the Brain,
+brain/business/to-the-finish/name-check-2026-11-21.md).
 """
 import json
 import re
@@ -193,7 +195,6 @@ def main():
                          "isPartOf": {"@type": "WebSite", "name": "To The Finish", "url": "https://tothefinish.ai/"}},
                         ensure_ascii=False)
     body = "".join(section(c, co) for c in COACHES)
-    pick = " · ".join(f'<a href="/?coach={c["k"]}#waitlist" data-coach="{c["k"]}">{c["n"]}</a>' for c in COACHES)
     counts = " · ".join(f'{c["n"]} <b data-k="c_{c["k"]}_studies">{co[c["n"]]["studies"]}</b> studies and '
                         f'<b data-k="c_{c["k"]}_live">{co[c["n"]]["live"]:,}</b> {c["live"]}' for c in COACHES)
     page = f"""<!doctype html>
@@ -242,11 +243,10 @@ def main():
 <section class="cta">
   <div class="wrap">
     <p class="kicker">Come along</p>
-    <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. When it's ready for a second runner, the waitlist hears first.</p>
-    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
-    <p class="fine">The waitlist comes with my Sunday letter. One email a week. Leave any time.</p>
-    <p class="fine">Which coach would you want first? {pick}</p>
+    <h2 class="display">Follow the <span class="o">chase.</span></h2>
+    <p class="body" style="text-wrap:pretty">Sunday nights I write down what the week really was, and the calls each coach made about it.</p>
+    <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#letter">Get the Sunday letter</a></p>
+    <p class="fine">One email a week. Leave any time.</p>
     <p class="fine">Behind the rules: <b data-k="c_all">{co['all_studies']}</b> studies in all. {counts}. One study can sit behind more than one coach.</p>
   </div>
 </section>

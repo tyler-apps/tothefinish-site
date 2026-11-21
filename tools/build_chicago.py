@@ -97,11 +97,10 @@ def main():
     form = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-chicago" data-thanks="thanks-chicago">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like Chicago, Oct 10, 2027)">
-      <button type="submit">Get on the waitlist</button>
+      <button type="submit">Get the Sunday letter</button>
     </form>
-    <div class="thanks" id="thanks-chicago">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
-    <p class="fine">You'll also get my Sunday letter: what the week really was, with the new episode when there is one. One email a week. It's free, and you can unsubscribe anytime.</p>"""
+    <div class="thanks" id="thanks-chicago">You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.</div>
+    <p class="fine">The Sunday letter is what the week really was, with the new episode when there is one. One email a week. It's free, and you can unsubscribe anytime.</p>"""
 
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">Chicago Marathon 2027</p>
@@ -154,8 +153,8 @@ def main():
 <section class="sunday" id="show">
   <div class="wrap">
     <p class="kicker">Running Chicago too?</p>
-    <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
-    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see what my watch records and what I tell them, and they argue over every run. Right now they coach one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race.</p>
+    <h2 class="display">See you in <span class="o">Grant Park.</span></h2>
+    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see what my watch records and what I tell them, and they argue over every run. If you're running it too, the Sunday letter is where I write down how my build is going, week by week.</p>
     {form}
   </div>
 </section>

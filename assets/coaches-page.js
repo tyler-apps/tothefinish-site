@@ -50,13 +50,6 @@
     document.querySelectorAll('section.cs').forEach(function (sct) { io.observe(sct); });
   }
 
-  /* "Get on the waitlist" under each coach: counts which coach people came for (GA4 coach_interest). The coach's
-     name is the only thing sent. */
-  document.querySelectorAll('a[data-coach]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      if (typeof window.gtag === 'function') window.gtag('event', 'coach_interest', { coach: a.getAttribute('data-coach') });
-    });
-  });
 
   fetch('/data/progress.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (D) {
     var T = window.TTF, today = new Date().toISOString().slice(0, 10);

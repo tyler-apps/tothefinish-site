@@ -77,12 +77,5 @@
   document.getElementById('rclear').addEventListener('click', function () {
     st = { dist: [], when: 'all', plan: false, mine: false }; q.value = ''; from.value = ''; to.value = ''; apply();
   });
-  // "Training for this one?" picks that race in the waitlist's race picker and jumps to it
-  [].slice.call(document.querySelectorAll('.rtrain')).forEach(function (a) {
-    a.addEventListener('click', function () {
-      var f = document.getElementById('race-races');
-      if (f) { f.value = a.dataset.race; setTimeout(function () { f.focus({ preventScroll: true }); }, 350); }
-    });
-  });
   read(); apply();
 })();
