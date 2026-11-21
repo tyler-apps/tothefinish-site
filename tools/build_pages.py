@@ -75,8 +75,8 @@ def head(title, desc, path, extra=""):
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
+      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/coaches/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/coaches/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
     </div>
 """
 
@@ -376,7 +376,7 @@ def main():
     eps.sort(key=lambda e: e["number"])
     data_date = json.loads((ROOT / "data" / "progress.json").read_text())["updated"]
     urls = [("/", "weekly", data_date), ("/episodes/", "weekly", max([e["date"] for e in eps] or ["2026-11-18"])),
-            ("/ai-running-coach/", "monthly", "2026-11-18")]
+            ("/ai-running-coach/", "monthly", "2026-11-18"), ("/coaches/", "weekly", data_date)]
     if (ROOT / "data" / "races.json").exists():
         urls.append(("/san-diego-races/", "weekly", json.loads((ROOT / "data" / "races.json").read_text())["updated"]))
     urls.append(("/chicago-marathon-2027/", "weekly", data_date))

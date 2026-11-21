@@ -17,6 +17,7 @@ python3 tools/build_pages.py || { echo "build failed"; exit 1; }
 python3 tools/build_races.py || { echo "race page build failed"; exit 1; }
 python3 tools/build_chicago.py || { echo "chicago page build failed"; exit 1; }
 python3 tools/build_race_reports.py || { echo "race report build failed"; exit 1; }
+python3 tools/build_coaches.py || { echo "coaches page build failed"; exit 1; }
 
 CHANGED=$(git status --porcelain -uall | awk '{print $NF}')
 if [ -z "$CHANGED" ]; then echo "no change"; exit 0; fi
