@@ -214,7 +214,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     </div>
     <div>
       <p class="kicker">Rook · The board</p>
-      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Four cards. <span class="o">One magnet.</span></h2>
+      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">When coaches collide, <span class="o">the magnet decides.</span></h2>
       <p class="body" style="margin-top:14px">When two coaches want the same morning, Rook doesn't debate it. He checks where their cards sit and moves one. The magnet shows who won. Pain I report always goes on top.</p>
       <ol class="cards" id="b-cards"></ol>
       <div id="b-rulings"></div>
@@ -268,7 +268,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
     <p class="body" style="margin-top:18px">Runners call it VDOT: one score that turns a race time into what you could run at any other distance. Chicago in under three hours takes about <b>53.5</b>. On my best day, the 1:32 half, I was <b data-k="vdbest">49.4</b>. My threshold pace puts me near <b data-k="vdnow2">41.8</b> right now. The orange rings are Kai's targets for each race between here and there, and the first one is close.</p>
     <div class="chart"><svg id="c-vdot" viewBox="0 0 1000 440" role="img" aria-label="Race fitness score (VDOT) from races and threshold pace, with the targets to a sub-3 Chicago"></svg></div>
-    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, so read it as a trend. Every race on the plan adds a dot and resets my paces.</p>
+    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, so read it as a trend. A hilly course counts at its flat-road time. Every race on the plan adds a dot and resets my paces.</p>
     <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_vdot"></p><cite>Kai</cite></div></blockquote>
   </div>
 </section>
@@ -347,7 +347,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <div class="loop" id="m-loop">
       <div class="step"><div class="n">1</div><h3>Record</h3><p>The watch and a chest strap catch every lap and every heartbeat.</p></div>
       <div class="step"><div class="n">2</div><h3>Sync</h3><p>Checked every 10 minutes. A new run is pulled in as soon as it lands.</p></div>
-      <div class="step"><div class="n">3</div><h3>Read</h3><p>Kai reads the run: paces, heart rate, the ground. Bo, Juno and Mo check their lanes.</p></div>
+      <div class="step"><div class="n">3</div><h3>Read</h3><p>Kai reads the run: paces, heart rate, the ground. A mile up a climb counts as the flat mile it equals. Bo, Juno and Mo check their lanes.</p></div>
       <div class="step"><div class="n">4</div><h3>Decide</h3><p>The research's rules move my targets and zones, and every change gets logged.</p></div>
       <div class="step"><div class="n">5</div><h3>Send</h3><p>The new workouts go to the watch, with the pace or heart-rate range on every step.</p></div>
     </div>
@@ -573,8 +573,9 @@ footer p{margin:14px 0 0;line-height:1.5}
     (function(){
       var S=D.system; if(!S) return;
       var st=document.getElementById('m-stats');
-      [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Sync check','10 min']].forEach(function(t){
-        var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+t[1]+'</div>'; st.appendChild(c);});
+      [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Hilly laps evened out',S.hilly_laps]].forEach(function(t){
+        var v=typeof t[1]==='number'?t[1].toLocaleString('en-US'):t[1];
+        var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+v+'</div>'; st.appendChild(c);});
       var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=N?80:60,R=30,T=40,B=50,P=S.decisions;
       s.setAttribute('viewBox','0 0 '+W+' '+H);
       if(P.length){var mx=Math.max.apply(null,P.map(function(p){return p.kai+p.rook;}))||1,top=Math.ceil(mx/10)*10,bw=(W-L-R)/P.length;

@@ -328,19 +328,23 @@
   {
    "date": "2026-10-27",
    "pace": "7:55"
+  },
+  {
+   "date": "2026-11-20",
+   "pace": "8:07"
   }
  ],
  "half_pr": {
   "time": "1:32:31",
   "date": "2024-06-02"
  },
- "vo2max": 49.9,
+ "vo2max": 49.4,
  "year": [
   {
    "week": 4,
    "monday": "2026-11-16",
    "plan": 32,
-   "done": 14.7,
+   "done": 20.8,
    "current": true
   },
   {
@@ -825,7 +829,7 @@
     "date": "2024-06-02",
     "name": "Half marathon",
     "time": "1:32:31",
-    "vdot": 49.4
+    "vdot": 49.2
    },
    {
     "date": "2025-10-05",
@@ -1024,6 +1028,10 @@
    {
     "date": "2026-10-27",
     "vdot": 41.8
+   },
+   {
+    "date": "2026-11-20",
+    "vdot": 40.5
    }
   ],
   "targets": [
@@ -1059,11 +1067,11 @@
    }
   ],
   "goal": 53.5,
-  "now": 41.8,
-  "best": 49.4
+  "now": 40.5,
+  "best": 49.2
  },
  "system": {
-  "runs_total": 439,
+  "runs_total": 440,
   "runs_by_month": [
    {
     "month": "2024-05",
@@ -1179,7 +1187,7 @@
    },
    {
     "month": "2026-11",
-    "n": 14
+    "n": 15
    }
   ],
   "decisions": [
@@ -1190,12 +1198,13 @@
    },
    {
     "monday": "2026-11-16",
-    "kai": 7,
+    "kai": 9,
     "rook": 50
    }
   ],
-  "decisions_total": 69,
-  "watch_days": 73,
+  "decisions_total": 71,
+  "watch_days": 74,
+  "hilly_laps": 5116,
   "zones": [
    86,
    109,
@@ -1252,10 +1261,10 @@
    },
    {
     "monday": "2026-11-16",
-    "easy": 76,
-    "steady": 24,
+    "easy": 61,
+    "steady": 39,
     "hard": 0,
-    "minutes": 204
+    "minutes": 271
    }
   ],
   "spike": [
@@ -1403,6 +1412,11 @@
     "date": "2026-11-18",
     "minutes": 85,
     "cap": 110
+   },
+   {
+    "date": "2026-11-20",
+    "minutes": 67,
+    "cap": 110
    }
   ],
   "next_cap": 110,
@@ -1526,7 +1540,7 @@
  "lines": {
   "rook": "Tyler, 1:35:19 to find. That's about two minutes a week, every week until Chicago. The runs stay at the top of the board.",
   "kai_eff": "Flat, Tyler. Mission Trails dirt hides it for now. This line moves on the days you let me slow you down, and we both know which days those are.",
-  "kai_vdot": "41.8 on paper. 49.4 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
+  "kai_vdot": "40.5 on paper. 49.2 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
   "kai_engine": "6:42 happened, Tyler. I've seen the file. We go get it back the long way: easy dirt at Mission Trails, threshold on the Serra Trail Fridays.",
   "kai_year": "32 this week, 90 in August. I want every one of them, and I want most of them slow.",
   "mo_easy": "69% easy last week. The number is 80. So where did the other 31% come from, Tyler? The climbs, or the first mile out the door?",
