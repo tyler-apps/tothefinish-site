@@ -38,6 +38,15 @@
     if (out.length < 2) out = make(step / 2);
     return out;
   }
+  /* x-axis labels, dropped when one would touch the last one drawn or run past the plot */
+  function xLabels(s, ticks, y, lo, hi) {
+    var last = -1e9;
+    ticks.forEach(function (t) {
+      var half = t.label.length * 3.4 + 2;
+      if (t.x - half < last + 10 || t.x - half < lo - 20 || t.x + half > hi + 20) return;
+      text(s, t.x, y, t.label, { anchor: 'middle' }); last = t.x + half;
+    });
+  }
   function redraw(host, fn) {
     fn();
     if (window.ResizeObserver) {
@@ -47,7 +56,8 @@
   }
 
   /* line: x = Date or number, y = number. opts: data [{x,y}], h, yFmt, xFmt, goal {y,label}, invert (smaller is
-     better, so up = good), extend [{x,y}] dashed projection, area (fill under), endLabel fmt, yPad */
+     better, so up = good), extend [{x,y}] dashed projection, area (fill under), endLabel fmt, yPad,
+     gapLabel (with goal: shades the space between the line and the goal and names it) */
   function line(host, o) {
     redraw(host, function () {
       var g = svgFor(host, o.h || (host.clientWidth < 520 ? 220 : 260)), s = g.s, w = g.w, h = g.h;
@@ -64,10 +74,16 @@
         el(s, 'line', { x1: L, x2: w - R, y1: Y(t), y2: Y(t), stroke: C.grid, 'stroke-width': 1 });
         text(s, L - 8, Y(t) + 4, o.yFmt ? o.yFmt(t) : t, { anchor: 'end' });
       });
-      (o.xTicks || []).forEach(function (t) { text(s, X(t.x), h - 8, t.label, { anchor: 'middle' }); });
+      xLabels(s, (o.xTicks || []).map(function (t) { return { x: X(t.x), label: t.label }; }), h - 8, L, w - R);
       if (o.goal) {
         el(s, 'line', { x1: L, x2: w - R, y1: Y(o.goal.y), y2: Y(o.goal.y), stroke: C.white, 'stroke-width': 1.5, 'stroke-dasharray': '6 6', opacity: 0.85 });
         text(s, w - R, Y(o.goal.y) - 8, o.goal.label, { anchor: 'end', fill: C.white, weight: 700, size: 12 });
+      }
+      if (o.goal && o.gapLabel) {   /* the distance still to cover: shaded between the line and the goal, named once */
+        var gp = pts.map(function (p, i) { return (i ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' ');
+        el(s, 'path', { d: gp + ' L' + X(pts[pts.length - 1].x).toFixed(1) + ' ' + Y(o.goal.y).toFixed(1) + ' L' + X(pts[0].x).toFixed(1) + ' ' + Y(o.goal.y).toFixed(1) + ' Z', fill: C.orange, opacity: 0.09 });
+        var mid = pts[Math.floor(pts.length / 2)];
+        text(s, X(mid.x), (Y(mid.y) + Y(o.goal.y)) / 2 + 6, o.gapLabel, { anchor: 'middle', fill: C.orange, weight: 800, size: g.small ? 20 : 24, display: true });
       }
       var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' ');
       if (o.area) {
@@ -159,7 +175,7 @@
         el(s, 'line', { x1: L, x2: w - R, y1: Y(t), y2: Y(t), stroke: C.grid });
         text(s, L - 8, Y(t) + 4, o.yFmt ? o.yFmt(t) : t, { anchor: 'end' });
       }
-      (o.xTicks || []).forEach(function (t) { text(s, X(t.x), h - 8, t.label, { anchor: 'middle' }); });
+      xLabels(s, (o.xTicks || []).map(function (t) { return { x: X(t.x), label: t.label }; }), h - 8, L, w - R);
       if (o.goal) {
         el(s, 'line', { x1: L, x2: w - R, y1: Y(o.goal.y), y2: Y(o.goal.y), stroke: C.white, 'stroke-width': 1.5, 'stroke-dasharray': '6 6', opacity: 0.85 });
         text(s, L + 6, Y(o.goal.y) - 8, o.goal.label, { fill: C.white, weight: 700 });

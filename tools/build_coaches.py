@@ -14,7 +14,7 @@ from build_pages import site_footer, site_nav   # one nav and one footer for eve
 ROOT = Path(__file__).resolve().parents[1]
 
 COACHES = [
-    dict(k="kai", n="Kai", role="AI running coach", live="runs read",
+    dict(k="kai", n="Kai", role="AI running coach", live="runs analyzed",
          watch=["Every lap and split", "Heart rate from a chest strap", "Hills and grade", "Heat and weather",
                 "Threshold pace", "Race results"],
          does=("Builds the year race by race, a 5K, a 10K, a half, then the marathon, and sets every pace and "
@@ -25,10 +25,11 @@ COACHES = [
                  ("eff", "Am I fitter at the same heart rate?",
                   "Meters I travel for each heartbeat on easy runs, four-week average, hills evened out. Higher is fitter."),
                  ("miles", "Am I running the miles?",
-                  "Planned miles each week to Chicago (outlines) and the miles I ran (filled).")],
+                  "Planned miles each week from now to Chicago, and the miles I ran.",
+                  [("muted", "Ran"), ("ghost", "Planned"), ("orange", "This week")])],
          line="kai_year",
          invite="Kai could build your year the same way, race by race."),
-    dict(k="mo", n="Mo", role="AI recovery coach", live="nights of sleep read",
+    dict(k="mo", n="Mo", role="AI recovery coach", live="nights of sleep analyzed",
          watch=["Hours asleep", "Resting heart rate", "Heart rate variability", "Every run's length",
                 "Easy-day heart rate", "My legs and pain check-ins"],
          does=("Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run "
@@ -38,7 +39,8 @@ COACHES = [
                   "Share of each week's running time at easy heart rate, my zone 2 or below. The best distance "
                   "runners keep at least 80% easy."),
                  ("sleep", "Am I sleeping enough?",
-                  "Hours asleep each night from my watch. Faded bars were broken nights, which watches count long.")],
+                  "Hours asleep each night from my watch. Watches count broken nights long, so those bars are faded.",
+                  [("orange", "7 hours or more"), ("muted", "Under 7"), ("dim", "Broken night")])],
          line="mo_sleep",
          invite="Mo could keep the same watch on your sleep."),
     dict(k="bo", n="Bo", role="AI strength coach", live="lifts tracked",
@@ -54,7 +56,8 @@ COACHES = [
                "or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more "
                "than 2 lb a week."),
          charts=[("fuel", "Does the food follow the work?",
-                  "Grams of carbs a day from my meal plan, the next seven days. Orange days carry a hard or long run.")],
+                  "Grams of carbs a day from my meal plan, the next seven days.",
+                  [("orange", "Hard or long run"), ("muted", "Easy or rest day")])],
          line="juno",
          invite="Juno could plan your food around your training too."),
     dict(k="rook", n="Rook", role="AI head coach", live="decisions made",
@@ -64,53 +67,66 @@ COACHES = [
          charts=[("gap", "Am I closing the gap?",
                   "Garmin's marathon prediction after every run since October 19, against what Chicago asks for."),
                  ("calls", "Who makes the calls?",
-                  "Every decision the coaches wrote down since Nov 9. Orange were made automatically from my watch "
-                  "data, white are a coach's own call, gray the times I overruled one.")],
+                  "Every decision the coaches wrote down since Nov 9, by the coach who made it.",
+                  [("orange", "Automatic, from watch data"), ("white", "A coach's own call"), ("muted", "I overruled it")])],
          line="rook",
          invite="Rook could settle your week the same way."),
 ]
 
 CSS = """<style>
-.intro{padding:24px 0 56px}
+.intro{padding:24px 0 40px}
 .intro h1{font-size:clamp(52px,8vw,104px)}
-.intro .lead{font-size:20px;line-height:1.5;color:var(--soft);max-width:44ch;margin:20px 0 0}
-.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.jump a{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;background:var(--ink-2)}
+.intro .lead{font-size:20px;line-height:1.5;color:var(--soft);max-width:52ch;margin:20px 0 0;text-wrap:pretty}
+.jumpbar{position:sticky;top:0;z-index:30;background:rgba(18,16,14,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.jump{display:flex;gap:8px;padding:10px 0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.jump::-webkit-scrollbar{display:none}
+.jump a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 7px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;color:var(--soft);background:var(--ink-2);transition:border-color .15s,color .15s}
 .jump a:hover{border-color:var(--orange)}
-.jump img{width:28px;height:28px;border-radius:50%;object-fit:cover}
-.cs{padding:88px 0}
+.jump a[aria-current]{border-color:var(--orange);color:#fff;background:#2b1a0f}
+.jump img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+.cs{scroll-margin-top:64px}
+.cs{padding:80px 0}
 .ch{display:grid;grid-template-columns:148px 1fr;gap:0 28px;align-items:start}
 .ch img{grid-row:1/span 3;width:148px;height:185px;object-fit:cover;object-position:50% 20%;border-radius:14px;border:1px solid var(--line)}
 .ch h2{font-size:clamp(48px,6vw,72px)}
 .ch .kicker{margin-bottom:8px}
 .ch .proof{margin:12px 0 0;font-size:15px;color:var(--muted)}
 .ch .proof b{color:var(--orange);font-weight:700}
-.ch .does{margin:14px 0 0;font-size:18px;line-height:1.55;color:var(--soft);max-width:62ch}
+.ch .does{margin:14px 0 0;font-size:18px;line-height:1.55;color:var(--soft);max-width:62ch;text-wrap:pretty}
 .ch .does,.ch .tags{grid-column:2}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .tags span{padding:5px 11px;border-radius:999px;border:1px solid #4a433c;font-size:14px;color:#e7e2dc}
 .vizgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.viz{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0}
 .vizgrid.one{grid-template-columns:1fr}
 .viz{margin:0;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;min-width:0}
 .viz.wide{grid-column:1/-1}
 .viz .q{margin:0;font-size:14px;font-weight:600;color:var(--muted)}
-.viz .take{margin:6px 0 18px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05}
+.viz .take{text-wrap:balance;margin:6px 0 18px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05}
 .viz .take b{color:var(--orange);font-weight:800}
-.viz .take span{color:var(--muted)}
+.viz .take span{display:block;margin-top:4px;font-size:20px;color:var(--muted)}
 .plot{width:100%;min-height:200px}
-.src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
+.src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted);align-self:end}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:-6px 0 14px;font-size:13px;color:var(--soft)}
+.key span{display:inline-flex;align-items:center;gap:7px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
+.sw.orange{background:#ff6a1f}.sw.white{background:#fff}.sw.muted{background:#5f5750}.sw.dim{background:#5f5750;opacity:.55}.sw.ghost{border:1.5px solid #6b625a}
 .lifts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.lift{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px}
+.lift{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px}
 .lift .n{font-size:14px;font-weight:600;color:var(--muted);margin:0}
 .lift .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:56px;line-height:1;margin:8px 0 0}
 .lift .v small{font-size:.4em;color:var(--muted);margin-left:4px}
 .lift .s{font-size:14px;color:var(--soft);margin:10px 0 0}
-.say{display:flex;gap:14px;align-items:flex-start;margin:20px 0 0;padding:16px 18px;background:var(--ink-2);border-left:4px solid var(--orange);border-radius:10px;max-width:820px}
+.say{display:flex;gap:14px;align-items:center;margin:16px 0 0;padding:16px 20px;background:var(--ink-2);border-left:4px solid var(--orange);border-radius:14px}
+.ask{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin:12px 0 0;padding:12px 12px 12px 20px;border:1px solid var(--line);border-radius:14px}
+.ask p{margin:0;font-size:17px;line-height:1.45;color:var(--soft)}
+.ask a{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border:1.5px solid var(--orange);border-radius:10px;color:var(--orange);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;transition:background .15s,color .15s}
+.ask a:hover{background:var(--orange);color:#12100e}
 .say img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
-.say p{margin:0;font-size:17px;line-height:1.5}
+.say p{margin:0;font-size:17px;line-height:1.5;text-wrap:pretty}
 .cta{padding:88px 0}
 @media (max-width:860px){.vizgrid{grid-template-columns:1fr}.lifts{grid-template-columns:1fr}}
-@media (max-width:640px){.ch{grid-template-columns:88px 1fr;gap:16px}.ch img{grid-row:auto;width:88px;height:110px}.ch .does,.ch .tags{grid-column:1/-1}.cs{padding:64px 0}.viz{padding:18px 16px 14px}.viz .take{font-size:26px}.intro .lead{font-size:18px}}
+@media (max-width:640px){.ch{grid-template-columns:88px 1fr;gap:16px}.ch img{grid-row:auto;width:88px;height:110px}.ch .does,.ch .tags{grid-column:1/-1}.cs{padding:56px 0}.ask{padding:16px}.ask a{width:100%;justify-content:center}.jumpbar .wrap{padding-right:0}.viz{padding:18px 16px 14px}.viz .take{font-size:26px}.intro .lead{font-size:18px}}
 </style>"""
 
 
@@ -131,10 +147,12 @@ def section(c, co):
     tags = "".join(f"<span>{t}</span>" for t in c["watch"])
     charts = c["charts"]
     figs = ""
-    for i, (cid, q, src) in enumerate(charts):
+    for i, (cid, q, src, *key) in enumerate(charts):
         wide = " wide" if (len(charts) % 2 == 1 and i == len(charts) - 1 and len(charts) > 1) else ""
+        keys = "".join(f'<span><i class="sw {sw}"></i>{lab}</span>' for sw, lab in (key[0] if key else []))
+        keys = f'<p class="key">{keys}</p>' if keys else ""
         figs += (f'\n      <figure class="viz{wide}" id="v-{cid}">'
-                 f'<figcaption><p class="q">{q}</p><p class="take" data-take="{cid}">&nbsp;</p></figcaption>'
+                 f'<figcaption><p class="q">{q}</p><p class="take" data-take="{cid}">&nbsp;</p>{keys}</figcaption>'
                  f'<div class="plot" id="p-{cid}" role="img"></div><p class="src">{src}</p></figure>')
     if k == "bo":
         figs += '\n      <div class="lifts" id="p-lifts"></div>'
@@ -147,7 +165,7 @@ def section(c, co):
       <div>
         <p class="kicker">{c['role']}</p>
         <h2 class="display">{c['n']}</h2>
-        <p class="proof"><b data-k="c_{k}_studies">{x['studies']}</b> studies read · <b data-k="c_{k}_live">{x['live']:,}</b> {c['live']}</p>
+        <p class="proof"><b data-k="c_{k}_studies">{x['studies']}</b> studies behind the rules · <b data-k="c_{k}_live">{x['live']:,}</b> {c['live']}</p>
       </div>
       <p class="does">{c['does']}</p>
       <div class="tags" aria-label="What {c['n']} watches">{tags}</div>
@@ -155,7 +173,7 @@ def section(c, co):
     <div class="vizgrid{one}">{figs}
     </div>
     <blockquote class="say">{avatar(k, 44)}<p data-line="{c['line']}"></p></blockquote>
-    <p class="invite">{c['invite']} <a href="/?coach={k}#waitlist" data-coach="{k}">Get on the waitlist</a></p>
+    <div class="ask"><p>{c['invite']}</p><a href="/?coach={k}#waitlist" data-coach="{k}">Get on the waitlist</a></div>
   </div>
 </section>"""
 
@@ -214,15 +232,15 @@ def main():
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
   <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">{co['all_studies']}</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
-  <nav class="jump" aria-label="Coaches">{jump}</nav>
 </div></div>
+<div class="jumpbar"><div class="wrap"><nav class="jump" aria-label="Coaches">{jump}</nav></div></div>
 {body}
 
 <section class="cta">
   <div class="wrap">
     <p class="kicker">Come along</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
+    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
     <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
   </div>
 </section>
