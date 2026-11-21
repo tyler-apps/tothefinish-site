@@ -54,8 +54,13 @@ def main():
     # a race is "on my plan" when it falls on a plan race's weekend AND offers that distance (Chicago itself is not local)
     PLAN_DIST = {"5k": "5K", "10k": "10K", "half marathon": "Half"}
     SHORT = {"5K": "5K", "10K": "10K", "Half": "half marathon"}
-    plan_w = {weekend(d(p["date"])): (p["name"], PLAN_DIST[p["name"].lower()]) for p in plan
-              if weekend(d(p["date"])) and p["name"].lower() in PLAN_DIST}
+    def plan_dist(name):
+        """The plan race's distance from its name ("First 5K" -> "5K"); None for Chicago."""
+        n = name.lower()
+        return next((v for k, v in PLAN_DIST.items() if n == k or n.endswith(" " + k)), None)
+
+    plan_w = {weekend(d(p["date"])): (p["name"], plan_dist(p["name"])) for p in plan
+              if weekend(d(p["date"])) and plan_dist(p["name"])}
 
     # where I'm racing (my entries and the plan's race dates, by date)
     cards = []
@@ -66,7 +71,7 @@ def main():
                      f'<h3>{esc(m["name"])}</h3><div class="k">{esc(m["city"])}</div><p class="rstatus">{esc(m["status"])}</p></div>'))
     for p in plan:
         if p["date"] >= today.isoformat() and not any(m["date"] == p["date"] for m in mine):
-            k = PLAN_DIST.get(p["name"].lower())
+            k = plan_dist(p["name"])
             fit = f'<a class="rlink" href="?d={k}&amp;plan=1#rf">See races that fit</a>' if k else ""
             cards.append((p["date"], f'<div class="race open"><div class="d">{esc(nice(d(p["date"])))}</div><h3>My {esc(p["name"])}</h3>'
                          f'<div class="k">Date set by my coach</div><p class="rstatus">Race not picked yet</p>{fit}</div>'))
