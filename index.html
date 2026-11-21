@@ -676,7 +676,7 @@ footer p{margin:14px 0 0;line-height:1.5}
         var seenM={};Q.forEach(function(p){var x=day(p.date),k=x.getMonth();if(seenM[k])return;seenM[k]=1;if(p!==Q[0])el(s2,'text',{x:X2(p.date),y:H2-16,'text-anchor':'middle',class:'m','font-size':16*F2},MON[x.getMonth()]);});
         el(s2,'text',{x:L2,y:T2-14,class:'m','font-size':15*F2},N2?'MINUTES PER RUN':'MINUTES PER RUN · DASHED LINE = THE CEILING');}
       var s4=document.getElementById('c-sleep'),SL=MO.sleep||[];
-      if(s4&&SL.length){var N4=s4.clientWidth<600,F4=N4?1.7:1,W4=N4?600:1000,H4=N4?440:360,L4=N4?70:56,R4=30,T4=40,B4=50,bw4=(W4-L4-R4)/SL.length,top4=10;
+      if(s4&&SL.length){var N4=s4.clientWidth<600,F4=N4?1.7:1,W4=N4?600:1000,H4=N4?440:360,L4=N4?70:56,R4=30,T4=40,B4=50,bw4=(W4-L4-R4)/SL.length,top4=Math.max(10,Math.ceil(Math.max.apply(null,SL.map(function(p){return p.hours||0;}))+1));
         s4.setAttribute('viewBox','0 0 '+W4+' '+H4);
         function Y4(v){return T4+(1-v/top4)*(H4-T4-B4);}
         [0,5,10].forEach(function(v){var y=Y4(v);el(s4,'line',{x1:L4,x2:W4-R4,y1:y,y2:y,stroke:GRID});el(s4,'text',{x:L4-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F4},v);});
@@ -698,7 +698,7 @@ footer p{margin:14px 0 0;line-height:1.5}
       var s3=document.getElementById('c-fuel'),J=((D.juno||{}).week)||[];
       if(s3&&J.length){var N3=s3.clientWidth<600,F3=N3?1.7:1,W3=N3?600:1000,H3=N3?460:380,L3=N3?86:60,R3=30,T3=40,B3=64,bw3=(W3-L3-R3)/J.length;
         s3.setAttribute('viewBox','0 0 '+W3+' '+H3);
-        var top=Math.ceil(Math.max.apply(null,J.map(function(x){return x.carbs;}))/50)*50;
+        var top=Math.ceil(Math.max.apply(null,J.map(function(x){return x.carbs;}))*1.15/50)*50;
         function Y3(v){return T3+(1-v/top)*(H3-T3-B3);}
         [0,top/2,top].forEach(function(v){var y=Y3(v);el(s3,'line',{x1:L3,x2:W3-R3,y1:y,y2:y,stroke:GRID});el(s3,'text',{x:L3-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F3},v);});
         var DW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],TAG={hard:'HARD',long:'LONG',easy:'EASY',rest:'REST'};
