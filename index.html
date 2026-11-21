@@ -75,10 +75,11 @@ form.join button:hover{filter:brightness(1.06)}
 .coach{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
 .coach img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 .coach .ct{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.coach .lane{margin:0 0 4px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--orange)}
 .coach h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
 .coach .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 12px}
-.coach .line{font-size:16px;line-height:1.4;margin:0;color:var(--white)}
-.coach .does{font-size:14px;line-height:1.45;margin:10px 0 0;color:var(--muted)}
+.coach .line{font-size:14px;line-height:1.4;margin:10px 0 0;color:var(--muted);font-style:italic}
+.coach .does{font-size:15px;line-height:1.45;margin:10px 0 0;color:var(--soft)}
 .coach .proof{margin:auto 0 0;padding-top:14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:16px}
 .coach .proof b{color:var(--orange);font-weight:700}
 .more{display:inline-block;margin-top:24px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
@@ -127,8 +128,8 @@ footer p{margin:14px 0 0;line-height:1.5}
   .coach img{width:104px;height:auto;aspect-ratio:3/4;object-position:50% 20%;flex:none;align-self:stretch}
   .coach .ct{padding:12px 14px}
   .coach h3{font-size:26px}
-  .coach .role{margin:4px 0 8px}
-  .coach .does{display:none}
+  .coach .line{display:none}
+  .coach .does{font-size:14px;margin-top:6px}
   .coach .proof{padding-top:10px;margin-top:10px}
   .facts{grid-template-columns:1fr 1fr 1fr;gap:8px}
   .facts div{padding:12px}
@@ -195,51 +196,56 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <p class="kicker">The team</p>
     <h2 class="display">Every coach guards <span class="o">a number.</span></h2>
-    <p class="body">They see everything my watch sees, and they argue about my week like it's theirs. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook makes the call and that's the end of it.</p>
+    <p class="body">They see everything my watch sees, and they argue about my week like it's theirs. This isn't only a running coach. Kai has the miles, Bo the lifting, Mo my sleep and recovery, Juno the food, and when two of them want the same morning, Rook makes the call.</p>
     <p class="teamline">Between them they've read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
     <div class="coaches">
       <article class="coach">
         <img src="assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy">
         <div class="ct">
-          <h3>Kai</h3><p class="role">AI running coach</p>
+          <p class="lane">Running</p>
+          <h3>Kai</h3>
+          <p class="does">Builds the year race by race and sets every pace and heart-rate zone from my own runs.</p>
           <p class="line">"Easy days slower than his ego wants."</p>
-          <p class="does">Builds the year race by race and sets every pace from my own runs.</p>
           <p class="proof"><b data-k="c_kai_studies">61</b> studies · <b data-k="c_kai_live">440</b> runs read</p>
-        </div>
-      </article>
-      <article class="coach">
-        <img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy">
-        <div class="ct">
-          <h3>Mo</h3><p class="role">AI recovery coach</p>
-          <p class="line">"And I keep him in one piece."</p>
-          <p class="does">Reads every night of sleep. A short night can make a run easier, never harder.</p>
-          <p class="proof"><b data-k="c_mo_studies">178</b> studies · <b data-k="c_mo_live">162</b> nights of sleep read</p>
         </div>
       </article>
       <article class="coach">
         <img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy">
         <div class="ct">
-          <h3>Bo</h3><p class="role">AI strength coach</p>
+          <p class="lane">Strength</p>
+          <h3>Bo</h3>
+          <p class="does">Heavy sets and jumps, the lifting that makes runners faster, fitted around the run.</p>
           <p class="line">"I want his legs. Three days a week."</p>
-          <p class="does">Heavy sets and jumps, fitted around the run, never the other way around.</p>
           <p class="proof"><b data-k="c_bo_studies">27</b> studies · <b data-k="c_bo_live">16</b> lifts logged</p>
+        </div>
+      </article>
+      <article class="coach">
+        <img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <p class="lane">Recovery</p>
+          <h3>Mo</h3>
+          <p class="does">Reads every night of sleep and keeps me healthy enough to train. A short night can make a run easier, never harder.</p>
+          <p class="line">"And I keep him in one piece."</p>
+          <p class="proof"><b data-k="c_mo_studies">178</b> studies · <b data-k="c_mo_live">162</b> nights of sleep read</p>
         </div>
       </article>
       <article class="coach">
         <img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy">
         <div class="ct">
-          <h3>Juno</h3><p class="role">AI nutritionist</p>
+          <p class="lane">Nutrition</p>
+          <h3>Juno</h3>
+          <p class="does">Writes my food every day from the run it has to fuel and what's actually in the fridge.</p>
           <p class="line">"Fight over him all you want. I feed him first."</p>
-          <p class="does">Writes my food every day from the run it has to fuel and what's in the fridge.</p>
           <p class="proof"><b data-k="c_juno_studies">200</b> studies · <b data-k="c_juno_live">53</b> foods measured</p>
         </div>
       </article>
       <article class="coach">
         <img src="assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy">
         <div class="ct">
-          <h3>Rook</h3><p class="role">AI head coach</p>
+          <p class="lane">Head coach</p>
+          <h3>Rook</h3>
+          <p class="does">Runs the team. When two coaches want the same morning, Rook makes the call.</p>
           <p class="line">"Not yet. Shoes on."</p>
-          <p class="does">When two coaches want the same morning, Rook makes the call.</p>
           <p class="proof"><b data-k="c_rook_studies">166</b> studies · <b data-k="c_rook_live">57</b> calls logged</p>
         </div>
       </article>
@@ -252,10 +258,16 @@ footer p{margin:14px 0 0;line-height:1.5}
   <div class="wrap">
     <p class="kicker">How it works</p>
     <h2 class="display">The run ends. <span class="o">The coaches start.</span></h2>
+    <p class="body">All of it runs on its own, from real data: my watch and chest strap, the scale, my lift log and photos of my grocery receipts. No one types a workout in, and every number on this site comes straight from those.</p>
+    <div class="facts">
+      <div><b>10 min</b><span class="l">between checks for a new run</span></div>
+      <div><b data-k="sys_runs">440</b><span class="l">runs read, every lap</span></div>
+      <div><b data-k="sys_watch">74</b><span class="l">workouts sent to my watch</span></div>
+    </div>
     <ol class="steps">
-      <li><h3>I run</h3><p>The watch and a chest strap catch every lap and every heartbeat. No one types anything in.</p></li>
-      <li><h3>They read it</h3><p>Within minutes the coaches have the file. Kai reads the paces and the hills. Mo, Bo and Juno check their lanes.</p></li>
-      <li><h3>Tomorrow lands</h3><p>The next workout goes to my watch with a pace or heart-rate range on every step, and Juno's plan for the day follows it.</p></li>
+      <li><h3>I run</h3><p>The watch and a chest strap catch every lap and every heartbeat. I stop the watch, and my part is done.</p></li>
+      <li><h3>They read it</h3><p>Within minutes the coaches have the file. Kai reads the paces and the hills, Bo fits the next lift around them, Mo checks my sleep and recovery, and Juno sizes the day's food.</p></li>
+      <li><h3>Tomorrow lands</h3><p>The next run goes to my watch with a pace or heart-rate range on every step, with the lift, the warm-up and the day's meals beside it.</p></li>
     </ol>
     <p class="rule"><b>The watch can only make a day easier.</b> A rough night turns a hard run into an easy one. A great morning never adds reps.</p>
   </div>
@@ -329,6 +341,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     ['Rook','Kai','Mo','Bo','Juno'].forEach(function(c){var x=CO[c];if(!x)return;var k=c.toLowerCase();
       set('c_'+k+'_studies',x.studies);set('c_'+k+'_live',(x.live||0).toLocaleString('en-US'));});
     if(CO.all_studies)set('c_all',CO.all_studies);
+    if(D.system){set('sys_runs',(D.system.runs_total||0).toLocaleString('en-US'));set('sys_watch',(D.system.watch_days||0).toLocaleString('en-US'));}
   }).catch(function(){});
 })();
 </script>
