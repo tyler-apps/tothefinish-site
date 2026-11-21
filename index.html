@@ -178,12 +178,40 @@ footer p{margin:14px 0 0;line-height:1.5}
 .coachhead .want:hover{text-decoration:underline}
 @media (max-width:760px){.coachhead .ch-cols{grid-template-columns:1fr;gap:18px}}
 @media (max-width:520px){.coachhead{padding:18px}.coachhead img{width:64px;height:64px}.coachhead .ch-n{font-size:36px}.coachhead .ch-n span{display:block;margin:6px 0 0;vertical-align:0;font-size:18px}.coachhead .ch-stats{gap:8px}.coachhead .ch-stats div{padding:10px}.coachhead .ch-stats b{font-size:30px}.coachhead .ch-stats span{font-size:12px}}
-.coachtag{position:fixed;left:16px;bottom:16px;z-index:40;display:flex;align-items:center;gap:10px;padding:5px 16px 5px 5px;background:rgba(18,16,14,.94);border:1px solid var(--line);border-radius:999px;color:var(--white);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;opacity:0;transform:translateY(10px);transition:opacity .25s,transform .25s;pointer-events:none}
-.coachtag.on{opacity:1;transform:none;pointer-events:auto}
-.coachtag img{width:32px;height:32px;border-radius:50%;object-fit:cover}
-.coachtag span b{color:var(--orange);font-weight:800}
-@media (prefers-reduced-motion:reduce){.coachtag{transition:none;transform:none}}
-@media (max-width:520px){.coachtag{left:10px;bottom:10px;padding:4px 12px 4px 4px;font-size:15px}.coachtag img{width:28px;height:28px}.coachtag span b{display:none}}
+
+/* structure (2026-11-21 audit, Tyler: "take this to the next level"): one chapter per coach, a sticky chapter bar,
+   chapters open big and continue quieter, one team section */
+html{scroll-padding-top:76px}
+section{scroll-margin-top:76px}
+.kicker{font-size:15px;letter-spacing:2.5px}
+section.chapter{padding-top:96px;border-top:1px solid var(--line)}
+section.cont{border-top:0;padding-top:16px}
+section.cont .display:not(.gap-head){font-size:clamp(34px,4.4vw,54px)!important;line-height:.95}
+section.cont .kicker{color:var(--muted)}
+.chapters{position:sticky;top:0;z-index:45;background:rgba(18,16,14,.92);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.chap-row{display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:10px 0}
+.chap-row::-webkit-scrollbar{display:none}
+.chap-row a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px 0 12px;border-radius:999px;color:#e7e2dc;text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;border:1px solid transparent}
+.chap-row a img{width:26px;height:26px;border-radius:50%;object-fit:cover;margin-left:-6px}
+.chap-row a:hover{border-color:#4a433c}
+.chap-row a[aria-current="true"]{background:var(--white);color:var(--ink)}
+.chap-row a.join-l{margin-left:auto;background:var(--orange);color:var(--ink)}
+.chap-row a.join-l[aria-current="true"]{background:var(--white)}
+@media (max-width:520px){.chap-row a{font-size:15px;min-height:36px;padding:0 11px 0 10px}.chap-row a img{width:22px;height:22px}.chap-row a.join-l{margin-left:0}}
+.team .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
+.team a.card{display:block;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.team a.card:hover{border-color:var(--orange);transform:translateY(-2px)}
+.team .card .go{display:inline-block;margin-top:12px;color:var(--orange);font-weight:700;font-size:15px}
+@media (max-width:1000px){.team .grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.team .grid{grid-template-columns:1fr;gap:10px}.team a.card{display:flex;align-items:stretch}.team .card img{width:104px;aspect-ratio:auto;flex:none;object-position:50% 20%}.team .card .t{padding:12px 14px}.team .card h3{font-size:26px}.team .card .role{margin:4px 0 6px}.team .card .job{display:none}.team .card .line{font-size:15px}.team .card .go{margin-top:8px;font-size:14px}}
+@media (prefers-reduced-motion:reduce){.team a.card{transition:none}.team a.card:hover{transform:none}}
+.boardimg{aspect-ratio:4/5;max-height:640px;object-fit:cover;object-position:50% 30%}
+.lead-2{margin:22px 0 0;font-size:17px;line-height:1.55;color:#cfc8c1;max-width:560px}
+/* type scale (2026-11-21 audit): 14 labels and notes · 16 secondary · 18 body · 20 hero lead */
+p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
+.team .card .line,.loop .step p{font-size:16px}
+.team .card .job{font-size:14px}
+@media (max-width:520px){p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:17px}.hero p.lead{font-size:19px}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -201,7 +229,7 @@ footer p{margin:14px 0 0;line-height:1.5}
       <div>
         <p class="kicker">Episode 1 · Sunday, Nov 22</p>
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
-        <p class="lead">Most days start at 5:45 with a banana in the dark, because Juno won't let me run on an empty stomach. I'm 43, with a two-year-old and a baby, and I picked a goal I'm not built for, starting at 258 lb: under three hours at the Chicago Marathon on October 10, 2027. This morning my watch says I'd run <b data-k="now">4:35:18</b>. Five AI coaches read every run I log and fight over what comes next. I might not make it. Every week goes up here anyway, the bad ones too, and if you're chasing a number of your own, you'll find yourself in here somewhere.</p>
+        <p class="lead">I'm 43, with a two-year-old and a baby, and I picked a goal I'm not built for, starting at 258 lb: under three hours at the Chicago Marathon on October 10, 2027. This morning my watch says I'd run <b data-k="now">4:35:18</b>.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
           <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
           <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
@@ -209,13 +237,18 @@ footer p{margin:14px 0 0;line-height:1.5}
         </form>
         <div class="thanks" id="thanks-top">You're in. The first letter comes Sunday night.</div>
         <p class="fine">Sunday nights I write down what the week really was, missteps included, with the new episode at the bottom.</p>
+        <p class="lead-2">Most days start at 5:45 with a banana in the dark, because Juno won't let me run on an empty stomach. Five AI coaches read every run I log and fight over what comes next. I might not make it. Every week goes up here anyway, the bad ones too, and if you're chasing a number of your own, you'll find yourself in here somewhere.</p>
       </div>
       <img src="assets/lineup.jpg" alt="The five To The Finish coaches: Rook, Kai, Bo, Juno and Mo" width="1400" height="933">
     </div>
   </div>
 </header>
 
-<section class="why" id="why">
+<nav class="chapters" aria-label="Sections"><div class="wrap"><div class="chap-row">
+  <a href="#progress" data-to="gap">The gap</a><a href="#team" data-to="team">Team</a><a href="#kai" data-to="kai"><img src="assets/kai.jpg" alt="">Kai</a><a href="#mo" data-to="mo"><img src="assets/mo.jpg" alt="">Mo</a><a href="#bo" data-to="bo"><img src="assets/bo.jpg" alt="">Bo</a><a href="#juno" data-to="juno"><img src="assets/juno.jpg" alt="">Juno</a><a href="#board" data-to="rook"><img src="assets/rook.jpg" alt="">Rook</a><a class="join-l" href="#waitlist" data-to="join">Join</a>
+</div></div></nav>
+
+<section class="why" id="why" data-ch="why">
   <div class="wrap">
     <p class="kicker">Why I'm doing this</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px)">I'll be 57 when she <span class="o">starts high school.</span></h2>
@@ -224,39 +257,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="coachstrip">
-  <div class="wrap">
-    <p class="kicker">Who's watching what</p>
-    <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Every coach guards <span class="o">a number.</span></h2>
-    <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on <a href="#board">the board</a> and that's the end of it. Tap a coach to see what they're watching this week.</p>
-    <p class="teamline">Between them, the five coaches have read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
-    <div class="chips">
-      <a class="chip" href="#progress"><img src="assets/rook.jpg" alt=""><b>Rook</b><span>Head coach · the gap to sub-3, every call logged</span></a>
-      <a class="chip" href="#kai"><img src="assets/kai.jpg" alt=""><b>Kai</b><span>Running · threshold pace, race fitness, easy-run efficiency, miles, zones</span></a>
-      <a class="chip" href="#mo"><img src="assets/mo.jpg" alt=""><b>Mo</b><span>Recovery · sleep, easy days that stay easy, no big jumps in run length</span></a>
-      <a class="chip" href="#bo"><img src="assets/bo.jpg" alt=""><b>Bo</b><span>Strength · heavy top sets, short lifts after the run</span></a>
-      <a class="chip" href="#juno"><img src="assets/juno.jpg" alt=""><b>Juno</b><span>Fuel · carbs that follow the work</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="board" id="board" data-coach="Rook">
-  <div class="wrap"><div class="coachhead" id="coach-rook"><div class="ch-top"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_rook_studies">166</b><span>studies read</span></div><div><b data-k="c_rook_live">57</b><span>calls logged</span></div><div><b>4</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Rook watches</p><div class="ch-tags"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div></div><div><p class="ch-h">What Rook does with it</p><ul><li>Settles every clash between the coaches with one ranked board: what I say and any pain first, then Chicago, then weight, then strength.</li><li>Tracks the gap to sub-3 every morning.</li><li>Coaches the mental side: confidence, nerves, the last miles of a race.</li><li>Logs every decision the team makes.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap two">
-    <div>
-      <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
-    </div>
-    <div>
-      <p class="kicker">Rook · The board</p>
-      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">When coaches collide, <span class="o">the magnet decides.</span></h2>
-      <p class="body" style="margin-top:14px">When two coaches want the same morning, Rook doesn't debate it. He checks where their cards sit and moves one. The magnet shows who won. Pain I report always goes on top.</p>
-      <ol class="cards" id="b-cards"></ol>
-      <div id="b-rulings"></div>
-    </div>
-  </div>
-</section>
-
-<section id="progress" data-coach="Rook">
+<section id="progress" data-coach="Rook" data-ch="gap">
   <div class="wrap">
     <p class="kicker">Rook · Where I am</p>
     <h2 class="display gap-head"><span data-k="now">4:34:04</span><span class="arrow">to</span><span class="o">2:59:59</span></h2>
@@ -267,7 +268,24 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="kai" data-coach="Kai">
+<section class="team" id="team" data-ch="team">
+  <div class="wrap">
+    <p class="kicker">The team</p>
+    <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Every coach guards <span class="o">a number.</span></h2>
+    <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on <a href="#board">the board</a> and that's the end of it.</p>
+    <p class="teamline">Between them, the five coaches have read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
+    <div class="grid">
+      <a class="card" href="#kai"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="job">Up before the sun, already pointing at the hill.</p><p class="line">"Easy days slower than his ego wants."</p><span class="go">See Kai's work <span aria-hidden="true">→</span></span></div></a>
+      <a class="card" href="#mo"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" loading="lazy"><div class="t"><h3>Mo</h3><p class="role">AI recovery coach</p><p class="job">Tape on his belt. Never clears pain to train.</p><p class="line">"And I keep him in one piece."</p><span class="go">See Mo's work <span aria-hidden="true">→</span></span></div></a>
+      <a class="card" href="#bo"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="job">Chalk on everything. Cuts his own lift to save a long run.</p><p class="line">"I want his legs. Three days a week."</p><span class="go">See Bo's work <span aria-hidden="true">→</span></span></div></a>
+      <a class="card" href="#juno"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="job">Banana in hand. No patience for a skipped breakfast.</p><p class="line">"Fight over him all you want. I feed him first."</p><span class="go">See Juno's work <span aria-hidden="true">→</span></span></div></a>
+      <a class="card" href="#board"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="job">Moves one card on the board. That's the call.</p><p class="line">"Not yet. Shoes on."</p><span class="go">See Rook's work <span aria-hidden="true">→</span></span></div></a>
+    </div>
+    <p class="note" style="margin-top:14px">They're AI characters. They see everything my watch sees. <a href="/ai-running-coach/">How my AI running coach works</a>.</p>
+  </div>
+</section>
+
+<section id="kai" data-coach="Kai" class="chapter" data-ch="kai">
   <div class="wrap"><div class="coachhead" id="coach-kai"><div class="ch-top"><img src="assets/kai.jpg" alt="Kai, the AI running coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Kai <span>AI running coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_kai_studies">61</b><span>studies read</span></div><div><b data-k="c_kai_live">440</b><span>runs read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Kai watches</p><div class="ch-tags"><span>Every lap and split</span><span>Heart rate from a chest strap</span><span>Hills and grade</span><span>Heat and weather</span><span>Threshold pace</span><span>Race results</span></div></div><div><p class="ch-h">What Kai does with it</p><ul><li>Builds the year race by race: a 5K, a 10K, a half, then the marathon.</li><li>Sets my paces and heart-rate zones from my own runs and races.</li><li>Gives hills credit. A slow mile up a climb counts as the faster flat mile it took the same effort to run.</li><li>Keeps the easy days easy, which is the hard part.</li><li>Sends every workout to my watch with a pace range on each step.</li></ul><p class="ch-also">Also reads the training books of coaches who have coached Olympians.</p></div></div><a class="want" href="#waitlist" data-coach="Kai">Want Kai on your running? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap two">
     <div>
@@ -285,8 +303,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-
-<section data-coach="Kai">
+<section data-coach="Kai" class="cont" data-ch="kai">
   <div class="wrap">
     <p class="kicker">Kai · The honest line</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">Fitter at the <span class="o">same heart rate.</span></h2>
@@ -297,7 +314,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section data-coach="Kai">
+<section data-coach="Kai" class="cont" data-ch="kai">
   <div class="wrap">
     <p class="kicker">Kai · The race number</p>
     <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
@@ -308,7 +325,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="year" data-coach="Kai">
+<section class="cont year" data-coach="Kai" data-ch="kai">
   <div class="wrap">
     <p class="kicker">Kai · What's ahead</p>
     <h2 class="display"><span data-k="weeksleft">47</span> weeks. <span class="o">Up to <span data-k="peak">90</span> miles a week.</span></h2>
@@ -319,7 +336,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="races" data-coach="Kai">
+<section class="cont races" data-coach="Kai" data-ch="kai">
   <div class="wrap">
     <p class="kicker">Kai · The races</p>
     <h2 class="display">Four races, <span class="o">then Chicago.</span></h2>
@@ -332,8 +349,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-
-<section id="mo" data-coach="Mo">
+<section id="mo" data-coach="Mo" class="chapter" data-ch="mo">
   <div class="wrap"><div class="coachhead" id="coach-mo"><div class="ch-top"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Mo <span>AI recovery coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_mo_studies">178</b><span>studies read</span></div><div><b data-k="c_mo_live">162</b><span>nights of sleep read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Mo watches</p><div class="ch-tags"><span>Hours asleep</span><span>Resting heart rate</span><span>Heart rate variability</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div></div><div><p class="ch-h">What Mo does with it</p><ul><li>Reads my sleep and resting heart rate. They can only make a day easier.</li><li>Checks every run against my longest of the month, where overuse injuries start.</li><li>Gives the warm-up before every session and the rolling and stretching after.</li><li>Builds the prehab and the down weeks around the plan.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Mo">Want Mo on your recovery? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Mo · Recovery</p>
@@ -357,7 +373,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="bo" data-coach="Bo">
+<section id="bo" data-coach="Bo" class="chapter" data-ch="bo">
   <div class="wrap"><div class="coachhead" id="coach-bo"><div class="ch-top"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Bo <span>AI strength coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_bo_studies">27</b><span>studies read</span></div><div><b data-k="c_bo_live">16</b><span>lifts logged</span></div><div><b>3</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Bo watches</p><div class="ch-tags"><span>Every set I log</span><span>The run calendar</span><span>Which days carry a hard run</span></div></div><div><p class="ch-h">What Bo does with it</p><ul><li>Heavy sets of three and jumps: the strength work that makes runners faster.</li><li>Fits the lift around the run, never the other way around.</li><li>Sets my next weights from the sets I've logged.</li><li>Two or three short sessions a week, fewer as the miles climb.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Bo">Want Bo on your strength? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Bo · Strength</p>
@@ -368,7 +384,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="juno" data-coach="Juno">
+<section id="juno" data-coach="Juno" class="chapter" data-ch="juno">
   <div class="wrap"><div class="coachhead" id="coach-juno"><div class="ch-top"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Juno <span>AI nutritionist</span></p></div></div><div class="ch-stats"><div><b data-k="c_juno_studies">200</b><span>studies read</span></div><div><b data-k="c_juno_live">53</b><span>foods with measured macros</span></div><div><b>5</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Juno watches</p><div class="ch-tags"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>Every meal I log</span><span>My 7-day weigh-in trend</span></div></div><div><p class="ch-h">What Juno does with it</p><ul><li>Writes my food plan every day from the run it has to fuel and the food that's actually in the house.</li><li>Reads a photo of a grocery receipt or the fridge and updates what's in the house.</li><li>Sizes my portions from my 7-day weigh-in trend, checked weekly, so I lose no more than 2 lb a week.</li><li>Carbs before, during and after the hard and long runs. Easy days stay lighter.</li><li>Protein at every meal, and no skipped breakfasts.</li></ul><p class="ch-also">Also studied 80+ recorded talks on fueling endurance training.</p></div></div><a class="want" href="#waitlist" data-coach="Juno">Want Juno on your fuel? <span aria-hidden="true">→</span></a></div></div>
   <div class="wrap">
     <p class="kicker">Juno · Fuel</p>
@@ -380,8 +396,23 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
+<section class="chapter board" id="board" data-coach="Rook" data-ch="rook">
+  <div class="wrap"><div class="coachhead" id="coach-rook"><div class="ch-top"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_rook_studies">166</b><span>studies read</span></div><div><b data-k="c_rook_live">57</b><span>calls logged</span></div><div><b>4</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Rook watches</p><div class="ch-tags"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div></div><div><p class="ch-h">What Rook does with it</p><ul><li>Settles every clash between the coaches with one ranked board: what I say and any pain first, then Chicago, then weight, then strength.</li><li>Tracks the gap to sub-3 every morning.</li><li>Coaches the mental side: confidence, nerves, the last miles of a race.</li><li>Logs every decision the team makes.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div>
+  <div class="wrap two">
+    <div>
+      <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
+    </div>
+    <div>
+      <p class="kicker">Rook · The board</p>
+      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">When coaches collide, <span class="o">the magnet decides.</span></h2>
+      <p class="body" style="margin-top:14px">When two coaches want the same morning, Rook doesn't debate it. He checks where their cards sit and moves one. The magnet shows who won. Pain I report always goes on top.</p>
+      <ol class="cards" id="b-cards"></ol>
+      <div id="b-rulings"></div>
+    </div>
+  </div>
+</section>
 
-<section class="machine" data-coach="Rook">
+<section class="cont machine" data-coach="Rook" data-ch="rook">
   <div class="wrap">
     <p class="kicker">Rook · How the coaching works</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:12px">The run ends. <span class="o">The coaches start.</span></h2>
@@ -405,8 +436,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-
-<section class="rules">
+<section class="cont rules" data-coach="Rook" data-ch="rook">
   <div class="wrap">
     <p class="kicker">How the coaches decide</p>
     <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:18px">The research sets the rules. <span class="o">The watch can only slow me down.</span></h2>
@@ -420,22 +450,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="coaches" class="coaches">
-  <div class="wrap">
-    <p class="kicker">The team</p>
-    <h2 class="display">Meet the <span class="o">coaches.</span></h2>
-    <p class="body">They're AI. They see everything my watch sees, and they argue about my week like it's theirs. <a href="/ai-running-coach/">How my AI running coach works</a>.</p>
-    <div class="grid">
-      <div class="card"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="job">Moves one card on the board. That's the call.</p><p class="line">"Not yet. Shoes on."</p></div></div>
-      <div class="card"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="job">Up before the sun, already pointing at the hill.</p><p class="line">"Easy days slower than his ego wants."</p></div></div>
-      <div class="card"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="job">Chalk on everything. Cuts his own lift to save a long run.</p><p class="line">"I want his legs. Twice a week."</p></div></div>
-      <div class="card"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="job">Banana in hand. No patience for a skipped breakfast.</p><p class="line">"Fight over him all you want. I feed him first."</p></div></div>
-      <div class="card"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" loading="lazy"><div class="t"><h3>Mo</h3><p class="role">AI recovery coach</p><p class="job">Tape on his belt. Never clears pain to train.</p><p class="line">"And I keep him in one piece."</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="episode">
+<section id="episode" data-ch="join">
   <div class="wrap episode">
     <div>
       <p class="kicker">Episode 1 · The Hiring</p>
@@ -446,7 +461,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section id="club" class="club">
+<section id="club" class="club" data-ch="join">
   <div class="wrap">
     <p class="kicker">Train with us</p>
     <h2 class="display">One session <span class="o">a week.</span></h2>
@@ -455,7 +470,7 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<section class="waitlist" id="waitlist">
+<section class="waitlist" id="waitlist" data-ch="join">
   <div class="wrap">
     <p class="kicker">Coming later</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
@@ -470,7 +485,6 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
-<a class="coachtag" id="coachtag" href="#" aria-hidden="true" tabindex="-1"><img src="" alt="" width="32" height="32"><span></span></a>
 
 <footer>
   <div class="wrap">
@@ -483,17 +497,14 @@ footer p{margin:14px 0 0;line-height:1.5}
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
 <script>
-/* which coach owns what's on screen; coach links retitle the waitlist and count interest (no new Kit field) */
+/* chapter bar: highlight the section on screen; coach links retitle the waitlist and count interest (no new Kit field) */
 (function(){
-  var ROLE={Rook:'head coach',Kai:'running',Mo:'recovery',Bo:'strength',Juno:'fuel'};
-  var tag=document.getElementById('coachtag'),img=tag.querySelector('img'),lab=tag.querySelector('span'),cur=null;
-  var secs=[].slice.call(document.querySelectorAll('section[data-coach]'));
-  function show(c){if(c===cur)return;cur=c;if(!c){tag.classList.remove('on');return;}
-    img.src='assets/'+c.toLowerCase()+'.jpg';lab.innerHTML=c+'<b> · '+ROLE[c]+'</b>';
-    tag.href='#coach-'+c.toLowerCase();tag.classList.add('on');}
-  function pick(){var mid=innerHeight*0.45,c=null;
-    secs.forEach(function(sec){var r=sec.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)c=sec.getAttribute('data-coach');});
-    show(c);}
+  var links=[].slice.call(document.querySelectorAll('.chap-row a')),row=document.querySelector('.chap-row'),cur=null;
+  var secs=[].slice.call(document.querySelectorAll('section[data-ch]'));
+  function mark(ch){if(ch===cur)return;cur=ch;links.forEach(function(a){var on=a.getAttribute('data-to')===ch;
+      a.setAttribute('aria-current',on?'true':'false');
+      if(on&&row.scrollWidth>row.clientWidth){row.scrollTo({left:a.offsetLeft-row.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}});}
+  function pick(){var y=innerHeight*0.3,ch=null;secs.forEach(function(sec){var r=sec.getBoundingClientRect();if(r.top<=y&&r.bottom>y)ch=sec.getAttribute('data-ch');});mark(ch);}
   addEventListener('scroll',pick,{passive:true});addEventListener('resize',pick);pick();
   var h=document.querySelector('#waitlist h2');
   [].forEach.call(document.querySelectorAll('a.want[data-coach]'),function(a){a.addEventListener('click',function(){
