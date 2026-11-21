@@ -599,21 +599,21 @@
   {
    "week": 40,
    "monday": "2027-07-26",
-   "plan": 82,
+   "plan": 88,
    "done": null,
    "current": false
   },
   {
    "week": 41,
    "monday": "2027-08-02",
-   "plan": 86,
+   "plan": 90,
    "done": null,
    "current": false
   },
   {
    "week": 42,
    "monday": "2027-08-09",
-   "plan": 88,
+   "plan": 83,
    "done": null,
    "current": false
   },
@@ -627,7 +627,7 @@
   {
    "week": 44,
    "monday": "2027-08-23",
-   "plan": 90,
+   "plan": 85,
    "done": null,
    "current": false
   },
@@ -641,7 +641,7 @@
   {
    "week": 46,
    "monday": "2027-09-06",
-   "plan": 86,
+   "plan": 83,
    "done": null,
    "current": false
   },
@@ -655,7 +655,7 @@
   {
    "week": 48,
    "monday": "2027-09-20",
-   "plan": 70,
+   "plan": 68,
    "done": null,
    "current": false
   },
@@ -1202,42 +1202,42 @@
    },
    {
     "monday": "2026-11-16",
-    "kai": 9,
-    "rook": 52
+    "kai": 29,
+    "rook": 62
    }
   ],
-  "decisions_total": 73,
+  "decisions_total": 103,
   "watch_days": 74,
   "hilly_laps": 5116,
   "calls": [
    {
     "coach": "Kai",
-    "auto": 16,
-    "called": 19,
+    "auto": 36,
+    "called": 21,
     "yours": 7
    },
    {
     "coach": "Bo",
     "auto": 0,
-    "called": 13,
+    "called": 15,
     "yours": 0
    },
    {
     "coach": "Juno",
     "auto": 0,
-    "called": 7,
+    "called": 8,
     "yours": 3
    },
    {
     "coach": "Mo",
     "auto": 0,
-    "called": 1,
+    "called": 3,
     "yours": 0
    },
    {
     "coach": "Rook",
     "auto": 0,
-    "called": 7,
+    "called": 10,
     "yours": 0
    }
   ],
@@ -1497,6 +1497,7 @@
    }
   ],
   "next_cap": 110,
+  "next_cap_mi": 9.3,
   "easy_top": 120,
   "hard_from": 152
  },
@@ -1541,37 +1542,37 @@
    {
     "date": "2026-11-22",
     "carbs": 238,
-    "protein": 158,
+    "protein": 198,
     "work": "long"
    },
    {
     "date": "2026-11-23",
     "carbs": 151,
-    "protein": 156,
+    "protein": 198,
     "work": "easy"
    },
    {
     "date": "2026-11-24",
     "carbs": 216,
-    "protein": 156,
+    "protein": 199,
     "work": "hard"
    },
    {
     "date": "2026-11-25",
-    "carbs": 110,
-    "protein": 152,
+    "carbs": 132,
+    "protein": 178,
     "work": "easy"
    },
    {
     "date": "2026-11-26",
     "carbs": 103,
-    "protein": 154,
+    "protein": 196,
     "work": "rest"
    },
    {
     "date": "2026-11-27",
-    "carbs": 216,
-    "protein": 156,
+    "carbs": 261,
+    "protein": 203,
     "work": "hard"
    }
   ]
@@ -1615,38 +1616,38 @@
  },
  "to_go_txt": "1:36:11",
  "lines": {
-  "rook": "Tyler, 1:36:11 to find. That's about two minutes a week, every week until Chicago. The runs stay at the top of the board.",
+  "rook": "Tyler, 1:36:11 to find. The watch will wobble. Dec 26, the 5K, is the next number that counts. What you tell me stays at the top of the board.",
   "kai_eff": "Flat, Tyler. Mission Trails dirt hides it for now. This line moves on the days you let me slow you down, and we both know which days those are.",
   "kai_vdot": "40.5 on paper. 49.2 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
-  "kai_engine": "6:42 happened, Tyler. I've seen the file. We go get it back the long way: easy dirt at Mission Trails, threshold on the Serra Trail Fridays.",
+  "kai_engine": "6:42, Tyler. Your pace, your file. The way back to it is easy dirt at Mission Trails and Fridays on the Serra Trail.",
   "kai_year": "32 this week, 90 in August. I want every one of them, and I want most of them slow.",
-  "mo_easy": "69% easy last week. The number is 80. So where did the other 31% come from, Tyler? The climbs, or the first mile out the door?",
-  "mo_spike": "Your ceiling right now is about 110 minutes. Anything longer waits until a long run earns it. I'll be the one saying no.",
+  "mo_easy": "69% easy last week. Kai's number is 80. Mine is what the other 31% cost you the next morning, Tyler.",
+  "mo_spike": "Your ceiling right now is about 9.3 miles: ten percent past your longest run of the last 30 days. Anything longer waits until a long run earns it. I'll be the one saying no.",
   "mo_sleep": "3 of the last 7 nights reached seven hours. Average 6.7. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
-  "bo": "Tyler, 295 on the box squat. Kai gets your legs in the morning. I get what's left after lunch. That's the deal. BOOM.",
-  "juno": "Tyler. 223 grams of carbs on the hard and long days, 134 on the rest. You'll want to skip the banana before Friday's run because it's early and you're not hungry. Don't."
+  "bo": "Tyler! 295 on the box squat. Run first, then we lift, hours apart. That's the deal.",
+  "juno": "Tyler. 238 grams of carbs on the hard and long days, 140 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
  },
  "coaches": {
   "Kai": {
-   "studies": 61,
+   "studies": 73,
    "live": 440
   },
   "Mo": {
-   "studies": 178,
+   "studies": 188,
    "live": 162
   },
   "Bo": {
-   "studies": 27,
+   "studies": 40,
    "live": 16
   },
   "Juno": {
    "studies": 200,
-   "live": 53
+   "live": 54
   },
   "Rook": {
-   "studies": 166,
-   "live": 57
+   "studies": 167,
+   "live": 67
   },
-  "all_studies": 597
+  "all_studies": 621
  }
 }

@@ -285,7 +285,7 @@ def index_page(prog):
     <p class="kicker">Coming up</p>
     <h2 class="display sec">The races <span class="o">ahead.</span></h2>
     {ahead_html}
-    <p class="note" style="margin-top:14px">"Watch says today" is Garmin's prediction if I raced today. "Kai's target" is the time that keeps sub-3 on track at that point in the year.</p>
+    <p class="note" style="margin-top:14px">"Watch says today" is Garmin's prediction if I raced today. "Kai's target" is the time a sub-3 marathon asks for at that point in the year.</p>
   </div>
 </section>
 <section>
@@ -300,15 +300,15 @@ def index_page(prog):
   <div class="wrap">
     <p class="kicker">What are you training for?</p>
     <h2 class="display">Your race, <span class="o">next.</span></h2>
-    <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, the people on the waitlist are next. Tell me your race.</p>
+    <p class="body">Right now my coaches have one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race.</p>
     <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-myraces" data-thanks="thanks-myraces">
       <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
       <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date">
       <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-myraces">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
-    <p class="fine">You'll also get my Sunday letter: my week's miles and the new episode. It's free, and you can unsubscribe anytime.</p>
+    <div class="thanks" id="thanks-myraces">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
+    <p class="fine">You'll also get my Sunday letter: my week's miles, and the new episode when one's out. One email a week. It's free, and you can unsubscribe anytime.</p>
   </div>
 </section>
 """ + FOOT

@@ -9,8 +9,8 @@
   var WAIT_MS = 8000;
   // one thank-you per kind of form, wherever the form sits
   var THANKS = {
-    follow_along: "You're in. The first letter comes Sunday night.",
-    waitlist: "You're on the waitlist. If the coaches get me to Chicago, you're first to try them."
+    follow_along: "You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.",
+    waitlist: "You're on the waitlist. When the coaches are ready for a second runner, you hear first."
   };
   var pending = null;   // the submit in flight: { form, timer, done }
 

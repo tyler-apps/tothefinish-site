@@ -4,6 +4,10 @@
 Tyler 2026-11-21: "redesign the charts for a coaches page". The homepage stays short; this page carries the charts,
 drawn by assets/charts.js (one chart system) from data/progress.json via assets/coaches-page.js. Header, footer
 and type come from the homepage so both pages read as one site. Re-run by tools/publish.sh.
+
+2026-11-21, Sanderson full read (people before systems): each coach now opens with their own line on this week's
+numbers, then what they do and the one thing they can't, then the charts. The study and work counts sit in one line at
+the foot. One waitlist ask on the page, at the end; the per-coach interest links moved there (GA4 coach_interest).
 """
 import json
 import re
@@ -19,7 +23,8 @@ COACHES = [
                 "Threshold pace", "Race results"],
          does=("Builds the year race by race, a 5K, a 10K, a half, then the marathon, and sets every pace and "
                "heart-rate zone from my own runs. A slow mile up a climb gets credit for the faster flat mile it "
-               "took the same effort to run."),
+               "took the same effort to run. He can't make me run an easy day easy. The watch shows the range and "
+               "the rest is mine."),
          charts=[("engine", "Is the engine coming back?",
                   "Lactate-threshold pace from my Garmin: about the fastest I can hold for an hour. Higher is faster."),
                  ("eff", "Am I fitter at the same heart rate?",
@@ -27,50 +32,47 @@ COACHES = [
                  ("miles", "Am I running the miles?",
                   "Planned miles each week from now to Chicago, and the miles I ran.",
                   [("muted", "Ran"), ("ghost", "Planned"), ("orange", "This week")])],
-         line="kai_year",
-         invite="Kai could build your year the same way, race by race."),
+         line="kai_year"),
     dict(k="mo", n="Mo", role="AI recovery coach", live="nights of sleep analyzed",
-         watch=["Hours asleep", "Resting heart rate", "Heart rate variability", "Every run's length",
+         watch=["Hours asleep", "Resting heart rate", "Overnight heart rhythm (HRV)", "Every run's length",
                 "Easy-day heart rate", "My legs and pain check-ins"],
          does=("Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run "
-               "against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, prehab and "
-               "down weeks around the plan."),
+               "against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, the foot and ankle work and the "
+               "lighter weeks around the plan. He can't see pain. I have to tell him."),
          charts=[("easy", "Are the easy days easy?",
-                  "Share of each week's running time at easy heart rate, my zone 2 or below. The best distance "
+                  "Share of each week's running time at easy heart rate. The best distance "
                   "runners keep at least 80% easy."),
                  ("sleep", "Am I sleeping enough?",
                   "Hours asleep each night from my watch. Watches count broken nights long, so those bars are faded.",
                   [("orange", "7 hours or more"), ("muted", "Under 7"), ("dim", "Broken night")])],
-         line="mo_sleep",
-         invite="Mo could keep the same watch on your sleep."),
+         line="mo_sleep"),
     dict(k="bo", n="Bo", role="AI strength coach", live="lifts tracked",
-         watch=["The top set I text after each lift", "The run calendar", "Which days carry a hard run"],
+         watch=["The heaviest set I text after each lift", "The run calendar", "Which days carry a hard run"],
          does=("Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run "
-               "and never the other way around. Sets my next weights from my last top sets."),
-         charts=[], line="bo",
-         invite="Bo could fit the lifting around your runs too."),
+               "and never the other way around. Sets my next weights from my last heaviest sets. He can't see a "
+               "lift. He knows what I text him."),
+         charts=[], line="bo"),
     dict(k="juno", n="Juno", role="AI nutritionist", live="foods measured",
          watch=["Today's and tomorrow's run", "The food in the house", "Grocery receipts and fridge photos",
                 "The meals on the plan", "My 7-day weigh-in trend"],
          does=("Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt "
                "or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more "
-               "than 2 lb a week."),
+               "than 2 lb a week. She can't change a food rule without my word."),
          charts=[("fuel", "Does the food follow the work?",
                   "Grams of carbs a day from my meal plan, the next seven days.",
                   [("orange", "Hard or long run"), ("muted", "Easy or rest day")])],
-         line="juno",
-         invite="Juno could plan your food around your training too."),
+         line="juno"),
     dict(k="rook", n="Rook", role="AI head coach", live="decisions made",
          watch=["Every coach's plan", "The priority board", "Every call the coaches make", "What I tell the coaches"],
          does=("Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, "
-               "then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes."),
+               "then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes. "
+               "What I say outranks every number he has."),
          charts=[("gap", "Am I closing the gap?",
                   "Garmin's marathon prediction after every run since October 19, against what Chicago asks for."),
                  ("calls", "Who makes the calls?",
                   "Every decision the coaches wrote down since Nov 9, by the coach who made it.",
                   [("orange", "Automatic, from watch data"), ("white", "A coach's own call"), ("muted", "I overruled it")])],
-         line="rook",
-         invite="Rook could settle your week the same way."),
+         line="rook"),
 ]
 
 CSS = """<style>
@@ -165,15 +167,13 @@ def section(c, co):
       <div>
         <p class="kicker">{c['role']}</p>
         <h2 class="display">{c['n']}</h2>
-        <p class="proof"><b data-k="c_{k}_studies">{x['studies']}</b> studies behind the rules · <b data-k="c_{k}_live">{x['live']:,}</b> {c['live']}</p>
       </div>
       <p class="does">{c['does']}</p>
       <div class="tags" aria-label="What {c['n']} watches">{tags}</div>
     </div>
+    <blockquote class="say">{avatar(k, 44)}<p data-line="{c['line']}"></p></blockquote>
     <div class="vizgrid{one}">{figs}
     </div>
-    <blockquote class="say">{avatar(k, 44)}<p data-line="{c['line']}"></p></blockquote>
-    <div class="ask"><p>{c['invite']}</p><a href="/?coach={k}#waitlist" data-coach="{k}">Get on the waitlist</a></div>
   </div>
 </section>"""
 
@@ -193,6 +193,9 @@ def main():
                          "isPartOf": {"@type": "WebSite", "name": "To The Finish", "url": "https://tothefinish.ai/"}},
                         ensure_ascii=False)
     body = "".join(section(c, co) for c in COACHES)
+    pick = " · ".join(f'<a href="/?coach={c["k"]}#waitlist" data-coach="{c["k"]}">{c["n"]}</a>' for c in COACHES)
+    counts = " · ".join(f'{c["n"]} <b data-k="c_{c["k"]}_studies">{co[c["n"]]["studies"]}</b> studies and '
+                        f'<b data-k="c_{c["k"]}_live">{co[c["n"]]["live"]:,}</b> {c["live"]}' for c in COACHES)
     page = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -231,7 +234,7 @@ def main():
 <div class="intro"><div class="wrap">
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
-  <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">{co['all_studies']}</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
+  <p class="lead">Five AI coaches read every run, night of sleep and weigh-in, and each one makes a call. Here's what each coach said about this week's numbers, the one thing they can't do, and the charts they're reading.</p>
 </div></div>
 <div class="jumpbar"><div class="wrap"><nav class="jump" aria-label="Coaches">{jump}</nav></div></div>
 {body}
@@ -240,8 +243,11 @@ def main():
   <div class="wrap">
     <p class="kicker">Come along</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
+    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. When it's ready for a second runner, the waitlist hears first.</p>
     <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
+    <p class="fine">The waitlist comes with my Sunday letter. One email a week. Leave any time.</p>
+    <p class="fine">Which coach would you want first? {pick}</p>
+    <p class="fine">Behind the rules: <b data-k="c_all">{co['all_studies']}</b> studies in all. {counts}. One study can sit behind more than one coach.</p>
   </div>
 </section>
 

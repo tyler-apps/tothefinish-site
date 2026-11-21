@@ -50,7 +50,7 @@ p.body{font-size:18px;line-height:1.6;color:var(--soft);margin:18px 0 0;max-widt
 .nav a:hover{color:var(--white)}
 .nav a.navcta{color:var(--ink);background:var(--orange);padding:9px 16px;border-radius:8px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:17px;letter-spacing:1px;text-transform:uppercase}
 .hero{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(64px,11vw,132px)}
+.hero h1{font-size:clamp(44px,6vw,76px);text-wrap:balance}
 .hero p.lead{font-size:20px;color:var(--soft);margin:24px 0 28px;max-width:36ch;line-height:1.5}
 .hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
 
@@ -257,8 +257,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 @media (max-width:860px){.vizgrid{grid-template-columns:1fr}.lifts{grid-template-columns:1fr}}
 @media (max-width:640px){.ch{grid-template-columns:88px 1fr;gap:16px}.ch img{grid-row:auto;width:88px;height:110px}.ch .does,.ch .tags{grid-column:1/-1}.cs{padding:56px 0}.ask{padding:16px}.ask a{width:100%;justify-content:center}.jumpbar .wrap{padding-right:0}.viz{padding:18px 16px 14px}.viz .take{font-size:26px}.intro .lead{font-size:18px}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=823bda3b">
-<link rel="stylesheet" href="/assets/motion.css?v=823bda3b">
+<link rel="stylesheet" href="/assets/ui.css?v=6a95bd88">
+<link rel="stylesheet" href="/assets/motion.css?v=6a95bd88">
 </head>
 <body>
 
@@ -275,7 +275,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 <div class="intro"><div class="wrap">
   <p class="kicker">The coaches</p>
   <h1 class="display">What they <span class="o">see.</span></h1>
-  <p class="lead">Every run, night of sleep and weigh-in reaches five AI coaches on its own, and they change my plan on their own. Between them they've read <b data-k="c_all">597</b> studies. Here's what each one watches, and the numbers they're watching right now.</p>
+  <p class="lead">Five AI coaches read every run, night of sleep and weigh-in, and each one makes a call. Here's what each coach said about this week's numbers, the one thing they can't do, and the charts they're reading.</p>
 </div></div>
 <div class="jumpbar"><div class="wrap"><nav class="jump" aria-label="Coaches"><a href="#kai"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Kai</a><a href="#mo"><picture><source type="image/webp" srcset="/assets/mo-96.webp"><img src="/assets/mo.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Mo</a><a href="#bo"><picture><source type="image/webp" srcset="/assets/bo-96.webp"><img src="/assets/bo.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Bo</a><a href="#juno"><picture><source type="image/webp" srcset="/assets/juno-96.webp"><img src="/assets/juno.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Juno</a><a href="#rook"><picture><source type="image/webp" srcset="/assets/rook-96.webp"><img src="/assets/rook.jpg" alt="" width="28" height="28" loading="lazy" decoding="async"></picture>Rook</a></nav></div></div>
 
@@ -286,18 +286,16 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div>
         <p class="kicker">AI running coach</p>
         <h2 class="display">Kai</h2>
-        <p class="proof"><b data-k="c_kai_studies">61</b> studies behind the rules · <b data-k="c_kai_live">440</b> runs analyzed</p>
       </div>
-      <p class="does">Builds the year race by race, a 5K, a 10K, a half, then the marathon, and sets every pace and heart-rate zone from my own runs. A slow mile up a climb gets credit for the faster flat mile it took the same effort to run.</p>
+      <p class="does">Builds the year race by race, a 5K, a 10K, a half, then the marathon, and sets every pace and heart-rate zone from my own runs. A slow mile up a climb gets credit for the faster flat mile it took the same effort to run. He can't make me run an easy day easy. The watch shows the range and the rest is mine.</p>
       <div class="tags" aria-label="What Kai watches"><span>Every lap and split</span><span>Heart rate from a chest strap</span><span>Hills and grade</span><span>Heat and weather</span><span>Threshold pace</span><span>Race results</span></div>
     </div>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="kai_year"></p></blockquote>
     <div class="vizgrid">
       <figure class="viz" id="v-engine"><figcaption><p class="q">Is the engine coming back?</p><p class="take" data-take="engine">&nbsp;</p></figcaption><div class="plot" id="p-engine" role="img"></div><p class="src">Lactate-threshold pace from my Garmin: about the fastest I can hold for an hour. Higher is faster.</p></figure>
       <figure class="viz" id="v-eff"><figcaption><p class="q">Am I fitter at the same heart rate?</p><p class="take" data-take="eff">&nbsp;</p></figcaption><div class="plot" id="p-eff" role="img"></div><p class="src">Meters I travel for each heartbeat on easy runs, four-week average, hills evened out. Higher is fitter.</p></figure>
       <figure class="viz wide" id="v-miles"><figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p><p class="key"><span><i class="sw muted"></i>Ran</span><span><i class="sw ghost"></i>Planned</span><span><i class="sw orange"></i>This week</span></p></figcaption><div class="plot" id="p-miles" role="img"></div><p class="src">Planned miles each week from now to Chicago, and the miles I ran.</p></figure>
     </div>
-    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/kai-96.webp"><img src="/assets/kai.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="kai_year"></p></blockquote>
-    <div class="ask"><p>Kai could build your year the same way, race by race.</p><a href="/?coach=kai#waitlist" data-coach="kai">Get on the waitlist</a></div>
   </div>
 </section>
 <section class="cs" id="mo">
@@ -307,17 +305,15 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div>
         <p class="kicker">AI recovery coach</p>
         <h2 class="display">Mo</h2>
-        <p class="proof"><b data-k="c_mo_studies">178</b> studies behind the rules · <b data-k="c_mo_live">162</b> nights of sleep analyzed</p>
       </div>
-      <p class="does">Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, prehab and down weeks around the plan.</p>
-      <div class="tags" aria-label="What Mo watches"><span>Hours asleep</span><span>Resting heart rate</span><span>Heart rate variability</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div>
-    </div>
-    <div class="vizgrid">
-      <figure class="viz" id="v-easy"><figcaption><p class="q">Are the easy days easy?</p><p class="take" data-take="easy">&nbsp;</p></figcaption><div class="plot" id="p-easy" role="img"></div><p class="src">Share of each week's running time at easy heart rate, my zone 2 or below. The best distance runners keep at least 80% easy.</p></figure>
-      <figure class="viz" id="v-sleep"><figcaption><p class="q">Am I sleeping enough?</p><p class="take" data-take="sleep">&nbsp;</p><p class="key"><span><i class="sw orange"></i>7 hours or more</span><span><i class="sw muted"></i>Under 7</span><span><i class="sw dim"></i>Broken night</span></p></figcaption><div class="plot" id="p-sleep" role="img"></div><p class="src">Hours asleep each night from my watch. Watches count broken nights long, so those bars are faded.</p></figure>
+      <p class="does">Reads my sleep and resting heart rate, and they can only ever make a day easier. Checks every run against my longest of the last 30 days, because a big jump past it is linked to more injuries, and builds the warm-ups, the foot and ankle work and the lighter weeks around the plan. He can't see pain. I have to tell him.</p>
+      <div class="tags" aria-label="What Mo watches"><span>Hours asleep</span><span>Resting heart rate</span><span>Overnight heart rhythm (HRV)</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div>
     </div>
     <blockquote class="say"><picture><source type="image/webp" srcset="/assets/mo-96.webp"><img src="/assets/mo.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="mo_sleep"></p></blockquote>
-    <div class="ask"><p>Mo could keep the same watch on your sleep.</p><a href="/?coach=mo#waitlist" data-coach="mo">Get on the waitlist</a></div>
+    <div class="vizgrid">
+      <figure class="viz" id="v-easy"><figcaption><p class="q">Are the easy days easy?</p><p class="take" data-take="easy">&nbsp;</p></figcaption><div class="plot" id="p-easy" role="img"></div><p class="src">Share of each week's running time at easy heart rate. The best distance runners keep at least 80% easy.</p></figure>
+      <figure class="viz" id="v-sleep"><figcaption><p class="q">Am I sleeping enough?</p><p class="take" data-take="sleep">&nbsp;</p><p class="key"><span><i class="sw orange"></i>7 hours or more</span><span><i class="sw muted"></i>Under 7</span><span><i class="sw dim"></i>Broken night</span></p></figcaption><div class="plot" id="p-sleep" role="img"></div><p class="src">Hours asleep each night from my watch. Watches count broken nights long, so those bars are faded.</p></figure>
+    </div>
   </div>
 </section>
 <section class="cs" id="bo">
@@ -327,16 +323,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div>
         <p class="kicker">AI strength coach</p>
         <h2 class="display">Bo</h2>
-        <p class="proof"><b data-k="c_bo_studies">27</b> studies behind the rules · <b data-k="c_bo_live">16</b> lifts tracked</p>
       </div>
-      <p class="does">Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run and never the other way around. Sets my next weights from my last top sets.</p>
-      <div class="tags" aria-label="What Bo watches"><span>The top set I text after each lift</span><span>The run calendar</span><span>Which days carry a hard run</span></div>
+      <p class="does">Heavy sets of three and jumps, the strength work that makes runners faster, fitted around the run and never the other way around. Sets my next weights from my last heaviest sets. He can't see a lift. He knows what I text him.</p>
+      <div class="tags" aria-label="What Bo watches"><span>The heaviest set I text after each lift</span><span>The run calendar</span><span>Which days carry a hard run</span></div>
     </div>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/bo-96.webp"><img src="/assets/bo.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="bo"></p></blockquote>
     <div class="vizgrid one">
       <div class="lifts" id="p-lifts"></div>
     </div>
-    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/bo-96.webp"><img src="/assets/bo.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="bo"></p></blockquote>
-    <div class="ask"><p>Bo could fit the lifting around your runs too.</p><a href="/?coach=bo#waitlist" data-coach="bo">Get on the waitlist</a></div>
   </div>
 </section>
 <section class="cs" id="juno">
@@ -346,16 +340,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div>
         <p class="kicker">AI nutritionist</p>
         <h2 class="display">Juno</h2>
-        <p class="proof"><b data-k="c_juno_studies">200</b> studies behind the rules · <b data-k="c_juno_live">53</b> foods measured</p>
       </div>
-      <p class="does">Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more than 2 lb a week.</p>
+      <p class="does">Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more than 2 lb a week. She can't change a food rule without my word.</p>
       <div class="tags" aria-label="What Juno watches"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>The meals on the plan</span><span>My 7-day weigh-in trend</span></div>
     </div>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/juno-96.webp"><img src="/assets/juno.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="juno"></p></blockquote>
     <div class="vizgrid one">
       <figure class="viz" id="v-fuel"><figcaption><p class="q">Does the food follow the work?</p><p class="take" data-take="fuel">&nbsp;</p><p class="key"><span><i class="sw orange"></i>Hard or long run</span><span><i class="sw muted"></i>Easy or rest day</span></p></figcaption><div class="plot" id="p-fuel" role="img"></div><p class="src">Grams of carbs a day from my meal plan, the next seven days.</p></figure>
     </div>
-    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/juno-96.webp"><img src="/assets/juno.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="juno"></p></blockquote>
-    <div class="ask"><p>Juno could plan your food around your training too.</p><a href="/?coach=juno#waitlist" data-coach="juno">Get on the waitlist</a></div>
   </div>
 </section>
 <section class="cs" id="rook">
@@ -365,17 +357,15 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div>
         <p class="kicker">AI head coach</p>
         <h2 class="display">Rook</h2>
-        <p class="proof"><b data-k="c_rook_studies">166</b> studies behind the rules · <b data-k="c_rook_live">57</b> decisions made</p>
       </div>
-      <p class="does">Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes.</p>
+      <p class="does">Settles every clash between the coaches: what I say and any pain first, then Chicago, then weight, then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes. What I say outranks every number he has.</p>
       <div class="tags" aria-label="What Rook watches"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div>
     </div>
+    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/rook-96.webp"><img src="/assets/rook.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="rook"></p></blockquote>
     <div class="vizgrid">
       <figure class="viz" id="v-gap"><figcaption><p class="q">Am I closing the gap?</p><p class="take" data-take="gap">&nbsp;</p></figcaption><div class="plot" id="p-gap" role="img"></div><p class="src">Garmin's marathon prediction after every run since October 19, against what Chicago asks for.</p></figure>
       <figure class="viz" id="v-calls"><figcaption><p class="q">Who makes the calls?</p><p class="take" data-take="calls">&nbsp;</p><p class="key"><span><i class="sw orange"></i>Automatic, from watch data</span><span><i class="sw white"></i>A coach's own call</span><span><i class="sw muted"></i>I overruled it</span></p></figcaption><div class="plot" id="p-calls" role="img"></div><p class="src">Every decision the coaches wrote down since Nov 9, by the coach who made it.</p></figure>
     </div>
-    <blockquote class="say"><picture><source type="image/webp" srcset="/assets/rook-96.webp"><img src="/assets/rook.jpg" alt="" width="44" height="44" loading="lazy" decoding="async"></picture><p data-line="rook"></p></blockquote>
-    <div class="ask"><p>Rook could settle your week the same way.</p><a href="/?coach=rook#waitlist" data-coach="rook">Get on the waitlist</a></div>
   </div>
 </section>
 
@@ -383,8 +373,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <p class="kicker">Come along</p>
     <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
+    <p class="body" style="text-wrap:pretty">Right now it coaches one guy. When it's ready for a second runner, the waitlist hears first.</p>
     <p style="margin-top:24px"><a class="btn" style="background:var(--orange)" href="/#waitlist">Get on the waitlist</a></p>
+    <p class="fine">The waitlist comes with my Sunday letter. One email a week. Leave any time.</p>
+    <p class="fine">Which coach would you want first? <a href="/?coach=kai#waitlist" data-coach="kai">Kai</a> · <a href="/?coach=mo#waitlist" data-coach="mo">Mo</a> · <a href="/?coach=bo#waitlist" data-coach="bo">Bo</a> · <a href="/?coach=juno#waitlist" data-coach="juno">Juno</a> · <a href="/?coach=rook#waitlist" data-coach="rook">Rook</a></p>
+    <p class="fine">Behind the rules: <b data-k="c_all">621</b> studies in all. Kai <b data-k="c_kai_studies">73</b> studies and <b data-k="c_kai_live">440</b> runs analyzed · Mo <b data-k="c_mo_studies">188</b> studies and <b data-k="c_mo_live">162</b> nights of sleep analyzed · Bo <b data-k="c_bo_studies">40</b> studies and <b data-k="c_bo_live">16</b> lifts tracked · Juno <b data-k="c_juno_studies">200</b> studies and <b data-k="c_juno_live">54</b> foods measured · Rook <b data-k="c_rook_studies">167</b> studies and <b data-k="c_rook_live">67</b> decisions made. One study can sit behind more than one coach.</p>
   </div>
 </section>
 
@@ -398,8 +391,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/charts.js?v=823bda3b"></script>
-<script src="/assets/coaches-page.js?v=823bda3b"></script>
-<script src="/assets/motion.js?v=823bda3b" defer></script>
+<script src="/assets/charts.js?v=6a95bd88"></script>
+<script src="/assets/coaches-page.js?v=6a95bd88"></script>
+<script src="/assets/motion.js?v=6a95bd88" defer></script>
 </body>
 </html>

@@ -109,8 +109,8 @@ FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscrip
   <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
   <button type="submit">{button}</button>
 </form>
-<div class="thanks" id="thanks-{id}">You're in. The first letter comes Sunday night.</div>
-<p class="fine">The Sunday letter is one email a week: my miles, what went sideways, and the new episode when one's out.</p>"""
+<div class="thanks" id="thanks-{id}">You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.</div>
+<p class="fine">The Sunday letter is one email a week: my miles, what went sideways, and the new episode when one's out. Leave any time.</p>"""
 
 FOOT = site_footer() + """
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
@@ -195,8 +195,8 @@ def episode_page(e):
 
 def episodes_index(eps):
     path = "/episodes/"
-    desc = ("Every episode of To The Finish, the AI running coach show: a 258 lb dad of two training for a sub-3 marathon at Chicago, "
-            "coached by five AI coaches, with the real numbers from his Garmin.")
+    desc = ("A dad of two who started at 258 lb hired five AI coaches to get him under three hours in the marathon, and they "
+            "argue over every run. Every episode of To The Finish, the AI running coach show, with the real numbers from his Garmin.")
     if eps:
         items = "".join(
             f'<li><a href="/episodes/{e["slug"]}/"><span class="n">Episode {e["number"]} · '
@@ -244,14 +244,14 @@ def coach_page(qs=()):
     <p><b>Bo</b> fits short, heavy lifts around the running. He laughs louder than anyone and leaves chalk on everything, and he'll cut his own session short to protect a long run.</p>
     <p><b>Juno</b> plans every meal around the training. She's quick and she teases, and she has no patience at all for me skipping breakfast before a hard run.</p>
     <p><b>Mo</b> keeps me in one piece. He carries a roll of tape and a lacrosse ball, asks one precise question, and never clears pain to train.</p>
-    <p><b>Rook</b> is the head coach. When the others want different things from the same week, he moves a card on the board, says one line, and that's the call.</p>
+    <p><b>Rook</b> is the head coach. When the others want different things from the same week, he says one line, and that's the call.</p>
     <h2>How it decides</h2>
-    <p>Rook settles every clash in the same order. Pain I report comes first, then the race in Chicago, then my weight, then strength. So when Bo wants heavy legs the day before a hard run, the run wins, and Bo takes it better than you'd think.</p>
-    <p>The plan comes from the research and from coaching methods that have built real marathoners. Every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
+    <p>Rook settles every clash in the same order. What I say and any pain I report come first, then the race in Chicago, then my weight, then strength. So when Bo wants heavy legs the day before a hard run, the run wins, and Bo takes it better than you'd think.</p>
+    <p>The plan comes from the research. Every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
-    <p>Not yet. It has to get me to Chicago first. If it does, the people on the waitlist are next.</p>
+    <p>Not yet. Right now it coaches one runner. When it's ready for a second, the waitlist hears first.</p>
   </div>
 </section>
 <section>
@@ -262,7 +262,8 @@ def coach_page(qs=()):
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
       <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-coach">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
+    <div class="thanks" id="thanks-coach">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
+    <p class="fine">The waitlist comes with my Sunday letter. One email a week. Leave any time.</p>
     <p class="body" style="margin-top:22px"><a href="/episodes/">Watch the episodes</a></p>
   </div>
 </section>

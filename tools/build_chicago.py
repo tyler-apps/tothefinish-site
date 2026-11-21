@@ -100,8 +100,8 @@ def main():
       <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="Your race and date (like Chicago, Oct 10, 2027)">
       <button type="submit">Get on the waitlist</button>
     </form>
-    <div class="thanks" id="thanks-chicago">You're on the waitlist. If the coaches get me to Chicago, you're first to try them.</div>
-    <p class="fine">You'll also get my Sunday letter: what the week really was, and the new episode. It's free, and you can unsubscribe anytime.</p>"""
+    <div class="thanks" id="thanks-chicago">You're on the waitlist. When the coaches are ready for a second runner, you hear first.</div>
+    <p class="fine">You'll also get my Sunday letter: what the week really was, with the new episode when there is one. One email a week. It's free, and you can unsubscribe anytime.</p>"""
 
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">Chicago Marathon 2027</p>
@@ -155,7 +155,7 @@ def main():
   <div class="wrap">
     <p class="kicker">Running Chicago too?</p>
     <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
-    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see everything my watch sees and argue about my week like it's theirs. Right now they coach one runner: me. If they get me to Grant Park in time, the people on the waitlist are next. Tell me your race.</p>
+    <p class="body">To The Finish is my show about chasing a sub-3 marathon at Chicago. Five AI coaches see what my watch records and what I tell them, and they argue over every run. Right now they coach one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race.</p>
     {form}
   </div>
 </section>

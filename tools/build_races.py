@@ -194,16 +194,16 @@ def main():
     </form>
     <div class="thanks" id="thanks-{fid}">{thanks}</div>"""
 
-    WAITLIST_FORM = picker("races", "You're on the waitlist. If the coaches get me to Chicago, you're first to try them.") + """
-    <p class="fine">You'll also get the Sunday letter: my week's miles, and the new episode when one's out. It's free, and you can unsubscribe anytime.</p>"""
-    PICK_FORM = picker("pick", "You're on the waitlist. If the coaches get me to Chicago, you're first to try them.")
+    WAITLIST_FORM = picker("races", "You're on the waitlist. When the coaches are ready for a second runner, you hear first.") + """
+    <p class="fine">You'll also get the Sunday letter: my week's miles, and the new episode when one's out. One email a week. It's free, and you can unsubscribe anytime.</p>"""
+    PICK_FORM = picker("pick", "You're on the waitlist. When the coaches are ready for a second runner, you hear first.")
     html = head(title, desc, PATH, extra) + f"""    <div class="page">
       <p class="kicker">San Diego races · Updated {updated:%b} {updated.day}, {updated.year}</p>
       <h1 class="display">San Diego <span class="o">races.</span></h1>
       <p class="lead">Every 5K, 10K, half marathon and marathon within 35 miles of San Diego, in one list. Pick a distance and dates, or search by name. It updates every Sunday.</p>
       <p class="body">I'm Tyler, and I'm training for a sub-3 marathon in Chicago with five AI coaches on my show, <a href="#show">To The Finish</a>. I use this list to pick my own races, so the ones I'm running are marked. <a href="#mine">See where I'm racing</a>.</p>
       <p class="kicker" id="pick" style="margin-top:34px">What race are you training for?</p>
-      <p class="body">Right now my coaches have one runner: me. If they get me to Chicago, the waitlist tries them next, and I'll know whose races I'm building for.</p>
+      <p class="body">Right now my coaches have one runner: me. When they're ready for a second, the waitlist hears first, and I'll know whose races I'm building for.</p>
       {PICK_FORM}
     </div>
   </div>
@@ -249,8 +249,8 @@ def main():
   <div class="wrap">
     <p class="kicker">Got a race coming up?</p>
     <h2 class="display">Want AI coaches <span class="o">for your race?</span></h2>
-    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches see everything my watch sees and argue about my week like it's theirs. {SHOW_NEXT}</p>
-    <p class="body">Right now they coach one runner: me. If they get me to Chicago, the people on the waitlist are next. Tell me your race so I know who I'm building it for.</p>
+    <p class="body">To The Finish is my YouTube show about chasing a sub-3 marathon at Chicago on October 10, 2027. Five AI coaches see what my watch records and what I tell them, and they argue over every run. {SHOW_NEXT}</p>
+    <p class="body">Right now they coach one runner: me. When they're ready for a second, the waitlist hears first. Tell me your race so I know who I'm building it for.</p>
     {WAITLIST_FORM}
   </div>
 </section>

@@ -126,7 +126,7 @@
     if (D.bo && D.bo.best && $('p-lifts')) {
       $('p-lifts').innerHTML = D.bo.best.map(function (b) {
         var from = b.first_lb && b.first_lb < b.lb ? 'Up from ' + b.first_lb + ' lb in ' + MON[day(b.first_date).getMonth()] : 'First tracked ' + md(b.first_date || b.date);
-        return '<div class="lift"><p class="n">' + b.lift + ' · top set</p><p class="v">' + b.lb + '<small>lb × ' + b.reps + '</small></p><p class="s">' + from + '</p></div>';
+        return '<div class="lift"><p class="n">' + b.lift + ' · heaviest set</p><p class="v">' + b.lb + '<small>lb × ' + b.reps + '</small></p><p class="s">' + from + '</p></div>';
       }).join('');
     }
 
