@@ -23,212 +23,121 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
 @font-face{font-family:"Barlow Condensed";src:url(assets/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-display:swap}
-:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
+:root{--ink:#12100e;--ink-2:#1f1b18;--ink-3:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
 *{box-sizing:border-box}
+html{scroll-padding-top:16px}
 html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:-.5px;margin:0}
-.kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:3px;color:var(--orange);font-size:18px;margin:0 0 14px}
+.display{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.5px;margin:0}
+.kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--orange);font-size:15px;margin:0 0 14px}
 .o{color:var(--orange)}
-section{padding:72px 0;border-top:1px solid var(--line)}
-p.body{font-size:19px;line-height:1.55;color:var(--soft);margin:0 0 14px;max-width:46ch}
-p.body.turn{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05;color:var(--white);margin:0 0 6px}
-p.body.turn b{color:var(--orange)}
+section{padding:96px 0;border-top:1px solid var(--line)}
+h2.display{font-size:clamp(44px,6vw,76px)}
+p.body{font-size:18px;line-height:1.6;color:var(--soft);margin:18px 0 0;max-width:52ch}
+.fine{font-size:14px;color:var(--muted);margin:12px 0 0;line-height:1.5}
 
-/* top */
-.top{padding:28px 0 64px}
-.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px}
+/* header + hero */
+.top{padding:28px 0 80px}
+.bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:64px}
 .mark{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-decoration:none}
-.nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:18px}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{color:var(--muted);text-decoration:none;font-size:15px}
 .nav a:hover{color:var(--white)}
-.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.nav a.navcta{color:var(--ink);background:var(--orange);padding:9px 16px;border-radius:8px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:17px;letter-spacing:1px;text-transform:uppercase}
+.hero{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
 .hero h1{font-size:clamp(64px,11vw,132px)}
-.hero p.lead{font-size:20px;color:var(--soft);margin:22px 0 28px;max-width:34ch;line-height:1.45}
+.hero p.lead{font-size:20px;color:var(--soft);margin:24px 0 28px;max-width:36ch;line-height:1.5}
 .hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
 
-/* form */
+/* forms */
 form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
-form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2);color:var(--white);font-size:16px}
+form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-3);color:var(--white);font-size:16px}
 form.join input::placeholder{color:#8a837c}
 form.join input.wide{flex-basis:100%}
 form.join button{flex:1 1 100%;padding:16px;border:0;border-radius:10px;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 form.join button:hover{filter:brightness(1.06)}
-.fine{font-size:13px;color:var(--muted);margin-top:10px}
-.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-2);border:1px solid var(--orange);font-size:17px;line-height:1.45}
+.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-3);border:1px solid var(--orange);font-size:17px;line-height:1.45}
 
-/* progress */
-.gap-head{font-size:clamp(52px,9vw,112px)}
-.gap-head .arrow{color:var(--muted);font-size:.55em;vertical-align:.25em;padding:0 .12em}
-.chart{margin:30px 0 10px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px 14px 10px}
-.chart svg{display:block;width:100%;height:auto}
-.chart .t{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800}
-.chart .m{font-family:-apple-system,BlinkMacSystemFont,"Inter",sans-serif;font-weight:600}
-.note{font-size:13px;color:var(--muted);margin:8px 2px 0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.two h2,.year h2,.races h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
+/* the gap */
+.gap{font-size:clamp(56px,10vw,128px);display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .25em}
+.gap .to{color:var(--muted);font-size:.45em}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px;max-width:820px}
+.facts div{background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.facts b{display:block;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;font-variant-numeric:tabular-nums}
+.facts .l{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.35}
+.facts small{font-size:.5em;color:var(--muted)}
 
-.rlist2{margin:8px 0 0 1.2em;display:grid;gap:12px;max-width:820px}
-.rlist2 li{font-size:18px;line-height:1.5}
-.rlist2 b{color:var(--orange)}
+/* the team */
+.teamline{font-size:18px;line-height:1.55;color:var(--soft);margin:14px 0 0;max-width:60ch}
+.teamline b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:1.35em;color:var(--orange)}
+.coaches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.coach{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.coach img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.coach .ct{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1}
+.coach h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
+.coach .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 12px}
+.coach .line{font-size:16px;line-height:1.4;margin:0;color:var(--white)}
+.coach .does{font-size:14px;line-height:1.45;margin:10px 0 0;color:var(--muted)}
+.coach .proof{margin:auto 0 0;padding-top:14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:16px}
+.coach .proof b{color:var(--orange);font-weight:700}
+.more{display:inline-block;margin-top:24px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
+.more:hover{text-decoration:underline}
 
-/* races */
-.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:26px}
-.race{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:18px}
-.race.final{border-color:var(--orange)}
-.race .d{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.race h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:4px 0 14px;line-height:1}
-.race .k{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.race .v{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;margin:2px 0 10px}
-.race .v.o{color:var(--orange)}
-
-/* the board */
-.boardimg{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
-.cards{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
-.cards li{display:flex;align-items:center;gap:14px;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;line-height:1}
-.cards li .n{color:var(--muted);font-size:20px;width:22px}
-.cards li.won{border-color:var(--orange)}
-.cards li .mag{margin-left:auto;width:22px;height:22px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px rgba(255,106,31,.7)}
-.ruling{margin-top:16px;padding:14px 16px;border-left:4px solid var(--orange);background:var(--ink-2);border-radius:10px}
-.ruling .d{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.ruling p{margin:6px 0 0;font-size:17px;line-height:1.45}
-.ruling.old{border-left-color:var(--line)}
-.ruling.old p{color:var(--muted);font-size:15px}
-
-/* coach strip + coach lines */
-.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
-.chip{display:flex;flex-direction:column;gap:6px;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:14px;text-decoration:none;color:var(--white)}
-.chip:hover{border-color:var(--orange)}
-.chip img{width:56px;height:56px;border-radius:50%;object-fit:cover}
-.chip b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;line-height:1}
-.chip span{color:var(--muted);font-size:14px;line-height:1.35}
-.say{display:flex;gap:14px;align-items:flex-start;margin:18px 0 0;padding:16px 18px;background:var(--ink-2);border-left:4px solid var(--orange);border-radius:10px}
-.say img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
-.say p{margin:0;font-size:18px;line-height:1.45;color:var(--white)}
-.say cite{display:block;margin-top:6px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
-@media (max-width:900px){.chips{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.chips{grid-template-columns:1fr}.chip{flex-direction:row;align-items:center}.chip img{width:44px;height:44px}}
-
-/* machine */
-.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
-.loop .step{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
-.loop .n{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;color:var(--orange)}
-.loop h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;margin:2px 0 6px;line-height:1}
-.loop p{color:var(--muted);font-size:15px;line-height:1.4;margin:0}
-.sub{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:40px 0 0}
-@media (max-width:900px){.loop{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.loop{grid-template-columns:1fr}}
-
-/* coaches */
-.coaches h2{font-size:clamp(44px,6vw,72px);margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px}
-.card{background:var(--ink-2);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
-.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.card .t{padding:16px}
-.card h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin:0;line-height:1}
-.card .role{color:var(--orange);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin:6px 0 10px}
-.card .job{color:var(--muted);font-size:15px;margin:0 0 10px;line-height:1.4}
-.card .line{color:var(--white);font-size:17px;margin:0;line-height:1.35}
+/* how it works */
+.steps{list-style:none;padding:0;margin:40px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px}
+.steps li::before{content:counter(s);display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:20px}
+.steps h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;margin:14px 0 6px;line-height:1}
+.steps p{margin:0;font-size:16px;line-height:1.5;color:var(--soft)}
+.rule{margin:22px 0 0;padding:18px 20px;border-left:4px solid var(--orange);background:var(--ink-2);border-radius:10px;font-size:18px;line-height:1.5;max-width:760px}
+.rule b{color:var(--white)}
 
 /* episode */
-.episode{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.episode h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
-.soon{aspect-ratio:9/16;width:min(100%,300px);margin:0 auto;border-radius:16px;background:var(--paper) url(assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
+.episode{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.soon{aspect-ratio:9/16;width:min(100%,280px);margin:0 auto;border-radius:16px;background:var(--paper) url(assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
 .soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
 
-.club h2,.waitlist h2{font-size:clamp(44px,6vw,72px);margin-bottom:18px}
-.btn{display:inline-block;padding:16px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;margin-top:10px}
+/* join */
+.joins{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin-top:40px;align-items:stretch}
+.joincard{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:28px}
+.joincard h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:34px;margin:0;line-height:1}
+.joincard p{font-size:16px;line-height:1.55;color:var(--soft);margin:12px 0 22px}
+.btn{display:inline-block;padding:15px 22px;border-radius:10px;background:var(--white);color:var(--ink);text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:20px;letter-spacing:1px;text-transform:uppercase}
+.btn:hover{filter:brightness(.92)}
 
-footer{border-top:1px solid var(--line);padding:40px 0 56px;color:var(--muted);font-size:14px}
+footer{border-top:1px solid var(--line);padding:44px 0 56px;color:var(--muted);font-size:14px}
 footer .sign{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:28px;color:var(--white);margin:0 0 18px;line-height:1}
 footer .links a{margin-right:18px;text-decoration:none;color:var(--soft)}
 footer p{margin:14px 0 0;line-height:1.5}
 
+@media (max-width:1000px){.coaches{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:860px){
-  .hero,.two,.episode{grid-template-columns:1fr;gap:28px}
-  .grid,.rgrid{grid-template-columns:repeat(2,1fr)}
+  .hero,.episode,.joins{grid-template-columns:1fr;gap:28px}
   .nav{display:none}
-  section{padding:56px 0}
+  section{padding:64px 0}
   .bar{margin-bottom:32px}
-  .chart{padding:12px 8px 6px}
+  .top{padding-bottom:56px}
+  .steps{grid-template-columns:1fr}
 }
-
-/* coach panels + floating tag (2026-11-21, Tyler: "make it more clear ... which coach is covering which section" · "show how much expert insight I'm really getting") */
-.teamline{margin:14px 0 0;font-size:18px;line-height:1.45;color:#e7e2dc;max-width:760px}
-.teamline b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:1.35em;color:var(--orange)}
-.coachhead{margin:0 0 40px;padding:22px 24px;background:var(--ink-2);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:14px}
-.coachhead .ch-top{display:flex;gap:18px;align-items:center}
-.coachhead img{width:84px;height:84px;border-radius:50%;object-fit:cover;flex:none}
-.coachhead .ch-k{margin:0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:14px;color:var(--muted)}
-.coachhead .ch-n{margin:2px 0 0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:44px;line-height:1}
-.coachhead .ch-n span{font-size:20px;letter-spacing:1px;color:var(--orange);margin-left:6px;vertical-align:.35em}
-.coachhead .ch-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0 0}
-.coachhead .ch-stats div{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
-.coachhead .ch-stats b{display:block;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:40px;line-height:1;color:var(--orange);font-variant-numeric:tabular-nums}
-.coachhead .ch-stats span{display:block;margin-top:4px;font-size:13px;line-height:1.3;color:var(--muted)}
-.coachhead .ch-cols{display:grid;grid-template-columns:2fr 3fr;gap:28px;margin-top:20px}
-.coachhead .ch-h{margin:0 0 10px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--white)}
-.coachhead .ch-tags{display:flex;flex-wrap:wrap;gap:8px}
-.coachhead .ch-tags span{padding:6px 11px;border-radius:999px;border:1px solid #4a433c;font-size:14px;line-height:1.25;color:#e7e2dc}
-.coachhead ul{list-style:none;padding:0;margin:0;display:grid;gap:7px}
-.coachhead li{position:relative;padding-left:18px;font-size:16px;line-height:1.45;color:#e7e2dc}
-.coachhead li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--orange)}
-.coachhead .ch-also{margin:10px 0 0;font-size:14px;color:var(--muted)}
-.coachhead .want{display:inline-block;margin-top:18px;color:var(--orange);font-weight:700;text-decoration:none;font-size:16px}
-.coachhead .want:hover{text-decoration:underline}
-@media (max-width:760px){.coachhead .ch-cols{grid-template-columns:1fr;gap:18px}}
-@media (max-width:520px){.coachhead{padding:18px}.coachhead img{width:64px;height:64px}.coachhead .ch-n{font-size:36px}.coachhead .ch-n span{display:block;margin:6px 0 0;vertical-align:0;font-size:18px}.coachhead .ch-stats{gap:8px}.coachhead .ch-stats div{padding:10px}.coachhead .ch-stats b{font-size:30px}.coachhead .ch-stats span{font-size:12px}}
-
-/* structure (2026-11-21 audit, Tyler: "take this to the next level"): one chapter per coach, a sticky chapter bar,
-   chapters open big and continue quieter, one team section */
-html{scroll-padding-top:76px}
-section{scroll-margin-top:76px}
-.kicker{font-size:15px;letter-spacing:2.5px}
-section.chapter{padding-top:96px;border-top:1px solid var(--line)}
-section.cont{border-top:0;padding-top:16px}
-section.cont .display:not(.gap-head){font-size:clamp(34px,4.4vw,54px)!important;line-height:.95}
-section.cont .kicker{color:var(--muted)}
-.chapters{position:sticky;top:0;z-index:45;background:rgba(18,16,14,.92);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.chap-row{display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:10px 0}
-.chap-row::-webkit-scrollbar{display:none}
-.chap-row a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px 0 12px;border-radius:999px;color:#e7e2dc;text-decoration:none;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:17px;border:1px solid transparent}
-.chap-row a img{width:26px;height:26px;border-radius:50%;object-fit:cover;margin-left:-6px}
-.chap-row a:hover{border-color:#4a433c}
-.chap-row a[aria-current="true"]{background:var(--white);color:var(--ink)}
-.chap-row a.join-l{margin-left:auto;background:var(--orange);color:var(--ink)}
-.chap-row a.join-l[aria-current="true"]{background:var(--white)}
-@media (max-width:520px){.chap-row a{font-size:15px;min-height:36px;padding:0 11px 0 10px}.chap-row a img{width:22px;height:22px}.chap-row a.join-l{margin-left:0}}
-.team .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
-.team a.card{display:block;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
-.team a.card:hover{border-color:var(--orange);transform:translateY(-2px)}
-.team .card .go{display:inline-block;margin-top:12px;color:var(--orange);font-weight:700;font-size:15px}
-@media (max-width:1000px){.team .grid{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:640px){.team .grid{grid-template-columns:1fr;gap:10px}.team a.card{display:flex;align-items:stretch}.team .card img{width:104px;aspect-ratio:auto;flex:none;object-position:50% 20%}.team .card .t{padding:12px 14px}.team .card h3{font-size:26px}.team .card .role{margin:4px 0 6px}.team .card .job{display:none}.team .card .line{font-size:15px}.team .card .go{margin-top:8px;font-size:14px}}
-@media (prefers-reduced-motion:reduce){.team a.card{transition:none}.team a.card:hover{transform:none}}
-.boardimg{aspect-ratio:4/5;max-height:640px;object-fit:cover;object-position:50% 30%}
-.lead-2{margin:22px 0 0;font-size:17px;line-height:1.55;color:#cfc8c1;max-width:560px}
-/* type scale (2026-11-21 audit): 14 labels and notes · 16 secondary · 18 body · 20 hero lead */
-p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:18px}
-.team .card .line,.loop .step p{font-size:16px}
-.team .card .job{font-size:14px}
-@media (max-width:520px){p.body,.lead-2,.say p,.rlist2 li,.teamline{font-size:17px}.hero p.lead{font-size:19px}}
-/* folds (2026-11-21): each coach's deeper charts behind one bar; open without JavaScript, closed once the charts are drawn */
-details.more>summary{list-style:none;cursor:pointer;display:block}
-details.more>summary::-webkit-details-marker{display:none}
-details.more:not(.in)>summary{padding:8px 0 40px}
-details.more.in{margin-top:36px}
-.more-bar{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;transition:border-color .2s}
-details.more>summary:hover .more-bar,details.more>summary:focus-visible .more-bar{border-color:var(--orange)}
-.more-bar img{width:36px;height:36px;border-radius:50%;object-fit:cover;flex:none}
-.more-bar .mt{display:flex;flex-direction:column;gap:2px;min-width:0}
-.more-bar .mt b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:20px;line-height:1.1}
-.more-bar .mt span{font-size:14px;color:var(--muted);line-height:1.3}
-.more-bar i{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;border:1px solid #4a433c;position:relative}
-.more-bar i::before,.more-bar i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--orange)}
-.more-bar i::after{transform:rotate(90deg);transition:transform .2s}
-details.more[open]>summary .more-bar i::after{transform:rotate(0)}
-details.more:not(.in)[open]>summary{padding-bottom:0}
-@media (prefers-reduced-motion:reduce){.more-bar,.more-bar i::after{transition:none}}
+@media (max-width:640px){
+  .coaches{grid-template-columns:1fr;gap:10px}
+  .coach{flex-direction:row}
+  .coach{align-items:center}
+  .coach img{width:104px;height:auto;aspect-ratio:3/4;object-position:50% 20%;flex:none;align-self:stretch}
+  .coach .ct{padding:12px 14px}
+  .coach h3{font-size:26px}
+  .coach .role{margin:4px 0 8px}
+  .coach .does{display:none}
+  .coach .proof{padding-top:10px;margin-top:10px}
+  .facts{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .facts div{padding:12px}
+  .facts b{font-size:28px}
+  .facts .l{font-size:12px}
+  p.body,.teamline,.rule{font-size:17px}
+  .hero p.lead{font-size:19px}
+  .joincard{padding:22px}
+}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -239,14 +148,14 @@ details.more:not(.in)[open]>summary{padding-bottom:0}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/#progress">Progress</a><a href="/episodes/">Episodes</a><a href="/ai-running-coach/">The coaches</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Train with us</a></nav></details>
+      <nav class="nav" aria-label="Main"><a href="/#why">Why</a><a href="/#team">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a class="navcta" href="/#club">Join</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/#why">Why</a><a href="/#team">The coaches</a><a href="/episodes/">Episodes</a><a href="/san-diego-races/">San Diego races</a><a href="/chicago-marathon-2027/">Chicago</a><a href="/#club">Join</a></nav></details>
     </div>
     <div class="hero">
       <div>
         <p class="kicker">Episode 1 · Sunday, Nov 22</p>
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
-        <p class="lead">I'm 43, with a two-year-old and a baby, and I picked a goal I'm not built for, starting at 258 lb: under three hours at the Chicago Marathon on October 10, 2027. This morning my watch says I'd run <b data-k="now">4:35:18</b>.</p>
+        <p class="lead">I'm 43, with a two-year-old and a baby, and I picked a goal I'm not built for, starting at 258 lb: under three hours at the Chicago Marathon on October 10, 2027. This morning my watch says I'd run <b data-k="now">4:36:10</b>.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
           <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
           <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
@@ -254,226 +163,105 @@ details.more:not(.in)[open]>summary{padding-bottom:0}
         </form>
         <div class="thanks" id="thanks-top">You're in. The first letter comes Sunday night.</div>
         <p class="fine">Sunday nights I write down what the week really was, missteps included, with the new episode at the bottom.</p>
-        <p class="lead-2">Most days start at 5:45 with a banana in the dark, because Juno won't let me run on an empty stomach. Five AI coaches read every run I log and fight over what comes next. I might not make it. Every week goes up here anyway, the bad ones too, and if you're chasing a number of your own, you'll find yourself in here somewhere.</p>
       </div>
       <img src="assets/lineup.jpg" alt="The five To The Finish coaches: Rook, Kai, Bo, Juno and Mo" width="1400" height="933">
     </div>
   </div>
 </header>
 
-<nav class="chapters" aria-label="Sections"><div class="wrap"><div class="chap-row">
-  <a href="#progress" data-to="gap">The gap</a><a href="#team" data-to="team">Team</a><a href="#kai" data-to="kai"><img src="assets/kai.jpg" alt="">Kai</a><a href="#mo" data-to="mo"><img src="assets/mo.jpg" alt="">Mo</a><a href="#bo" data-to="bo"><img src="assets/bo.jpg" alt="">Bo</a><a href="#juno" data-to="juno"><img src="assets/juno.jpg" alt="">Juno</a><a href="#board" data-to="rook"><img src="assets/rook.jpg" alt="">Rook</a><a class="join-l" href="#waitlist" data-to="join">Join</a>
-</div></div></nav>
-
-<section class="why" id="why" data-ch="why">
+<section class="why" id="why">
   <div class="wrap">
     <p class="kicker">Why I'm doing this</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">I'll be 57 when she <span class="o">starts high school.</span></h2>
-    <p class="body" style="margin-top:18px">My son was born a few weeks after I turned 41. My daughter came this April. By the time they're old enough to race me up a hill, I'll be in my mid-fifties, and I'd like to still win a few of those.</p>
+    <h2 class="display">I'll be 57 when she <span class="o">starts high school.</span></h2>
+    <p class="body">My son was born a few weeks after I turned 41. My daughter came this April. By the time they're old enough to race me up a hill, I'll be in my mid-fifties, and I'd like to still win a few of those.</p>
     <p class="body">The other reason is quieter. I want them to grow up watching their dad go after something he wasn't built for, in the dark, on the mornings he'd rather not. Somewhere in this year they'll see me come up short. I want them to see the next morning too.</p>
   </div>
 </section>
 
-<section id="progress" data-coach="Rook" data-ch="gap">
+<section id="progress">
   <div class="wrap">
-    <p class="kicker">Rook · Where I am</p>
-    <h2 class="display gap-head"><span data-k="now">4:34:04</span><span class="arrow">to</span><span class="o">2:59:59</span></h2>
-    <p class="body" style="margin-top:22px">The first number is what my Garmin thinks I'd run if the marathon were this morning. The second is what Chicago asks for. Between them sits <b data-k="togo">1:35:19</b>, about <b data-k="perweek">2 minutes</b> a week, every week, until race day. Since <span data-k="firstday">October 19</span> I've found <b data-k="sofar">4:31</b> of it.</p>
-    <div class="chart"><svg id="c-gap" viewBox="0 0 1000 440" role="img" aria-label="Garmin marathon prediction by day against the 2:59:59 goal"></svg></div>
-    <p class="note">Garmin race predictor, updated after every run. First reading <span data-k="first">Oct 19, 2026: 4:39:49</span>. Last update <span data-k="updated">Nov 18, 2026</span>.</p>
-    <blockquote class="say"><img src="assets/rook.jpg" alt="" width="48" height="48"><div><p data-line="rook"></p><cite>Rook</cite></div></blockquote>
+    <p class="kicker">Where I am</p>
+    <h2 class="display gap"><span data-k="now">4:36:10</span><span class="to">to</span><span class="o">2:59:59</span></h2>
+    <p class="body">The first number is what my Garmin thinks I'd run if the marathon were this morning. The second is what Chicago asks for. Between them sits <b data-k="togo">1:36:11</b>, about <b data-k="perweek">2 minutes</b> a week, every week, until race day.</p>
+    <div class="facts">
+      <div><b data-k="weeksleft">47</b><span class="l">weeks to Chicago</span></div>
+      <div><b><span data-k="wkdone">20.8</span><small> / <span data-k="wkplan">32</span></small></b><span class="l">miles run this week</span></div>
+      <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
+    </div>
   </div>
 </section>
 
-<section class="team" id="team" data-ch="team">
+<section id="team">
   <div class="wrap">
     <p class="kicker">The team</p>
-    <h2 class="display" style="font-size:clamp(40px,5vw,64px)">Every coach guards <span class="o">a number.</span></h2>
-    <p class="body" style="margin-top:14px">And they fight for them. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook moves a card on <a href="#board">the board</a> and that's the end of it.</p>
-    <p class="teamline">Between them, the five coaches have read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
-    <div class="grid">
-      <a class="card" href="#kai"><img src="assets/kai.jpg" alt="Kai, the AI running coach" loading="lazy"><div class="t"><h3>Kai</h3><p class="role">AI running coach</p><p class="job">Up before the sun, already pointing at the hill.</p><p class="line">"Easy days slower than his ego wants."</p><span class="go">See Kai's work <span aria-hidden="true">→</span></span></div></a>
-      <a class="card" href="#mo"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" loading="lazy"><div class="t"><h3>Mo</h3><p class="role">AI recovery coach</p><p class="job">Tape on his belt. Never clears pain to train.</p><p class="line">"And I keep him in one piece."</p><span class="go">See Mo's work <span aria-hidden="true">→</span></span></div></a>
-      <a class="card" href="#bo"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" loading="lazy"><div class="t"><h3>Bo</h3><p class="role">AI strength coach</p><p class="job">Chalk on everything. Cuts his own lift to save a long run.</p><p class="line">"I want his legs. Three days a week."</p><span class="go">See Bo's work <span aria-hidden="true">→</span></span></div></a>
-      <a class="card" href="#juno"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" loading="lazy"><div class="t"><h3>Juno</h3><p class="role">AI nutritionist</p><p class="job">Banana in hand. No patience for a skipped breakfast.</p><p class="line">"Fight over him all you want. I feed him first."</p><span class="go">See Juno's work <span aria-hidden="true">→</span></span></div></a>
-      <a class="card" href="#board"><img src="assets/rook.jpg" alt="Rook, the AI head coach" loading="lazy"><div class="t"><h3>Rook</h3><p class="role">AI head coach</p><p class="job">Moves one card on the board. That's the call.</p><p class="line">"Not yet. Shoes on."</p><span class="go">See Rook's work <span aria-hidden="true">→</span></span></div></a>
+    <h2 class="display">Every coach guards <span class="o">a number.</span></h2>
+    <p class="body">They see everything my watch sees, and they argue about my week like it's theirs. When Kai wants my legs for a hill and Bo wants the same legs for a squat, Rook makes the call and that's the end of it.</p>
+    <p class="teamline">Between them they've read <b data-k="c_all">597</b> studies, and they read every run, night, lift and meal I log.</p>
+    <div class="coaches">
+      <article class="coach">
+        <img src="assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <h3>Kai</h3><p class="role">AI running coach</p>
+          <p class="line">"Easy days slower than his ego wants."</p>
+          <p class="does">Builds the year race by race and sets every pace from my own runs.</p>
+          <p class="proof"><b data-k="c_kai_studies">61</b> studies · <b data-k="c_kai_live">440</b> runs read</p>
+        </div>
+      </article>
+      <article class="coach">
+        <img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <h3>Mo</h3><p class="role">AI recovery coach</p>
+          <p class="line">"And I keep him in one piece."</p>
+          <p class="does">Reads every night of sleep. A short night can make a run easier, never harder.</p>
+          <p class="proof"><b data-k="c_mo_studies">178</b> studies · <b data-k="c_mo_live">162</b> nights of sleep read</p>
+        </div>
+      </article>
+      <article class="coach">
+        <img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <h3>Bo</h3><p class="role">AI strength coach</p>
+          <p class="line">"I want his legs. Three days a week."</p>
+          <p class="does">Heavy sets and jumps, fitted around the run, never the other way around.</p>
+          <p class="proof"><b data-k="c_bo_studies">27</b> studies · <b data-k="c_bo_live">16</b> lifts logged</p>
+        </div>
+      </article>
+      <article class="coach">
+        <img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <h3>Juno</h3><p class="role">AI nutritionist</p>
+          <p class="line">"Fight over him all you want. I feed him first."</p>
+          <p class="does">Writes my food every day from the run it has to fuel and what's in the fridge.</p>
+          <p class="proof"><b data-k="c_juno_studies">200</b> studies · <b data-k="c_juno_live">53</b> foods measured</p>
+        </div>
+      </article>
+      <article class="coach">
+        <img src="assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy">
+        <div class="ct">
+          <h3>Rook</h3><p class="role">AI head coach</p>
+          <p class="line">"Not yet. Shoes on."</p>
+          <p class="does">When two coaches want the same morning, Rook makes the call.</p>
+          <p class="proof"><b data-k="c_rook_studies">166</b> studies · <b data-k="c_rook_live">57</b> calls logged</p>
+        </div>
+      </article>
     </div>
-    <p class="note" style="margin-top:14px">They're AI characters. They see everything my watch sees. <a href="/ai-running-coach/">How my AI running coach works</a>.</p>
+    <a class="more" href="/ai-running-coach/">How my AI coaches work <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
-<section id="kai" data-coach="Kai" class="chapter" data-ch="kai">
-  <div class="wrap"><div class="coachhead" id="coach-kai"><div class="ch-top"><img src="assets/kai.jpg" alt="Kai, the AI running coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Kai <span>AI running coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_kai_studies">61</b><span>studies read</span></div><div><b data-k="c_kai_live">440</b><span>runs read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Kai watches</p><div class="ch-tags"><span>Every lap and split</span><span>Heart rate from a chest strap</span><span>Hills and grade</span><span>Heat and weather</span><span>Threshold pace</span><span>Race results</span></div></div><div><p class="ch-h">What Kai does with it</p><ul><li>Builds the year race by race: a 5K, a 10K, a half, then the marathon.</li><li>Sets my paces and heart-rate zones from my own runs and races.</li><li>Gives hills credit. A slow mile up a climb counts as the faster flat mile it took the same effort to run.</li><li>Keeps the easy days easy, which is the hard part.</li><li>Sends every workout to my watch with a pace range on each step.</li></ul><p class="ch-also">Also reads the training books of coaches who have coached Olympians.</p></div></div><a class="want" href="#waitlist" data-coach="Kai">Want Kai on your running? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap two">
-    <div>
-      <p class="kicker">Kai · Where I've been</p>
-      <h2 class="display">I've been <span class="o">faster.</span></h2>
-      <p class="body">June 2024. A half marathon in <b data-k="halfpr">1:32:31</b>, on close to 80 miles a week.</p>
-      <p class="body">By <span data-k="ltbestdate">August 2025</span> my threshold pace, about the fastest I can hold for an hour, had come down to <b data-k="ltbest">6:42</b> a mile. Kai thinks that runner is still in there.</p>
-      <p class="body turn">Today it's <b data-k="lt1">7:55</b>.</p>
-    </div>
-    <div>
-      <div class="chart" style="margin-top:0"><svg id="c-engine" viewBox="0 0 1000 560" role="img" aria-label="Lactate threshold pace from late 2024 to today"></svg></div>
-      <p class="note">Lactate-threshold pace from my Garmin, per mile. Higher on the chart is faster.</p>
-      <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_engine"></p><cite>Kai</cite></div></blockquote>
-    </div>
-  </div>
-</section>
-
-<details class="more" data-fold open><summary><span class="wrap"><span class="more-bar"><img src="assets/kai.jpg" alt="" width="36" height="36"><span class="mt"><b>More from Kai</b><span>Fitter at the same heart rate · the race number</span></span><i aria-hidden="true"></i></span></span></summary>
-<section data-coach="Kai" class="cont" data-ch="kai">
+<section id="how">
   <div class="wrap">
-    <p class="kicker">Kai · The honest line</p>
-    <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">Fitter at the <span class="o">same heart rate.</span></h2>
-    <p class="body" style="margin-top:18px">This is the number I check first. It's how far I travel for each heartbeat on an easy run, and when the engine grows, the same easy effort carries me farther. It moves slower than anything else on this page, which is exactly why I trust it. Right now it's <b data-k="mpbnow">1.14</b> meters a beat.</p>
-    <div class="chart"><svg id="c-eff" viewBox="0 0 1000 380" role="img" aria-label="Meters per heartbeat on easy runs, four-week rolling"></svg></div>
-    <p class="note">Easy runs only (average heart rate under 125, two miles or more, no stroller runs), hills evened out with Garmin's grade-adjusted pace, four-week rolling middle. Most of my easy miles moved onto Mission Trails dirt this month, and trails add noise this measure doesn't fully remove.</p>
-    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_eff"></p><cite>Kai</cite></div></blockquote>
-  </div>
-</section>
-
-<section data-coach="Kai" class="cont" data-ch="kai">
-  <div class="wrap">
-    <p class="kicker">Kai · The race number</p>
-    <h2 class="display gap-head" style="font-size:clamp(44px,6vw,72px)">From <span data-k="vdnow">41.8</span> to <span class="o">53.5.</span></h2>
-    <p class="body" style="margin-top:18px">Runners call it VDOT: one score that turns a race time into what you could run at any other distance. Chicago in under three hours takes about <b>53.5</b>. On my best day, the 1:32 half, I was <b data-k="vdbest">49.4</b>. My threshold pace puts me near <b data-k="vdnow2">41.8</b> right now. The orange rings are Kai's targets for each race between here and there, and the first one is close.</p>
-    <div class="chart"><svg id="c-vdot" viewBox="0 0 1000 440" role="img" aria-label="Race fitness score (VDOT) from races and threshold pace, with the targets to a sub-3 Chicago"></svg></div>
-    <p class="note">Dots are real races, the scoreboard. The thin line is an estimate from my Garmin threshold pace between races, so read it as a trend. A hilly course counts at its flat-road time. Every race on the plan adds a dot and resets my paces.</p>
-    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_vdot"></p><cite>Kai</cite></div></blockquote>
-  </div>
-</section>
-</details>
-
-<section class="cont year" data-coach="Kai" data-ch="kai">
-  <div class="wrap">
-    <p class="kicker">Kai · What's ahead</p>
-    <h2 class="display"><span data-k="weeksleft">47</span> weeks. <span class="o">Up to <span data-k="peak">90</span> miles a week.</span></h2>
-    <p class="body">Each bar is a week. The outlines are Kai's plan: <span data-k="nowplan">32</span> miles this week, building toward the peak in <span data-k="peakmonth">August</span>. Orange is what I actually ran, including the eight weeks before the plan began. When I fall behind, you'll see it here first.</p>
-    <div class="chart"><svg id="c-year" viewBox="0 0 1000 380" role="img" aria-label="Planned and actual weekly miles to Chicago"></svg></div>
-    <p class="note">Weekly miles, Monday to Sunday, from my Garmin. Race weeks are marked.</p>
-    <blockquote class="say"><img src="assets/kai.jpg" alt="" width="48" height="48"><div><p data-line="kai_year"></p><cite>Kai</cite></div></blockquote>
-  </div>
-</section>
-
-<section class="cont races" data-coach="Kai" data-ch="kai">
-  <div class="wrap">
-    <p class="kicker">Kai · The races</p>
-    <h2 class="display">Four races, <span class="o">then Chicago.</span></h2>
-    <div class="rgrid" id="races"></div>
-    <p class="note" style="margin-top:14px">"Watch says" is Garmin's prediction if I raced today. "Kai's target" is the time that keeps sub-3 on track at that point in the year. <a href="/races/">My race reports</a></p>
-    <div class="golinks">
-      <a class="golink" href="/san-diego-races/"><span class="k">Racing in San Diego?</span><b>Every upcoming 5K, 10K, half and marathon</b><span class="arrow" aria-hidden="true">→</span></a>
-      <a class="golink" href="/chicago-marathon-2027/"><span class="k">Running Chicago in 2027?</span><b>Lottery dates, qualifying times and my plan</b><span class="arrow" aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<section id="mo" data-coach="Mo" class="chapter" data-ch="mo">
-  <div class="wrap"><div class="coachhead" id="coach-mo"><div class="ch-top"><img src="assets/mo.jpg" alt="Mo, the AI recovery coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Mo <span>AI recovery coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_mo_studies">178</b><span>studies read</span></div><div><b data-k="c_mo_live">162</b><span>nights of sleep read</span></div><div><b>6</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Mo watches</p><div class="ch-tags"><span>Hours asleep</span><span>Resting heart rate</span><span>Heart rate variability</span><span>Every run's length</span><span>Easy-day heart rate</span><span>My legs and pain check-ins</span></div></div><div><p class="ch-h">What Mo does with it</p><ul><li>Reads my sleep and resting heart rate. They can only make a day easier.</li><li>Checks every run against my longest of the month, where overuse injuries start.</li><li>Gives the warm-up before every session and the rolling and stretching after.</li><li>Builds the prehab and the down weeks around the plan.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Mo">Want Mo on your recovery? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap">
-    <p class="kicker">Mo · Recovery</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">My best trait, <span class="o">on the wrong day.</span></h2>
-    <p class="body" style="margin-top:18px">I like to push. On a hard day that's the whole point. On an easy day it costs me. On November 11 I ran six easy miles and spent 45 minutes of them over my easy heart rate. Mo saw every one of those minutes.</p>
-    <p class="body">This is the fight I'm in all year: getting slower on the easy days so I can get faster on the hard ones. The best distance runners in the world keep at least 80% of their running easy. Here's how I'm doing. If you run your easy days too hard too, you'll know this chart.</p>
-    <h3 class="sub">How easy were the easy days?</h3>
-    <div class="chart" style="margin-top:12px"><svg id="c-easy" viewBox="0 0 1000 360" role="img" aria-label="Share of running time easy, steady and hard by week"></svg></div>
-    <p class="note">Running time by lap heart rate: easy is my zone 2 or below (under <span data-k="easytop">121</span>), hard is threshold and up (<span data-k="hardfrom">152</span>+), steady is everything between. Hills on Mission Trails push some easy miles into steady.</p>
-    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_easy"></p><cite>Mo</cite></div></blockquote>
-    <h3 class="sub">How much did I sleep?</h3>
-    <p class="body" style="margin-top:10px">Sleep is the recovery tool with the best evidence behind it. With a baby in the house, it's also the one I'm shortest on. On a calorie cut, short nights shift the weight you lose from fat toward muscle, and under six hours the risk of catching a cold runs about four times higher. Mo counts hours asleep and ignores the sleep score. A short night can make a hard run easier. A long one never adds reps.</p>
-    <div class="chart" style="margin-top:12px"><svg id="c-sleep" viewBox="0 0 1000 360" role="img" aria-label="Hours asleep each night against seven hours"></svg></div>
-    <p class="note">Hours asleep each night, from my watch. The dashed line is 7 hours. Orange nights made it. Watches count a broken night long, so the faded bars sit a little lower in real life.</p>
-    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_sleep"></p><cite>Mo</cite></div></blockquote>
-    <details class="more in" data-fold open><summary><span class="more-bar"><img src="assets/mo.jpg" alt="" width="36" height="36"><span class="mt"><b>More from Mo</b><span>No run too far past the last long one</span></span><i aria-hidden="true"></i></span></summary>
-    <h3 class="sub">No run too far past the last long one</h3>
-    <p class="body" style="margin-top:10px">A study of 5,205 runners on Garmin watches went looking for what sets up overuse injuries. Weekly mileage rules predicted nothing. A single run more than 10% longer than the longest of the month before made an injury 1.64 times more likely. So Mo watches each run, more than the week.</p>
-    <div class="chart" style="margin-top:12px"><svg id="c-spike" viewBox="0 0 1000 360" role="img" aria-label="Each run's minutes against the safe ceiling"></svg></div>
-    <p class="note">Each dot is a run, in minutes (trail miles are slower, so time is the fair measure). The line is 10% past the longest run of the 30 days before it.</p>
-    <blockquote class="say"><img src="assets/mo.jpg" alt="" width="48" height="48"><div><p data-line="mo_spike"></p><cite>Mo</cite></div></blockquote>
-    </details>
-  </div>
-</section>
-
-<section id="bo" data-coach="Bo" class="chapter" data-ch="bo">
-  <div class="wrap"><div class="coachhead" id="coach-bo"><div class="ch-top"><img src="assets/bo.jpg" alt="Bo, the AI strength coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Bo <span>AI strength coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_bo_studies">27</b><span>studies read</span></div><div><b data-k="c_bo_live">16</b><span>lifts logged</span></div><div><b>3</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Bo watches</p><div class="ch-tags"><span>Every set I log</span><span>The run calendar</span><span>Which days carry a hard run</span></div></div><div><p class="ch-h">What Bo does with it</p><ul><li>Heavy sets of three and jumps: the strength work that makes runners faster.</li><li>Fits the lift around the run, never the other way around.</li><li>Sets my next weights from the sets I've logged.</li><li>Two or three short sessions a week, fewer as the miles climb.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Bo">Want Bo on your strength? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap">
-    <p class="kicker">Bo · Strength</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">The bar waits <span class="o">for the miles.</span></h2>
-    <p class="body" style="margin-top:18px">Bo would have me in the garage every day. He doesn't get that. The run comes first, and hours later I'm under the bar for a few heavy sets of three, stopping well before it turns into a grind, with some jumps at the end. In the studies, heavy lifting plus jumps made runners faster than any other kind of strength work, while light circuits did nothing. In marathoners my age it made marathon pace about 6% cheaper to hold. Three lifting days a week now, two by summer.</p>
-    <div class="rgrid" id="bo-lifts"></div>
-    <blockquote class="say"><img src="assets/bo.jpg" alt="" width="48" height="48"><div><p data-line="bo"></p><cite>Bo</cite></div></blockquote>
-  </div>
-</section>
-
-<section id="juno" data-coach="Juno" class="chapter" data-ch="juno">
-  <div class="wrap"><div class="coachhead" id="coach-juno"><div class="ch-top"><img src="assets/juno.jpg" alt="Juno, the AI nutritionist" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Juno <span>AI nutritionist</span></p></div></div><div class="ch-stats"><div><b data-k="c_juno_studies">200</b><span>studies read</span></div><div><b data-k="c_juno_live">53</b><span>foods with measured macros</span></div><div><b>5</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Juno watches</p><div class="ch-tags"><span>Today's and tomorrow's run</span><span>The food in the house</span><span>Grocery receipts and fridge photos</span><span>Every meal I log</span><span>My 7-day weigh-in trend</span></div></div><div><p class="ch-h">What Juno does with it</p><ul><li>Writes my food plan every day from the run it has to fuel and the food that's actually in the house.</li><li>Reads a photo of a grocery receipt or the fridge and updates what's in the house.</li><li>Sizes my portions from my 7-day weigh-in trend, checked weekly, so I lose no more than 2 lb a week.</li><li>Carbs before, during and after the hard and long runs. Easy days stay lighter.</li><li>Protein at every meal, and no skipped breakfasts.</li></ul><p class="ch-also">Also studied 80+ recorded talks on fueling endurance training.</p></div></div><a class="want" href="#waitlist" data-coach="Juno">Want Juno on your fuel? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap">
-    <p class="kicker">Juno · Fuel</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px)">Friday decides <span class="o">Thursday's dinner.</span></h2>
-    <p class="body" style="margin-top:18px">A hard run starts the night before, with a sweet potato. Then a banana with honey in the dark before I head out, and rice at lunch after. An easy day stays light, mostly eggs and greens. Past an hour of running I'm drinking about 60 grams of carbs an hour as I go. Juno builds each day from what the run is about to ask of me.</p>
-    <div class="chart"><svg id="c-fuel" viewBox="0 0 1000 380" role="img" aria-label="Grams of carbs a day for the next seven days, by the run that day"></svg></div>
-    <p class="note">Grams of carbs a day from my meal plan, the next seven days. Orange days have a hard or long run.</p>
-    <blockquote class="say"><img src="assets/juno.jpg" alt="" width="48" height="48"><div><p data-line="juno"></p><cite>Juno</cite></div></blockquote>
-  </div>
-</section>
-
-<section class="chapter board" id="board" data-coach="Rook" data-ch="rook">
-  <div class="wrap"><div class="coachhead" id="coach-rook"><div class="ch-top"><img src="assets/rook.jpg" alt="Rook, the AI head coach" width="84" height="84" loading="lazy"><div><p class="ch-k">Coaching this part</p><p class="ch-n">Rook <span>AI head coach</span></p></div></div><div class="ch-stats"><div><b data-k="c_rook_studies">166</b><span>studies read</span></div><div><b data-k="c_rook_live">57</b><span>calls logged</span></div><div><b>4</b><span>data sources</span></div></div><div class="ch-cols"><div><p class="ch-h">What Rook watches</p><div class="ch-tags"><span>Every coach's plan</span><span>The priority board</span><span>Every call the coaches make</span><span>What I tell the coaches</span></div></div><div><p class="ch-h">What Rook does with it</p><ul><li>Settles every clash between the coaches with one ranked board: what I say and any pain first, then Chicago, then weight, then strength.</li><li>Tracks the gap to sub-3 every morning.</li><li>Coaches the mental side: confidence, nerves, the last miles of a race.</li><li>Logs every decision the team makes.</li></ul></div></div><a class="want" href="#waitlist" data-coach="Rook">Want Rook running your team? <span aria-hidden="true">→</span></a></div></div>
-  <div class="wrap two">
-    <div>
-      <img class="boardimg" src="assets/board.jpg" alt="Rook slaps an orange magnet onto the board in the war room at sunrise" width="900" height="1350" loading="lazy">
-    </div>
-    <div>
-      <p class="kicker">Rook · The board</p>
-      <h2 class="display" style="font-size:clamp(44px,6vw,72px)">When coaches collide, <span class="o">the magnet decides.</span></h2>
-      <p class="body" style="margin-top:14px">When two coaches want the same morning, Rook doesn't debate it. He checks where their cards sit and moves one. The magnet shows who won. Pain I report always goes on top.</p>
-      <ol class="cards" id="b-cards"></ol>
-      <div id="b-rulings"></div>
-    </div>
-  </div>
-</section>
-
-<section class="cont machine" data-coach="Rook" data-ch="rook">
-  <div class="wrap">
-    <p class="kicker">Rook · How the coaching works</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:12px">The run ends. <span class="o">The coaches start.</span></h2>
-    <p class="body">No one types my workouts in. I stop my watch, it syncs, and within minutes the coaches have the file. Kai takes the paces and the climbs. Mo goes straight to my heart rate on the hills. By the time I'm out of the shower, tomorrow's workout is on my wrist with a range on every step. Here's the count so far.</p>
-    <div class="rgrid" id="m-stats"></div>
-    <div class="loop" id="m-loop">
-      <div class="step"><div class="n">1</div><h3>Record</h3><p>The watch and a chest strap catch every lap and every heartbeat.</p></div>
-      <div class="step"><div class="n">2</div><h3>Sync</h3><p>Checked every 10 minutes. A new run is pulled in as soon as it lands.</p></div>
-      <div class="step"><div class="n">3</div><h3>Read</h3><p>Kai reads the run: paces, heart rate, the hills. A slow mile up a climb gets credit for the faster flat mile it took the same effort to run. Bo, Juno and Mo check their lanes.</p></div>
-      <div class="step"><div class="n">4</div><h3>Decide</h3><p>The research's rules move my targets and zones, and every change gets logged.</p></div>
-      <div class="step"><div class="n">5</div><h3>Send</h3><p>The new workouts go to the watch, with the pace or heart-rate range on every step.</p></div>
-    </div>
-
-    <h3 class="sub">Who made the calls</h3>
-    <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 400" role="img" aria-label="Logged coaching decisions by coach"></svg></div>
-    <p class="note">Every call is a dated line in the coaches' logs: a pace target moved, a run rewritten, a zone reset, a plan change. Orange are Kai's automatic calls, made from my watch data with nobody asking. White are a coach's own calls. Gray are the times I overruled one.</p>
-
-    <details class="more in" data-fold open><summary><span class="more-bar"><img src="assets/kai.jpg" alt="" width="36" height="36"><span class="mt"><b>More: my heart-rate zones</b><span>Set by Kai from my own race</span></span><i aria-hidden="true"></i></span></summary>
-    <h3 class="sub">My heart-rate zones, set by Kai from my own race</h3>
-    <div class="chart" style="margin-top:12px"><svg id="c-zones" viewBox="0 0 1000 200" role="img" aria-label="Heart-rate zones on my watch"></svg></div>
-    <p class="note">Threshold comes from my last race, minute 10 to the finish. Kai re-checks them after every sync and moves them only on a race or a field test. Next, the strap's beat-to-beat data will measure exactly where easy ends.</p>
-    </details>
-  </div>
-</section>
-
-<section class="cont rules" data-coach="Rook" data-ch="rook">
-  <div class="wrap">
-    <p class="kicker">How the coaches decide</p>
-    <h2 class="display" style="font-size:clamp(44px,6vw,72px);margin-bottom:18px">The research sets the rules. <span class="o">The watch can only slow me down.</span></h2>
-    <ol class="rlist2">
-      <li><b>Speed first.</b> A 5K in February, a 10K in May, a half in September, then Chicago. Miles climb to about 90 a week in August.</li>
-      <li><b>Hills every week.</b> Short hill sprints on Mondays and longer repeats on hard days. Most easy miles happen on Mission Trails dirt.</li>
-      <li><b>The watch only makes a day easier.</b> A rough night or a low recovery week turns a hard run into an easy one. A great morning never adds reps.</li>
-      <li><b>Heavy lifting, short sessions.</b> Legs on the hard-run days, hours after the run. Heavy sets of three with jumps, never a grind.</li>
-      <li><b>Fuel the work.</b> Light on easy days and carbs around the hard ones. Past an hour of running, 60 grams of carbs an hour.</li>
+    <p class="kicker">How it works</p>
+    <h2 class="display">The run ends. <span class="o">The coaches start.</span></h2>
+    <ol class="steps">
+      <li><h3>I run</h3><p>The watch and a chest strap catch every lap and every heartbeat. No one types anything in.</p></li>
+      <li><h3>They read it</h3><p>Within minutes the coaches have the file. Kai reads the paces and the hills. Mo, Bo and Juno check their lanes.</p></li>
+      <li><h3>Tomorrow lands</h3><p>The next workout goes to my watch with a pace or heart-rate range on every step, and Juno's plan for the day follows it.</p></li>
     </ol>
+    <p class="rule"><b>The watch can only make a day easier.</b> A rough night turns a hard run into an easy one. A great morning never adds reps.</p>
   </div>
 </section>
 
-<section id="episode" data-ch="join">
+<section id="episode">
   <div class="wrap episode">
     <div>
       <p class="kicker">Episode 1 · The Hiring</p>
@@ -484,30 +272,30 @@ details.more:not(.in)[open]>summary{padding-bottom:0}
   </div>
 </section>
 
-<section id="club" class="club" data-ch="join">
+<section id="club">
   <div class="wrap">
-    <p class="kicker">Train with us</p>
-    <h2 class="display">One session <span class="o">a week.</span></h2>
-    <p class="body">Every week the coaches pick one session and put it in the Strava club. People run their own version, wherever they live, at whatever pace they've got today. Some of those runs will end up in the show.</p>
-    <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
+    <p class="kicker">Come along</p>
+    <h2 class="display">Run it <span class="o">with me.</span></h2>
+    <div class="joins">
+      <div class="joincard">
+        <h3>One session a week</h3>
+        <p>Every week the coaches pick one session and put it in the Strava club. Run your own version, wherever you live, at whatever pace you've got today. Some of those runs will end up in the show.</p>
+        <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
+      </div>
+      <div class="joincard" id="waitlist">
+        <h3>Your own AI coaching team</h3>
+        <p>Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
+        <form class="join" id="join-bottom" data-thanks="thanks-bottom">
+          <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
+          <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+          <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
+          <button type="submit">Get on the list</button>
+        </form>
+        <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="waitlist" id="waitlist" data-ch="join">
-  <div class="wrap">
-    <p class="kicker">Coming later</p>
-    <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
-    <p class="body">Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
-    <form class="join" id="join-bottom" data-thanks="thanks-bottom">
-      <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
-      <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
-      <input class="wide" name="fields[training_for]" aria-label="Your race and date" placeholder="What are you training for? (race and date)">
-      <button type="submit">Get on the list</button>
-    </form>
-    <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
-  </div>
-</section>
-
 
 <footer>
   <div class="wrap">
@@ -519,276 +307,28 @@ details.more:not(.in)[open]>summary{padding-bottom:0}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script>
-/* chapter bar: highlight the section on screen; coach links retitle the waitlist and count interest (no new Kit field) */
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.chap-row a')),row=document.querySelector('.chap-row'),cur=null;
-  var secs=[].slice.call(document.querySelectorAll('section[data-ch]'));
-  function mark(ch){if(ch===cur)return;cur=ch;links.forEach(function(a){var on=a.getAttribute('data-to')===ch;
-      a.setAttribute('aria-current',on?'true':'false');
-      if(on&&row.scrollWidth>row.clientWidth){row.scrollTo({left:a.offsetLeft-row.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}});}
-  function pick(){var y=innerHeight*0.3,ch=null;secs.forEach(function(sec){var r=sec.getBoundingClientRect();if(r.top<=y&&r.bottom>y)ch=sec.getAttribute('data-ch');});mark(ch);}
-  addEventListener('scroll',pick,{passive:true});addEventListener('resize',pick);pick();
-  var h=document.querySelector('#waitlist h2');
-  [].forEach.call(document.querySelectorAll('a.want[data-coach]'),function(a){a.addEventListener('click',function(){
-    var c=a.getAttribute('data-coach');
-    if(h)h.innerHTML='Want <span class="o">'+c+'</span> on your training?';
-    if(typeof window.gtag==='function')window.gtag('event','coach_interest',{coach:c});});});
-})();
-</script>
 <script src="/assets/join.js?v=a666946e"></script>
 <script src="/assets/motion.js?v=a666946e" defer></script>
 <script>
+/* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
-  var NS='http://www.w3.org/2000/svg', OR='#ff6a1f', MUT='#8a837c', GRID='#3a342e', WH='#ffffff';
-  function el(svg,tag,a,txt){if(a['class']&&!a.fill)a.fill=a['class']==='t'?WH:'#a8a29e';var e=document.createElementNS(NS,tag);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e;}
+  function set(k,v){document.querySelectorAll('[data-k="'+k+'"]').forEach(function(n){n.textContent=v;});}
   function sec(t){var p=t.split(':').map(Number);return p.length===3?p[0]*3600+p[1]*60+p[2]:p[0]*60+p[1];}
   function hms(s){s=Math.round(s);var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return h+':'+String(m).padStart(2,'0')+':'+String(x).padStart(2,'0');}
-  function day(d){return new Date(d+'T12:00:00');}
   var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  function md(d){var x=day(d);return MON[x.getMonth()]+' '+x.getDate();}
-  function set(k,v){document.querySelectorAll('[data-k="'+k+'"]').forEach(function(n){n.textContent=v;});}
-
+  function day(d){return new Date(d+'T12:00:00');}
   fetch('data/progress.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(D){
-    var race=day('2027-10-10'), now=day(D.now.date);
-    var weeksLeft=Math.max(1,Math.round((race-now)/6048e5));
-    set('now',D.now.marathon); set('togo',hms(D.to_go_s));
-    var fd=day(D.start.date); set('firstday',['January','February','March','April','May','June','July','August','September','October','November','December'][fd.getMonth()]+' '+fd.getDate());
-    var so=sec(D.start.marathon)-sec(D.now.marathon); set('sofar',Math.floor(so/60)+':'+String(so%60).padStart(2,'0'));
-    var pw=D.to_go_s/weeksLeft/60; set('perweek',(Math.round(pw*2)/2)+' minutes');
-    var u=day(D.updated); set('updated',MON[u.getMonth()]+' '+u.getDate()+', '+u.getFullYear());
-    if(D.half_pr) set('halfpr',D.half_pr.time);
-    if(D.engine.length){set('lt1',D.engine[D.engine.length-1].pace);var bst=D.engine.reduce(function(a,b){return sec(b.pace)<sec(a.pace)?b:a;});set('ltbest',bst.pace);var bd=day(bst.date);set('ltbestdate',['January','February','March','April','May','June','July','August','September','October','November','December'][bd.getMonth()]+' '+bd.getFullYear());}
-    set('weeksleft',weeksLeft);
-    var pk=Math.max.apply(null,D.year.map(function(w){return w.plan||0;})); set('peak',pk);
-    var pw0=D.year.find(function(w){return w.plan===pk;}); if(pw0) set('peakmonth',['January','February','March','April','May','June','July','August','September','October','November','December'][day(pw0.monday).getMonth()]);
-    var cw=D.year.find(function(w){return w.current;}); if(cw&&cw.plan) set('nowplan',cw.plan);
-
-    /* 1. the gap: prediction by day, the goal line, the race date */
-    (function(){
-      var s=document.getElementById('c-gap'),N=s.clientWidth<600,F=N?1.8:1,W=N?600:1000,H=N?520:440,L=70,R=40,T=30,B=50;
-      var t0=day(D.gap[0].date), t1=race, y0=sec('2:45:00'), y1=sec('4:50:00');
-      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=96;B=64;T=40;} function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(v){return T+(y1-v)/(y1-y0)*(H-T-B);}
-      [3,3.5,4,4.5].forEach(function(h){var y=Y(h*3600);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID,'stroke-width':1});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},hms(h*3600).replace(/:00$/,''));});
-      var gy=Y(sec(D.goal));
-      el(s,'line',{x1:L,x2:W-R,y1:gy,y2:gy,stroke:OR,'stroke-width':3,'stroke-dasharray':'10 8'});
-      el(s,'text',{x:W-R,y:gy+34,'text-anchor':'end',class:'t','font-size':26*F,fill:OR},N?'GOAL 2:59:59':'GOAL 2:59:59 · CHICAGO, OCT 10, 2027');
-      var last=D.gap[D.gap.length-1];
-      el(s,'line',{x1:X(last.date),y1:Y(sec(last.marathon)),x2:X('2027-10-10'),y2:gy,stroke:WH,'stroke-opacity':.35,'stroke-width':2,'stroke-dasharray':'3 7'});
-      var mid=(X(last.date)+X('2027-10-10'))/2, my=(Y(sec(last.marathon))+gy)/2;
-      el(s,'text',{x:mid+10,y:my-12,class:'m','font-size':18*F},N?'~'+(Math.round(pw*2)/2)+' min a week':'about '+(Math.round(pw*2)/2)+' min faster a week');
-      var d=D.gap.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(sec(p.marathon)).toFixed(1);}).join(' ');
-      el(s,'path',{d:d,fill:'none',stroke:WH,'stroke-width':4,'stroke-linejoin':'round'});
-      el(s,'circle',{cx:X(last.date),cy:Y(sec(last.marathon)),r:7,fill:WH});
-      el(s,'text',{x:X(last.date)+14,y:Y(sec(last.marathon))-14,class:'t','font-size':30*F},'TODAY '+last.marathon);
-      set('first',md(D.gap[0].date)+', '+day(D.gap[0].date).getFullYear()+': '+D.gap[0].marathon);
-      [['2026-11-15','Nov'],['2027-01-15','Jan'],['2027-03-15','Mar'],['2027-05-15','May'],['2027-07-15','Jul'],['2027-09-15','Sep']].forEach(function(m){el(s,'text',{x:X(m[0]),y:H-16,'text-anchor':'middle',class:'m','font-size':17*F},m[1]);});
-    })();
-
-    /* 2. the engine: threshold pace since late 2024, faster is higher */
-    (function(){
-      var s=document.getElementById('c-engine'),N=s.clientWidth<600,F=N?1.6:1,W=N?600:1000,H=N?520:560,L=80,R=40,T=40,B=50,P=D.engine;
-      var t0=day(P[0].date),t1=day(P[P.length-1].date),v=P.map(function(p){return sec(p.pace);});
-      var lo=Math.min.apply(null,v)-10, hi=Math.max.apply(null,v)+10;
-      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=96;B=64;} function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(x){return T+(x-lo)/(hi-lo)*(H-T-B);}
-      [6*60+45,7*60,7*60+15,7*60+30,7*60+45,8*60].forEach(function(p){if(p<lo||p>hi)return;var y=Y(p);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':18*F},Math.floor(p/60)+':'+String(p%60).padStart(2,'0'));});
-      var d=P.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(sec(p.pace)).toFixed(1);}).join(' ');
-      el(s,'path',{d:d,fill:'none',stroke:OR,'stroke-width':4,'stroke-linejoin':'round'});
-      var a=P[0],z=P[P.length-1];
-      el(s,'circle',{cx:X(a.date),cy:Y(sec(a.pace)),r:7,fill:OR});el(s,'circle',{cx:X(z.date),cy:Y(sec(z.pace)),r:7,fill:WH});
-      var bp=P.reduce(function(m,p){return sec(p.pace)<sec(m.pace)?p:m;});
-      el(s,'circle',{cx:X(bp.date),cy:Y(sec(bp.pace)),r:7,fill:OR});
-      el(s,'text',{x:X(bp.date)+14,y:Y(sec(bp.pace))+10,class:'t','font-size':30*F},'BEST '+bp.pace);
-      el(s,'text',{x:X(z.date)-12,y:Y(sec(z.pace))+38,'text-anchor':'end',class:'t','font-size':30*F},'NOW '+z.pace);
-      ['2025-01-15','2025-07-15','2026-01-15','2026-07-15'].forEach(function(m){var x=day(m);if(x<t0||x>t1)return;el(s,'text',{x:X(m),y:H-14,'text-anchor':'middle',class:'m','font-size':18*F},MON[x.getMonth()]+' '+String(x.getFullYear()).slice(2));});
-    })();
-
-    /* 3. the year: plan outlines, actual miles, race weeks */
-    (function(){
-      var s=document.getElementById('c-year'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?460:380,L=50,R=10,T=40,B=50,NB=0;
-      var all=D.before.map(function(w){return {monday:w.monday,plan:null,done:w.done,pre:true};}).concat(D.year);
-      var max=Math.max.apply(null,all.map(function(w){return Math.max(w.plan||0,w.done||0);}))*1.08;
-      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=60;B=64;T=56;}
-      var bw=(W-L-R)/all.length;
-      function Y(m){return T+(1-m/max)*(H-T-B);}
-      [0,30,60,90].forEach(function(m){var y=Y(m);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-8,y:y+5,'text-anchor':'end',class:'m','font-size':15*F},m);});
-      var races={'2027-02-01':'5K','2027-05-10':'10K','2027-08-30':'HALF','2027-10-04':'CHICAGO'};
-      all.forEach(function(w,i){
-        var x=L+i*bw+bw*.12, w2=bw*.76;
-        if(w.plan){el(s,'rect',{x:x,y:Y(w.plan),width:w2,height:Y(0)-Y(w.plan),fill:'none',stroke:'#6b645d','stroke-width':1.5,rx:1.5});}
-        if(w.done){el(s,'rect',{x:x,y:Y(w.done),width:w2,height:Y(0)-Y(w.done),fill:OR,rx:1.5});}
-        if(w.current){var lbl=el(s,'text',{x:x+2*F,y:Y(Math.max(w.plan,w.done||0))-12,'text-anchor':'start',class:'t','font-size':18*F,'paint-order':'stroke',stroke:'#2a2622','stroke-width':8*F,'stroke-linejoin':'round'},N?'NOW':'THIS WEEK');setTimeout(function(){s.appendChild(lbl);},0);}
-        if(races[w.monday]){var last=races[w.monday]==='CHICAGO';el(s,'text',{x:last?x+w2:x+w2/2,y:last&&N?Y(w.plan||0)-12:H-16,'text-anchor':last?'end':'middle',class:'t','font-size':17*F,fill:last?OR:WH},races[w.monday]);}
-      });
-      var pre=D.before.length; el(s,'line',{x1:L+pre*bw,x2:L+pre*bw,y1:T-10,y2:Y(0),stroke:MUT,'stroke-dasharray':'4 5'});
-      el(s,'text',{x:L+pre*bw/2,y:T-14,'text-anchor':'middle',class:'m','font-size':14*F},N?'BEFORE':'BEFORE THE PLAN');
-    })();
-
-
-    /* 3b. fitter at the same heart rate: meters per heartbeat on easy runs, 4-week rolling */
-    (function(){
-      var P=D.efficiency||[]; if(P.length<2) return;
-      set('mpbnow',P[P.length-1].mpb.toFixed(2));
-      var s=document.getElementById('c-eff'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?460:380,L=70,R=40,T=40,B=50;
-      var t0=day(P[0].monday),t1=day(P[P.length-1].monday),v=P.map(function(p){return p.mpb;});
-      var lo=Math.min.apply(null,v)-0.05, hi=Math.max.apply(null,v)+0.05;
-      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=86;B=64;}
-      function X(d){return L+(day(d)-t0)/((t1-t0)||1)*(W-L-R);} function Y(x){return T+(hi-x)/(hi-lo)*(H-T-B);}
-      [1.0,1.1,1.2,1.3].forEach(function(m){if(m<lo||m>hi)return;var y=Y(m);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},m.toFixed(1));});
-      var d=P.map(function(p,i){return (i?'L':'M')+X(p.monday).toFixed(1)+' '+Y(p.mpb).toFixed(1);}).join(' ');
-      el(s,'path',{d:d,fill:'none',stroke:OR,'stroke-width':4,'stroke-linejoin':'round'});
-      var z=P[P.length-1];
-      el(s,'circle',{cx:X(z.monday),cy:Y(z.mpb),r:7,fill:WH});
-      el(s,'text',{x:X(z.monday)-12,y:Y(z.mpb)-16,'text-anchor':'end',class:'t','font-size':28*F},'NOW '+z.mpb.toFixed(2));
-      el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'METERS PER BEAT':'METERS PER HEARTBEAT · HIGHER IS FITTER');
-      P.forEach(function(p){var x=day(p.monday);if(x.getDate()<=7)el(s,'text',{x:X(p.monday),y:H-16,'text-anchor':'middle',class:'m','font-size':16*F},MON[x.getMonth()]);});
-    })();
-
-    /* 3c. the race number: VDOT from races (dots), the threshold estimate (line), Kai's targets (rings), sub-3 */
-    (function(){
-      var V=D.vdot; if(!V||!V.line||V.line.length<2) return;
-      set('vdnow',V.now.toFixed(1)); set('vdnow2',V.now.toFixed(1)); set('vdbest',V.best.toFixed(1));
-      var s=document.getElementById('c-vdot'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?520:440,L=60,R=40,T=44,B=50;
-      s.setAttribute('viewBox','0 0 '+W+' '+H); if(N){L=74;B=64;}
-      var t0=day('2024-05-01'),t1=day('2027-10-31'),lo=38,hi=56;
-      function X(d){return L+(day(d)-t0)/(t1-t0)*(W-L-R);} function Y(x){return T+(hi-x)/(hi-lo)*(H-T-B);}
-      [40,45,50,55].forEach(function(m){var y=Y(m);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},m);});
-      ['2025','2026','2027'].forEach(function(yr){var x=X(yr+'-01-01');el(s,'line',{x1:x,x2:x,y1:T,y2:H-B,stroke:GRID});el(s,'text',{x:x+6,y:H-16,class:'m','font-size':16*F},yr);});
-      var g=Y(V.goal); el(s,'line',{x1:L,x2:W-R,y1:g,y2:g,stroke:OR,'stroke-width':2,'stroke-dasharray':'8 6'});
-      el(s,'text',{x:W-R,y:g-10,'text-anchor':'end',class:'t','font-size':24*F,fill:OR},'SUB-3 · '+V.goal);
-      var d=V.line.map(function(p,i){return (i?'L':'M')+X(p.date).toFixed(1)+' '+Y(p.vdot).toFixed(1);}).join(' ');
-      el(s,'path',{d:d,fill:'none',stroke:WH,'stroke-opacity':0.55,'stroke-width':2.5,'stroke-linejoin':'round'});
-      V.targets.forEach(function(t){el(s,'circle',{cx:X(t.date),cy:Y(t.vdot),r:8,fill:'none',stroke:OR,'stroke-width':3});});
-      V.races.forEach(function(r){el(s,'circle',{cx:X(r.date),cy:Y(r.vdot),r:8,fill:OR});});
-      var b=V.races.reduce(function(a,c){return c.vdot>a.vdot?c:a;});
-      el(s,'text',{x:X(b.date)+14,y:Y(b.vdot)-12,class:'m','font-size':16*F},(N?'':'BEST RACE ')+b.vdot.toFixed(1));
-      var z=V.line[V.line.length-1];
-      el(s,'circle',{cx:X(z.date),cy:Y(z.vdot),r:7,fill:WH});
-      el(s,'text',{x:X(z.date),y:Y(z.vdot)+34,'text-anchor':'middle',class:'t','font-size':26*F},'NOW '+z.vdot.toFixed(1));
-      el(s,'text',{x:L,y:T-16,class:'m','font-size':15*F},N?'VDOT · HIGHER IS FITTER':'RACE FITNESS SCORE (VDOT) · HIGHER IS FITTER');
-    })();
-
-    /* 3d. the machine: live counts, decisions by week, zones */
-    (function(){
-      var S=D.system; if(!S) return;
-      var st=document.getElementById('m-stats');
-      [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Hilly laps evened out',S.hilly_laps]].forEach(function(t){
-        var v=typeof t[1]==='number'?t[1].toLocaleString('en-US'):t[1];
-        var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+v+'</div>'; st.appendChild(c);});
-      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,C=S.calls||[];
-      if(C.length){var W=N?600:1000,rh=N?72:56,T=N?70:56,H=T+C.length*rh+20,L=N?120:110,R=N?70:70;
-        s.setAttribute('viewBox','0 0 '+W+' '+H);
-        var tot=C.map(function(c){return c.auto+c.called+c.yours;}),mx=Math.max.apply(null,tot)||1,sc=(W-L-R)/mx,bh=rh*0.56;
-        C.forEach(function(c,i){var y=T+i*rh,x=L;
-          el(s,'text',{x:L-16,y:y+bh/2+8,'text-anchor':'end',class:'t','font-size':N?30:24,'font-weight':700},c.coach);
-          [['auto',OR],['called',WH],['yours',MUT]].forEach(function(k){var w=c[k[0]]*sc;if(w>0){el(s,'rect',{x:x,y:y,width:Math.max(w-2,2),height:bh,fill:k[1],rx:3});x+=w;}});
-          el(s,'text',{x:x+12,y:y+bh/2+8,class:'t','font-size':N?28:22},tot[i]);});
-        var total=tot.reduce(function(a,b){return a+b;},0);
-        el(s,'text',{x:L-16,y:N?34:28,class:'m','font-size':15*F},N?total+' CALLS SINCE '+md(S.calls_since).toUpperCase():total+' CALLS SINCE '+md(S.calls_since).toUpperCase()+' · AUTOMATIC (ORANGE) · COACH (WHITE) · MY CALL (GRAY)');}
-      var z=document.getElementById('c-zones'),Zf=S.zones,Zm=S.zones_max;
-      if(Zf&&Zm){var Wz=N?600:1000,Hz=N?260:200; z.setAttribute('viewBox','0 0 '+Wz+' '+Hz);
-        var lo=Zf[0],sc2=(Wz-40)/(Zm-lo),names=['WARM-UP','EASY','STEADY','THRESHOLD','5K+'],fills=['#4a433c','#6b625a',MUT,'#ffa36b',OR];
-        Zf.forEach(function(f,i){var t=(i<4?Zf[i+1]:Zm+1),x=20+(f-lo)*sc2,w=(t-f)*sc2;
-          el(z,'rect',{x:x,y:40,width:Math.max(w-3,2),height:70,fill:fills[i],rx:4});
-          el(z,'text',{x:x+w/2,y:82,'text-anchor':'middle',class:'t','font-size':N?(w>66?19:0):24,fill:i>2?'#1a1715':WH},(N?w>66:w>60)?names[i]:'');
-          el(z,'text',{x:x+4,y:140,class:'m','font-size':N?22:16},f);});
-        el(z,'text',{x:Wz-20,y:172,'text-anchor':'end',class:'m','font-size':N?22:16},'max '+Zm);
-        el(z,'text',{x:20,y:28,class:'m','font-size':N?20:15},'BEATS PER MINUTE');}
-    })();
-
-    /* 3e. coach lines, Mo, Bo, Juno */
-    (function(){
-      var Ln=D.lines||{};
-      [].forEach.call(document.querySelectorAll('[data-line]'),function(e){var t=Ln[e.getAttribute('data-line')];if(t)e.textContent=t;else{var q=e.closest('.say');if(q)q.remove();}});
-      var CO=D.coaches||{};
-      ['Rook','Kai','Mo','Bo','Juno'].forEach(function(c){var x=CO[c];if(!x)return;var k=c.toLowerCase();
-        if(x.studies)set('c_'+k+'_studies',x.studies);if(x.live)set('c_'+k+'_live',x.live.toLocaleString('en-US'));});
-      if(CO.all_studies)set('c_all',CO.all_studies);
-      var MO=D.mo||{};
-      if(MO.easy_top){set('easytop',MO.easy_top+1);set('hardfrom',MO.hard_from);}
-      var s=document.getElementById('c-easy'),P=MO.easy||[];
-      if(s&&P.length){var N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=N?92:60,R=30,T=40,B=50,bw=(W-L-R)/P.length;
-        s.setAttribute('viewBox','0 0 '+W+' '+H);
-        function Y(v){return T+(1-v/100)*(H-T-B);}
-        [0,50,80,100].forEach(function(v){var y=Y(v);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F,fill:v===80?OR:'#a8a29e'},v+'%');});
-        P.forEach(function(p,i){var x=L+i*bw+bw*0.18,w=bw*0.64,y0=H-B;
-          [['easy',OR],['steady',MUT],['hard',WH]].forEach(function(k){var h=p[k[0]]/100*(H-T-B);if(h>0){el(s,'rect',{x:x,y:y0-h,width:w,height:h,fill:k[1]});y0-=h;}});
-          el(s,'text',{x:x+w/2,y:Y(p.easy)+(p.easy>12?24:-8),'text-anchor':'middle',class:'t','font-size':(N?24:20),fill:p.easy>12?'#1a1715':WH},p.easy+'%');
-          if(!N||(P.length-1-i)%2===0)el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':N?22:16},md(p.monday));});
-        el(s,'line',{x1:L,x2:W-R,y1:Y(80),y2:Y(80),stroke:WH,'stroke-width':2.5,'stroke-dasharray':'8 6'});
-        el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'SHARE OF RUNNING TIME':'SHARE OF RUNNING TIME · EASY (ORANGE) · STEADY (GRAY) · HARD (WHITE) · GOAL 80% EASY');}
-      var s2=document.getElementById('c-spike'),Q=(MO.spike||[]).filter(function(p){return p.minutes>0;});
-      if(s2&&Q.length>1){var N2=s2.clientWidth<600,F2=N2?1.7:1,W2=N2?600:1000,H2=N2?440:360,L2=N2?80:60,R2=30,T2=40,B2=50;
-        s2.setAttribute('viewBox','0 0 '+W2+' '+H2);
-        var t0=day(Q[0].date),t1=day(Q[Q.length-1].date),mx=Math.max.apply(null,Q.map(function(p){return Math.max(p.minutes,p.cap||0);}))*1.1;
-        function X2(d){return L2+(day(d)-t0)/((t1-t0)||1)*(W2-L2-R2);} function Y2(v){return T2+(1-v/mx)*(H2-T2-B2);}
-        [0,30,60,90,120,150,180].forEach(function(v){if(v>mx)return;var y=Y2(v);el(s2,'line',{x1:L2,x2:W2-R2,y1:y,y2:y,stroke:GRID});el(s2,'text',{x:L2-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F2},v);});
-        var d=Q.filter(function(p){return p.cap;}).map(function(p,i){return (i?'L':'M')+X2(p.date).toFixed(1)+' '+Y2(p.cap).toFixed(1);}).join(' ');
-        el(s2,'path',{d:d,fill:'none',stroke:OR,'stroke-width':3,'stroke-dasharray':'8 6'});
-        Q.forEach(function(p){el(s2,'circle',{cx:X2(p.date),cy:Y2(p.minutes),r:6,fill:(p.cap&&p.minutes>p.cap)?OR:WH});});
-        var seenM={};Q.forEach(function(p){var x=day(p.date),k=x.getMonth();if(seenM[k])return;seenM[k]=1;if(p!==Q[0])el(s2,'text',{x:X2(p.date),y:H2-16,'text-anchor':'middle',class:'m','font-size':16*F2},MON[x.getMonth()]);});
-        el(s2,'text',{x:L2,y:T2-14,class:'m','font-size':15*F2},N2?'MINUTES PER RUN':'MINUTES PER RUN · DASHED LINE = THE CEILING');}
-      var s4=document.getElementById('c-sleep'),SL=MO.sleep||[];
-      if(s4&&SL.length){var N4=s4.clientWidth<600,F4=N4?1.7:1,W4=N4?600:1000,H4=N4?440:360,L4=N4?70:56,R4=30,T4=40,B4=50,bw4=(W4-L4-R4)/SL.length,top4=Math.max(10,Math.ceil(Math.max.apply(null,SL.map(function(p){return p.hours||0;}))+1));
-        s4.setAttribute('viewBox','0 0 '+W4+' '+H4);
-        function Y4(v){return T4+(1-v/top4)*(H4-T4-B4);}
-        [0,5,10].forEach(function(v){var y=Y4(v);el(s4,'line',{x1:L4,x2:W4-R4,y1:y,y2:y,stroke:GRID});el(s4,'text',{x:L4-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F4},v);});
-        var DW4=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-        SL.forEach(function(p,i){var x=L4+i*bw4+bw4*0.18,w=bw4*0.64,lab=N4?DW4[day(p.date).getDay()].slice(0,1):DW4[day(p.date).getDay()];
-          if(p.hours){var ok=p.hours>=7,r=el(s4,'rect',{x:x,y:Y4(p.hours),width:w,height:H4-B4-Y4(p.hours),fill:ok?OR:MUT,rx:3});
-            if(p.broken)r.setAttribute('opacity','0.55');
-            var inside=p.hours<7&&p.hours>=6;
-            el(s4,'text',{x:x+w/2,y:inside?Y4(p.hours)+(N4?28:24):Y4(p.hours)-10,'text-anchor':'middle',class:'t','font-size':N4?24:20,fill:inside&&ok?'#1a1715':WH},p.hours.toFixed(1));}
-          else el(s4,'text',{x:x+w/2,y:H4-B4-10,'text-anchor':'middle',class:'m','font-size':14*F4},'off');
-          el(s4,'text',{x:x+w/2,y:H4-16,'text-anchor':'middle',class:'m','font-size':16*F4},lab);});
-        el(s4,'line',{x1:L4,x2:W4-R4,y1:Y4(7),y2:Y4(7),stroke:WH,'stroke-width':2.5,'stroke-dasharray':'8 6'});
-        el(s4,'text',{x:L4,y:T4-14,class:'m','font-size':15*F4},N4?'HOURS ASLEEP':'HOURS ASLEEP A NIGHT · DASHED LINE = 7 HOURS');}
-      var bl=document.getElementById('bo-lifts'),BO=(D.bo||{}).best||[];
-      BO.forEach(function(b){var c=document.createElement('div');c.className='race';
-        var h='<div class="d">Top set · '+md(b.date)+'</div><h3>'+b.lift+'</h3><div class="v o">'+b.lb+' lb</div><div class="k">'+(b.reps>1?b.reps+' reps':'single')+'</div>';
-        if(b.first_lb&&b.first_lb<b.lb) h+='<div class="k" style="margin-top:8px">From '+b.first_lb+' in '+MON[day(b.first_date).getMonth()]+'</div>';
-        c.innerHTML=h;bl.appendChild(c);});
-      var s3=document.getElementById('c-fuel'),J=((D.juno||{}).week)||[];
-      if(s3&&J.length){var N3=s3.clientWidth<600,F3=N3?1.7:1,W3=N3?600:1000,H3=N3?460:380,L3=N3?86:60,R3=30,T3=40,B3=64,bw3=(W3-L3-R3)/J.length;
-        s3.setAttribute('viewBox','0 0 '+W3+' '+H3);
-        var top=Math.ceil(Math.max.apply(null,J.map(function(x){return x.carbs;}))*1.15/50)*50;
-        function Y3(v){return T3+(1-v/top)*(H3-T3-B3);}
-        [0,top/2,top].forEach(function(v){var y=Y3(v);el(s3,'line',{x1:L3,x2:W3-R3,y1:y,y2:y,stroke:GRID});el(s3,'text',{x:L3-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F3},v);});
-        var DW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],TAG={hard:'HARD',long:'LONG',easy:'EASY',rest:'REST'};
-        J.forEach(function(x,i){var bx=L3+i*bw3+bw3*0.18,w=bw3*0.64,hot=(x.work==='hard'||x.work==='long');
-          el(s3,'rect',{x:bx,y:Y3(x.carbs),width:w,height:H3-B3-Y3(x.carbs),fill:hot?OR:MUT,rx:3});
-          el(s3,'text',{x:bx+w/2,y:Y3(x.carbs)-10,'text-anchor':'middle',class:'t','font-size':N3?26:22},x.carbs+'g');
-          el(s3,'text',{x:bx+w/2,y:H3-B3+24,'text-anchor':'middle',class:'m','font-size':16*F3},DW[day(x.date).getDay()]);
-          el(s3,'text',{x:bx+w/2,y:H3-B3+46,'text-anchor':'middle',class:'m','font-size':13*F3,fill:hot?OR:'#a8a29e'},TAG[x.work]||'');});
-        el(s3,'text',{x:L3,y:T3-14,class:'m','font-size':15*F3},'GRAMS OF CARBS A DAY · NEXT 7 DAYS');}
-    })();
-
-    /* 3f. the board: priority cards, the magnet on the newest ruling's card, the rulings */
-    (function(){
-      var B=D.board; if(!B||!B.cards) return;
-      var won=B.rulings&&B.rulings.length?B.rulings[0].card:null, ol=document.getElementById('b-cards');
-      B.cards.forEach(function(c,i){var li=document.createElement('li'); if(c===won) li.className='won';
-        li.innerHTML='<span class="n">'+(i+1)+'</span>'+c+(c===won?'<span class="mag" aria-label="Rook\'s magnet"></span>':'');
-        if(i===0&&c!==won) li.title='Nothing on this card yet. When there is, it wins.'; ol.appendChild(li);});
-      var rb=document.getElementById('b-rulings');
-      (B.rulings||[]).forEach(function(r,i){var x=day(r.date),d=document.createElement('div');d.className='ruling'+(i?' old':'');
-        d.innerHTML='<div class="d">'+(i?'':'Latest call · ')+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+md(r.date)+' · '+r.coaches.join(' vs ')+'</div><p>'+r.text+'</p>';rb.appendChild(d);});
-    })();
-
-    /* 4. the races */
-    var g=document.getElementById('races'), DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    D.races.forEach(function(r){
-      var x=day(r.date), c=document.createElement('div'); c.className='race'+(r.goal?' final':'');
-      var h='<div class="d">'+DOW[x.getDay()]+' · '+md(r.date)+', '+x.getFullYear()+'</div><h3>'+r.name+'</h3><div class="k">Watch says today</div><div class="v">'+r.today+'</div>';
-      if(r.goal) h+='<div class="k">Goal</div><div class="v o">'+r.goal+'</div>';
-      if(r.target) h+='<div class="k">Kai\'s target</div><div class="v o">'+r.target+'</div>';
-      if(r.name==='Half marathon'&&D.half_pr) h+='<div class="k">My best</div><div class="v">'+D.half_pr.time+'</div>';
-      if(r.result){var sl=r.name.toLowerCase().replace(/^first\s+/,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-        h+='<div class="k">My watch</div><div class="v">'+r.result.time+'</div><a class="rlink" href="/races/'+r.date+'-'+sl+'/">Race report</a>';}
-      c.innerHTML=h; g.appendChild(c);
-    });
-    [].forEach.call(document.querySelectorAll('details[data-fold]'),function(d){d.open=false;});
-    if(location.hash){var tgt=document.getElementById(location.hash.slice(1));if(tgt)tgt.scrollIntoView();}
+    var race=day('2027-10-10'),now=new Date(),wl=Math.max(1,Math.round((race-now)/6048e5));
+    set('now',D.now.marathon);set('togo',hms(D.to_go_s));set('weeksleft',wl);
+    set('perweek',(Math.round(D.to_go_s/wl/60*2)/2)+' minutes');
+    var cw=(D.year||[]).filter(function(w){return w.current;})[0];
+    if(cw){set('wkdone',cw.done==null?0:cw.done);set('wkplan',cw.plan);}
+    var today=new Date().toISOString().slice(0,10),nx=(D.races||[]).filter(function(r){return r.date>=today;})[0];
+    if(nx){var x=day(nx.date);set('nextrace',nx.name.replace(/^First\s+/,''));set('nextdate','next race · '+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+MON[x.getMonth()]+' '+x.getDate());}
+    var CO=D.coaches||{};
+    ['Rook','Kai','Mo','Bo','Juno'].forEach(function(c){var x=CO[c];if(!x)return;var k=c.toLowerCase();
+      set('c_'+k+'_studies',x.studies);set('c_'+k+'_live',(x.live||0).toLocaleString('en-US'));});
+    if(CO.all_studies)set('c_all',CO.all_studies);
   }).catch(function(){});
 })();
 </script>
