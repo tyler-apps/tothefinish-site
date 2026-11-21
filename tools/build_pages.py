@@ -33,7 +33,8 @@ def asset_ver():
     """Short hash of the shared CSS and JS, added as ?v= so browsers fetch a changed file at once."""
     import hashlib
     h = hashlib.sha1()
-    for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js"):
+    for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js", "charts.js", "coaches-page.js",
+              "episode-live.js"):
         p = ROOT / "assets" / f
         if p.exists():
             h.update(p.read_bytes())
@@ -400,7 +401,7 @@ def main():
     (d / "index.html").write_text(coach_page(qs))
     home = ROOT / "index.html"
     h = home.read_text()
-    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
     home.write_text(h)
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><changefreq>{f}</changefreq></url>" for u, f, m in urls]

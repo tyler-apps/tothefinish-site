@@ -194,8 +194,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 @media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
 @media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=a666946e">
-<link rel="stylesheet" href="/assets/motion.css?v=a666946e">
+<link rel="stylesheet" href="/assets/ui.css?v=4081855a">
+<link rel="stylesheet" href="/assets/motion.css?v=4081855a">
 </head>
 <body>
 
@@ -210,7 +210,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     </div>
     <div class="hero">
       <div>
-        <p class="kicker">Episode 1 · Sunday, Nov 22</p>
+        <p class="kicker" data-ep="herok">Episode 1 · Sunday, Nov 22</p>
         <h1 class="display">To the<br><span class="o">finish.</span></h1>
         <p class="lead">I'm 43, with a two-year-old and a baby, and I picked a goal I'm not built for, starting at 258 lb: under three hours at the Chicago Marathon on October 10, 2027. This morning my watch says I'd run <b data-k="now">4:36:10</b>.</p>
         <form class="join" id="join-top" data-thanks="thanks-top">
@@ -385,14 +385,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 <section id="episode">
   <div class="wrap episode">
     <div>
-      <p class="kicker">Episode 1 · The Hiring</p>
+      <p class="kicker" data-ep="kicker">Episode 1 · The Hiring</p>
       <h2 class="display">Can a 258 lb dad run a <span class="o">sub-3 marathon?</span></h2>
-      <p class="body">Episode 1 is out Sunday, November 22, on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> and <a href="https://x.com/tothefinishai">X</a>. It's 4:58 in the morning, I'm on a bench in the garage, and I've just typed the question in that headline into my phone. The times in it come straight off my watch.</p>
+      <p class="body" data-ep="body">Episode 1 is out <span data-ep="when">Sunday, November 22,</span> on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> and <a href="https://x.com/tothefinishai">X</a>. It's 4:58 in the morning, I'm on a bench in the garage, and I've just typed the question in that headline into my phone. The times in it come straight off my watch.</p>
     </div>
     <div class="epcard">
-      <p class="ed">Sun<br>Nov 22</p>
-      <p class="es">On YouTube, Instagram, TikTok and X</p>
-      <a class="btn" href="https://www.youtube.com/@tothefinishai">Watch on YouTube</a>
+      <p class="ed" data-ep="date">Sun<br>Nov 22</p>
+      <p class="es" data-ep="where">On YouTube, Instagram, TikTok and X</p>
+      <a class="btn" data-ep="btn" href="https://www.youtube.com/@tothefinishai">Watch on YouTube</a>
     </div>
   </div>
 </section>
@@ -433,9 +433,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/charts.js?v=a666946e"></script>
-<script src="/assets/join.js?v=a666946e"></script>
-<script src="/assets/motion.js?v=a666946e" defer></script>
+<script src="/assets/charts.js?v=4081855a"></script>
+<script src="/assets/join.js?v=4081855a"></script>
+<script src="/assets/motion.js?v=4081855a" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -494,5 +494,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
+<script src="/assets/episode-live.js?v=4081855a"></script>
 </body>
 </html>
