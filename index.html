@@ -100,7 +100,7 @@ form.join button:hover{filter:brightness(1.06)}
 .soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
 
 /* join */
-.joins{display:grid;grid-template-columns:1fr 1.25fr;gap:18px;margin-top:40px;align-items:stretch}
+.joins{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:40px;align-items:stretch}
 .joincard{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:28px}
 .joincard h3{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:34px;margin:0;line-height:1}
 .joincard p{font-size:16px;line-height:1.55;color:var(--soft);margin:12px 0 22px}
@@ -160,6 +160,24 @@ footer p{margin:14px 0 0;line-height:1.5}
 .side li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:#5f5750}
 .side.them li::before{background:var(--orange)}
 @media (max-width:860px){.road{grid-template-columns:1fr;gap:18px}.road::before{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto}.road li{padding:0 0 0 32px}.road li::before{top:4px}.steps.four,.split{grid-template-columns:1fr}}
+/* charts + research (2026-11-21) */
+.viz{margin:36px 0 0;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:22px 22px 18px;min-width:0}
+.viz .q{margin:0;font-size:14px;font-weight:600;color:var(--muted)}
+.viz .take{margin:6px 0 18px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05}
+.viz .take b{color:var(--orange);font-weight:800}
+.viz .take span{color:var(--muted)}
+.plot{width:100%;min-height:220px}
+.src{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.rcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.rc{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:20px}
+.rc .lane{margin:0 0 12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--orange)}
+.rc .rk{margin:12px 0 4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.rc .rk:first-of-type{margin-top:0}
+.rc .rr{margin:0;font-size:15px;line-height:1.5;color:var(--soft)}
+.rc .rp{margin:0;font-size:15px;line-height:1.5;color:var(--white);font-weight:600}
+.teamline a{color:var(--orange)}
+@media (max-width:1000px){.rcards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.rcards{grid-template-columns:1fr}.viz{padding:18px 16px 14px}.viz .take{font-size:24px}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
@@ -200,6 +218,19 @@ footer p{margin:14px 0 0;line-height:1.5}
   </div>
 </section>
 
+<section id="been">
+  <div class="wrap">
+    <p class="kicker">Where I've been</p>
+    <h2 class="display">I've been <span class="o">faster.</span></h2>
+    <p class="body">In June 2024 I ran a half marathon in 1:32:31, on close to 80 miles a week. Runners turn a race time into one fitness score called VDOT, so a 5K and a marathon can be compared on the same scale. That half was a 49.2. My watch data puts me near <b data-k="vdnow">40.5</b> today, and sub-3 at Chicago takes about 53.5.</p>
+    <figure class="viz">
+      <figcaption><p class="q">How fit am I, in one number?</p><p class="take" data-take="vdot"><b>40.5</b> now <span>· 49.2 at my best · sub-3 needs 53.5</span></p></figcaption>
+      <div class="plot" id="p-vdot" role="img"></div>
+      <p class="src">White dots are real races. The thin line is an estimate from my threshold pace between races, so read it as a trend. Orange rings are Kai's target for each race on the way to Chicago.</p>
+    </figure>
+  </div>
+</section>
+
 <section id="progress">
   <div class="wrap">
     <p class="kicker">Where I am</p>
@@ -225,6 +256,11 @@ footer p{margin:14px 0 0;line-height:1.5}
       <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's target 1:26:00</span></li>
       <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">The goal: 2:59:59</span></li>
     </ol>
+    <figure class="viz" style="margin-top:40px">
+      <figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption>
+      <div class="plot" id="p-miles" role="img"></div>
+      <p class="src">Planned miles each week from now to Chicago (outlines) and the miles I actually ran (filled), straight from my watch.</p>
+    </figure>
   </div>
 </section>
 
@@ -233,7 +269,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <p class="kicker">The team</p>
     <h2 class="display">Every coach guards <span class="o">a number.</span></h2>
     <p class="body">They see everything my watch sees, and they argue about my week like it's theirs. This isn't only a running coach. Kai has the miles, Bo the lifting, Mo my sleep and recovery, Juno the food, and when two of them want the same morning, Rook makes the call.</p>
-    <p class="teamline">Between them they've read <b data-k="c_all">597</b> studies, and every run, night of sleep and weigh-in reaches them on its own.</p>
+    <p class="teamline">Each coach is built on published sports science and works from my real data as it comes in. What that research is, and what it does to my week, is <a href="#research">just below</a>.</p>
     <div class="coaches">
       <article class="coach">
         <img src="assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy">
@@ -242,7 +278,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Kai</h3>
           <p class="does">Builds the year race by race and sets every pace and heart-rate zone from my own runs.</p>
           <p class="line">"Easy days slower than his ego wants."</p>
-          <p class="proof"><b data-k="c_kai_studies">61</b> studies · <b data-k="c_kai_live">440</b> runs read</p>
+          <p class="proof"><b data-k="c_kai_studies">61</b> studies behind the rules · <b data-k="c_kai_live">440</b> runs analyzed</p>
         </div>
       </article>
       <article class="coach">
@@ -252,7 +288,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Bo</h3>
           <p class="does">Heavy sets and jumps, the lifting that makes runners faster, fitted around the run.</p>
           <p class="line">"I want his legs. Three days a week."</p>
-          <p class="proof"><b data-k="c_bo_studies">27</b> studies · <b data-k="c_bo_live">16</b> lifts tracked</p>
+          <p class="proof"><b data-k="c_bo_studies">27</b> studies behind the rules · <b data-k="c_bo_live">16</b> lifts tracked</p>
         </div>
       </article>
       <article class="coach">
@@ -262,7 +298,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Mo</h3>
           <p class="does">Reads every night of sleep and keeps me healthy enough to train. A short night can make a run easier, never harder.</p>
           <p class="line">"And I keep him in one piece."</p>
-          <p class="proof"><b data-k="c_mo_studies">178</b> studies · <b data-k="c_mo_live">162</b> nights of sleep read</p>
+          <p class="proof"><b data-k="c_mo_studies">178</b> studies behind the rules · <b data-k="c_mo_live">162</b> nights of sleep analyzed</p>
         </div>
       </article>
       <article class="coach">
@@ -272,7 +308,7 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Juno</h3>
           <p class="does">Writes my food every day from the run it has to fuel and what's actually in the fridge.</p>
           <p class="line">"Fight over him all you want. I feed him first."</p>
-          <p class="proof"><b data-k="c_juno_studies">200</b> studies · <b data-k="c_juno_live">53</b> foods measured</p>
+          <p class="proof"><b data-k="c_juno_studies">200</b> studies behind the rules · <b data-k="c_juno_live">53</b> foods measured</p>
         </div>
       </article>
       <article class="coach">
@@ -282,11 +318,26 @@ footer p{margin:14px 0 0;line-height:1.5}
           <h3>Rook</h3>
           <p class="does">Runs the team. When two coaches want the same morning, Rook makes the call.</p>
           <p class="line">"Not yet. Shoes on."</p>
-          <p class="proof"><b data-k="c_rook_studies">166</b> studies · <b data-k="c_rook_live">57</b> decisions made</p>
+          <p class="proof"><b data-k="c_rook_studies">166</b> studies behind the rules · <b data-k="c_rook_live">57</b> decisions made</p>
         </div>
       </article>
     </div>
     <a class="more" href="/coaches/">See what each coach is watching <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <p class="kicker">Where the rules come from</p>
+    <h2 class="display">The research <span class="o">writes the rules.</span></h2>
+    <p class="body">Every coach was built from published sports science: <b data-k="c_all">597</b> peer-reviewed studies on running, strength, recovery, nutrition and the mental side, along with the methods of coaches who have trained Olympians. Each finding became a rule. When my data hits a rule, the coach acts on it. When new research clears the bar, Kai, Bo and Mo add it on their own.</p>
+    <div class="rcards">
+      <article class="rc"><p class="lane">Running · Kai</p><p class="rk">The research</p><p class="rr">The best distance runners keep at least 80% of their running easy.</p><p class="rk">The rule in my plan</p><p class="rp">Most of my miles stay easy, and the watch holds me to the easy range.</p></article>
+      <article class="rc"><p class="lane">Recovery · Mo</p><p class="rk">The research</p><p class="rr">In 5,205 runners on Garmin watches, one run more than 10% longer than the longest of the month before raised overuse injury risk 1.64 times.</p><p class="rk">The rule in my plan</p><p class="rp">No run goes past that ceiling until a long run earns it.</p></article>
+      <article class="rc"><p class="lane">Strength · Bo</p><p class="rk">The research</p><p class="rr">In marathoners, heavy lifting plus jumps made marathon pace about 6% cheaper to hold. Light circuits did nothing.</p><p class="rk">The rule in my plan</p><p class="rp">A few heavy sets of three and some jumps, hours after the run.</p></article>
+      <article class="rc"><p class="lane">Nutrition · Juno</p><p class="rk">The research</p><p class="rr">For runs past an hour, endurance research puts fueling at about 60 grams of carbs an hour.</p><p class="rk">The rule in my plan</p><p class="rp">Long runs carry a drink at 60 grams an hour. Easy days stay lighter.</p></article>
+    </div>
+    <a class="more" href="/coaches/">See every coach's numbers <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -297,7 +348,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     <p class="body">Nobody types a run in. My watch, chest strap and scale feed the coaches on their own, and the coaches change my plan on their own. Every number on this site updates the same way.</p>
     <div class="facts">
       <div><b>10 min</b><span class="l">between checks for a new run</span></div>
-      <div><b data-k="sys_runs">440</b><span class="l">runs read, every lap</span></div>
+      <div><b data-k="sys_runs">440</b><span class="l">runs analyzed, lap by lap</span></div>
       <div><b data-k="sys_watch">74</b><span class="l">workouts sent to my watch</span></div>
     </div>
     <ol class="steps four">
@@ -308,7 +359,7 @@ footer p{margin:14px 0 0;line-height:1.5}
     </ol>
     <div class="split">
       <div class="side me"><p class="h">What I do</p><ul><li>Run the session on my watch</li><li>Text Bo my top set after a lift</li><li>Snap the grocery receipt</li><li>Sleep with the watch on</li><li>Say so when something hurts</li></ul></div>
-      <div class="side them"><p class="h">What the coaches do on their own</p><ul><li>Read every run, night and weigh-in</li><li>Move my paces, heart-rate zones and weights</li><li>Turn a hard day easy when the data says so</li><li>Build tomorrow's run, lift and meals</li><li>Write down every decision they make</li></ul></div>
+      <div class="side them"><p class="h">What the coaches do on their own</p><ul><li>Analyze every run, night of sleep and weigh-in</li><li>Move my paces, heart-rate zones and weights</li><li>Turn a hard day easy when the data says so</li><li>Build tomorrow's run, lift and meals</li><li>Write down every decision they make</li></ul></div>
     </div>
     <p class="rule"><b>A real one from this week:</b> Kai reset my heart-rate zones from the chest-strap data of my last race, and keeps re-figuring my easy pace from the last 28 days of runs. Nobody asked. The new ranges were on my watch the next morning.</p>
     <p class="rule"><b>The watch can only make a day easier.</b> A rough night turns a hard run into an easy one. A great morning never adds reps.</p>
@@ -328,17 +379,13 @@ footer p{margin:14px 0 0;line-height:1.5}
 
 <section id="club">
   <div class="wrap">
-    <p class="kicker">Come along</p>
-    <h2 class="display">Run it <span class="o">with me.</span></h2>
+    <p class="kicker">Your turn</p>
+    <h2 class="display">Want your own <span class="o">AI coaching team?</span></h2>
+    <p class="body">Picture the same team on your own watch. A running coach who builds your year race by race and moves your paces as you get fitter. A strength coach who fits lifting around your runs, a recovery coach who reads your sleep, and a nutrition coach who plans your food around the work. A head coach settles it when they disagree. It would run on the same research and on your own data, and make the calls for you every day.</p>
     <div class="joins">
-      <div class="joincard">
-        <h3>One session a week</h3>
-        <p>Every week the coaches pick one session and put it in the Strava club. Run your own version, wherever you live, at whatever pace you've got today. Some of those runs will end up in the show.</p>
-        <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
-      </div>
       <div class="joincard" id="waitlist">
-        <h3>Your own AI coaching team</h3>
-        <p>Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first.</p>
+        <h3>Get on the list</h3>
+        <p>Right now it coaches one guy. If it gets me to Chicago, you'll get to try it first. Tell me what you're training for.</p>
         <form class="join" id="join-bottom" data-thanks="thanks-bottom">
           <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
           <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
@@ -346,6 +393,11 @@ footer p{margin:14px 0 0;line-height:1.5}
           <button type="submit">Get on the list</button>
         </form>
         <div class="thanks" id="thanks-bottom">You're on the list. Reply to the first email with your race. I want to know.</div>
+      </div>
+      <div class="joincard">
+        <h3>Train with us now</h3>
+        <p>Every week the coaches pick one session and put it in the Strava club. Run your own version, wherever you live, at whatever pace you've got today. Some of those runs will end up in the show.</p>
+        <a class="btn" href="https://www.strava.com/clubs/tothefinish">Join the Strava club</a>
       </div>
     </div>
   </div>
@@ -361,6 +413,7 @@ footer p{margin:14px 0 0;line-height:1.5}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
+<script src="/assets/charts.js?v=a666946e"></script>
 <script src="/assets/join.js?v=a666946e"></script>
 <script src="/assets/motion.js?v=a666946e" defer></script>
 <script>
@@ -384,6 +437,32 @@ footer p{margin:14px 0 0;line-height:1.5}
       set('c_'+k+'_studies',x.studies);set('c_'+k+'_live',(x.live||0).toLocaleString('en-US'));});
     if(CO.all_studies)set('c_all',CO.all_studies);
     if(D.system){set('sys_runs',(D.system.runs_total||0).toLocaleString('en-US'));set('sys_watch',(D.system.watch_days||0).toLocaleString('en-US'));}
+    var T=window.TTF;
+    function take(id,h){var n=document.querySelector('[data-take="'+id+'"]');if(n)n.innerHTML=h;}
+    if(T&&D.vdot&&document.getElementById('p-vdot')){
+      var V=D.vdot;set('vdnow',V.now);
+      take('vdot','<b>'+V.now+'</b> now <span>\u00b7 '+V.best+' at my best \u00b7 sub-3 needs '+V.goal+'</span>');
+      var ln=V.line.map(function(p){return{x:day(p.date),y:p.vdot};}),last=ln[ln.length-1];
+      var best=V.races.reduce(function(a,b){return b.vdot>a.vdot?b:a;});
+      var rc=V.races.map(function(r){return{x:day(r.date),y:r.vdot,label:r===best?r.time+' half':'',keep:r===best,anchor:'start'};});
+      var LBL=[{below:true},{},{below:true,anchor:'start'}];
+      var tg=V.targets.map(function(t,i){var o=LBL[i];return{x:day(t.date),y:t.vdot,label:o?t.target:'',below:o&&o.below,anchor:o&&o.anchor};});
+      var x0=day(V.races[0].date<V.line[0].date?V.races[0].date:V.line[0].date),x1=day('2027-11-15');
+      T.timeline(document.getElementById('p-vdot'),{x0:x0,x1:x1,yLo:36,yHi:56,yStep:5,goal:{y:V.goal,label:'Sub-3 needs '+V.goal},
+        xTicks:[2025,2026,2027].map(function(y){return{x:new Date(y,0,1,12),label:String(y)};}),
+        layers:[{type:'line',data:ln,color:'#8a837c',width:1.5},{type:'dots',data:rc},{type:'rings',data:tg,path:true,from:last},
+                {type:'now',x:last.x,y:last.y,label:V.now+' now'}],
+        label:'Race fitness score: best '+V.best+', now '+V.now+', sub-3 needs '+V.goal});
+    }
+    if(T&&D.year&&document.getElementById('p-miles')){
+      var W=(D.before||[]).map(function(w){return{monday:w.monday,done:w.done,plan:null};}).concat(D.year.map(function(w){return{monday:w.monday,done:w.done,plan:w.plan,current:w.current};}));
+      var seenM={},MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var bars=W.map(function(w){var x=day(w.monday),mk=x.getFullYear()*12+x.getMonth(),lab='';if(!seenM[mk]){seenM[mk]=1;lab=MO[x.getMonth()];}
+        return{label:lab,v:w.done||0,ghost:w.plan||0,hot:!!w.current};});
+      var cw2=D.year.filter(function(w){return w.current;})[0],peak=Math.max.apply(null,D.year.map(function(w){return w.plan;}));
+      take('miles',cw2?'<b>'+(cw2.done||0)+'</b> of '+cw2.plan+' miles this week <span>\u00b7 '+peak+' at the peak</span>':peak+' miles a week at the peak');
+      T.bars(document.getElementById('p-miles'),{data:bars,thin:true,label:'Weekly miles, planned and run; peak '+peak});
+    }
   }).catch(function(){});
 })();
 </script>

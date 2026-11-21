@@ -145,5 +145,52 @@
     });
   }
 
-  window.TTF = { line: line, bars: bars, hbars: hbars, C: C };
+
+  /* timeline: several layers on one date axis. opts: x0, x1 (Dates), yLo, yHi, yStep, yFmt, xTicks, goal {y,label},
+     layers: [{type:'line', data:[{x,y}], color, width} | {type:'dots', data:[{x,y,label}], color} |
+              {type:'rings', data:[{x,y,label}], path:true} | {type:'now', x, y, label}], label */
+  function timeline(host, o) {
+    redraw(host, function () {
+      var g = svgFor(host, o.h || (host.clientWidth < 520 ? 240 : 300)), s = g.s, w = g.w, h = g.h;
+      var L = g.small ? 34 : 44, R = g.small ? 14 : 24, T = 20, B = 28, x0 = +o.x0, x1 = +o.x1;
+      function X(v) { return L + (+v - x0) / ((x1 - x0) || 1) * (w - L - R); }
+      function Y(v) { return T + (1 - (v - o.yLo) / (o.yHi - o.yLo)) * (h - T - B); }
+      for (var t = Math.ceil(o.yLo / o.yStep) * o.yStep; t <= o.yHi; t += o.yStep) {
+        el(s, 'line', { x1: L, x2: w - R, y1: Y(t), y2: Y(t), stroke: C.grid });
+        text(s, L - 8, Y(t) + 4, o.yFmt ? o.yFmt(t) : t, { anchor: 'end' });
+      }
+      (o.xTicks || []).forEach(function (t) { text(s, X(t.x), h - 8, t.label, { anchor: 'middle' }); });
+      if (o.goal) {
+        el(s, 'line', { x1: L, x2: w - R, y1: Y(o.goal.y), y2: Y(o.goal.y), stroke: C.white, 'stroke-width': 1.5, 'stroke-dasharray': '6 6', opacity: 0.85 });
+        text(s, L + 6, Y(o.goal.y) - 8, o.goal.label, { fill: C.white, weight: 700 });
+      }
+      o.layers.forEach(function (ly) {
+        if (ly.type === 'line') {
+          el(s, 'path', { d: ly.data.map(function (p, i) { return (i ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' '),
+            fill: 'none', stroke: ly.color || C.axis, 'stroke-width': ly.width || 1.5, 'stroke-linejoin': 'round', opacity: ly.opacity || 1 });
+        } else if (ly.type === 'rings') {
+          if (ly.path && ly.from) {
+            var pts = [ly.from].concat(ly.data);
+            el(s, 'path', { d: pts.map(function (p, i) { return (i ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' '),
+              fill: 'none', stroke: C.orange, 'stroke-width': 1.5, 'stroke-dasharray': '2 6', 'stroke-linecap': 'round', opacity: 0.8 });
+          }
+          ly.data.forEach(function (p) {
+            el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.ink, stroke: C.orange, 'stroke-width': 2.5 });
+            if (p.label && (!g.small || p.keep)) text(s, X(p.x) + (p.anchor === 'start' ? 10 : 0), Y(p.y) + (p.anchor === 'start' ? 4 : (p.below ? 22 : -13)), p.label, { anchor: p.anchor || 'middle', fill: C.orange, weight: 700, size: 12 });
+          });
+        } else if (ly.type === 'dots') {
+          ly.data.forEach(function (p) {
+            el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.white, stroke: C.ink, 'stroke-width': 2 });
+            if (p.label && (!g.small || p.keep)) text(s, X(p.x) + (p.anchor === 'start' ? 10 : 0), Y(p.y) + (p.anchor === 'start' ? 4 : (p.below ? 22 : -13)), p.label, { anchor: p.anchor || 'middle', fill: C.white, weight: 700, size: 12 });
+          });
+        } else if (ly.type === 'now') {
+          el(s, 'circle', { cx: X(ly.x), cy: Y(ly.y), r: 6.5, fill: C.orange, stroke: C.ink, 'stroke-width': 2 });
+          text(s, X(ly.x), Y(ly.y) + 24, ly.label, { anchor: 'middle', fill: C.white, weight: 800, size: g.small ? 15 : 17, display: true });
+        }
+      });
+      host.setAttribute('aria-label', o.label || '');
+    });
+  }
+
+  window.TTF = { line: line, bars: bars, hbars: hbars, timeline: timeline, C: C };
 })();
