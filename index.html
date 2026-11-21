@@ -96,8 +96,6 @@ form.join button:hover{filter:brightness(1.06)}
 
 /* episode */
 .episode{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
-.soon{aspect-ratio:9/16;width:min(100%,280px);margin:0 auto;border-radius:16px;background:var(--paper) url(assets/lineup.jpg) center/contain no-repeat;position:relative;display:block}
-.soon span{position:absolute;left:16px;right:16px;bottom:16px;background:var(--ink);color:var(--white);border-radius:10px;padding:12px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;text-align:center}
 
 /* join */
 .joins{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:40px;align-items:stretch}
@@ -178,11 +176,30 @@ footer p{margin:14px 0 0;line-height:1.5}
 .teamline a{color:var(--orange)}
 @media (max-width:1000px){.rcards{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.rcards{grid-template-columns:1fr}.viz{padding:18px 16px 14px}.viz .take{font-size:24px}}
+/* audit fixes (2026-11-21): two-column why, dark episode card, one radius per kind, 44 px links, sticky join bar */
+.wrap.cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.wrap.cols p.body:first-child{margin-top:8px}
+.epcard{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:28px;max-width:360px;justify-self:end;width:100%}
+.epcard .ek{margin:0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:15px;color:var(--orange)}
+.epcard .ed{margin:0;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:84px;line-height:.9}
+.epcard .es{margin:14px 0 22px;font-size:15px;color:var(--muted)}
+.viz,.joincard,.coach,.steps li,.side,.rc,.rule,.facts div,.thanks{border-radius:14px}
+form.join input,form.join button,.btn,.nav a.navcta{border-radius:10px}
+a.more{display:inline-flex;align-items:center;min-height:44px}
+footer .links a{display:inline-flex;align-items:center;min-height:44px}
+.joinbar{position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(18,16,14,.94);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateY(-100%);transition:transform .25s}
+.joinbar.on{transform:none}
+.joinbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.joinbar .btn{background:var(--orange);color:var(--ink);padding:10px 16px;font-size:17px}
+@media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
+@media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=a666946e">
 <link rel="stylesheet" href="/assets/motion.css?v=a666946e">
 </head>
 <body>
+
+<div class="joinbar" id="joinbar" aria-hidden="true"><div class="wrap"><a class="mark" href="/" tabindex="-1">TO THE <span class="o">FINISH.</span></a><a class="btn" href="#club" tabindex="-1">Get on the list</a></div></div>
 
 <header class="top">
   <div class="wrap">
@@ -210,11 +227,10 @@ footer p{margin:14px 0 0;line-height:1.5}
 </header>
 
 <section class="why" id="why">
-  <div class="wrap">
-    <p class="kicker">Why I'm doing this</p>
-    <h2 class="display">I'll be 57 when she <span class="o">starts high school.</span></h2>
-    <p class="body">My son was born a few weeks after I turned 41. My daughter came this April. By the time they're old enough to race me up a hill, I'll be in my mid-fifties, and I'd like to still win a few of those.</p>
-    <p class="body">The other reason is quieter. I want them to grow up watching their dad go after something he wasn't built for, in the dark, on the mornings he'd rather not. Somewhere in this year they'll see me come up short. I want them to see the next morning too.</p>
+  <div class="wrap cols">
+    <div><p class="kicker">Why I'm doing this</p>
+    <h2 class="display">I'll be 57 when she <span class="o">starts high school.</span></h2></div>
+    <div><p class="body">My son was born a few weeks after I turned 41. My daughter came this April. By the time they're old enough to race me up a hill, I'll be in my mid-fifties, and I'd like to still win a few of those.</p><p class="body">The other reason is quieter. I want them to grow up watching their dad go after something he wasn't built for, in the dark, on the mornings he'd rather not. Somewhere in this year they'll see me come up short. I want them to see the next morning too.</p></div>
   </div>
 </section>
 
@@ -373,7 +389,11 @@ footer p{margin:14px 0 0;line-height:1.5}
       <h2 class="display">Can a 258 lb dad run a <span class="o">sub-3 marathon?</span></h2>
       <p class="body">Episode 1 is out Sunday, November 22, on <a href="https://www.youtube.com/@tothefinishai">YouTube</a>, <a href="https://www.instagram.com/tothefinishai/">Instagram</a>, <a href="https://www.tiktok.com/@tothefinishai">TikTok</a> and <a href="https://x.com/tothefinishai">X</a>. It's 4:58 in the morning, I'm on a bench in the garage, and I've just typed the question in that headline into my phone. The times in it come straight off my watch.</p>
     </div>
-    <div class="soon" role="img" aria-label="Episode 1 coming Sunday, November 22"><span>Sun, Nov 22</span></div>
+    <div class="epcard">
+      <p class="ed">Sun<br>Nov 22</p>
+      <p class="es">On YouTube, Instagram, TikTok and X</p>
+      <a class="btn" href="https://www.youtube.com/@tothefinishai">Watch on YouTube</a>
+    </div>
   </div>
 </section>
 
@@ -465,6 +485,14 @@ footer p{margin:14px 0 0;line-height:1.5}
     }
   }).catch(function(){});
 })();
+</script>
+<script>
+/* join bar: shows after the hero form scrolls away, hides at the sign-up section */
+(function(){var bar=document.getElementById('joinbar'),top=document.getElementById('join-top'),club=document.getElementById('club');
+  function f(){var past=top.getBoundingClientRect().bottom<0,at=club.getBoundingClientRect().top<innerHeight*0.8,on=past&&!at;
+    bar.classList.toggle('on',on);bar.setAttribute('aria-hidden',on?'false':'true');
+    [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
+  addEventListener('scroll',f,{passive:true});f();})();
 </script>
 </body>
 </html>
