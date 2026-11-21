@@ -357,9 +357,9 @@ footer p{margin:14px 0 0;line-height:1.5}
       <div class="step"><div class="n">5</div><h3>Send</h3><p>The new workouts go to the watch, with the pace or heart-rate range on every step.</p></div>
     </div>
 
-    <h3 class="sub">Decisions, logged</h3>
-    <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 360" role="img" aria-label="Logged coaching decisions by week"></svg></div>
-    <p class="note">Each one is a dated line in the coaches' logs: a pace target that moved, a run rewritten, a zone reset, a plan change. Orange are Kai's own automatic calls from the data. White are head-coach decisions across the plan.</p>
+    <h3 class="sub">Who made the calls</h3>
+    <div class="chart" style="margin-top:12px"><svg id="c-dec" viewBox="0 0 1000 400" role="img" aria-label="Logged coaching decisions by coach"></svg></div>
+    <p class="note">Every call is a dated line in the coaches' logs: a pace target moved, a run rewritten, a zone reset, a plan change. Orange are Kai's automatic calls, made from my watch data with nobody asking. White are a coach's own calls. Gray are the times I overruled one.</p>
 
     <h3 class="sub">My heart-rate zones, set by Kai from my own race</h3>
     <div class="chart" style="margin-top:12px"><svg id="c-zones" viewBox="0 0 1000 200" role="img" aria-label="Heart-rate zones on my watch"></svg></div>
@@ -581,16 +581,16 @@ footer p{margin:14px 0 0;line-height:1.5}
       [['Runs read',S.runs_total],['Decisions logged',S.decisions_total],['Workouts sent to watch',S.watch_days],['Hilly laps evened out',S.hilly_laps]].forEach(function(t){
         var v=typeof t[1]==='number'?t[1].toLocaleString('en-US'):t[1];
         var c=document.createElement('div'); c.className='race'; c.innerHTML='<div class="k">'+t[0]+'</div><div class="v o">'+v+'</div>'; st.appendChild(c);});
-      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,W=N?600:1000,H=N?440:360,L=N?80:60,R=30,T=40,B=50,P=S.decisions;
-      s.setAttribute('viewBox','0 0 '+W+' '+H);
-      if(P.length){var mx=Math.max.apply(null,P.map(function(p){return p.kai+p.rook;}))||1,top=Math.ceil(mx/10)*10,bw=(W-L-R)/P.length;
-        function Y(v){return T+(1-v/top)*(H-T-B);}
-        [0,top/2,top].forEach(function(v){var y=Y(v);el(s,'line',{x1:L,x2:W-R,y1:y,y2:y,stroke:GRID});el(s,'text',{x:L-10,y:y+6,'text-anchor':'end',class:'m','font-size':17*F},Math.round(v));});
-        P.forEach(function(p,i){var x=L+i*bw+bw*0.18,w=bw*0.64;
-          if(p.kai) el(s,'rect',{x:x,y:Y(p.kai),width:w,height:H-B-Y(p.kai),fill:OR,rx:3});
-          if(p.rook) el(s,'rect',{x:x,y:Y(p.kai+p.rook),width:w,height:Y(p.kai)-Y(p.kai+p.rook),fill:WH,rx:3});
-          el(s,'text',{x:x+w/2,y:H-16,'text-anchor':'middle',class:'m','font-size':N?22:16},md(p.monday));});
-        el(s,'text',{x:L,y:T-14,class:'m','font-size':15*F},N?'DECISIONS A WEEK':'LOGGED DECISIONS A WEEK · KAI AUTOMATIC (ORANGE) · HEAD COACH (WHITE)');}
+      var s=document.getElementById('c-dec'),N=s.clientWidth<600,F=N?1.7:1,C=S.calls||[];
+      if(C.length){var W=N?600:1000,rh=N?72:56,T=N?70:56,H=T+C.length*rh+20,L=N?120:110,R=N?70:70;
+        s.setAttribute('viewBox','0 0 '+W+' '+H);
+        var tot=C.map(function(c){return c.auto+c.called+c.yours;}),mx=Math.max.apply(null,tot)||1,sc=(W-L-R)/mx,bh=rh*0.56;
+        C.forEach(function(c,i){var y=T+i*rh,x=L;
+          el(s,'text',{x:L-16,y:y+bh/2+8,'text-anchor':'end',class:'t','font-size':N?30:24,'font-weight':700},c.coach);
+          [['auto',OR],['called',WH],['yours',MUT]].forEach(function(k){var w=c[k[0]]*sc;if(w>0){el(s,'rect',{x:x,y:y,width:Math.max(w-2,2),height:bh,fill:k[1],rx:3});x+=w;}});
+          el(s,'text',{x:x+12,y:y+bh/2+8,class:'t','font-size':N?28:22},tot[i]);});
+        var total=tot.reduce(function(a,b){return a+b;},0);
+        el(s,'text',{x:L-16,y:N?34:28,class:'m','font-size':15*F},N?total+' CALLS SINCE '+md(S.calls_since).toUpperCase():total+' CALLS SINCE '+md(S.calls_since).toUpperCase()+' · AUTOMATIC (ORANGE) · COACH (WHITE) · MY CALL (GRAY)');}
       var z=document.getElementById('c-zones'),Zf=S.zones,Zm=S.zones_max;
       if(Zf&&Zm){var Wz=N?600:1000,Hz=N?260:200; z.setAttribute('viewBox','0 0 '+Wz+' '+Hz);
         var lo=Zf[0],sc2=(Wz-40)/(Zm-lo),names=['WARM-UP','EASY','STEADY','THRESHOLD','5K+'],fills=['#4a433c','#6b625a',MUT,'#ffa36b',OR];
