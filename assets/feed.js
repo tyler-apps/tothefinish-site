@@ -53,11 +53,11 @@
         }
         if (c.k === 'hr' && R.cap) {
           K.el(s, 'line', { x1: L, x2: w - Rr, y1: Y(R.cap), y2: Y(R.cap), stroke: C.white, 'stroke-width': 1, 'stroke-dasharray': '4 5', opacity: 0.7 });
-          if (!small) K.text(s, w - Rr, Y(R.cap) - 5, 'easy cap ' + R.cap, { anchor: 'end', fill: C.white, size: 12, weight: 600 });
+          if (!small) K.text(s, w - Rr, Y(R.cap) - 5, 'easy days stay under ' + R.cap, { anchor: 'end', fill: C.white, size: 12, weight: 600 });
         }
         K.el(s, 'path', { d: path(pts), fill: 'none', stroke: ci ? C.soft : C.orange, 'stroke-width': ci ? 1.4 : 2.2, 'stroke-linejoin': 'round' });
         if (c.k === 'hr' && R.cap) K.el(s, 'path', { d: path(c.v.map(function (q, i) { return q != null && q > R.cap ? [X(i), Y(q)] : null; })), fill: 'none', stroke: RED, 'stroke-width': 4, 'stroke-linecap': 'round' });
-        K.text(s, small ? 8 : 0, small ? y + 14 : y + h / 2 + (ci ? 0 : -6), c.label + (small && !ci && R.cap ? ', easy cap ' + R.cap : ''), { fill: C.axis, size: 13, weight: 600 });
+        K.text(s, small ? 8 : 0, small ? y + 14 : y + h / 2 + (ci ? 0 : -6), c.label + (small && !ci && R.cap ? ', easy under ' + R.cap : ''), { fill: C.axis, size: 13, weight: 600 });
         var val = K.text(s, w, small ? y + 15 : y + h / 2 + (ci ? 6 : 8), '', { anchor: 'end', fill: ci ? C.white : C.orange, weight: 800, size: ci ? (small ? 18 : 21) : (small ? 24 : 32), display: true });
         if (!small) K.text(s, 0, y + h / 2 + (ci ? 16 : 10), c.unit, { size: 12, fill: '#7a736c' });
         var dot = K.el(s, 'circle', { r: ci ? 3.5 : 5, fill: ci ? C.white : C.orange, stroke: C.ink, 'stroke-width': 1.5 });

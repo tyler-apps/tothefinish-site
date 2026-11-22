@@ -274,13 +274,13 @@ def data_section(feed):
             cl = f' {r["climbs"]} climb{"s" if r["climbs"] != 1 else ""}' + (f', {r["known"]} of them I\'d run before.' if r.get("known") else ".")
         steps.append(("Kai cuts it up.", f'{r["laps"]} laps.{cl}'))
         if r.get("cap"):
-            steps.append(("He checks the cap.", f'{ms(r["over"])} over {r["cap"]}, the top of an easy day.' if r.get("over") else f'Not a second over {r["cap"]}, the top of an easy day.'))
+            steps.append(("He checks my heart rate.", f'An easy day stays under {r["cap"]} beats a minute. I was over it for {r["over"]} seconds.' if r.get("over") else f'An easy day stays under {r["cap"]} beats a minute. I never went over.'))
         if r.get("over") and r.get("cap") == 120:
-            steps.append(("Kai's call.", "When it reads one-twenty on that climb, he walks."))
+            steps.append(("Kai's call.", "When his heart rate reads one-twenty on that climb, he walks."))
         steps.append(("It's on my watch.", "The next run is there before breakfast. I still have to run it."))
     path = "".join(f"<li><b>{a}</b><span>{b}</span></li>" for a, b in steps)
     every = round(r["span"] / len(r["channels"][0]["v"])) if r else 0
-    capline = f' The dashed line is that day\'s easy cap of {r["cap"]}, and red is over it.' if r.get("cap") else ""
+    capline = f' On the heart-rate line, the dashes mark {r["cap"]} beats a minute, the most Kai wants on an easy day. Red is over it.' if r.get("cap") else ""
     reps = f' The {len(r["reps"])} pale stripes are the short hard efforts.' if r.get("reps") else ""
     return f"""
 <section class="feed" id="data">
