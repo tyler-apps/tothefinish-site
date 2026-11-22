@@ -145,7 +145,7 @@ def main():
     <h2 class="display sec">Under 3 hours, <span class="o">at 44.</span></h2>
     <p class="body">I'll be 44 on race day, and 3:00:00 is exactly Chicago's qualifying time for men 40 to 44. {esc(in_line)}</p>
     <div class="gapline"><div><span class="k">Watch says today</span><b>{esc(prog["now"]["marathon"])}</b></div><div class="arrow">to</div><div><span class="k">Goal</span><b class="o">{esc(prog["goal"])}</b></div></div>
-    <p class="body">That's {gap_min} minutes to find in {weeks} weeks. The first number is what my Garmin thinks I'd run today. Kai, my AI running coach, has me at {now_plan} miles a week now and building to {peak} in {peak_month}, with hills at Mission Trails every week. Some weeks I'll be ahead of it. You'll see the other weeks too.</p>
+    <p class="body">That's {gap_min} minutes to find in {weeks} weeks. The first number is what my Garmin thinks I'd run today. Kai, the running coach in the show, has me at {now_plan} miles a week now and building to {peak} in {peak_month}, with hills at Mission Trails every week. Some weeks I'll be ahead of it. You'll see the other weeks too.</p>
     <div class="rgrid">{stop_cards}<div class="race final"><div class="d">{esc(nice(race_day))}</div><h3>Chicago Marathon</h3><div class="k">Goal</div><div class="v o">{esc(prog["goal"])}</div></div></div>
     <p class="note">Garmin prediction updated {updated:%b} {updated.day}, {updated.year}. <a href="/#progress">See the whole chart</a>, <a href="/races/">my race reports</a> or <a href="/san-diego-races/">the San Diego races I'm picking from</a>.</p>
   </div>

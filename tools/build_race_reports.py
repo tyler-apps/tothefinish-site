@@ -89,7 +89,7 @@ def report_page(r, nxt, prog):
     title = f"{event}, {nice(day)}: {res['time']} race report | To The Finish"
     desc = (f"My {short(r['name'])} on {nice(day)}: {res['time']} on my Garmin"
             + (f" against Kai's target of {target}" if target else "")
-            + ". Mile splits, heart rate, the course and what my AI running coach changed after.")
+            + ". Mile splits, heart rate, the course and what the coaches changed after.")
     if "Chicago" in r["name"]:
         h1 = 'Chicago <span class="o">Marathon.</span>'
     else:
@@ -97,7 +97,7 @@ def report_page(r, nxt, prog):
 
     # structured data: the article, about the race (a SportsEvent only when I ran a named race with a city)
     art = {"@context": "https://schema.org", "@type": "Article", "headline": title[:110], "description": desc,
-           "author": {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/ai-running-coach/"},
+           "author": {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/"},
            "datePublished": f'{r["date"]}T18:00:00-08:00', "dateModified": f'{prog["updated"]}T18:00:00-08:00',
            "publisher": {"@type": "Organization", "name": "To The Finish", "url": SITE + "/",
                          "logo": {"@type": "ImageObject", "url": SITE + "/assets/logo.png"}},

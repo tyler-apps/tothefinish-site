@@ -54,7 +54,7 @@
     ]
    },
    {
-    "h2": "How the AI coaching works",
+    "h2": "How the coaches work",
     "paras": [
      "Kai, the running coach, builds every week from the marathon research and my Garmin data. Speed comes first, for a 5K and then a 10K, before the half marathon and Chicago. The plan climbs from about {week_plan_miles} miles a week now to about 90 in August 2027, with hills every week.",
      "Rook, the head coach, settles it when the others want different things from the same week. Pain I report goes on top, then the race. Every change gets written down with the rule behind it."
@@ -70,13 +70,13 @@
  },
  {
   "slug": "ai-coach-for-running-and-lifting",
-  "question": "Is there an AI coach for running and lifting together?",
-  "title": "AI coach for running and lifting together: how mine keeps them from colliding",
-  "description": "My AI coaching team plans running and strength together. Heavy leg work goes on the hard-run days, hours after the run, and never the day before a hard run or the long run.",
+  "question": "How do my AI coaches fit running and lifting together?",
+  "title": "Running and lifting in one week: how my AI coaches keep them from colliding",
+  "description": "Two of my five AI coaches share one week: one has the runs, one has the lifts. Heavy leg work goes on the hard-run days, hours after the run, and never the day before a hard run or the long run.",
   "updated": "2026-11-20",
   "answer": [
-   "Mine is a team. Kai plans the runs, Bo plans three short lifts a week, and Rook, the head coach, decides when they collide. The rule that settles most fights: heavy leg work goes on the hard-run days, hours after the run, never the day before one.",
-   "I'm using it to train for a sub-3 marathon at Chicago on October 10, 2027. This is what my week actually looks like right now."
+   "Kai plans the runs, Bo plans three short lifts a week, and Rook, the head coach, decides when they collide. The rule that settles most fights: heavy leg work goes on the hard-run days, hours after the run, never the day before one.",
+   "I'm training for a sub-3 marathon at Chicago on October 10, 2027. This is what my week actually looks like right now."
   ],
   "sections": [
    {
@@ -135,17 +135,17 @@
     ]
    },
    {
-    "h2": "Who this is for",
+    "h2": "Whose week this is",
     "paras": [
-     "It coaches one runner: me. Every week of it goes into the Sunday letter. It isn't medical advice, and the coaches are AI characters."
+     "It's one dad's week, drawn as a series. Every week of it goes into the Sunday letter. It isn't medical advice, and the coaches are AI characters."
     ]
    }
   ]
  },
  {
-  "slug": "ai-running-coach-for-heavier-runners",
-  "question": "Is there an AI running coach for heavier runners?",
-  "title": "AI running coach for heavier runners: what mine watches for a 258 lb start",
+  "slug": "training-for-a-marathon-from-258-lb",
+  "question": "What do my AI coaches watch when a runner starts at 258 lb?",
+  "title": "Training for a marathon from 258 lb: what my AI coaches watch",
   "description": "I started training for a sub-3 marathon at 258 lb. Here is what my AI coaches watch for me: easy runs by heart rate, a foot check every morning, and eating enough to run.",
   "updated": "2026-11-20",
   "answer": [

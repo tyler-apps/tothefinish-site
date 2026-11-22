@@ -4,7 +4,7 @@
 Tyler 2026-11-18: "Should we go for an SEO play on the website" -> "Build". The plan
 (Brain: brain/methods/social/growth-playbook.md + brain/social/automation.md): one page per
 episode (the video, a short write-up in Tyler's voice, one search phrase, the sign-up form,
-VideoObject structured data), an episodes index, the "AI running coach" page, sitemap.xml and
+VideoObject structured data), an episodes index, the "how the coaches decide" page, sitemap.xml and
 robots.txt. The home page stays hand-edited; this script never touches index.html.
 
     python3 tools/build_pages.py          # rebuild everything from episodes/episodes.json
@@ -155,14 +155,14 @@ def ld(obj):
 
 def episode_page(e):
     path = f"/episodes/{e['slug']}/"
-    title = f"Episode {e['number']}: {e['title']} | To The Finish, the AI running coach show"
+    title = f"Episode {e['number']}: {e['title']} | To The Finish, the animated series"
     thumb = f"https://i.ytimg.com/vi/{e['youtube_id']}/maxresdefault.jpg"
     video = {
         "@context": "https://schema.org", "@type": "VideoObject",
         "name": f"To The Finish, Episode {e['number']}: {e['title']}",
         "description": e["description"], "thumbnailUrl": [thumb],
         "uploadDate": e["date"], "embedUrl": f"https://www.youtube.com/embed/{e['youtube_id']}",
-        "partOfSeries": {"@type": "CreativeWorkSeries", "name": "To The Finish", "alternateName": "To The Finish AI running coach", "url": SITE + "/"},
+        "partOfSeries": {"@type": "CreativeWorkSeries", "name": "To The Finish", "alternateName": "To The Finish, the animated series", "url": SITE + "/"},
     }
     if e.get("duration"):
         video["duration"] = e["duration"]
@@ -196,7 +196,7 @@ def episode_page(e):
 def episodes_index(eps):
     path = "/episodes/"
     desc = ("A dad of two who started at 258 lb hired five AI coaches to get him under three hours in the marathon, and they "
-            "argue over every run. Every episode of To The Finish, the AI running coach show, with the real numbers from his Garmin.")
+            "argue over every run. Every episode of To The Finish, the animated series, with the real numbers from his Garmin.")
     if eps:
         items = "".join(
             f'<li><a href="/episodes/{e["slug"]}/"><span class="n">Episode {e["number"]} · '
@@ -207,7 +207,7 @@ def episodes_index(eps):
         listing = '<p class="body">Episode 1 comes out Sunday, November 22. It&#x27;s the week the coaches got hired, and the first time they disagreed about me.</p>'
     series = {"@context": "https://schema.org", "@type": "CreativeWorkSeries", "name": "To The Finish",
               "url": SITE + "/", "description": desc}
-    return head("Episodes | To The Finish, the AI running coach show", desc, path, ld(series)) + f"""    <div class="page">
+    return head("Episodes | To The Finish, the animated series", desc, path, ld(series)) + f"""    <div class="page">
       <p class="kicker">Season 1: The 5K</p>
       <h1 class="display">The <span class="o">episodes.</span></h1>
       <p class="lead">Two episodes a month, on Sundays, from the first week of training to the start line in Chicago. Each one comes from the weeks that really happened, with the times straight off my watch, including the runs that went sideways.</p>
@@ -225,15 +225,15 @@ def episodes_index(eps):
 
 
 def coach_page(qs=()):
-    path = "/ai-running-coach/"
-    desc = ("My AI running coach is a team of five: running, strength, nutrition, recovery and a head coach who settles "
-            "it when they disagree. It reads my Garmin data and plans my week toward a sub-3 marathon.")
-    org = {"@context": "https://schema.org", "@type": "WebPage", "name": "AI running coach | To The Finish",
+    path = "/how-the-coaches-decide/"
+    desc = ("Five AI coaches argue over one dad's training: running, strength, nutrition, recovery and a head coach who settles "
+            "it when they disagree. How the cast of To The Finish decides my week on the way to a sub-3 marathon.")
+    org = {"@context": "https://schema.org", "@type": "WebPage", "name": "How the coaches decide | To The Finish",
            "url": SITE + path, "description": desc}
-    return head("AI Running Coach: five coaches, one sub-3 attempt | To The Finish", desc, path, ld(org)) + """    <div class="page">
+    return head("How the coaches decide | To The Finish, the animated series", desc, path, ld(org)) + """    <div class="page">
       <p class="kicker">The coaches</p>
-      <h1 class="display">My AI running <span class="o">coach.</span></h1>
-      <p class="lead">My AI running coach is a team of five, and they argue. Right now they coach one runner: me. I started at 258 lb and I'm training for a sub-3 marathon at Chicago on October 10, 2027.</p>
+      <h1 class="display">How the coaches <span class="o">decide.</span></h1>
+      <p class="lead">Five AI coaches plan my training, and they argue about it. They have one runner, and it's me. I started at 258 lb and I'm training for a sub-3 marathon at Chicago on October 10, 2027.</p>
     </div>
   </div>
 </header>
@@ -310,7 +310,7 @@ def notfound_page():
 """ + FOOT
 
 
-AUTHOR = {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/ai-running-coach/"}
+AUTHOR = {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/"}
 
 
 def question_page(q, all_q):
@@ -333,7 +333,7 @@ def question_page(q, all_q):
             out += f'<div class="tablewrap"><table class="qt"><thead><tr>{th}</tr></thead><tbody>{tb}</tbody></table></div>'
         out += "".join(f"<p>{esc(p)}</p>" for p in sec.get("paras", []))
     others = "".join(f'<li><a href="/{o["slug"]}/">{esc(o["question"])}</a></li>' for o in all_q if o["slug"] != q["slug"])
-    return head(q["title"] + " | To The Finish AI running coach", q["description"], path, ld(art)) + f"""    <div class="page">
+    return head(q["title"] + " | To The Finish", q["description"], path, ld(art)) + f"""    <div class="page">
       <p class="kicker">Updated {upd}</p>
       <h1 class="display" style="font-size:clamp(40px,6.5vw,76px)">{esc(q['question'])}</h1>
     </div>
@@ -348,7 +348,7 @@ def question_page(q, all_q):
   <div class="wrap">
     <p class="kicker">The Sunday letter</p>
     {FORM.format(id='q', button='Get the Sunday letter')}
-    <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/ai-running-coach/">How my AI running coach works</a></li><li><a href="/chicago-marathon-2027/">Chicago Marathon 2027: dates, lottery and qualifying times</a></li><li><a href="/san-diego-races/">Upcoming San Diego races</a></li></ul></div>
+    <div class="prose" style="margin-top:26px"><h2>More questions</h2><ul class="qlist">{others}<li><a href="/how-the-coaches-decide/">How the coaches decide</a></li><li><a href="/chicago-marathon-2027/">Chicago Marathon 2027: dates, lottery and qualifying times</a></li><li><a href="/san-diego-races/">Upcoming San Diego races</a></li></ul></div>
   </div>
 </section>
 """ + FOOT
@@ -429,12 +429,24 @@ def live_questions(qs):
     sp.write_text(json.dumps(state, indent=1) + "\n")
     return out
 
+# Old addresses (2026-11-22, Tyler: "Yes lean into the change"): the show is an animated series, so the pages named
+# for a running coach moved. The old address forwards to the new one.
+MOVED = {"ai-running-coach": "/how-the-coaches-decide/",
+         "ai-running-coach-for-heavier-runners": "/training-for-a-marathon-from-258-lb/"}
+
+
+def moved_page(new):
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>To The Finish</title>'
+            f'<link rel="canonical" href="{SITE}{new}"><meta http-equiv="refresh" content="0; url={new}">'
+            f'</head><body><p><a href="{new}">This page moved.</a></p></body></html>\n')
+
+
 def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text())
     eps.sort(key=lambda e: e["number"])
     data_date = json.loads((ROOT / "data" / "progress.json").read_text())["updated"]
     urls = [("/", "weekly", data_date), ("/episodes/", "weekly", max([e["date"] for e in eps] or ["2026-11-18"])),
-            ("/ai-running-coach/", "monthly", "2026-11-18"), ("/coaches/", "weekly", data_date)]
+            ("/how-the-coaches-decide/", "monthly", "2026-11-22"), ("/coaches/", "weekly", data_date)]
     if (ROOT / "data" / "races.json").exists():
         urls.append(("/san-diego-races/", "weekly", json.loads((ROOT / "data" / "races.json").read_text())["updated"]))
     urls.append(("/chicago-marathon-2027/", "weekly", data_date))
@@ -453,9 +465,13 @@ def main():
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(question_page(q, qs))
         urls.append((f"/{q['slug']}/", "monthly", q["updated"]))
-    d = ROOT / "ai-running-coach"
+    d = ROOT / "how-the-coaches-decide"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(coach_page(qs))
+    for old, new in MOVED.items():
+        d = ROOT / old
+        d.mkdir(exist_ok=True)
+        (d / "index.html").write_text(moved_page(new))
     d = ROOT / "privacy"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(privacy_page())
@@ -470,7 +486,7 @@ def main():
     sm.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sm) + "\n")
     (ROOT / "robots.txt").write_text(ROBOTS.format(site=SITE))
-    print(f"built {len(eps)} episode page(s), episodes index, ai-running-coach, sitemap ({len(urls)} urls), robots.txt")
+    print(f"built {len(eps)} episode page(s), episodes index, how-the-coaches-decide, sitemap ({len(urls)} urls), robots.txt")
 
 
 if __name__ == "__main__":

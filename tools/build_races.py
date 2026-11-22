@@ -234,7 +234,7 @@ def main():
   <div class="wrap">
     <p class="kicker">Where I'm racing</p>
     <h2 class="display">My race <span class="o">calendar.</span></h2>
-    <p class="body">My AI running coach, Kai, set the dates on the way to Chicago. I pick the races that fill them.</p>
+    <p class="body">Kai, the running coach in the show, set the dates on the way to Chicago. I pick the races that fill them.</p>
     <div class="rgrid">{"".join(cards)}</div>
     <p class="body" style="margin-top:22px"><a href="/races/">My race reports and Kai's targets</a></p>
   </div>
