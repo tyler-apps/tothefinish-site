@@ -33,7 +33,7 @@ def asset_ver():
     """Short hash of the shared CSS and JS, added as ?v= so browsers fetch a changed file at once."""
     import hashlib
     h = hashlib.sha1()
-    for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js", "charts.js", "coaches-page.js",
+    for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js", "charts.js", "coaches-page.js", "feed.js",
               "episode-live.js"):
         p = ROOT / "assets" / f
         if p.exists():

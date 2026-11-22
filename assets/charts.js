@@ -208,5 +208,6 @@
     });
   }
 
-  window.TTF = { line: line, bars: bars, hbars: hbars, timeline: timeline, C: C };
+  window.TTF = { line: line, bars: bars, hbars: hbars, timeline: timeline, C: C,
+    kit: { el: el, svgFor: svgFor, text: text, niceTicks: niceTicks, xLabels: xLabels, redraw: redraw } };   /* feed.js draws with the same parts */
 })();

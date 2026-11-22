@@ -47,7 +47,7 @@
         });
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
-    document.querySelectorAll('section.cs').forEach(function (sct) { io.observe(sct); });
+    document.querySelectorAll('section.cs, section.feed').forEach(function (sct) { io.observe(sct); });
   }
 
 
