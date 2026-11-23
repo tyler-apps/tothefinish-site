@@ -1,6 +1,6 @@
 # Watch to coaches demonstration
 
-Requested November 23: make the inner workings the main reason visitors want to follow this and eventually want their own coaching team. The homepage leads with the demonstration, then the show; this is still Tyler's personal setup, with no product waitlist or offer.
+Requested November 23: make the inner workings the main reason visitors want to follow this and eventually want their own coaching team. The homepage leads into a brief coach introduction and then the demonstration; this is still Tyler's personal setup, with no product waitlist or offer.
 
 The watch is a CSS/HTML interpretation of Garmin epix Pro (Gen 2), based on Garmin's device overview (round screen, five controls, upper-right start/stop). It is labeled an illustration with adapted screens, not an actual Garmin app screenshot. No external runtime, autoplay video or downloaded product photo. Design structure uses the registered Apple exemplar's tangible product presentation and Linear's visible UI, with existing TTF typography/colors.
 
@@ -29,3 +29,7 @@ Research review is separate from this chain; pain input and food-rule changes ne
 Four chapters: recording → reviewed research → specialist interpretation → next check. Native scrolling chooses the scene; anchors allow direct selection. The five current coach portraits appear together at the interpretation stage. Expanded evidence/data/automation remain normal HTML, available without JS. Reduced motion disables sticky enhancement and motion, including a live preference change. Short phone screens use a static watch to preserve reading space. Legacy #how/#research anchors are preserved.
 
 Edit index.html between WATCH STORY markers plus assets/watch-story.css/js. Data in data/watch-story.json must stay consistent with visible values; it is intentionally a dated example rather than a live service indicator. The main builder includes these assets in cache versioning. Run node tools/test_watch_story.mjs, node tools/test_ui.mjs, python3 tools/test_seo.py and python3 tools/check_site.py after building all pages.
+
+## Coach context before the demonstration
+
+Tyler requested introductions before visitors see the coaches work. The compact #team section now precedes #inside, with names, existing portraits, specialties and short roles. Hero → Meet the coaches → See them work. Full profile links remain on coach names. Removed the old downstream team section and duplicate five-role strip. Existing First Light design and reveal/reduced-motion handling remain; Apple tangible lineup and Linear progressive explanation inform sequence only.

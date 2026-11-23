@@ -214,9 +214,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 @media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
 @media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=798737e4">
-<link rel="stylesheet" href="/assets/motion.css?v=798737e4">
-<link rel="stylesheet" href="/assets/watch-story.css?v=798737e4">
+<link rel="stylesheet" href="/assets/ui.css?v=16e2063b">
+<link rel="stylesheet" href="/assets/motion.css?v=16e2063b">
+<link rel="stylesheet" href="/assets/watch-story.css?v=16e2063b">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -237,16 +237,59 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         <h1 class="display">Can a 258&nbsp;lb dad run a marathon in <span class="o">under three&nbsp;hours?</span></h1>
         <p class="lead">I started at 258 lb and hired five AI coaches to get me under three hours in the marathon. They argue over every run. I still have to get out the door.</p>
         <div class="hero-actions">
-          <a class="btn watch-first" href="#inside">See how it works <span aria-hidden="true">↓</span></a>
+          <a class="btn watch-first" href="#team">Meet the coaches <span aria-hidden="true">↓</span></a>
           <a class="episode-archive" href="/episodes/the-hiring/">Watch Episode 1 · 76 seconds</a>
         </div>
         <p class="fine">The coaches are animated. The runs and the numbers are mine.</p>
-        <a class="hero-next" href="#team">Meet the team <span aria-hidden="true">↓</span></a>
       </div>
       <a class="hero-art" href="/episodes/the-hiring/" aria-label="Watch Episode 1: The Hiring"><span class="hero-play" aria-hidden="true">▶</span><picture><source type="image/webp" srcset="/assets/lineup-700.webp 700w, /assets/lineup-1400.webp 1400w" sizes="(max-width:860px) calc(100vw - 40px), 540px"><img src="/assets/lineup.jpg" alt="The five To The Finish coaches: Rook, Kai, Bo, Juno and Mo" width="1400" height="933" fetchpriority="high" decoding="async"></picture><p class="art-caption"><span>Watch The Hiring</span><span>Episode 1 · 1:16</span></p></a>
     </div>
   </div>
 </header>
+<section id="team" class="team-intro" aria-labelledby="team-title">
+  <div class="wrap">
+    <div class="team-intro-heading"><div><p class="kicker">Meet my AI coaches</p><h2 id="team-title" class="display">Five coaches.<br><span class="o">One plan.</span></h2></div><p class="body">Each coach owns a different part of my training. They read the same watch data, bring their own research, and work out what tomorrow asks of me. Rook settles the clashes.</p></div>
+    <div class="coaches">
+      <article class="coach">
+        <picture><source type="image/webp" srcset="/assets/kai-216.webp 216w, /assets/kai-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy" decoding="async"></picture>
+        <div class="ct">
+          <h3><a href="/coaches/#kai">Kai</a></h3><p class="lane">AI running coach</p>
+          <p class="does">Builds my runs and reads effort against the terrain.</p>
+        </div>
+      </article>
+      <article class="coach">
+        <picture><source type="image/webp" srcset="/assets/bo-216.webp 216w, /assets/bo-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy" decoding="async"></picture>
+        <div class="ct">
+          <h3><a href="/coaches/#bo">Bo</a></h3><p class="lane">AI strength coach</p>
+          <p class="does">Fits heavy lifting and jumps around my key runs.</p>
+        </div>
+      </article>
+      <article class="coach">
+        <picture><source type="image/webp" srcset="/assets/mo-216.webp 216w, /assets/mo-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy" decoding="async"></picture>
+        <div class="ct">
+          <h3><a href="/coaches/#mo">Mo</a></h3><p class="lane">AI recovery coach</p>
+          <p class="does">Checks sleep, recovery trends and any pain I report.</p>
+        </div>
+      </article>
+      <article class="coach">
+        <picture><source type="image/webp" srcset="/assets/juno-216.webp 216w, /assets/juno-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy" decoding="async"></picture>
+        <div class="ct">
+          <h3><a href="/coaches/#juno">Juno</a></h3><p class="lane">AI nutritionist</p>
+          <p class="does">Matches my food to the session and what’s in my fridge.</p>
+        </div>
+      </article>
+      <article class="coach">
+        <picture><source type="image/webp" srcset="/assets/rook-216.webp 216w, /assets/rook-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy" decoding="async"></picture>
+        <div class="ct">
+          <h3><a href="/coaches/#rook">Rook</a></h3><p class="lane">AI head coach</p>
+          <p class="does">Makes the final call when the coaches disagree.</p>
+        </div>
+      </article>
+    </div>
+    <div class="team-intro-next"><p>Here’s what happens when my watch sends them a run.</p><a class="btn" href="#inside">See them work <span aria-hidden="true">↓</span></a></div>
+  </div>
+</section>
+
 <!-- WATCH STORY START -->
 <section id="inside" class="watch-story" aria-labelledby="inside-title" data-stage="0">
  <div class="wrap">
@@ -282,7 +325,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <article class="watch-chapter" id="inside-next" data-watch-step="3"><p class="kicker"><span>04</span> One plan comes back</p><h3>A workout ready for my wrist.</h3><p>November 24 already has a job: two easy miles, six 45-second hills, then two easy miles. The hill session also checks my estimated heart-rate limit. The morning checks run before the day is finalized.</p><div class="plan-receipt"><span>NOV 23 REVIEW → NEXT CHECK</span><b>Hill session + heart-rate test</b><p>Scheduled at this review. Result still to come.</p><div><span>Recovery checked first</span><span>Fuel follows the session</span></div></div><p>When the approved plan changes, the automatic chain rebuilds my day and sends the workout and zones back to Garmin. I still have to put the watch on and do it.</p><a class="more" href="/coaches/">See the data each coach uses →</a></article>
    </div>
   </div>
-  <div class="team-inputs"><div class="team-input"><img src="/assets/kai-96.webp" alt="" width="44" height="44"><b>Kai <span>Running</span></b><p>Effort and terrain decide how the run reads.</p></div><div class="team-input"><img src="/assets/bo-96.webp" alt="" width="44" height="44"><b>Bo <span>Strength</span></b><p>Heavy work fits around the key runs.</p></div><div class="team-input"><img src="/assets/mo-96.webp" alt="" width="44" height="44"><b>Mo <span>Recovery</span></b><p>Sleep and trends can take a hard day down.</p></div><div class="team-input"><img src="/assets/juno-96.webp" alt="" width="44" height="44"><b>Juno <span>Fuel</span></b><p>The next session changes the food plan.</p></div><div class="team-input"><img src="/assets/rook-96.webp" alt="" width="44" height="44"><b>Rook <span>Head coach</span></b><p>Resolves clashes. Pain I report comes first.</p></div></div>
   <div class="inside-details">
    <details id="inside-evidence"><summary>The research, and what it changed</summary><div class="evidence-grid"><article><span class="evidence-kind">RECOVERY · TRIALS + REVIEWS</span><h4>Read a trend before changing a day.</h4><p>Research on training guided by heart-rate variability informs the scale-back checks. My rules use several nights and other recovery signals; they are an adaptation to my watch data.</p><a href="https://pubmed.ncbi.nlm.nih.gov/26909534/">Heart-rate variability training trial ↗</a></article><article><span class="evidence-kind">STRENGTH · 2024 META-ANALYSIS</span><h4>Keep the heavy work useful.</h4><p>High-load strength training can improve running economy. Bo’s plan uses heavy lifting and jumps, fitted around the running. The dose and timing are his choices for my week.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11052887/">Strength and running economy review ↗</a></article><article><span class="evidence-kind">FUEL · RESEARCH FRAMEWORK</span><h4>Feed the session that matters.</h4><p>The evidence on matching carbohydrate availability to training helped change my plan: rice, honey and sweet potatoes returned around hard runs on Nov 20.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5889771/">Carbohydrate periodization framework ↗</a></article></div><p class="fine">Reviewed evidence informs the rules. Whether my setup gets me to sub-3 remains an open question. Research refreshes are separate from the automatic workout checks.</p></details>
    <details><summary>What the coaches can read from my watch</summary><div class="data-inventory"><div><h4>During a run</h4><p>Heart rate, pace, distance, elevation, laps, cadence, stride length, ground contact time and balance, vertical movement, power and breathing estimates. Beat intervals are available when the recording supports them.</p></div><div><h4>Between runs</h4><p>Sleep duration, overnight heart-rate variability, resting heart rate and training history. The coaches compare trends instead of treating each number as a verdict.</p></div><div><h4>Beyond the watch</h4><p>My strength log, food records, race calendar and what I report. The watch doesn’t know everything I ate or whether something hurts.</p></div></div><p class="fine">Available fields vary by recording and sensor. Missing data stays missing. Power, sleep stages and race predictions are not automatic permission to train harder.</p><a class="more" href="/coaches/#data">Explore the full data →</a></details>
@@ -301,56 +343,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </section>
 
-<section id="team">
-  <div class="wrap">
-    <p class="kicker">The team</p>
-    <h2 class="display">Five opinions.<br><span class="o">One morning.</span></h2>
-    <p class="body">Kai wants the miles. Bo wants the heavy set. Mo has seen how little I slept. When they want different things from the same morning, Rook has to settle it.</p>
-    <div class="coaches">
-      <article class="coach">
-        <picture><source type="image/webp" srcset="/assets/kai-216.webp 216w, /assets/kai-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/kai.jpg" alt="Kai, the AI running coach" width="400" height="500" loading="lazy" decoding="async"></picture>
-        <div class="ct">
-          <p class="lane">AI running coach</p>
-          <h3>Kai</h3>
-          <p class="does">Builds the running plan, then checks my pace and heart rate against the hills.</p><a class="coach-detail" href="/coaches/#kai">See Kai's calls <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-      <article class="coach">
-        <picture><source type="image/webp" srcset="/assets/bo-216.webp 216w, /assets/bo-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/bo.jpg" alt="Bo, the AI strength coach" width="400" height="500" loading="lazy" decoding="async"></picture>
-        <div class="ct">
-          <p class="lane">AI strength coach</p>
-          <h3>Bo</h3>
-          <p class="does">Fits heavy sets and jumps around the running. The run gets first call on my legs.</p><a class="coach-detail" href="/coaches/#bo">See Bo's calls <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-      <article class="coach">
-        <picture><source type="image/webp" srcset="/assets/mo-216.webp 216w, /assets/mo-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/mo.jpg" alt="Mo, the AI recovery coach" width="400" height="500" loading="lazy" decoding="async"></picture>
-        <div class="ct">
-          <p class="lane">AI recovery coach</p>
-          <h3>Mo</h3>
-          <p class="does">Checks my sleep, recovery and pain reports before the next hard day.</p><a class="coach-detail" href="/coaches/#mo">See Mo's calls <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-      <article class="coach">
-        <picture><source type="image/webp" srcset="/assets/juno-216.webp 216w, /assets/juno-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/juno.jpg" alt="Juno, the AI nutritionist" width="400" height="500" loading="lazy" decoding="async"></picture>
-        <div class="ct">
-          <p class="lane">AI nutritionist</p>
-          <h3>Juno</h3>
-          <p class="does">Plans the food around the run and what’s actually in my fridge.</p><a class="coach-detail" href="/coaches/#juno">See Juno's calls <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-      <article class="coach">
-        <picture><source type="image/webp" srcset="/assets/rook-216.webp 216w, /assets/rook-432.webp 432w" sizes="(max-width:640px) 190px, 400px"><img src="/assets/rook.jpg" alt="Rook, the AI head coach" width="400" height="500" loading="lazy" decoding="async"></picture>
-        <div class="ct">
-          <p class="lane">AI head coach</p>
-          <h3>Rook</h3>
-          <p class="does">Settles the clashes. What I say and any pain I report come first.</p><a class="coach-detail" href="/coaches/#rook">See Rook's calls <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-    </div>
-    <a class="more" href="/coaches/">See what each coach is watching <span aria-hidden="true">→</span></a>
-  </div>
-</section>
+
 
 <section id="progress">
   <div class="wrap">
@@ -425,10 +418,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/watch-story.js?v=798737e4" defer></script>
-<script src="/assets/charts.js?v=798737e4"></script>
-<script src="/assets/join.js?v=798737e4"></script>
-<script src="/assets/motion.js?v=798737e4" defer></script>
+<script src="/assets/watch-story.js?v=16e2063b" defer></script>
+<script src="/assets/charts.js?v=16e2063b"></script>
+<script src="/assets/join.js?v=16e2063b"></script>
+<script src="/assets/motion.js?v=16e2063b" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
