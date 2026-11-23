@@ -1,21 +1,7 @@
 {
- "updated": "2026-11-19",
+ "updated": "2026-11-22",
  "near": "35 miles of San Diego",
  "races": [
-  {
-   "id": "rsu-217143",
-   "name": "Harvest Hustle 5K 2026 Grace Church San Diego",
-   "date": "2026-11-21",
-   "end": "2026-11-21",
-   "city": "San Diego",
-   "distances": [
-    "5K"
-   ],
-   "other": [],
-   "start": "08:00",
-   "url": "https://runsignup.com/Race/CA/SanDiego/HarvestHustle5KGraceChurchSanDiego?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
   {
    "id": "rsu-209962",
    "name": "Grateful Run 5K/10K",
@@ -383,20 +369,6 @@
    "source": "RunSignup"
   },
   {
-   "id": "rsu-206257",
-   "name": "Roasted Run 5K",
-   "date": "2027-01-23",
-   "end": "2027-01-23",
-   "city": "San Diego",
-   "distances": [
-    "5K"
-   ],
-   "other": [],
-   "start": "07:30",
-   "url": "https://runsignup.com/Race/CA/SanDiego/RoastedRun5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
    "id": "rsu-209513",
    "name": "Coffee Lovers Run San Diego",
    "date": "2027-01-30",
@@ -741,6 +713,20 @@
    "source": "RunSignup"
   },
   {
+   "id": "rsu-206257",
+   "name": "Roasted Run 5K",
+   "date": "2027-04-17",
+   "end": "2027-04-17",
+   "city": "San Diego",
+   "distances": [
+    "5K"
+   ],
+   "other": [],
+   "start": "07:30",
+   "url": "https://runsignup.com/Race/CA/SanDiego/RoastedRun5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
    "id": "rsu-211464",
    "name": "Coffee Lovers Run San Diego",
    "date": "2027-04-24",
@@ -939,6 +925,22 @@
    "source": "RunSignup"
   },
   {
+   "id": "rsu-141369",
+   "name": "Crown City Classic 12K & 5K",
+   "date": "2027-07-04",
+   "end": "2027-07-04",
+   "city": "Coronado",
+   "distances": [
+    "5K"
+   ],
+   "other": [
+    "7.4 mi"
+   ],
+   "start": "07:00",
+   "url": "https://runsignup.com/Race/CA/Coronado/CrownCityClassic?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "source": "RunSignup"
+  },
+  {
    "id": "rsu-158823",
    "name": "Joggin' for Frogmen 5K - San Diego, CA",
    "date": "2027-07-24",
@@ -983,7 +985,7 @@
    "source": "RunSignup"
   },
   {
-   "id": "rsu-211899",
+   "id": "rsu-192469",
    "name": "Margaritaville Run San Diego Gaslamp 10K & 5K",
    "date": "2027-08-14",
    "end": "2027-08-14",
@@ -994,7 +996,7 @@
    ],
    "other": [],
    "start": "07:30",
-   "url": "https://runsignup.com/Race/CA/SanDiego/PRESALEMargaritavilleRunSanDiegoGaslamp10K5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
+   "url": "https://runsignup.com/Race/CA/SanDiego/theGaslampRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
    "source": "RunSignup"
   },
   {

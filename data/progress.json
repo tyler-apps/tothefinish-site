@@ -346,13 +346,13 @@
   "time": "1:32:31",
   "date": "2024-06-02"
  },
- "vo2max": 49.4,
+ "vo2max": 49.3,
  "year": [
   {
    "week": 4,
    "monday": "2026-11-16",
    "plan": 32,
-   "done": 24.8,
+   "done": 31.8,
    "current": true
   },
   {
@@ -737,7 +737,7 @@
   {
    "name": "Half marathon",
    "date": "2027-09-05",
-   "today": "2:02:37",
+   "today": "2:02:36",
    "goal": null,
    "target": "1:26:00"
   },
@@ -827,8 +827,8 @@
   },
   {
    "monday": "2026-11-16",
-   "mpb": 1.157,
-   "n": 16
+   "mpb": 1.144,
+   "n": 17
   }
  ],
  "vdot": {
@@ -1079,7 +1079,7 @@
   "best": 49.2
  },
  "system": {
-  "runs_total": 441,
+  "runs_total": 442,
   "runs_by_month": [
    {
     "month": "2024-05",
@@ -1195,7 +1195,7 @@
    },
    {
     "month": "2026-11",
-    "n": 16
+    "n": 17
    }
   ],
   "decisions": [
@@ -1206,18 +1206,18 @@
    },
    {
     "monday": "2026-11-16",
-    "kai": 29,
-    "rook": 62
+    "kai": 31,
+    "rook": 64
    }
   ],
-  "decisions_total": 103,
+  "decisions_total": 107,
   "watch_days": 74,
-  "hilly_laps": 5131,
+  "hilly_laps": 5140,
   "calls": [
    {
     "coach": "Kai",
-    "auto": 36,
-    "called": 21,
+    "auto": 38,
+    "called": 22,
     "yours": 7
    },
    {
@@ -1241,7 +1241,7 @@
    {
     "coach": "Rook",
     "auto": 0,
-    "called": 10,
+    "called": 11,
     "yours": 0
    }
   ],
@@ -1347,10 +1347,10 @@
    },
    {
     "monday": "2026-11-16",
-    "easy": 67,
-    "steady": 33,
+    "easy": 74,
+    "steady": 26,
     "hard": 0,
-    "minutes": 321
+    "minutes": 425
    }
   ],
   "spike": [
@@ -1508,9 +1508,14 @@
     "date": "2026-11-21",
     "minutes": 50,
     "cap": 110
+   },
+   {
+    "date": "2026-11-22",
+    "minutes": 104,
+    "cap": 110
    }
   ],
-  "next_cap": 110,
+  "next_cap": 115,
   "next_cap_mi": 9.3,
   "easy_top": 120,
   "hard_from": 152
@@ -1567,21 +1572,21 @@
    },
    {
     "date": "2026-11-25",
-    "carbs": 132,
-    "protein": 178,
+    "carbs": 151,
+    "protein": 180,
     "work": "easy"
    },
    {
     "date": "2026-11-26",
-    "carbs": 103,
-    "protein": 196,
-    "work": "rest"
+    "carbs": 195,
+    "protein": 198,
+    "work": "hard"
    },
    {
     "date": "2026-11-27",
-    "carbs": 238,
-    "protein": 201,
-    "work": "hard"
+    "carbs": 83,
+    "protein": 193,
+    "work": "rest"
    },
    {
     "date": "2026-11-28",
@@ -1639,12 +1644,12 @@
   "mo_spike": "Your ceiling right now is about 9.3 miles: ten percent past your longest run of the last 30 days. Anything longer waits until a long run earns it. I'll be the one saying no.",
   "mo_sleep": "3 of the last 7 nights reached seven hours. Average 6.7. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
   "bo": "Tyler! 295 on the box squat. Run first, then we lift, hours apart. That's the deal.",
-  "juno": "Tyler. 231 grams of carbs on the hard and long days, 140 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
+  "juno": "Tyler. 216 grams of carbs on the hard and long days, 139 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
  },
  "coaches": {
   "Kai": {
    "studies": 73,
-   "live": 441
+   "live": 442
   },
   "Mo": {
    "studies": 188,
@@ -1660,7 +1665,7 @@
   },
   "Rook": {
    "studies": 167,
-   "live": 67
+   "live": 69
   },
   "all_studies": 621
  }
