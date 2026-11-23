@@ -20,10 +20,12 @@
     }
     var d = q('date'); if (d) d.innerHTML = 'Out<br>now';
     setText('where', 'Episode ' + ep.number + name);
-    var bt = q('btn'); if (bt) { bt.href = yt; bt.textContent = 'Watch Episode ' + ep.number; }
+    ['btn', 'hero-btn'].forEach(function (key) {
+      var bt = q(key); if (bt) { bt.href = yt; bt.textContent = 'Watch Episode ' + ep.number; }
+    });
   }
   function fallback() {
-    if (Date.now() >= Date.parse('2026-11-22T09:00:00-08:00')) live({ number: 1, title: 'The Hiring' });
+    if (Date.now() >= Date.parse('2026-11-22T09:00:00-08:00')) live({ number: 1, title: 'The Hiring', youtube_id: '0jWYN__q2GI' });
   }
   var today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
   fetch('/episodes/episodes.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (E) {

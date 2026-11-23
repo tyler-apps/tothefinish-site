@@ -30,11 +30,11 @@ STANDARDS = [("16 to 34", "2:50:00", "3:20:00"), ("35 to 39", "2:55:00", "3:25:0
              ("60 to 64", "3:40:00", "4:15:00"), ("65 to 69", "3:55:00", "4:30:00"), ("70 to 74", "4:15:00", "4:45:00"),
              ("75 to 79", "4:30:00", "5:00:00"), ("80 and over", "4:50:00", "5:20:00")]
 ENTRY = [
-    ("Drawing (lottery)", "Not guaranteed", "Applications ran Oct 8 to Oct 29, 2026. Results by email Tue Dec 8, 2026; pay by Tue Dec 15.", "Closed"),
-    ("Time qualifier", "Guaranteed", "Run the standard for your age between Jan 1, 2025 and Oct 29, 2026.", "Closed"),
-    ("Charity", "Guaranteed", "Raise money for an official charity. First come, first served until Fri Sep 10, 2027.", "Open"),
-    ("Tour operator", "Guaranteed", "Through an official tour operator, from Tue Dec 8, 2026.", "TOUR"),
-    ("Legacy", "Guaranteed", "For runners who finished five or more times in the last 10 years.", "Closed"),
+    ("Drawing (lottery)", "Drawing required", "Applications ran Oct 8 to Oct 29, 2026. Results by email Tue Dec 8, 2026; pay by Tue Dec 15.", "Closed"),
+    ("Time qualifier", "No drawing", "Run the standard for your age between Jan 1, 2025 and Oct 29, 2026.", "Closed"),
+    ("Charity", "No drawing", "Raise money for an official charity. First come, first served until Fri Sep 10, 2027.", "Open"),
+    ("Tour operator", "No drawing", "Through an official tour operator, from Tue Dec 8, 2026.", "TOUR"),
+    ("Legacy", "No drawing", "For runners who finished five or more times in the last 10 years.", "Closed"),
 ]
 FAQ = [
     ("When is the 2027 Chicago Marathon?", "Sunday, October 10, 2027. It starts and finishes in Grant Park."),
@@ -134,7 +134,7 @@ def main():
   <div class="wrap">
     <p class="kicker">Qualifying times</p>
     <h2 class="display sec">2027 time <span class="o">standards.</span></h2>
-    <p class="body">These get you a guaranteed entry. They go by your age on race day, October 10, 2027. Non-binary standards match the women's.</p>
+    <p class="body">Meeting the standard qualifies you for entry without the drawing. They go by your age on race day, October 10, 2027. Non-binary standards match the women's.</p>
     <table class="ftable"><thead><tr><th scope="col">Age on race day</th><th scope="col">Men</th><th scope="col">Women</th></tr></thead><tbody>{std_rows}</tbody></table>
     <p class="note">The qualifying window for 2027 (Jan 1, 2025 to Oct 29, 2026) is closed.</p>
   </div>

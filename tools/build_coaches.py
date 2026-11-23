@@ -81,8 +81,8 @@ COACHES = [
          watch=["Today's and tomorrow's run", "The food in the house", "Grocery receipts and fridge photos",
                 "The meals on the plan", "My 7-day weigh-in trend"],
          does=("Writes my food every day from the run it has to fuel and what's in the house. A photo of a receipt "
-               "or the fridge updates what's there. Portions come from my 7-day weigh-in trend, so I lose no more "
-               "than 2 lb a week. She can't change a food rule without my word."),
+               "or the fridge updates what's there. She checks my 7-day weigh-in trend against the work ahead. "
+               "As the running grows, she feeds more of it. She can't change a food rule without my word."),
          charts=[("fuel", "Does the food follow the work?",
                   "Grams of carbs a day from my meal plan, the next seven days.",
                   [("orange", "Hard or long run"), ("muted", "Easy or rest day")])],

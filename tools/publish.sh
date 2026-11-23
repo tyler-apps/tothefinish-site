@@ -18,6 +18,7 @@ python3 tools/build_races.py || { echo "race page build failed"; exit 1; }
 python3 tools/build_chicago.py || { echo "chicago page build failed"; exit 1; }
 python3 tools/build_race_reports.py || { echo "race report build failed"; exit 1; }
 python3 tools/build_coaches.py || { echo "coaches page build failed"; exit 1; }
+python3 tools/check_site.py || { echo "release checks failed"; exit 1; }
 
 CHANGED=$(git status --porcelain -uall | awk '{print $NF}')
 if [ -z "$CHANGED" ]; then echo "no change"; exit 0; fi
@@ -33,9 +34,7 @@ if [ "$MODE" = "--numbers-only" ]; then
 fi
 
 git add -A
-git commit -q -m "$MSG
-
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+git commit -q -m "$MSG"
 git push -q origin HEAD || { echo "push failed"; /usr/bin/osascript -e 'display notification "tothefinish.ai push failed" with title "Site publish"' >/dev/null 2>&1; exit 1; }
 echo "pushed: $(git log --oneline -1)"
 

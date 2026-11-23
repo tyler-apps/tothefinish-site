@@ -38,7 +38,7 @@ picture{display:contents}picture>source{display:none}
 .kicker{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:2.5px;color:var(--orange);font-size:15px;margin:0 0 14px}
 .o{color:var(--orange)}
 section{padding:96px 0;border-top:1px solid var(--line)}
-h2.display{font-size:clamp(44px,6vw,76px)}
+h2.display{font-size:clamp(44px,4.7vw,64px)}
 p.body{font-size:18px;line-height:1.6;color:var(--soft);margin:18px 0 0;max-width:52ch}
 .fine{font-size:14px;color:var(--muted);margin:12px 0 0;line-height:1.5}
 
@@ -50,11 +50,17 @@ p.body{font-size:18px;line-height:1.6;color:var(--soft);margin:18px 0 0;max-widt
 .nav a{color:var(--muted);text-decoration:none;font-size:15px}
 .nav a:hover{color:var(--white)}
 .nav a.navcta{color:var(--ink);background:var(--orange);padding:9px 16px;border-radius:8px;font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:17px;letter-spacing:1px;text-transform:uppercase}
-.hero{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(44px,6vw,76px);text-wrap:balance}
+.hero{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
+.hero h1{font-size:clamp(44px,4.7vw,64px);text-wrap:balance}
 .hero p.lead{font-size:20px;color:var(--soft);margin:24px 0 28px;max-width:36ch;line-height:1.5}
 .hero img{width:100%;height:auto;border-radius:14px;background:var(--paper);display:block}
 
+/* The show is the first invitation; the letter follows it. */
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.hero-actions .watch-first{background:var(--orange);color:var(--ink)}
+.episode-archive{display:inline-flex;align-items:center;min-height:44px;color:var(--white);text-underline-offset:5px}
+#join-top button{background:var(--ink-3);color:var(--white);border:1px solid var(--line);font-size:20px}
+.hero-actions a:focus-visible{outline:3px solid var(--white);outline-offset:4px}
 /* forms */
 form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
 form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #8a837c;background:var(--ink-3);color:var(--white);font-size:16px}
@@ -203,8 +209,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 @media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
 @media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=a7794161">
-<link rel="stylesheet" href="/assets/motion.css?v=a7794161">
+<link rel="stylesheet" href="/assets/ui.css?v=3fce011e">
+<link rel="stylesheet" href="/assets/motion.css?v=3fce011e">
 </head>
 <body>
 
@@ -222,6 +228,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         <p class="kicker">The animated series · <span data-ep="herok">Episode 1 · Sunday, Nov 22</span></p>
         <h1 class="display">Can a 258&nbsp;lb dad run a marathon in <span class="o">under three&nbsp;hours?</span></h1>
         <p class="lead">I hired five AI coaches to find out. They read my watch after every run and argue over tomorrow. As of <span data-k="asof">Nov 21</span>, the watch says I'd run <b data-k="now">4:36:10</b>. Chicago is October 10, 2027.</p>
+        <div class="hero-actions">
+          <a class="btn watch-first" data-ep="hero-btn" href="https://www.youtube.com/watch?v=0jWYN__q2GI">Watch Episode 1</a>
+          <a class="episode-archive" href="/episodes/">All episodes</a>
+        </div>
+        <p class="fine">The coaches are animated. The runs and the numbers are mine.</p>
         <form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-top" data-thanks="thanks-top">
           <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
           <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
@@ -281,7 +292,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <li><span class="when">Sat Dec 26</span><b>5K</b><span class="tgt">Kai's target 22:40</span></li>
       <li><span class="when">Sun Feb 7</span><b>5K</b><span class="tgt">Kai's target 21:30</span></li>
       <li><span class="when">Sat May 15</span><b>10K</b><span class="tgt">Kai's target 40:00</span></li>
-      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's target 1:26:00</span></li>
+      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's gate 1:24:30</span></li>
       <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">The goal: 2:59:59</span><span class="tgt" data-k="chistatus"></span></li>
     </ol>
     <figure class="viz" style="margin-top:40px">
@@ -452,9 +463,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
-<script src="/assets/charts.js?v=a7794161"></script>
-<script src="/assets/join.js?v=a7794161"></script>
-<script src="/assets/motion.js?v=a7794161" defer></script>
+<script src="/assets/charts.js?v=3fce011e"></script>
+<script src="/assets/join.js?v=3fce011e"></script>
+<script src="/assets/motion.js?v=3fce011e" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -520,6 +531,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/episode-live.js?v=a7794161"></script>
+<script src="/assets/episode-live.js?v=3fce011e"></script>
 </body>
 </html>
