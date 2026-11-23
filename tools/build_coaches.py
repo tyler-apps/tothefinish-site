@@ -93,7 +93,7 @@ COACHES = [
                "then strength. Tracks the gap to sub-3 every morning and writes down every decision the team makes. "
                "What I say outranks every number he has."),
          charts=[("gap", "Am I closing the gap?",
-                  "Garmin's marathon prediction after every run since October 19, against what Chicago asks for."),
+                  "Garmin's marathon prediction after every run since October 19, against my sub-3 goal for Chicago."),
                  ("calls", "Who makes the calls?",
                   "Every decision the coaches wrote down since Nov 9, by the coach who made it.",
                   [("orange", "Automatic, from watch data"), ("white", "A coach's own call"), ("muted", "I overruled it")])],
@@ -392,6 +392,8 @@ def main():
 <link rel="stylesheet" href="/assets/motion.css?v={ver}">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
 
 <header class="top" style="padding-bottom:0">
   <div class="wrap">
@@ -422,6 +424,7 @@ def main():
   </div>
 </section>
 
+</main>
 {site_footer()}
 
 <script src="/assets/charts.js?v={ver}"></script>

@@ -70,3 +70,51 @@ footer .links.site{margin-top:4px}
 .invite{margin:20px 0 0;font-size:16px;line-height:1.5;color:var(--soft);max-width:62ch}
 .invite a{color:var(--orange);font-weight:700;display:flex;align-items:center;min-height:44px;width:max-content}
 .eptop{margin:0 0 4px}
+
+/* November 23: show → team → evidence → letter. Shared by both editors and all generators. */
+.skip-link{position:fixed;top:8px;left:16px;z-index:200;transform:translateY(-160%);padding:12px 18px;background:var(--orange);color:var(--ink);font-weight:700;border-radius:6px}
+.skip-link:focus{transform:none}
+:focus-visible{outline:3px solid var(--orange);outline-offset:5px}
+[id]{scroll-margin-top:84px}
+main{display:block}
+form.join label{display:flex;flex:1 1 180px;flex-direction:column;gap:8px;font-size:15px;font-weight:600;color:var(--white)}
+form.join label span{color:var(--muted);font-weight:400;display:contents}
+form.join label input{width:100%;flex:none;min-height:52px}
+form.join .formerr{flex-basis:100%}
+form.join{margin-top:24px}
+.top .hero{align-items:center;gap:40px}
+.top .hero h1{font-size:clamp(48px,4.9vw,66px);line-height:1;text-wrap:balance;max-width:none}
+.top .hero p.lead{max-width:40ch;margin:24px 0;font-size:19px;line-height:1.6}
+.hero-art{min-width:0;position:relative}
+.hero-art picture{display:block}
+.hero-art img{border-radius:14px;width:100%;aspect-ratio:1.5;object-fit:cover}
+.art-caption{display:flex;justify-content:space-between;gap:16px;font-size:14px;line-height:1.5;color:var(--muted);margin:14px 0 0}
+.hero-next{display:inline-flex;min-height:44px;align-items:center;gap:16px;color:var(--soft);margin-top:14px;text-decoration:none;font-size:15px}
+.hero-next span{color:var(--orange);font-size:22px}
+#why{background:var(--ink-2)}
+#team .coach{border:0;background:transparent;border-radius:0}
+#team .coach img{border-radius:12px}
+#team .coach .ct{padding:18px 0 0}
+#team .coach .does{font-size:16px;line-height:1.55}
+.coach-detail{color:var(--orange);font-size:14px;display:flex;align-items:center;gap:8px;min-height:44px;margin-top:auto;padding-top:12px;text-underline-offset:4px}
+#team .coaches{gap:24px}
+#progress{background:var(--ink-2)}
+#progress .facts div{background:transparent;border:0;border-radius:0;border-left:1px solid #5a524a;padding-left:20px}
+#progress .gap{font-size:clamp(48px,9.4vw,120px)}
+#how .body:first-child{margin-top:0}
+.letter-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+#club{background:var(--ink-2)}
+#club .joincard{background:var(--ink);padding:32px;border-color:#5a524a}
+#club .joincard .fine{margin-bottom:0;font-size:14px}
+.episode-thumb{display:block;width:100%;max-width:480px;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:20px}
+.episode-play{display:inline-flex;align-items:center;min-height:44px;color:var(--orange);font-weight:600}
+.eplist a{max-width:760px}
+@media(min-width:861px) and (max-width:1100px){.bar .nav{display:flex}.mnav{display:none}}
+@media(max-width:860px){.top .hero{gap:28px}.top .hero h1{max-width:15ch}.letter-layout{grid-template-columns:1fr;gap:24px}.art-caption{flex-wrap:wrap;gap:4px 14px}#team .coaches{gap:24px 16px}.hero-art{max-width:680px}}
+@media(max-width:640px){.top .hero h1{font-size:clamp(44px,11vw,66px)}.top .hero p.lead{font-size:18px}.hero-actions{gap:4px 16px}.hero-actions .btn{width:100%;text-align:center}.hero-actions .episode-archive{margin:auto}.hero-next{margin-top:4px}#team .coach{gap:18px;align-items:stretch}#team .coach img{width:112px;aspect-ratio:4/5;height:100%;min-height:165px;object-position:center top}#team .coach .ct{padding:0}#team .coach .does{font-size:15px}.coach-detail{padding-top:4px}#team .coaches{gap:28px}#progress .facts{grid-template-columns:1fr;gap:20px}#progress .facts div{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center}#progress .facts .l{margin:0}#club .joincard{padding:22px}.letter-layout{gap:28px}.art-caption{font-size:14px}.road li{padding-bottom:12px}}
+@media print{.skip-link,.mnav,.nav,.joinbar,.read-progress{display:none!important}.reveal{opacity:1!important;transform:none!important}}
+/* Narrow devices: long race dates must wrap inside their column. */
+.rgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.facts>div,.rgrid>*{min-width:0;overflow-wrap:break-word}
+@media(max-width:860px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.facts,.rgrid{grid-template-columns:1fr}}

@@ -1,88 +1,20 @@
-/* join.js: every sign-up form on the site. The form posts to Kit inside a hidden iframe, so the page never leaves.
-   2026-11-21 review fix: the thank-you shows when the iframe finishes loading Kit's answer (it used to show 300 ms
-   after the click, whatever happened). No answer in 8 seconds shows one plain error line with a retry. The GA4
-   event (sign_up) fires on that load, once per submit. A cross-origin iframe can't say what Kit answered, only that
-   an answer came back. 2026-11-21 evening: the waitlist is gone (Tyler: "make the Sunday letter the only sign up"), so
-   every form is the Sunday letter. */
+/* Native Kit POST: Kit displays the actual response. Never infer subscription success
+   from a cross-origin iframe load. This event measures intent, not confirmed subscribers. */
 (function () {
-  window.dataLayer = window.dataLayer || [];
-  var frame = document.getElementById('hidden_iframe');
-  var WAIT_MS = 8000;
-  // one thank-you per kind of form, wherever the form sits
-  var THANKS = {
-    follow_along: "You're in. There's a note from me in your inbox now, and the next letter comes Sunday night."
-  };
-  var pending = null;   // the submit in flight: { form, timer, done }
-
-  function formType(f) { return f.dataset.formType || 'follow_along'; }
-  function submitBtn(f) { return f.querySelector('button[type="submit"]'); }
-  function errBox(f) {
-    var e = f.nextElementSibling;
-    if (e && e.classList.contains('formerr')) return e;
-    e = document.createElement('p');
-    e.className = 'formerr';
-    e.setAttribute('role', 'alert');
-    e.hidden = true;
-    e.appendChild(document.createTextNode("That didn't go through. Check your connection, then "));
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.textContent = 'try again';
-    b.addEventListener('click', function () {
-      if (f.requestSubmit) f.requestSubmit(submitBtn(f)); else submitBtn(f).click();
-    });
-    e.appendChild(b);
-    e.appendChild(document.createTextNode('.'));
-    f.parentNode.insertBefore(e, f.nextSibling);
-    return e;
-  }
-  function busy(f, on) {
-    var b = submitBtn(f);
-    if (!b) return;
-    if (on) { b.dataset.label = b.textContent; b.textContent = 'Sending'; b.disabled = true; }
-    else { if (b.dataset.label) b.textContent = b.dataset.label; b.disabled = false; }
-  }
-  function fail(p) {
-    busy(p.form, false);
-    errBox(p.form).hidden = false;
-  }
-  function succeed(p) {
-    if (p.done) return;
-    p.done = true;
-    clearTimeout(p.timer);
-    var f = p.form, type = formType(f), t = document.getElementById(f.dataset.thanks);
-    errBox(f).hidden = true;
-    f.style.display = 'none';
-    if (t) {
-      if (THANKS[type]) t.textContent = THANKS[type];
-      t.setAttribute('role', 'status');
-      t.style.display = 'block';
-    }
-    var params = { form_type: type, form_location: f.id.replace(/^join-/, ''), method: 'follow_along' };
-    // Sent straight to GA4 by the Google tag (G-3J00LR0ES7); no Tag Manager tags needed.
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'sign_up', params);
-    }
-  }
-  if (frame) {
-    frame.addEventListener('load', function () {
-      if (!pending) return;          // the empty frame's own first load
-      var p = pending; pending = null;
-      succeed(p);                    // a late answer after the 8 s error still counts, once
-    });
-  }
-  document.querySelectorAll('form.join').forEach(function (f) {
-    f.action = 'https://app.kit.com/forms/10209840/subscriptions';
-    f.method = 'POST';
-    if (!frame) return;              // no frame on the page: the form posts to Kit the plain way
-    f.target = 'hidden_iframe';
-    f.addEventListener('submit', function (ev) {
-      if (pending) clearTimeout(pending.timer);
-      errBox(f).hidden = true;
-      if (navigator.onLine === false) { ev.preventDefault(); pending = null; errBox(f).hidden = false; return; }
-      var p = { form: f, done: false, timer: 0 };
-      pending = p;
-      p.timer = setTimeout(function () { if (!p.done) fail(p); }, WAIT_MS);
-      setTimeout(function () { if (!p.done) busy(f, true); }, 0);   // after the browser has taken the form data
+  document.querySelectorAll('form.join').forEach(function (form) {
+    form.removeAttribute('target');
+    form.addEventListener('submit', function (event) {
+      var error = form.querySelector('.formerr');
+      if (error) error.remove();
+      if (navigator.onLine === false) {
+        event.preventDefault();
+        error = document.createElement('p'); error.className = 'formerr'; error.setAttribute('role','alert');
+        error.textContent = 'You appear to be offline. Reconnect, then try again.'; form.appendChild(error); return;
+      }
+      if (typeof window.gtag === 'function') window.gtag('event','newsletter_submit',{
+        form_location:form.id,method:'kit',transport_type:'beacon'
+      });
+      // Leave browser validation, submission, errors and provider confirmation intact.
     });
   });
 })();

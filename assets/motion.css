@@ -13,7 +13,7 @@
   @keyframes tf-out{to{opacity:0;transform:translateY(-24px)}}
 
   /* the page opens: header lines rise in one after another (delays set by motion.js) */
-  .motion .intro{animation:tf-rise .8s var(--spring) both}
+  .motion .motion-intro{animation:tf-rise .8s var(--spring) both}
 
   /* blocks rise in as they arrive */
   .reveal:not(.in){opacity:0;transform:translateY(40px) scale(.98)}
@@ -71,3 +71,15 @@
   .golink:hover .arrow{transform:translateX(6px)}
   .mnav[open] nav{animation:tf-in .25s var(--spring)}
 }
+
+/* Progress is tied to scroll position. Reading itself always uses native browser scrolling. */
+.read-progress{display:none;position:fixed;top:0;left:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;z-index:100;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+.motion .read-progress{display:block}
+.motion .road::after{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--orange);transform:scaleX(var(--road-progress,0));transform-origin:left;pointer-events:none}
+.road li{z-index:1}
+.coach img{transition:transform .5s var(--spring)}
+.coach:hover img{transform:translateY(-5px)}
+@media(max-width:860px){.motion .road::after{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto;transform:scaleY(var(--road-progress,0));transform-origin:top}}
+}
+@media(prefers-reduced-motion:reduce){.reveal,.motion-intro{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}.read-progress{display:none!important}html{scroll-behavior:auto}}

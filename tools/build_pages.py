@@ -95,6 +95,8 @@ def head(title, desc, path, extra="", index=True):
 {extra}
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
 <header class="page-top">
   <div class="wrap">
     <div class="bar">
@@ -104,16 +106,14 @@ def head(title, desc, path, extra="", index=True):
 """
 
 
-FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-{id}" data-thanks="thanks-{id}">
-  <input name="fields[first_name]" aria-label="First name" placeholder="First name" autocomplete="given-name">
-  <input name="email_address" type="email" aria-label="Email" placeholder="Email" required autocomplete="email">
+FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-{id}">
+  <label>First name <span>(optional)</span><input name="fields[first_name]" autocomplete="given-name"></label>
+  <label>Email<input name="email_address" type="email" required autocomplete="email"></label>
   <button type="submit">{button}</button>
 </form>
-<div class="thanks" id="thanks-{id}">You're in. There's a note from me in your inbox now, and the next letter comes Sunday night.</div>
-<p class="fine">The Sunday letter is one email a week: my miles, what went sideways, and the new episode when one's out. Leave any time.</p>"""
+<p class="fine">One email a week: my miles, what went sideways, and the new episode when one’s out. Leave any time. Continue to Kit to join. <a href="/privacy/">How I use your email</a>.</p>"""
 
-FOOT = site_footer() + """
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="form target"></iframe>
+FOOT = "</main>\n" + site_footer() + """
 <script src="/assets/join.js?v=VERSION"></script>
 <script src="/assets/motion.js?v=VERSION" defer></script>
 </body>
@@ -173,6 +173,7 @@ def episode_page(e):
     return head(title, e["description"], path, ld(video)) + f"""    <div class="page">
       <p class="kicker">Episode {e['number']} · {date_h}</p>
       <h1 class="display">{esc(e['title'])}</h1>
+      <p class="episode-direct"><a class="btn" href="https://www.youtube.com/watch?v={esc(e['youtube_id'])}">Watch on YouTube ↗</a></p>
     </div>
   </div>
 </header>
@@ -199,9 +200,9 @@ def episodes_index(eps):
             "argue over every run. Every episode of To The Finish, the animated series, with the real numbers from his Garmin.")
     if eps:
         items = "".join(
-            f'<li><a href="/episodes/{e["slug"]}/"><span class="n">Episode {e["number"]} · '
+            f'<li><a href="/episodes/{e["slug"]}/"><img class="episode-thumb" src="https://i.ytimg.com/vi/{e["youtube_id"]}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"><span class="n">Episode {e["number"]} · '
             f'{dt.date.fromisoformat(e["date"]).strftime("%b %-d, %Y")}</span><h3>{esc(e["title"])}</h3>'
-            f'<p>{esc(e["description"])}</p></a></li>' for e in reversed(eps))
+            f'<p>{esc(e["description"])}</p><span class="episode-play">Watch episode →</span></a></li>' for e in reversed(eps))
         listing = f'<ul class="eplist">{items}</ul>'
     else:
         listing = '<p class="body">Episode 1 comes out Sunday, November 22. It&#x27;s the week the coaches got hired, and the first time they disagreed about me.</p>'
@@ -243,11 +244,14 @@ def coach_page(qs=()):
     <p><b>Kai</b> plans every run from my Garmin data. He's usually facing east before the sun is up, already talking about the hill. His one law: easy days stay easy, even when I don't want them to.</p>
     <p><b>Bo</b> fits short, heavy lifts around the running. He laughs louder than anyone and leaves chalk on everything, and he'll cut his own session short to protect a long run.</p>
     <p><b>Juno</b> plans every meal around the training. She's quick and she teases, and she has no patience at all for me skipping breakfast before a hard run.</p>
-    <p><b>Mo</b> keeps me in one piece. He carries a roll of tape and a lacrosse ball, asks one precise question, and never clears pain to train.</p>
+    <p><b>Mo</b> watches my recovery. He carries a roll of tape and a lacrosse ball, asks one precise question, and never clears pain to train.</p>
     <p><b>Rook</b> is the head coach. When the others want different things from the same week, he says one line, and that's the call.</p>
-    <h2>How it decides</h2>
+    <h2>When the coaches disagree</h2>
     <p>Rook settles every clash in the same order. What I say and any pain I report come first, then the race in Chicago, then my weight, then strength. So when Bo wants heavy legs the day before a hard run, the run wins, and Bo takes it better than you'd think.</p>
     <p>The plan comes from the research. Every change is written down with the rule behind it. The coaches are AI characters, and this is my personal setup, not medical or nutrition advice.</p>
+    <h2>What a number can’t tell them</h2>
+    <p>A slower pace can mean a hill, a walk or a tired runner. They have to read the pace, cadence and terrain together. They still need me to report pain. A watch estimate is evidence to check, never a race result or a promise that I’m ready.</p>
+    <p><a href="/coaches/">Read each coach’s data and latest call</a></p>
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
     <h2>Can I use it?</h2>
@@ -284,7 +288,7 @@ def privacy_page():
     <h2>Where it goes</h2>
     <p>The form sends what you type to Kit, the email service I use to send the Sunday letter.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits and sign-ups. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
+    <p>The site uses Google Analytics to count visits, watch-link clicks and requests to join the Sunday letter. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>
