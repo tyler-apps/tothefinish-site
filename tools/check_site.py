@@ -19,7 +19,7 @@ class Links(HTMLParser):
             self.main_count += 1
         self.ids.extend(value for key, value in attrs if key == "id")
         for key, value in attrs:
-            if value and ((tag == 'a' and key == 'href') or (tag in ('script', 'img', 'link') and key in ('src', 'href'))):
+            if value and ((tag == 'a' and key == 'href') or (tag in ('script', 'img', 'link', 'source', 'track') and key in ('src', 'href'))):
                 self.links.append(value)
 
 
@@ -53,6 +53,11 @@ def main():
             bad.append(f'{page.relative_to(root)}: duplicate IDs')
         if 'class="bar"' in page.read_text() and parser.main_count != 1:
             bad.append(f'{page.relative_to(root)}: expected one main landmark')
+    from check_seo import check as check_seo
+    seo_errors, seo_pages, seo_videos = check_seo(root)
+    bad.extend(seo_errors)
+    if not seo_errors:
+        print(f'PASS: SEO metadata, canonicals, schema and sitemaps ({seo_pages} pages, {seo_videos} video)')
     gate = args.brain / 'scripts/voice_check.py'
     if not gate.exists():
         bad.append(f'Voice gate unavailable: {gate}; pass --brain with the Brain checkout')

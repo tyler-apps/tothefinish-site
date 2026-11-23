@@ -118,3 +118,40 @@ form.join{margin-top:24px}
 .facts>div,.rgrid>*{min-width:0;overflow-wrap:break-word}
 @media(max-width:860px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.facts,.rgrid{grid-template-columns:1fr}}
+
+/* Story and watch pages: the film is the main event, with source context beside it. */
+.hero-art{display:block;color:inherit;text-decoration:none;isolation:isolate}
+.hero-art .hero-play{position:absolute;z-index:1;left:20px;bottom:66px;display:grid;place-items:center;width:56px;height:56px;padding-left:4px;border-radius:50%;background:var(--orange);color:var(--ink);font-size:22px;box-shadow:0 6px 24px #0005}
+.hero-art:hover .hero-play{background:var(--white)}
+.breadcrumbs{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;color:var(--muted);font-size:14px;line-height:1.45;margin:-20px 0 26px}
+.breadcrumbs a{display:inline-flex;align-items:center;min-height:44px;text-underline-offset:4px}
+.breadcrumbs [aria-current]{max-width:60ch}
+.episode-stage{border-top:0;padding:0 0 64px;background:radial-gradient(ellipse at 25% 35%,#2a211b 0,transparent 65%)}
+.watch-layout{display:grid;grid-template-columns:minmax(280px,.85fr) minmax(0,1fr);gap:72px;align-items:center}
+.watch-screen{justify-self:center;width:min(100%,340px,calc(65svh * .5625))}
+.watch-screen .video{width:100%;box-shadow:0 28px 90px #0009;background:#090807;outline:1px solid #5a524a;outline-offset:7px;border-radius:12px}
+.watch-intro .display{font-size:clamp(64px,8vw,110px);line-height:.95}
+.watch-intro .lead{font-size:21px;line-height:1.6;color:var(--soft);max-width:38ch;margin:24px 0}
+.player-fallback{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;margin-top:14px;color:var(--soft);font-size:15px;text-underline-offset:4px}
+.episode-notes{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.episode-notes h2,.letter-layout h2{font-size:clamp(40px,5vw,64px);line-height:1}
+.archive-stage{padding-top:0;border-top:0}
+.episode-list{list-style:none;padding:0;margin:0;display:grid;gap:36px}
+.episode-card{display:grid;grid-template-columns:260px minmax(0,1fr);gap:54px;align-items:center;text-decoration:none;color:var(--white);border:1px solid #4a3c30;border-radius:18px;padding:28px;background:linear-gradient(120deg,#2a211b,var(--ink) 80%);overflow:hidden}
+.episode-art{position:relative;border-radius:10px;overflow:hidden;background:var(--ink)}
+.episode-art img{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover}
+.play-disc{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:64px;height:64px;border:1px solid #fffa;border-radius:50%;padding-left:4px;background:#12100ed9;color:#fff;font-size:23px;backdrop-filter:blur(6px)}
+.episode-card:hover .play-disc{background:var(--orange);color:var(--ink);border-color:var(--orange)}
+.episode-card .display{font-size:clamp(48px,6vw,80px);line-height:1}
+.episode-card-copy>p:not(.kicker):not(.fine){font-size:20px;line-height:1.6;max-width:40ch;color:var(--soft);margin:22px 0}
+.episode-card .episode-play{margin-top:8px;font-size:18px;gap:14px}
+.story-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:72px;align-items:start}
+.story-portrait{margin:0;position:sticky;top:32px}
+.story-portrait img{display:block;width:100%;height:auto;border-radius:14px}
+.story-portrait figcaption{font-size:14px;line-height:1.5;color:var(--muted);margin-top:14px}
+.story-layout .prose h2:first-child{margin-top:0}
+.more{gap:8px}
+@media(max-width:860px){.watch-layout{gap:36px}.watch-intro .display{font-size:64px}.watch-intro .lead{font-size:18px}.episode-card{grid-template-columns:200px minmax(0,1fr);gap:32px}.story-layout{grid-template-columns:220px minmax(0,1fr);gap:36px}.episode-notes{gap:32px}}
+@media(max-width:640px){.watch-layout{display:flex;flex-direction:column;gap:30px;align-items:stretch}.watch-intro .display{font-size:58px}.watch-intro .lead{margin:16px 0;font-size:18px}.watch-intro .more{display:none}.watch-screen{align-self:center;width:min(100%,320px,calc(65svh * .5625))}.watch-screen .video{outline-offset:4px}.episode-stage{padding-bottom:40px}.episode-card{grid-template-columns:1fr;gap:26px;padding:20px}.episode-art{max-height:440px}.episode-art img{height:440px;object-fit:cover;object-position:50% 45%}.episode-card-copy>p:not(.kicker):not(.fine){font-size:18px}.episode-card .display{font-size:48px}.episode-notes,.story-layout{grid-template-columns:1fr;gap:28px}.story-portrait{position:static;max-width:260px}.story-layout .prose h2{font-size:36px}.breadcrumbs{margin:-16px 0 16px}.hero-art .hero-play{width:48px;height:48px;font-size:19px;bottom:72px}.episode-card-copy .fine{margin-top:10px}}
+@media(prefers-reduced-motion:no-preference){.hero-play,.play-disc{transition:background-color .2s,color .2s}.episode-card{transition:border-color .3s,box-shadow .3s}.episode-card:hover{border-color:var(--orange);box-shadow:0 18px 50px #0004}}
+.video video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#090807}

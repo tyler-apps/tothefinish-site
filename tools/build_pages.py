@@ -5,7 +5,8 @@ Tyler 2026-11-18: "Should we go for an SEO play on the website" -> "Build". The 
 (Brain: brain/methods/social/growth-playbook.md + brain/social/automation.md): one page per
 episode (the video, a short write-up in Tyler's voice, one search phrase, the sign-up form,
 VideoObject structured data), an episodes index, the "how the coaches decide" page, sitemap.xml and
-robots.txt. The home page stays hand-edited; this script never touches index.html.
+robots.txt. Homepage prose stays hand-edited; this script refreshes shared asset versions
+and bakes dated progress values from data/progress.json into index.html.
 
     python3 tools/build_pages.py          # rebuild everything from episodes/episodes.json
 
@@ -21,12 +22,13 @@ import datetime as dt
 import html
 import json
 import re
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://tothefinish.ai"
 GTM = "GTM-5Q6Q2KFL"
-TODAY = dt.date.today().isoformat()
+TODAY = dt.datetime.now(ZoneInfo("America/Los_Angeles")).date().isoformat()
 
 
 def asset_ver():
@@ -66,8 +68,21 @@ def site_footer():
     return _FOOTER
 
 
-def head(title, desc, path, extra="", index=True):
-    canon = (f'<link rel="canonical" href="{SITE}{path}">' if index else '<meta name="robots" content="noindex">')
+def head(title, desc, path, extra="", index=True, share_image=None):
+    share_image = share_image or SITE + "/assets/og.jpg"
+    canon = (f'<link rel="canonical" href="{SITE}{path}">' if index else '')
+    crumbs = []
+    if path != "/" and index:
+        crumbs = [("Home", "/")]
+        if path.startswith("/episodes/") and path != "/episodes/":
+            crumbs.append(("Episodes", "/episodes/"))
+        label = title.split(" | ")[0].split(" · ")[0]
+        crumbs.append((label, path))
+        extra += ld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+            {"@type":"ListItem","position":i+1,"name":label,"item":SITE+url} for i,(label,url) in enumerate(crumbs)]})
+    trail = '<nav class="breadcrumbs" aria-label="Breadcrumb">' + ' <span aria-hidden="true">/</span> '.join(
+        f'<a href="{esc(url)}">{esc(label)}</a>' if i<len(crumbs)-1 else f'<span aria-current="page">{esc(label)}</span>'
+        for i,(label,url) in enumerate(crumbs)) + '</nav>' if crumbs else ''
     ogtype = "article" if '"@type": "Article"' in extra else "website"
     return f"""<!doctype html>
 <html lang="en">
@@ -81,11 +96,16 @@ def head(title, desc, path, extra="", index=True):
 {canon}
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
-<meta property="og:image" content="{SITE}/assets/og.jpg">
+<meta property="og:image" content="{esc(share_image)}">
+<meta property="og:site_name" content="To The Finish">
+<meta property="og:image:alt" content="{esc(title)}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:type" content="{ogtype}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{SITE}/assets/og.jpg">
+<meta name="twitter:image" content="{esc(share_image)}">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="robots" content="{'index,follow,max-image-preview:large,max-video-preview:-1' if index else 'noindex'}">
 <link rel="icon" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" href="/assets/barlow-condensed-800.woff2" crossorigin>
@@ -103,6 +123,7 @@ def head(title, desc, path, extra="", index=True):
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
       {site_nav(path)}
     </div>
+    {trail}
 """
 
 
@@ -146,6 +167,7 @@ User-agent: *
 Allow: /
 
 Sitemap: {site}/sitemap.xml
+Sitemap: {site}/video-sitemap.xml
 """
 
 
@@ -153,76 +175,92 @@ def ld(obj):
     return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + "</script>"
 
 
+def episode_poster(e):
+    return SITE + e["poster"] if e.get("poster", "").startswith("/") else e.get("poster") or f'https://i.ytimg.com/vi/{e["youtube_id"]}/hqdefault.jpg'
+
+
+def duration_label(e):
+    m = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", e.get("duration", ""))
+    if not m:
+        return "Watch episode"
+    h, minutes, seconds = (int(x or 0) for x in m.groups())
+    return f"{h*60+minutes}:{seconds:02d}"
+
+
 def episode_page(e):
     path = f"/episodes/{e['slug']}/"
-    title = f"Episode {e['number']}: {e['title']} | To The Finish, the animated series"
-    thumb = f"https://i.ytimg.com/vi/{e['youtube_id']}/maxresdefault.jpg"
+    title = f"{e['title']}: Episode {e['number']} | To The Finish, the animated series"
+    thumb = episode_poster(e)
+    embed = f"https://www.youtube-nocookie.com/embed/{e['youtube_id']}"
     video = {
-        "@context": "https://schema.org", "@type": "VideoObject",
-        "name": f"To The Finish, Episode {e['number']}: {e['title']}",
-        "description": e["description"], "thumbnailUrl": [thumb],
-        "uploadDate": e["date"], "embedUrl": f"https://www.youtube.com/embed/{e['youtube_id']}",
-        "partOfSeries": {"@type": "CreativeWorkSeries", "name": "To The Finish", "alternateName": "To The Finish, the animated series", "url": SITE + "/"},
-    }
-    if e.get("duration"):
-        video["duration"] = e["duration"]
+        "@context":"https://schema.org", "@type":"VideoObject", "@id":SITE+path+"#video",
+        "name":f"The Hiring | To The Finish, Episode {e['number']}" if e['number']==1 else f"{e['title']} | To The Finish, Episode {e['number']}",
+        "description":e["description"], "thumbnailUrl":[thumb],
+        "uploadDate":e.get("published_at",e["date"]), "embedUrl":embed,
+        "url":SITE+path, "mainEntityOfPage":SITE+path, "inLanguage":"en",
+        "creator":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/"},
+        "partOfSeries":{"@type":"CreativeWorkSeries","@id":SITE+"/#series","name":"To The Finish","url":SITE+"/"}}
+    if e.get("duration"): video["duration"] = e["duration"]
+    if e.get("video_file"): video["contentUrl"] = SITE + e["video_file"]
+    player = f'<iframe src="{esc(embed)}" title="Watch {esc(e["title"])}" loading="eager" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>'
+    if e.get("video_file"):
+        track = f'<track kind="captions" src="{esc(e["captions"])}" srclang="en" label="English" default>' if e.get("captions") else ''
+        player = f'<video controls playsinline preload="none" poster="{esc(e.get("poster",thumb))}" aria-label="{esc(e["title"])}: Episode {e["number"]}"><source src="{esc(e["video_file"])}" type="video/mp4">{track}<p><a href="https://www.youtube.com/watch?v={esc(e["youtube_id"])}">Watch on YouTube</a></p></video>'
+    transcript = f'<p class="fine">English captions are available in the video controls. <a href="{esc(e["captions"])}" download>Download captions</a>.</p>' if e.get("captions") else ""
     body = "".join(f"<p>{esc(p)}</p>" for p in e.get("writeup", []))
     garmin = f'<p class="note">From my Garmin: {esc(e["garmin"])}</p>' if e.get("garmin") else ""
-    vclass = "video vertical" if e.get("vertical") else "video"
     date_h = dt.date.fromisoformat(e["date"]).strftime("%B %-d, %Y")
-    return head(title, e["description"], path, ld(video)) + f"""    <div class="page">
-      <p class="kicker">Episode {e['number']} · {date_h}</p>
-      <h1 class="display">{esc(e['title'])}</h1>
-      <p class="episode-direct"><a class="btn" href="https://www.youtube.com/watch?v={esc(e['youtube_id'])}">Watch on YouTube ↗</a></p>
-    </div>
+    behind = 'The gap on <span class="o">day one.</span>' if e["number"] == 1 else 'The training <span class="o">behind it.</span>'
+    vclass = "video vertical" if e.get("vertical") else "video"
+    return head(title,e["description"],path,ld(video),share_image=thumb) + f"""
   </div>
 </header>
-<section>
-  <div class="wrap">
-    <div class="{vclass}"><iframe src="https://www.youtube-nocookie.com/embed/{esc(e['youtube_id'])}" title="{esc(e['title'])}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <div class="prose" style="margin-top:28px">{body}{garmin}</div>
+<section class="episode-stage">
+  <div class="wrap watch-layout">
+    <div class="watch-screen">
+      <div class="{vclass}">{player}</div>
+      <a class="player-fallback" href="https://www.youtube.com/watch?v={esc(e['youtube_id'])}">Open in YouTube <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="watch-intro">
+      <p class="kicker">Episode {e['number']} · {duration_label(e)}</p>
+      <h1 class="display">{esc(e['title'])}</h1>
+      <p class="lead">{esc(e['description'])}</p>
+      <p class="fine">Published <time datetime="{e['date']}">{date_h}</time> · By <a href="/story/">Tyler Stewart</a></p>
+      <p class="fine">Animated AI characters and voices. My real training.</p>
+      <a class="more" href="#behind-episode">The real numbers behind it <span aria-hidden="true">↓</span></a>
+    </div>
   </div>
 </section>
-<section>
-  <div class="wrap">
-    <p class="kicker">The Sunday letter</p>
-    <h2 class="display" style="font-size:clamp(40px,6vw,64px);margin-bottom:18px">Get the next episode <span class="o">when it's out.</span></h2>
-    {FORM.format(id='ep', button='Get the Sunday letter')}
-    <p class="body" style="margin-top:22px"><a href="/episodes/">All episodes</a></p>
-  </div>
-</section>
+<section id="behind-episode"><div class="wrap episode-notes">
+  <div><p class="kicker">Behind the episode</p><h2 class="display">{behind}</h2><a class="more" href="/#progress">Where I am now →</a></div>
+  <div class="prose">{body}{garmin}{transcript}<p><a href="/how-the-coaches-decide/">How the coaches decide</a> · <a href="/episodes/">All episodes</a></p></div>
+</div></section>
+<section><div class="wrap letter-layout">
+  <div><p class="kicker">The Sunday letter</p><h2 class="display">The next week<br><span class="o">of the chase.</span></h2><p class="body">My miles, the coaches’ calls and the new episode when one’s out.</p></div>
+  <div>{FORM.format(id='ep',button='Get the Sunday letter')}</div>
+</div></section>
 """ + FOOT
 
 
 def episodes_index(eps):
     path = "/episodes/"
-    desc = ("A dad of two who started at 258 lb hired five AI coaches to get him under three hours in the marathon, and they "
-            "argue over every run. Every episode of To The Finish, the animated series, with the real numbers from his Garmin.")
-    if eps:
-        items = "".join(
-            f'<li><a href="/episodes/{e["slug"]}/"><img class="episode-thumb" src="https://i.ytimg.com/vi/{e["youtube_id"]}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy"><span class="n">Episode {e["number"]} · '
-            f'{dt.date.fromisoformat(e["date"]).strftime("%b %-d, %Y")}</span><h3>{esc(e["title"])}</h3>'
-            f'<p>{esc(e["description"])}</p><span class="episode-play">Watch episode →</span></a></li>' for e in reversed(eps))
-        listing = f'<ul class="eplist">{items}</ul>'
-    else:
-        listing = '<p class="body">Episode 1 comes out Sunday, November 22. It&#x27;s the week the coaches got hired, and the first time they disagreed about me.</p>'
-    series = {"@context": "https://schema.org", "@type": "CreativeWorkSeries", "name": "To The Finish",
-              "url": SITE + "/", "description": desc}
-    return head("Episodes | To The Finish, the animated series", desc, path, ld(series)) + f"""    <div class="page">
-      <p class="kicker">Season 1: The 5K</p>
-      <h1 class="display">The <span class="o">episodes.</span></h1>
-      <p class="lead">Two episodes a month, on Sundays, from the first week of training to the start line in Chicago. Each one comes from the weeks that really happened, with the times straight off my watch, including the runs that went sideways.</p>
-      <p class="eptop"><a class="btn" href="https://www.youtube.com/@tothefinishai">Watch on YouTube</a></p>
-    </div>
-  </div>
-</header>
-<section>
-  <div class="wrap">
-    {listing}
-    <div style="margin-top:36px">{FORM.format(id='idx', button='Get the Sunday letter')}</div>
-  </div>
-</section>
-""" + FOOT
+    desc = "Watch To The Finish, the animated series. A dad who started at 258 lb hires five AI coaches for a sub-3 marathon. Start with Episode 1: The Hiring."
+    cards = []
+    for e in reversed(eps):
+        cards.append(f'''<li><a class="episode-card" href="/episodes/{esc(e['slug'])}/">
+          <div class="episode-art"><img src="{esc(e.get('poster',episode_poster(e)))}" alt="A scene from {esc(e['title'])}" width="540" height="960" loading="{'eager' if e==eps[-1] else 'lazy'}"><span class="play-disc" aria-hidden="true">▶</span></div>
+          <div class="episode-card-copy"><p class="kicker">Episode {e['number']} · {duration_label(e)}</p><h2 class="display">{esc(e['title'])}</h2><p>{esc(e['description'])}</p><span class="episode-play">Watch episode <span aria-hidden="true">→</span></span><p class="fine"><time datetime="{e['date']}">{dt.date.fromisoformat(e['date']).strftime('%B %-d, %Y')}</time></p></div>
+        </a></li>''')
+    series = {"@context":"https://schema.org","@type":"CollectionPage","name":"To The Finish episodes","url":SITE+path,
+        "mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":SITE+f"/episodes/{e['slug']}/","name":e['title']} for i,e in enumerate(reversed(eps))]}}
+    return head("Watch the episodes | To The Finish, the animated series",desc,path,ld(series)) + f'''<div class="page archive-head">
+      <p class="kicker">Season 1 · The 5K</p><h1 class="display">Start before<br><span class="o">the first mile.</span></h1>
+      <p class="lead">I asked for a sub-3 marathon. Before the first run, the coaches had to agree on tomorrow.</p>
+    </div></div></header>
+<section class="archive-stage"><div class="wrap"><ol class="episode-list">{''.join(cards)}</ol>
+<p class="fine">The episodes use the numbers from when they were made. <a href="/#progress">Today’s progress is here</a>.</p></div></section>
+<section><div class="wrap letter-layout"><div><p class="kicker">The Sunday letter</p><h2 class="display">There’s a week<br><span class="o">between the scenes.</span></h2><p class="body">That’s what I write about on Sundays, with the new episode when one’s out.</p></div><div>{FORM.format(id='idx',button='Get the Sunday letter')}</div></div></section>
+''' + FOOT
 
 
 def coach_page(qs=()):
@@ -268,6 +306,26 @@ def coach_page(qs=()):
 """ + FOOT
 
 
+def story_page():
+    desc = "I’m Tyler Stewart, a dad of two who started at 258 lb. To The Finish follows my attempt to run a sub-3 marathon with five AI coaches."
+    schema = {"@context":"https://schema.org","@type":"AboutPage","url":SITE+"/story/","name":"Tyler’s story | To The Finish",
+        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/"},
+        "isPartOf":{"@id":SITE+"/#website"}}
+    return head("Tyler’s story | To The Finish, the animated series",desc,"/story/",ld(schema))+'''<div class="page">
+      <p class="kicker">The dad behind the watch</p><h1 class="display">I’m Tyler.<br><span class="o">I have to run it.</span></h1>
+      <p class="lead">I started at 258 lb, I’ve got a two-year-old and a baby, and I hired five AI coaches to get me under three hours in the marathon. They argue over every run.</p>
+    </div></div></header>
+<section><div class="wrap story-layout">
+  <figure class="story-portrait"><img src="/assets/episode-1-poster.webp" width="540" height="960" alt="My animated character on the garage bench in Episode 1"><figcaption>My animated character, on the morning the coaches got hired.</figcaption></figure>
+  <div class="prose"><h2>Why Chicago</h2><p>My son was born a few weeks after I turned 41. My daughter came this April. I’ll be 57 when she starts high school. I’d like to still win a few races up a hill by then.</p><p>I want them to see me go after something I might miss, and see what I do the next morning.</p>
+  <h2>I’ve run faster before</h2><p>In June 2024 I ran a half marathon in 1:32:31. That is still my best. When I first asked my watch about a marathon on October 19, 2026, it estimated 4:39:49. My goal for Chicago on October 10, 2027 is under three hours. I don’t know yet whether I’ll get there.</p>
+  <h2>What’s real, and what’s drawn</h2><p>The training is mine. The watch records my runs, and the coaches read that data to help plan the next day. The five coaches are AI characters with animated faces and AI voices. They can change a plan. They can’t do the run or feel my pain.</p><p>The episodes turn those weeks into scenes. The site shows the estimates beside the goals and race results, so you can check how the chase is going. This is my personal coaching setup, not medical or nutrition advice.</p>
+  <p><a href="/coaches/">What the coaches can see</a> · <a href="/races/">My races</a></p>
+  <h2>Start with the morning they got hired</h2><p><a class="btn" href="/episodes/the-hiring/">Watch Episode 1 →</a></p><p>Or write to me at <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a>.</p></div>
+</div></section>
+<section><div class="wrap letter-layout"><div><p class="kicker">The Sunday letter</p><h2 class="display">I’ll tell you<br><span class="o">how the week went.</span></h2></div><div>''' + FORM.format(id='story',button='Get the Sunday letter') + '</div></div></section>' + FOOT
+
+
 def privacy_page():
     path = "/privacy/"
     desc = ("What tothefinish.ai collects when you sign up for the Sunday letter, where it goes, "
@@ -288,7 +346,7 @@ def privacy_page():
     <h2>Where it goes</h2>
     <p>The form sends what you type to Kit, the email service I use to send the Sunday letter.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits, watch-link clicks and requests to join the Sunday letter. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode pages play the video through YouTube.</p>
+    <p>The site uses Google Analytics to count visits, watch-link clicks and requests to join the Sunday letter. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>
@@ -314,7 +372,7 @@ def notfound_page():
 """ + FOOT
 
 
-AUTHOR = {"@type": "Person", "name": "Tyler Stewart", "url": SITE + "/"}
+AUTHOR = {"@type":"Person", "@id":SITE+"/story/#tyler", "name":"Tyler Stewart", "url":SITE+"/story/"}
 
 
 def question_page(q, all_q):
@@ -345,7 +403,7 @@ def question_page(q, all_q):
 </header>
 <section>
   <div class="wrap prose">{out}
-    <p class="note">By Tyler Stewart. Numbers from my Garmin (chest-strap heart rate). Not medical or nutrition advice; the coaches are AI characters.</p>
+    <p class="note">By <a href="/story/" rel="author">Tyler Stewart</a>. Numbers from my Garmin (chest-strap heart rate). Not medical or nutrition advice; the coaches are AI characters.</p>
   </div>
 </section>
 <section>
@@ -447,10 +505,11 @@ def moved_page(new):
 
 def main():
     eps = json.loads((ROOT / "episodes" / "episodes.json").read_text())
+    eps = [e for e in eps if e.get("youtube_id") and e["youtube_id"] != "TBD" and e["date"] <= TODAY]
     eps.sort(key=lambda e: e["number"])
     data_date = json.loads((ROOT / "data" / "progress.json").read_text())["updated"]
     urls = [("/", "weekly", data_date), ("/episodes/", "weekly", max([e["date"] for e in eps] or ["2026-11-18"])),
-            ("/how-the-coaches-decide/", "monthly", "2026-11-22"), ("/coaches/", "weekly", data_date)]
+            ("/how-the-coaches-decide/", "monthly", "2026-11-23"), ("/coaches/", "weekly", data_date)]
     if (ROOT / "data" / "races.json").exists():
         urls.append(("/san-diego-races/", "weekly", json.loads((ROOT / "data" / "races.json").read_text())["updated"]))
     urls.append(("/chicago-marathon-2027/", "weekly", data_date))
@@ -462,7 +521,7 @@ def main():
         d = ROOT / "episodes" / e["slug"]
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(episode_page(e))
-        urls.append((f"/episodes/{e['slug']}/", "monthly", e["date"]))
+        urls.append((f"/episodes/{e['slug']}/", "monthly", e.get("updated",e["date"])))
     qs = live_questions(json.loads((ROOT / "pages" / "questions.json").read_text()))
     for q in qs:
         d = ROOT / q["slug"]
@@ -476,15 +535,40 @@ def main():
         d = ROOT / old
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(moved_page(new))
+    d = ROOT / "story"
+    d.mkdir(exist_ok=True)
+    (d / "index.html").write_text(story_page())
+    urls.append(("/story/", "monthly", "2026-11-23"))
     d = ROOT / "privacy"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(privacy_page())
-    urls.append(("/privacy/", "yearly", "2026-11-21"))
+    urls.append(("/privacy/", "yearly", "2026-11-23"))
     (ROOT / "404.html").write_text(notfound_page())
     home = ROOT / "index.html"
     h = home.read_text()
     h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    D = json.loads((ROOT / "data/progress.json").read_text())
+    date = dt.date.fromisoformat(D["updated"])
+    week = next((w for w in D.get("year",[]) if w.get("current")),{})
+    gap = int(round(D["to_go_s"]))
+    values = {"now":D["now"]["marathon"], "asof":date.strftime("%b %-d"),
+        "togo":f"{gap//3600}:{gap%3600//60:02d}:{gap%60:02d}",
+        "weeksleft":max(0,(dt.date(2027,10,10)-dt.date.fromisoformat(TODAY)).days//7),
+        "wkdone":week.get("done") if week.get("done") is not None else "Not recorded", "wkplan":week.get("plan","Not set")}
+    for key,value in values.items():
+        h=re.sub(r'(<[^>]+data-k="'+key+r'"[^>]*>)[^<]*(</[^>]+>)',lambda m:m[1]+esc(str(value))+m[2],h)
+    h=re.sub(r'The saved numbers above are from [A-Z][a-z]{2} \d{1,2};',f'The saved numbers above are from {date.strftime("%b %-d")};',h)
     home.write_text(h)
+    # Publication dates describe the video, not the day a generator ran.
+    vs = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">']
+    for e in eps:
+        content = f'<video:content_loc>{SITE}{esc(e["video_file"])}</video:content_loc>' if e.get("video_file") else ""
+        vs.append(f'<url><loc>{SITE}/episodes/{esc(e["slug"])}/</loc><video:video><video:thumbnail_loc>{esc(episode_poster(e))}</video:thumbnail_loc><video:title>{esc(e["title"])}</video:title><video:description>{esc(e["description"])}</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/{esc(e["youtube_id"])}</video:player_loc>{content}<video:publication_date>{esc(e.get("published_at",e["date"]))}</video:publication_date></video:video></url>')
+    vs.append('</urlset>')
+    (ROOT/'video-sitemap.xml').write_text('\n'.join(vs)+'\n')
+    # Revision dates persist across routine data refreshes; never pretend each build is a new article.
+    revisions = json.loads((ROOT/'pages/seo-revisions.json').read_text())
+    urls = [(u,f,max(m,revisions.get(u,m))) for u,f,m in urls]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     sm += [f"  <url><loc>{SITE}{u}</loc><lastmod>{m}</lastmod><changefreq>{f}</changefreq></url>" for u, f, m in urls]
     sm.append("</urlset>")

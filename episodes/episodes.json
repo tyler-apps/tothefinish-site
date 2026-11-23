@@ -10,11 +10,16 @@
     "phrase": "sub-3 marathon at 258 lb",
     "description": "Can a 258 lb dad run a sub-3 marathon? I hired five AI coaches to find out, and they argue over every run. This is the morning they got hired.",
     "writeup": [
-      "In October, the first time I asked my Garmin about a marathon, it said 4:39:49. Chicago is October 10, 2027, and I need 2:59:59.",
-      "Every run I finish reaches the coaches within minutes. By the time I'm out of the shower they've argued about it, and tomorrow's run is already on my wrist, with a heart-rate range on the easy days and a pace range on the hard ones. Rook, the head coach, settles it.",
-      "Kai, the running coach, has a first rule: my easy days go slower than I want. Episode 2, December 6, is the hill where I broke it. The Chicago drawing answers December 8, and the first 5K is December 26.",
-      "All five coaches are animated AI characters with AI voices. My own training, shared as it happens. Not medical advice."
+      "In October, the first time I asked my Garmin about a marathon, it said 4:39:49. My goal for Chicago is 2:59:59. That was the gap on the morning I hired the coaches.",
+      "Kai wants the running done his way. Bo wants heavy legs, and Kai has something to say about when. Before I’ve run a mile for them, they have to agree on a week.",
+      "The figures in this episode are from the start of the story. The watch estimate changes with the training; the current numbers are on the home page.",
+      "All five coaches are animated AI characters with AI voices. The training is mine."
     ],
-    "garmin": "the first marathon prediction was 4:39:49 on October 19. On November 21 it read 4:36:10."
+    "garmin": "the first marathon prediction was 4:39:49 on October 19. On November 21 it read 4:36:10.",
+    "poster": "/assets/episode-1-poster.webp",
+    "published_at": "2026-11-22",
+    "updated": "2026-11-23",
+    "video_file": "/media/episode-1-the-hiring.mp4",
+    "captions": "/media/episode-1-the-hiring.en.vtt"
   }
 ]

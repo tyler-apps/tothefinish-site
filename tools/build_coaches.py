@@ -358,8 +358,7 @@ def main():
     gtm = home[home.index("<!-- Google tag"):home.index("<title>")]
     style = re.search(r"<style>.*?</style>", home, re.S).group(0).replace("url(assets/", "url(/assets/")
     jump = '<a href="#data" class="jd">The data</a>' + "".join(f'<a href="#{c["k"]}">{avatar(c["k"], 28)}{c["n"]}</a>' for c in COACHES)
-    desc = ("What five AI coaches read off one runner: every second of every run, every night of sleep, every lift and meal, "
-            "drawn as charts you can drag through, with what each coach does about it.")
+    desc = "Meet the five AI coaches in To The Finish. See my real running, strength, recovery and food data, and what each coach does with it."
     schema = json.dumps({"@context": "https://schema.org", "@type": "WebPage", "name": "The coaches | To The Finish",
                          "url": "https://tothefinish.ai/coaches/", "description": desc,
                          "isPartOf": {"@type": "WebSite", "name": "To The Finish", "url": "https://tothefinish.ai/"}},
@@ -375,13 +374,18 @@ def main():
 {gtm}<title>The coaches · To The Finish</title>
 <meta name="description" content="{desc}">
 <meta property="og:title" content="The coaches · To The Finish">
-<meta property="og:description" content="Five AI coaches read my runs, sleep, lifts and meals as they happen, and change my plan on their own. Here's what each one is watching right now.">
+<meta property="og:description" content="{desc}">
+<meta property="og:site_name" content="To The Finish">
+<meta property="og:image:alt" content="Tyler and the five animated To The Finish coaches">
+<meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
 <meta property="og:image" content="https://tothefinish.ai/assets/og.jpg">
 <meta property="og:url" content="https://tothefinish.ai/coaches/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://tothefinish.ai/coaches/">
 <script type="application/ld+json">{schema}</script>
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The coaches · To The Finish">
+<meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="https://tothefinish.ai/assets/og.jpg">
 <link rel="preload" as="font" type="font/woff2" href="/assets/barlow-condensed-800.woff2" crossorigin>
 <link rel="icon" href="/assets/favicon.png">
