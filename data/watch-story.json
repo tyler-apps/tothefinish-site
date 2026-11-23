@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-23",
+  "workout": "4 mi easy + 4 hill sprints",
+  "distance_mi": 4.03,
+  "duration": "1:02:22",
+  "avg_hr": 110,
+  "climb_ft": 585,
+  "cap_bpm": 120,
+  "cap_status": "provisional estimate",
+  "recovery": {
+    "overnight_hrv_ms": 85,
+    "garmin_seven_day_hrv_ms": 83,
+    "sleep_hours": 8.22,
+    "sleep_display": "8 hours and 13 minutes",
+    "resting_hr_bpm": 44,
+    "nights": [
+      {
+        "date": "2026-11-17",
+        "hrv_ms": 91
+      },
+      {
+        "date": "2026-11-18",
+        "hrv_ms": 85
+      },
+      {
+        "date": "2026-11-19",
+        "hrv_ms": 60
+      },
+      {
+        "date": "2026-11-20",
+        "hrv_ms": 86
+      },
+      {
+        "date": "2026-11-21",
+        "hrv_ms": 87
+      },
+      {
+        "date": "2026-11-22",
+        "hrv_ms": 90
+      },
+      {
+        "date": "2026-11-23",
+        "hrv_ms": 85
+      }
+    ]
+  }
+}
