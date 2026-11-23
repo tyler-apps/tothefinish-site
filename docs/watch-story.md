@@ -33,3 +33,7 @@ Edit index.html between WATCH STORY markers plus assets/watch-story.css/js. Data
 ## Coach context before the demonstration
 
 Tyler requested introductions before visitors see the coaches work. The compact #team section now precedes #inside, with names, existing portraits, specialties and short roles. Hero → Meet the coaches → See them work. Full profile links remain on coach names. Removed the old downstream team section and duplicate five-role strip. Existing First Light design and reveal/reduced-motion handling remain; Apple tangible lineup and Linear progressive explanation inform sequence only.
+
+## Technology credits and partnership contact
+
+Tyler approved factual Garmin, Anthropic and OpenAI credits plus a discreet partnership contact. #tools follows the walkthrough, using linked text names without logos or co-branding. Garmin supplies recorded workout/recovery inputs. Claude Code built the original project and remains a development tool; Codex develops/reviews the website, scripts and shared workflows. The scheduled checks remain described as local scripts/rules, not necessarily per-workout calls to both AI vendors. Sources: user's project history, Brain/scripts/TTF-WORKFLOW.md, scripts/ttf_cold_reader.py and the existing watch pipeline. Partnership contact uses existing hello@tothefinish.ai; no email sent. OpenAI brand guidance and Anthropic trademark guidance were consulted; no sponsor/endorsement relationship asserted.
