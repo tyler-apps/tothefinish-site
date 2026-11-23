@@ -564,6 +564,15 @@ def main():
     for e in eps:
         content = f'<video:content_loc>{SITE}{esc(e["video_file"])}</video:content_loc>' if e.get("video_file") else ""
         vs.append(f'<url><loc>{SITE}/episodes/{esc(e["slug"])}/</loc><video:video><video:thumbnail_loc>{esc(episode_poster(e))}</video:thumbnail_loc><video:title>{esc(e["title"])}</video:title><video:description>{esc(e["description"])}</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/{esc(e["youtube_id"])}</video:player_loc>{content}<video:publication_date>{esc(e.get("published_at",e["date"]))}</video:publication_date></video:video></url>')
+    # The homepage explainer is a separate film, not a numbered episode.
+    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h, re.S):
+        for video in json.loads(block).get('@graph', []):
+            if video.get('@type') != 'VideoObject':
+                continue
+            thumbnail = video['thumbnailUrl']
+            if isinstance(thumbnail, list):
+                thumbnail = thumbnail[0]
+            vs.append(f'<url><loc>{SITE}/</loc><video:video><video:thumbnail_loc>{esc(thumbnail)}</video:thumbnail_loc><video:title>{esc(video["name"])}</video:title><video:description>{esc(video["description"])}</video:description><video:content_loc>{esc(video["contentUrl"])}</video:content_loc><video:publication_date>{esc(video["uploadDate"])}</video:publication_date><video:duration>69</video:duration></video:video></url>')
     vs.append('</urlset>')
     (ROOT/'video-sitemap.xml').write_text('\n'.join(vs)+'\n')
     # Revision dates persist across routine data refreshes; never pretend each build is a new article.

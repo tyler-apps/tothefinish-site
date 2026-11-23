@@ -9,3 +9,7 @@ Poster: actual frame at 11 seconds from that same approved source, scaled to 540
 English WebVTT captions: local Parakeet transcription of the published audio, checked against source dialogue/scene timing. Quieter board dialogue was transcribed separately from the same audio. Speaker attribution corrected for Bo's “Fine.” Captions reproduce historical published wording, including dialogue that predates the current prose gate; they do not establish a new coach-writing standard. On-screen phone text is labeled as on-screen text. New page copy passes the current gate.
 
 Publication metadata uses the documented November 22 date. It does not invent an actual publication clock time from the scheduled release time. Keep audio and character continuity with this approved source.
+
+## Inside the coaches · Nov 23, 2026
+
+The 68.7-second evergreen explainer uses seven new Veo 3.1 Quality animated shots and the corrected Episode 1 running shot. Exact saved Episode 1 ElevenLabs voice IDs; Bo and Juno receive the same STS voice conversion. Existing owned score/SFX. Burned captions plus accessible VTT and homepage transcript. Web H.264/AAC 720×1280, fast-start; full 1080×1920 master and editable HyperFrames source are in Brain/brain/social/productions/pinned-explainer/final-character-film/. Recorded data Nov 23, research review Nov 21, next workout labeled planned Nov 24. User approved final production and explicitly stopped further review requests.

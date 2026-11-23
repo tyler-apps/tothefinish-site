@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://tothefinish.ai/">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://tothefinish.ai/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "To The Finish", "alternateName": "To The Finish, the animated series", "url": "https://tothefinish.ai/", "@id": "https://tothefinish.ai/#website", "inLanguage": "en-US"}, {"@type": "CreativeWorkSeries", "name": "To The Finish", "url": "https://tothefinish.ai/", "description": "A dad of two who started at 258 lb hired five AI coaches to get him under three hours in the marathon, and they argue over every run. To The Finish, the animated series: two episodes a month, with real Garmin numbers.", "sameAs": ["https://www.youtube.com/@tothefinishai", "https://www.instagram.com/tothefinishai/", "https://www.tiktok.com/@tothefinishai", "https://x.com/tothefinishai", "https://www.strava.com/clubs/tothefinish"], "@id": "https://tothefinish.ai/#series", "creator": {"@id": "https://tothefinish.ai/story/#tyler"}}, {"@type": "Person", "@id": "https://tothefinish.ai/story/#tyler", "name": "Tyler Stewart", "url": "https://tothefinish.ai/story/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "To The Finish", "alternateName": "To The Finish, the animated series", "url": "https://tothefinish.ai/", "@id": "https://tothefinish.ai/#website", "inLanguage": "en-US"}, {"@type": "CreativeWorkSeries", "name": "To The Finish", "url": "https://tothefinish.ai/", "description": "A dad of two who started at 258 lb hired five AI coaches to get him under three hours in the marathon, and they argue over every run. To The Finish, the animated series: two episodes a month, with real Garmin numbers.", "sameAs": ["https://www.youtube.com/@tothefinishai", "https://www.instagram.com/tothefinishai/", "https://www.tiktok.com/@tothefinishai", "https://x.com/tothefinishai", "https://www.strava.com/clubs/tothefinish"], "@id": "https://tothefinish.ai/#series", "creator": {"@id": "https://tothefinish.ai/story/#tyler"}}, {"@type": "Person", "@id": "https://tothefinish.ai/story/#tyler", "name": "Tyler Stewart", "url": "https://tothefinish.ai/story/"}, {"@type": "VideoObject", "@id": "https://tothefinish.ai/#coach-film-video", "name": "Inside the coaches: what happens after I stop my watch", "description": "Five AI coaches use a recorded run, training history and reviewed research to plan the next workout. An animated explanation of Tyler Stewart’s To The Finish system.", "thumbnailUrl": ["https://tothefinish.ai/media/inside-the-coaches-poster.jpg"], "contentUrl": "https://tothefinish.ai/media/inside-the-coaches.mp4", "embedUrl": "https://tothefinish.ai/#coach-film", "uploadDate": "2026-11-23T15:25:25-08:00", "duration": "PT1M9S", "inLanguage": "en-US", "creator": {"@id": "https://tothefinish.ai/story/#tyler"}}]}</script>
 <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1">
 <meta property="og:site_name" content="To The Finish">
 <meta property="og:image:width" content="1200">
@@ -213,6 +213,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 .joinbar .mark{white-space:nowrap;flex:none}
 @media (prefers-reduced-motion:reduce){.joinbar{transition:none}}
 @media (max-width:860px){.wrap.cols{grid-template-columns:1fr;gap:0}.epcard{justify-self:start;max-width:none}.epcard .ed{font-size:64px}}
+
+.film-media{position:relative}.film-play{position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:12px;white-space:nowrap;border:1px solid #ffc89e;background:#12100eee;color:#fff;border-radius:99px;padding:18px 24px;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 8px 30px #0007}.film-play[hidden]{display:none}.film-play:focus-visible{outline:3px solid var(--orange);outline-offset:5px}.film-play span:first-child{color:var(--orange)}
+/* Final animated explainer: tap-to-play, with transcript and no eager video download. */
+.coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:13px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=73f87e7a">
 <link rel="stylesheet" href="/assets/motion.css?v=73f87e7a">
@@ -286,8 +290,20 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         </div>
       </article>
     </div>
-    <div class="team-intro-next"><p>Here’s what happens when my watch sends them a run.</p><a class="btn" href="#inside">See them work <span aria-hidden="true">↓</span></a></div>
+    <div class="team-intro-next"><p>Here’s what happens when my watch sends them a run.</p><a class="btn" href="#coach-film">See them work <span aria-hidden="true">↓</span></a></div>
   </div>
+</section>
+
+<section id="coach-film" class="coach-film" aria-labelledby="coach-film-title">
+ <div class="wrap film-layout">
+  <div class="film-copy"><p class="kicker">Inside the coaches · 1:09</p><h2 class="display" id="coach-film-title">The run ends.<br><span class="o">They get to work.</span></h2>
+   <p class="body">My watch saves a run. Here’s how the five coaches use it to plan what I do next.</p>
+   <p class="fine">An animated look at my system, using my November 23 run. The research review changes the rules; the scheduled scripts import workouts and check those rules.</p>
+   <p class="film-links"><a class="btn" href="#inside">Explore the decisions <span aria-hidden="true">↓</span></a></p>
+   <details class="film-transcript"><summary>Read the film transcript</summary><p><strong>Kai:</strong> Tyler wants to run a marathon under three hours. He&#x27;s a dad of two. We&#x27;re the five AI coaches behind his plan.</p><p><strong>Kai:</strong> I&#x27;m Kai. Four miles, plenty of climbing. I read his heart rate with the hills and his training history.</p><p><strong>Mo:</strong> Mo, recovery. One bad watch reading could once rewrite three training days. That gave one number too much weight.</p><p><strong>Mo:</strong> We reviewed the research and changed that rule. Now I check recovery trends, sleep and reported pain before changing training.</p><p><strong>Bo:</strong> Bo. His next planned run has hill repeats. Leg training goes afterward, so his next easy day stays easy.</p><p><strong>Juno:</strong> Juno. I&#x27;ll match his food to that harder day. More work needs more fuel. We share the same calendar.</p><p><strong>Rook:</strong> Rook. Running comes first. If lifting clashes, lifting moves. We save what changed and why for the next review.</p><p><strong>Kai:</strong> His laptop imports the run, checks the rules and syncs the workout. Research reviews happen separately. He still has to run.</p></details>
+  </div>
+  <figure class="film-player"><div class="film-media"><button class="film-play" type="button" aria-label="Play Inside the coaches" hidden><span aria-hidden="true">▶</span><span>Play the film</span></button><video controls playsinline preload="none" poster="/media/inside-the-coaches-poster.jpg" width="1080" height="1920" aria-label="Inside the coaches: how my watch data becomes a training plan"><source src="/media/inside-the-coaches.mp4" type="video/mp4"><track kind="captions" src="/media/inside-the-coaches.en.vtt" srclang="en" label="English"><a href="/media/inside-the-coaches.mp4">Watch Inside the coaches</a></video></div><figcaption>Five AI characters. My recorded run. Tomorrow’s planned workout.</figcaption></figure>
+ </div>
 </section>
 
 <!-- WATCH STORY START -->
@@ -502,5 +518,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
+<script src="/assets/coach-film.js" defer></script>
 </body>
 </html>
