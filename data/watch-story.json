@@ -42,6 +42,13 @@
         "date": "2026-11-23",
         "hrv_ms": 85
       }
-    ]
+    ],
+    "baseline": {
+      "as_of": "2026-11-23",
+      "eligible_nights": 11,
+      "required_nights": 21,
+      "status": "building",
+      "comparison_available": false
+    }
   }
 }
