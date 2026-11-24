@@ -192,3 +192,160 @@ form.join{margin-top:24px}
 .tool-credit-foot .fine{font-size:14px;color:var(--muted);margin-top:6px}
 .partnership-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--orange);font-size:15px;text-underline-offset:4px;white-space:nowrap}
 @media(max-width:760px){.tool-credits{padding:44px 0}.tool-credit-grid{grid-template-columns:1fr;gap:24px;margin-top:24px}.tool-credit-foot{flex-direction:column;align-items:flex-start;gap:12px}.tool-credits>.wrap>.body{font-size:17px}}
+
+/* Premium refinement, November 23: TTF palette and display face, editorial spacing.
+   Structure: Linear's repeated chapters; Apple's quiet controls and gallery rhythm.
+   Keep this shared so generated pages and the homepage remain one product. */
+:root{--content-width:1240px;--section-space:112px;--surface:#1b1815;--body-font:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:var(--content-width);padding-inline:40px}
+section{padding-block:var(--section-space)}
+.display{text-wrap:balance;letter-spacing:-.02em}
+h2.display{font-size:clamp(48px,5.4vw,76px);line-height:.98}
+p.body,.prose p{line-height:1.75}
+.kicker,.prose p.kicker{font-family:var(--body-font);font-size:14px;font-weight:600;letter-spacing:.12em;line-height:1.5;color:var(--muted);margin-bottom:22px}
+.bar{padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:68px}
+.mark{font-size:25px;letter-spacing:.02em}
+.top,.page-top{padding-top:24px}
+.nav{gap:28px}
+.nav a{margin-left:0;font-size:14px;color:var(--soft)}
+.nav a.navcta{font-family:var(--body-font);font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;background:transparent;color:var(--white);border:1px solid #5a524a;border-radius:6px;padding-inline:18px}
+.nav a.navcta:hover{background:var(--soft);color:var(--ink)}
+.mnav summary{font-family:var(--body-font);font-size:14px;font-weight:600;letter-spacing:0;text-transform:none}
+.btn,form.join button{font-family:var(--body-font);font-size:15px;font-weight:600;letter-spacing:0;text-transform:none;border-radius:6px;min-height:52px;padding:16px 22px;line-height:1.35}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:20px}
+.btn:hover{filter:none;background:var(--soft)}
+.hero-actions .btn{background:var(--orange);color:var(--ink)}
+.hero-actions .btn:hover,form.join button:hover{background:var(--paper);filter:none}
+.top .hero{grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.top .hero h1{font-size:clamp(60px,5.5vw,76px);line-height:1.02;max-width:none;letter-spacing:-.018em;text-wrap:balance}
+.top .hero p.lead{font-size:18px;line-height:1.75;max-width:43ch;margin:28px 0}
+.top .hero .kicker{font-size:14px;letter-spacing:.1em}
+.top .hero .fine{max-width:38ch;margin-top:24px;line-height:1.6}
+.top{padding-bottom:88px}
+.hero-actions{gap:8px 24px;align-items:center}
+.episode-archive{font-size:14px;text-decoration-thickness:1px;text-underline-offset:6px}
+.hero-art{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface);box-shadow:0 24px 70px #0004}
+.hero-art img{border-radius:4px;aspect-ratio:1.5;object-fit:contain;object-position:center}
+.hero-art .art-caption{font-size:14px;gap:12px;margin:0;padding:18px 10px 8px;color:var(--soft)}
+.hero-art .art-caption span:last-child{color:var(--muted)}
+.hero-art .hero-play{left:28px;bottom:88px;width:48px;height:48px;font-size:18px;background:var(--ink);color:var(--white);border:1px solid var(--soft);box-shadow:none}
+.hero-art:hover .hero-play{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+#team.team-intro{padding:96px 0;background:var(--surface)}
+.team-intro-heading{grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.team-intro-heading .display{font-size:clamp(48px,5.4vw,76px);line-height:.98}
+.team-intro-heading .body{font-size:18px;line-height:1.75;max-width:44ch}
+#team.team-intro .coaches{margin-top:48px;gap:24px;grid-template-columns:repeat(5,minmax(0,1fr))}
+#team.team-intro .coach{min-width:0;display:flex;flex-direction:column;align-items:stretch}
+#team.team-intro .coach picture{display:block;overflow:hidden;border-radius:6px;background:var(--paper)}
+#team.team-intro .coach img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:0}
+#team.team-intro .coach .ct{padding-top:18px}
+#team.team-intro .coach h3{font-size:36px;letter-spacing:-.01em}
+#team.team-intro .coach .lane{font-family:var(--body-font);font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted);line-height:1.5;margin-top:0}
+#team.team-intro .coach .does{font-size:15px;line-height:1.7;margin-top:10px}
+.team-intro-next{margin-top:42px;padding-top:28px}
+.team-intro-next .btn{background:transparent;color:var(--white);border:1px solid #5a524a}
+.team-intro-next .btn:hover{border-color:var(--soft);background:var(--ink)}
+#inside.watch-story{padding-block:var(--section-space)}
+#inside .inside-heading{gap:80px;margin-bottom:56px}
+#inside .inside-heading h2{font-size:clamp(48px,5.4vw,76px)}
+#inside .inside-heading .body{line-height:1.75}
+#inside .watch-chapter h3{font-size:clamp(38px,3.7vw,52px);line-height:1.05;letter-spacing:-.015em}
+#inside .watch-chapter>.kicker{font-family:var(--body-font);font-size:14px;letter-spacing:.06em;color:var(--muted)}
+#inside .watch-chapter>.kicker span{color:var(--orange)}
+#inside .research-translation,#inside .plan-receipt{background:var(--surface);border-color:var(--line);border-radius:6px;padding:28px}
+#inside .research-translation>span,#inside .plan-receipt>span{font-size:14px;letter-spacing:.05em}
+#inside .inside-details summary{font-size:17px;padding-block:24px}
+#tools.tool-credits{background:var(--surface);padding-block:72px}
+.tool-credit-grid{gap:48px}
+.tool-credit-grid .tool-job{color:var(--muted)}
+.tool-credit-grid h3{font-size:34px}
+#why{background:var(--ink);padding-block:120px}
+#why h2{font-size:clamp(48px,5.4vw,76px);max-width:12ch}
+#progress{background:var(--surface)}
+#progress .gap-head{font-size:clamp(64px,10vw,140px);letter-spacing:-.02em;line-height:1}
+#progress .facts{gap:40px;margin-top:40px}
+#progress .facts>div{border-top:1px solid var(--line);padding-top:24px}
+.viz{border-radius:6px;background:var(--surface)}
+.road{gap:28px}
+.road li{padding-top:24px}
+.letter-layout{gap:80px;align-items:start}
+#letter .joincard{background:var(--surface);border-radius:8px;padding:36px}
+form.join input,form.join select{border-radius:6px;background:var(--ink)}
+form.join{gap:18px}
+form.join button{margin-top:4px}
+footer{padding-block:64px}
+footer .sign{font-size:clamp(32px,4.2vw,56px);max-width:18ch;line-height:1.05;margin-bottom:28px}
+footer .links.site{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+/* Shared inner pages receive the same type rhythm and quiet surfaces. */
+.page-top .bar{margin-bottom:56px}
+.page h1{font-size:clamp(56px,7.5vw,100px);line-height:1.02;max-width:20ch}
+.page p.lead{line-height:1.75;font-size:19px}
+.prose h2{line-height:1.08;margin-top:48px}
+.card,.race,.rrow,.facts>div,.eplist a,.episode-card{border-radius:6px;background:var(--surface)}
+.episode-card{gap:64px;padding:36px}
+@media(prefers-reduced-motion:no-preference){
+ .btn,.navcta,.hero-art,.coach img{transition:background-color .2s,border-color .2s,transform .45s cubic-bezier(.2,.7,.2,1)}
+ #team .coach:hover img{transform:scale(1.025)}
+ .hero-art:hover{border-color:#5a524a;transform:translateY(-3px)}
+}
+@media(min-width:1101px){.top .hero{min-height:570px}}
+@media(max-width:1100px){
+ :root{--section-space:88px}
+ .wrap{padding-inline:32px}.bar{margin-bottom:48px}
+ .top .hero{gap:36px}.top .hero h1{font-size:64px}
+ .team-intro-heading,#inside .inside-heading{gap:40px}
+ #team.team-intro .coaches{gap:18px}
+ .hero-art .art-caption{flex-direction:column;gap:4px;padding:16px 8px 6px}
+ .hero-art .hero-play{bottom:110px}
+}
+@media(max-width:860px){
+ .top .hero{grid-template-columns:1fr;gap:40px}
+ .top .hero h1{font-size:clamp(60px,8.8vw,76px);max-width:17ch}
+ .top .hero p.lead{max-width:50ch}
+ .hero-art{max-width:none;width:100%}.hero-art img{aspect-ratio:1.5}
+ .hero-art .art-caption{flex-direction:row}.hero-art .hero-play{bottom:84px}
+ #team.team-intro .coaches{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px}
+ .team-intro-heading{grid-template-columns:1fr;gap:24px}.team-intro-heading .body{max-width:52ch}
+ .letter-layout{gap:36px}.tool-credit-grid{gap:28px}
+}
+@media(max-width:640px){
+ :root{--section-space:72px}
+ .wrap{padding-inline:24px}
+ .top,.page-top{padding-top:16px}.top{padding-bottom:56px}
+ .bar{padding-bottom:16px;margin-bottom:40px}.mark{font-size:23px}
+ .kicker,.top .hero .kicker{font-size:14px;letter-spacing:.07em;margin-bottom:18px}
+ .top .hero h1{font-size:clamp(46px,12vw,66px);max-width:16ch;line-height:1.02}
+ .top .hero p.lead{font-size:17px;line-height:1.7;margin:24px 0}
+ .hero-actions{gap:12px}.hero-actions .btn{width:100%}
+ .hero-actions .episode-archive{margin:0 auto;min-height:44px;display:inline-flex;align-items:center}
+ .top .hero .fine{margin-top:16px}.top .hero{gap:28px}
+ .hero-art{padding:7px;border-radius:7px}.hero-art img{aspect-ratio:1.5}
+ .hero-art .art-caption{font-size:14px;padding:14px 5px 6px;flex-wrap:wrap;gap:4px 12px}
+ .hero-art .hero-play{left:22px;bottom:76px;width:44px;height:44px}
+ #team.team-intro{padding-block:64px}
+ h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2{font-size:48px}
+ #team.team-intro .coaches{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px;margin-top:32px}
+ #team.team-intro .coach{display:flex;gap:0;align-items:stretch}
+ #team.team-intro .coach img{width:100%;height:auto;min-height:0;aspect-ratio:4/5}
+ #team.team-intro .coach .ct{padding-top:12px}
+ #team.team-intro .coach h3{font-size:32px}
+ #team.team-intro .coach h3 a{min-height:44px}
+ #team.team-intro .coach .does{font-size:14px;line-height:1.65}
+ #team.team-intro .coach:last-child{grid-column:1/-1;display:grid;grid-template-columns:calc((100% - 20px)/2) 1fr;gap:20px;align-items:center}
+ .team-intro-next{margin-top:32px;gap:20px}.team-intro-next p{font-size:16px}
+ #inside .inside-heading{gap:24px;margin-bottom:32px}
+ #inside .research-translation,#inside .plan-receipt{padding:20px}
+ #inside .watch-chapter h3{font-size:38px}
+ #tools.tool-credits{padding-block:56px}
+ #why{padding-block:72px}#progress .gap-head{font-size:clamp(48px,13vw,80px)}
+ #progress .facts{gap:24px}
+ .road{gap:24px}#letter .joincard{padding:24px}
+ footer{padding-block:48px}.page h1{font-size:56px}.page p.lead{font-size:18px}
+ .episode-card{padding:24px;gap:28px}
+}
+/* The persistent navigation stays quiet while the demonstration is in view. */
+.joinbar .btn{min-height:44px;padding:10px 16px;font-size:14px;background:transparent;color:var(--white);border:1px solid #5a524a}
+.joinbar .btn:hover{background:var(--soft);color:var(--ink)}
+#inside .watch-controls a{font-size:14px;min-height:44px}
+#inside .watch-caption{font-size:14px;line-height:1.5}
+@media(max-width:760px){#inside.watch-story.is-enhanced .watch-caption{font-size:14px;line-height:1.5}}
