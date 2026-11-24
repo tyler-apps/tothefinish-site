@@ -17,3 +17,8 @@ The current 93.8-second explainer replaces the earlier 68.7-second cut. Versione
 No whoosh, riser or noise transition layer remains. The score is the owned Episode 1 music, time-stretched without pitch shift and faded. New technical cutaways show Garmin polling, the saved history, the revised HRV rule, the shared calendar, file continuity between Claude Code and Codex, and approved workout changes returning to Garmin. Research review is separate from scheduled execution. HRV thresholds shown are implementation parameters, not claimed trial thresholds. The Nov 24 workout remains planned, subject to morning checks.
 
 Web delivery: H.264/AAC, 720×1280, 30 fps, fast-start, burned captions, matching English VTT and homepage transcript. Poster is a real frame from the finished film. Master, editable source, measurements and provenance: Brain/brain/social/productions/pinned-explainer/technical-sync-film/. The previous media files are historical and are no longer referenced by the homepage player. Tyler requested the final correction and stopped further approval/reviewer loops.
+
+
+## Inside the coaches revision 4 · November 23, 2026
+
+1:43 portrait explainer, 720×1280 website encode. Source: Brain/brain/social/productions/pinned-explainer/technical-sync-film/v4/. Burned spoken-word captions removed; optional English track remains off by default. Spoken cast introductions, revised Juno line and fuller Rook context. Claude pronunciation uses a phonetic provider-input alias; public text keeps the official spelling. All changed visible speech is generated from the replacement audio. Retains the hero muted autoplay and explicit sound control.
