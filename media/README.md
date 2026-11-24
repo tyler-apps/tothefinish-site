@@ -10,6 +10,10 @@ English WebVTT captions: local Parakeet transcription of the published audio, ch
 
 Publication metadata uses the documented November 22 date. It does not invent an actual publication clock time from the scheduled release time. Keep audio and character continuity with this approved source.
 
-## Inside the coaches · Nov 23, 2026
+## Inside the coaches · November 23, 2026 · revision 3
 
-The 68.7-second evergreen explainer uses seven new Veo 3.1 Quality animated shots and the corrected Episode 1 running shot. Exact saved Episode 1 ElevenLabs voice IDs; Bo and Juno receive the same STS voice conversion. Existing owned score/SFX. Burned captions plus accessible VTT and homepage transcript. Web H.264/AAC 720×1280, fast-start; full 1080×1920 master and editable HyperFrames source are in Brain/brain/social/productions/pinned-explainer/final-character-film/. Recorded data Nov 23, research review Nov 21, next workout labeled planned Nov 24. User approved final production and explicitly stopped further review requests.
+The current 93.8-second explainer replaces the earlier 68.7-second cut. Versioned v3 URLs prevent cached playback of the superseded film. Five audio-driven performances use approved Episode 1 character art and the exact saved ElevenLabs voice IDs. Kai and Mo: HeyGen Avatar 6 via ElevenLabs. Bo, Juno and Rook: Avatar 6 Turbo via ElevenLabs. Bo and Juno retain their voice-conversion step. Source embedded audio and picture keep identical trims and a matching 200 ms opening pad.
+
+No whoosh, riser or noise transition layer remains. The score is the owned Episode 1 music, time-stretched without pitch shift and faded. New technical cutaways show Garmin polling, the saved history, the revised HRV rule, the shared calendar, file continuity between Claude Code and Codex, and approved workout changes returning to Garmin. Research review is separate from scheduled execution. HRV thresholds shown are implementation parameters, not claimed trial thresholds. The Nov 24 workout remains planned, subject to morning checks.
+
+Web delivery: H.264/AAC, 720×1280, 30 fps, fast-start, burned captions, matching English VTT and homepage transcript. Poster is a real frame from the finished film. Master, editable source, measurements and provenance: Brain/brain/social/productions/pinned-explainer/technical-sync-film/. The previous media files are historical and are no longer referenced by the homepage player. Tyler requested the final correction and stopped further approval/reviewer loops.
