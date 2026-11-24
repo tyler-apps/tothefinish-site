@@ -22,3 +22,7 @@ Web delivery: H.264/AAC, 720×1280, 30 fps, fast-start, burned captions, matchin
 ## Inside the coaches revision 4 · November 23, 2026
 
 1:43 portrait explainer, 720×1280 website encode. Source: Brain/brain/social/productions/pinned-explainer/technical-sync-film/v4/. Burned spoken-word captions removed; optional English track remains off by default. Spoken cast introductions, revised Juno line and fuller Rook context. Claude pronunciation uses a phonetic provider-input alias; public text keeps the official spelling. All changed visible speech is generated from the replacement audio. Retains the hero muted autoplay and explicit sound control.
+
+## Launch hold · November 23 evening
+
+Tyler asked to remove the explainer until launch. All Inside the Coaches delivery versions, posters and VTTs are held outside the public site in Brain/brain/social/productions/pinned-explainer/technical-sync-film/v4/held-site-media/. The current final remains v4; earlier versions are history. Episode 1 remains published. Restore the final explainer only on Tyler’s launch instruction.

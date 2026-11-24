@@ -192,25 +192,3 @@ form.join{margin-top:24px}
 .tool-credit-foot .fine{font-size:14px;color:var(--muted);margin-top:6px}
 .partnership-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--orange);font-size:15px;text-underline-offset:4px;white-space:nowrap}
 @media(max-width:760px){.tool-credits{padding:44px 0}.tool-credit-grid{grid-template-columns:1fr;gap:24px;margin-top:24px}.tool-credit-foot{flex-direction:column;align-items:flex-start;gap:12px}.tool-credits>.wrap>.body{font-size:17px}}
-
-/* November 23: the finished explainer leads the homepage. Keep its full portrait frame. */
-.top .bar{margin-bottom:32px}
-.top .hero{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:72px}
-.hero-film{width:100%;max-width:min(340px,calc((100svh - 240px) * .5625));justify-self:end;scroll-margin-top:80px}
-.hero-film figcaption{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;margin-top:14px}
-.film-sound{white-space:nowrap;font:inherit;font-weight:700;font-size:13px;color:var(--ink);background:var(--orange);border:0;border-radius:7px;padding:12px;min-height:44px;cursor:pointer}
-.film-sound[hidden]{display:none}.film-sound:focus-visible{outline:3px solid var(--white);outline-offset:4px}
-.hero-film .film-transcript{margin-top:14px;padding-top:12px}
-.hero-film .film-transcript summary{font-size:13px}
-@media(max-width:860px){
- .top .hero{grid-template-columns:1fr;gap:20px}
- .hero-copy{display:contents}
- .hero-copy>.kicker{order:0;margin-bottom:0}
- .hero-copy>h1{order:1}
- .hero-film{order:2;justify-self:center;max-width:min(340px,calc(54svh * .5625));margin:0 auto}
- .hero-copy>.lead{order:3;margin:4px 0!important}
- .hero-copy>.hero-actions{order:4}
- .hero-copy>.fine{order:5;margin-top:0}
- .hero-film figcaption{flex-wrap:wrap;justify-content:center;text-align:center;gap:6px}
- .top .hero h1{font-size:clamp(40px,10.4vw,58px);max-width:17ch}
-}
