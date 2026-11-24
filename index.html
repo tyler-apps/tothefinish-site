@@ -218,9 +218,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:13px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=401313b7">
-<link rel="stylesheet" href="/assets/motion.css?v=401313b7">
-<link rel="stylesheet" href="/assets/watch-story.css?v=401313b7">
+<link rel="stylesheet" href="/assets/ui.css?v=f9e1c0c7">
+<link rel="stylesheet" href="/assets/motion.css?v=f9e1c0c7">
+<link rel="stylesheet" href="/assets/watch-story.css?v=f9e1c0c7">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -410,7 +410,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <figure class="viz">
       <figcaption><p class="q">How fit am I, in one number?</p><p class="take" data-take="vdot"><b>40.5</b> now <span>· 49.2 at my best · sub-3 needs 53.5</span></p></figcaption>
       <div class="plot" id="p-vdot" role="img"></div>
-      <p class="src">White dots are real races. Between races the thin line is an estimate, from the pace my watch says I could hold for about an hour, so read it as a trend. Orange rings are Kai's target for each race on the way to Chicago.</p>
+      <div class="race-target-key" aria-labelledby="race-target-heading"><p id="race-target-heading">Race finish-time targets</p><ul id="vdot-targets"></ul></div>
+      <p class="src">White dots are real races. Between races the thin line is an estimate, from the pace my watch says I could hold for about an hour, so read it as a trend. Orange rings show Kai's target finish times for each race distance on the way to Chicago.</p>
     </figure>
     <p class="fine">The fitness score and Garmin’s marathon prediction use different models. Neither is a finish time.</p>
   </div>
@@ -445,10 +446,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/watch-story.js?v=401313b7" defer></script>
-<script src="/assets/charts.js?v=401313b7"></script>
-<script src="/assets/join.js?v=401313b7"></script>
-<script src="/assets/motion.js?v=401313b7" defer></script>
+<script src="/assets/watch-story.js?v=f9e1c0c7" defer></script>
+<script src="/assets/charts.js?v=f9e1c0c7"></script>
+<script src="/assets/join.js?v=f9e1c0c7"></script>
+<script src="/assets/motion.js?v=f9e1c0c7" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -481,14 +482,23 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       var ln=V.line.map(function(p){return{x:day(p.date),y:p.vdot};}),last=ln[ln.length-1];
       var best=V.races.reduce(function(a,b){return b.vdot>a.vdot?b:a;});
       var rc=V.races.map(function(r){return{x:day(r.date),y:r.vdot,label:r===best?r.time+' half':'',keep:r===best,anchor:'start'};});
-      var LBL=[{below:true},{},{below:true,anchor:'start'}];
-      var tg=V.targets.map(function(t,i){var o=LBL[i];return{x:day(t.date),y:t.vdot,label:o?t.target:'',below:o&&o.below,anchor:o&&o.anchor};});
+      var LBL=[{below:true},{},{below:true},{anchor:'end'},{anchor:'start',dy:22}];
+      function raceDistance(t){return t.name==='First 5K'?'5K':t.name==='Chicago'?'Marathon':t.name;}
+      var tg=V.targets.map(function(t,i){var o=LBL[i]||{};return{x:day(t.date),y:t.vdot,label:raceDistance(t)+' · '+t.target,below:o.below,anchor:o.anchor,dy:o.dy,title:raceDistance(t)+' target finish time '+t.target+' on '+t.date};});
+      var targetList=document.getElementById('vdot-targets');
+      targetList.replaceChildren();
+      V.targets.forEach(function(t){
+        var item=document.createElement('li'),race=document.createElement('span'),time=document.createElement('b'),date=document.createElement('small');
+        race.textContent=raceDistance(t);time.textContent=t.target;
+        date.textContent=day(t.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+        item.append(race,time,date);targetList.appendChild(item);
+      });
       var x0=day(V.races[0].date<V.line[0].date?V.races[0].date:V.line[0].date),x1=day('2027-11-15');
-      T.timeline(document.getElementById('p-vdot'),{x0:x0,x1:x1,yLo:36,yHi:56,yStep:5,goal:{y:V.goal,label:'Sub-3 needs '+V.goal},
+      T.timeline(document.getElementById('p-vdot'),{x0:x0,x1:x1,rightPad:170,yLo:36,yHi:56,yStep:5,goal:{y:V.goal,label:'Sub-3 needs '+V.goal},
         xTicks:[2025,2026,2027].map(function(y){return{x:new Date(y,0,1,12),label:String(y)};}),
         layers:[{type:'line',data:ln,color:'#8a837c',width:1.5},{type:'dots',data:rc},{type:'rings',data:tg,path:true,from:last},
                 {type:'now',x:last.x,y:last.y,label:V.now+' now'}],
-        label:'Race fitness score: best '+V.best+', now '+V.now+', sub-3 needs '+V.goal});
+        label:'Race fitness score: best '+V.best+', now '+V.now+', sub-3 needs '+V.goal+'. Orange rings are target race finish times: '+tg.map(function(t){return t.title;}).join('; ')});
     }
     if(T&&D.year&&document.getElementById('p-miles')){
       var W=(D.before||[]).map(function(w){return{monday:w.monday,done:w.done,plan:null};}).concat(D.year.map(function(w){return{monday:w.monday,done:w.done,plan:w.plan,current:w.current};}));

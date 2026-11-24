@@ -168,7 +168,7 @@
   function timeline(host, o) {
     redraw(host, function () {
       var g = svgFor(host, o.h || (host.clientWidth < 520 ? 240 : 300)), s = g.s, w = g.w, h = g.h;
-      var L = g.small ? 34 : 44, R = g.small ? 14 : 24, T = 20, B = 28, x0 = +o.x0, x1 = +o.x1;
+      var L = g.small ? 34 : 44, R = g.small ? 14 : (o.rightPad || 24), T = 20, B = 28, x0 = +o.x0, x1 = +o.x1;
       function X(v) { return L + (+v - x0) / ((x1 - x0) || 1) * (w - L - R); }
       function Y(v) { return T + (1 - (v - o.yLo) / (o.yHi - o.yLo)) * (h - T - B); }
       for (var t = Math.ceil(o.yLo / o.yStep) * o.yStep; t <= o.yHi; t += o.yStep) {
@@ -191,8 +191,9 @@
               fill: 'none', stroke: C.orange, 'stroke-width': 1.5, 'stroke-dasharray': '2 6', 'stroke-linecap': 'round', opacity: 0.8 });
           }
           ly.data.forEach(function (p) {
-            el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.ink, stroke: C.orange, 'stroke-width': 2.5 });
-            if (p.label && (!g.small || p.keep)) text(s, X(p.x) + (p.anchor === 'start' ? 10 : 0), Y(p.y) + (p.anchor === 'start' ? 4 : (p.below ? 22 : -13)), p.label, { anchor: p.anchor || 'middle', fill: C.orange, weight: 700, size: 12 });
+            var ring = el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.ink, stroke: C.orange, 'stroke-width': 2.5 });
+            if (p.title) el(ring, 'title', {}, p.title);
+            if (p.label && (!g.small || p.keep)) text(s, X(p.x) + (p.anchor === 'start' ? 10 : p.anchor === 'end' ? -10 : 0), Y(p.y) + (p.dy != null ? p.dy : (p.anchor === 'start' ? 4 : (p.below ? 22 : -13))), p.label, { anchor: p.anchor || 'middle', fill: C.orange, weight: 700, size: 12 });
           });
         } else if (ly.type === 'dots') {
           ly.data.forEach(function (p) {
