@@ -464,3 +464,5 @@ footer .sign .o{color:var(--muted)}
  #club .joincard h3{font-size:30px;margin-bottom:22px}
  footer .sign{max-width:18ch;line-height:1.08}
 }
+/* Chart viewBoxes retain their drawing geometry inside narrow content columns. */
+.plot>svg{display:block;max-width:100%;height:auto}
