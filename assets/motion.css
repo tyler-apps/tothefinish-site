@@ -83,3 +83,18 @@
 @media(max-width:860px){.motion .road::after{left:7px;right:auto;top:6px;bottom:6px;width:2px;height:auto;transform:scaleY(var(--road-progress,0));transform-origin:top}}
 }
 @media(prefers-reduced-motion:reduce){.reveal,.motion-intro{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}.read-progress{display:none!important}html{scroll-behavior:auto}}
+
+/* Premium motion pass: readable reveals, precise controls, stationary data. */
+@media(prefers-reduced-motion:no-preference){
+ .reveal:not(.in){transform:translateY(24px)}
+ h2.reveal:not(.in),.gap-head.reveal:not(.in),.gapline.reveal:not(.in){transform:translateY(28px)}
+ .chart.reveal:not(.in){transform:translateY(24px)}
+ .reveal.in{transition:opacity .65s var(--spring),transform .75s var(--spring)}
+ form.join button:hover,.btn:hover{transform:translateY(-1px);box-shadow:none}
+ form.join button:active,.btn:active{transform:translateY(0);box-shadow:none}
+ .facts>div:hover{transform:none;box-shadow:none;border-color:var(--line)}
+ .hero-art:hover{transform:none;box-shadow:0 20px 50px #0003}
+ .more span,.team-intro-next .btn span{display:inline-block;transition:transform .25s var(--ease)}
+ .more:hover span{transform:translateX(4px)}
+ .team-intro-next .btn:hover span{transform:translateY(3px)}
+}
