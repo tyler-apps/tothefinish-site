@@ -1,15 +1,15 @@
 {
- "updated": "2026-11-23",
+ "updated": "2026-11-24",
  "goal": "2:59:59",
  "start": {
   "date": "2026-10-19",
   "marathon": "4:39:49"
  },
  "now": {
-  "date": "2026-11-23",
-  "marathon": "4:36:08"
+  "date": "2026-11-24",
+  "marathon": "4:37:36"
  },
- "to_go_s": 5769,
+ "to_go_s": 5857,
  "gap": [
   {
    "date": "2026-10-19",
@@ -154,6 +154,10 @@
   {
    "date": "2026-11-23",
    "marathon": "4:36:08"
+  },
+  {
+   "date": "2026-11-24",
+   "marathon": "4:37:36"
   }
  ],
  "engine": [
@@ -363,7 +367,7 @@
    "week": 5,
    "monday": "2026-11-23",
    "plan": 33,
-   "done": 4.0,
+   "done": 9.2,
    "current": true
   },
   {
@@ -720,35 +724,35 @@
   {
    "name": "First 5K",
    "date": "2026-12-26",
-   "today": "24:30",
+   "today": "24:41",
    "goal": null,
    "target": "22:40"
   },
   {
    "name": "5K",
    "date": "2027-02-07",
-   "today": "24:30",
+   "today": "24:41",
    "goal": null,
    "target": "21:30"
   },
   {
    "name": "10K",
    "date": "2027-05-15",
-   "today": "53:16",
+   "today": "53:38",
    "goal": null,
    "target": "40:00"
   },
   {
    "name": "Half marathon",
    "date": "2027-09-05",
-   "today": "2:02:21",
+   "today": "2:03:09",
    "goal": null,
    "target": "1:24:30"
   },
   {
    "name": "Chicago Marathon",
    "date": "2027-10-10",
-   "today": "4:36:08",
+   "today": "4:37:36",
    "goal": "2:59:59",
    "target": null
   }
@@ -836,8 +840,8 @@
   },
   {
    "monday": "2026-11-23",
-   "mpb": 1.127,
-   "n": 15
+   "mpb": 1.118,
+   "n": 16
   }
  ],
  "vdot": {
@@ -1088,7 +1092,7 @@
   "best": 49.2
  },
  "system": {
-  "runs_total": 443,
+  "runs_total": 444,
   "runs_by_month": [
    {
     "month": "2024-05",
@@ -1204,7 +1208,7 @@
    },
    {
     "month": "2026-11",
-    "n": 18
+    "n": 19
    }
   ],
   "decisions": [
@@ -1220,17 +1224,17 @@
    },
    {
     "monday": "2026-11-23",
-    "kai": 2,
+    "kai": 3,
     "rook": 1
    }
   ],
-  "decisions_total": 110,
-  "watch_days": 74,
-  "hilly_laps": 5151,
+  "decisions_total": 111,
+  "watch_days": 73,
+  "hilly_laps": 5168,
   "calls": [
    {
     "coach": "Kai",
-    "auto": 40,
+    "auto": 41,
     "called": 23,
     "yours": 7
    },
@@ -1316,10 +1320,15 @@
     "date": "2026-11-23",
     "hours": 8.2,
     "broken": true
+   },
+   {
+    "date": "2026-11-24",
+    "hours": 5.8,
+    "broken": true
    }
   ],
-  "sleep_avg7": 6.8,
-  "sleep_7plus": 3,
+  "sleep_avg7": 6.5,
+  "sleep_7plus": 2,
   "sleep_worn7": 7,
   "easy": [
    {
@@ -1366,10 +1375,10 @@
    },
    {
     "monday": "2026-11-23",
-    "easy": 100,
-    "steady": 0,
+    "easy": 89,
+    "steady": 11,
     "hard": 0,
-    "minutes": 62
+    "minutes": 148
    }
   ],
   "spike": [
@@ -1537,6 +1546,11 @@
     "date": "2026-11-23",
     "minutes": 62,
     "cap": 115
+   },
+   {
+    "date": "2026-11-24",
+    "minutes": 86,
+    "cap": 115
    }
   ],
   "next_cap": 115,
@@ -1577,12 +1591,6 @@
  "juno": {
   "week": [
    {
-    "date": "2026-11-23",
-    "carbs": 151,
-    "protein": 198,
-    "work": "easy"
-   },
-   {
     "date": "2026-11-24",
     "carbs": 216,
     "protein": 199,
@@ -1617,6 +1625,12 @@
     "carbs": 238,
     "protein": 198,
     "work": "long"
+   },
+   {
+    "date": "2026-11-30",
+    "carbs": 151,
+    "protein": 198,
+    "work": "easy"
    }
   ]
  },
@@ -1657,27 +1671,27 @@
    }
   ]
  },
- "to_go_txt": "1:36:09",
+ "to_go_txt": "1:37:37",
  "lines": {
-  "rook": "Tyler, 1:36:09 to find. The watch will wobble. Dec 26, the 5K, is the next number that counts. What you tell me stays at the top of the board.",
+  "rook": "Tyler, 1:37:37 to find. The watch will wobble. Dec 26, the 5K, is the next number that counts. What you tell me stays at the top of the board.",
   "kai_eff": "Flat, Tyler. Mission Trails dirt hides it for now. This line moves on the days you let me slow you down, and we both know which days those are.",
   "kai_vdot": "40.5 on paper. 49.2 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
   "kai_engine": "6:42, Tyler. Your pace, your file. The way back to it is easy dirt at Mission Trails and Fridays on the Serra Trail.",
   "kai_year": "33 this week, 90 in August. I want every one of them, and I want most of them slow.",
   "mo_easy": "74% easy last week. Kai's number is 80. Mine is what the other 26% cost you the next morning, Tyler.",
   "mo_spike": "Your ceiling right now is about 7.7 miles: ten percent past your longest run of the last 30 days. Anything longer waits until a long run earns it. I'll be the one saying no.",
-  "mo_sleep": "3 of the last 7 nights reached seven hours. Average 6.8. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
+  "mo_sleep": "2 of the last 7 nights reached seven hours. Average 6.5. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
   "bo": "Tyler! 295 on the box squat. Run first, then we lift, hours apart. That's the deal.",
   "juno": "Tyler. 216 grams of carbs on the hard and long days, 139 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
  },
  "coaches": {
   "Kai": {
-   "studies": 73,
-   "live": 443
+   "studies": 75,
+   "live": 444
   },
   "Mo": {
    "studies": 188,
-   "live": 164
+   "live": 165
   },
   "Bo": {
    "studies": 40,
@@ -1691,6 +1705,6 @@
    "studies": 167,
    "live": 70
   },
-  "all_studies": 621
+  "all_studies": 622
  }
 }

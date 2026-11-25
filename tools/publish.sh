@@ -6,6 +6,7 @@
 #   (data/progress.json, built pages, sitemap, pages/.facts-state.json). This is the auto-publish path
 #   (Tyler 2026-11-18: "Yes, auto-publish numbers"); wording changes and new pages ship without it, through the voice gate (brain/social/voice-gate.md, since 2026-11-18).
 set -u
+export PYTHONDONTWRITEBYTECODE=1
 SITE="$(cd "$(dirname "$0")/.." && pwd)"
 MSG="${1:-Site update}"
 MODE="${2:-}"
@@ -25,7 +26,10 @@ if [ -z "$CHANGED" ]; then echo "no change"; exit 0; fi
 
 if [ "$MODE" = "--numbers-only" ]; then
   # built pages are allowed only if their source (questions.json, build script, index.html) did not change
-  BAD=$(echo "$CHANGED" | grep -vE '^(data/(progress|races|feed)\.json|sitemap\.xml|pages/\.facts-state\.json|[a-z0-9-]+/index\.html|races/[a-z0-9-]+/index\.html|episodes/index\.html)$' || true)
+  if echo "$CHANGED" | grep -qx 'index.html'; then
+    python3 tools/check_home_numbers.py || { echo "numbers-only refused: homepage prose changed"; exit 2; }
+  fi
+  BAD=$(echo "$CHANGED" | grep -vE '^(index\.html|data/(progress|races|feed|training)\.json|sitemap\.xml|pages/\.facts-state\.json|[a-z0-9-]+/index\.html|races/[a-z0-9-]+/index\.html|episodes/index\.html)$' || true)
   if [ -n "$BAD" ]; then
     echo "numbers-only refused; these need approval: $(echo $BAD)"
     /usr/bin/osascript -e 'display notification "Site has non-number changes waiting for approval" with title "tothefinish.ai"' >/dev/null 2>&1

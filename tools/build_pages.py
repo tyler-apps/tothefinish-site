@@ -36,7 +36,7 @@ def asset_ver():
     import hashlib
     h = hashlib.sha1()
     for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js", "charts.js", "coaches-page.js", "feed.js",
-              "episode-live.js", "watch-story.css", "watch-story.js"):
+              "episode-live.js", "watch-story.css", "watch-story.js", "training.css", "training.js"):
         p = ROOT / "assets" / f
         if p.exists():
             h.update(p.read_bytes())
@@ -546,7 +546,7 @@ def main():
     (ROOT / "404.html").write_text(notfound_page())
     home = ROOT / "index.html"
     h = home.read_text()
-    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js|watch-story\.css|watch-story\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js|watch-story\.css|watch-story\.js|training\.css|training\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
     D = json.loads((ROOT / "data/progress.json").read_text())
     date = dt.date.fromisoformat(D["updated"])
     week = next((w for w in D.get("year",[]) if w.get("current")),{})
@@ -575,6 +575,9 @@ def main():
             vs.append(f'<url><loc>{SITE}/</loc><video:video><video:thumbnail_loc>{esc(thumbnail)}</video:thumbnail_loc><video:title>{esc(video["name"])}</video:title><video:description>{esc(video["description"])}</video:description><video:content_loc>{esc(video["contentUrl"])}</video:content_loc><video:publication_date>{esc(video["uploadDate"])}</video:publication_date><video:duration>69</video:duration></video:video></url>')
     vs.append('</urlset>')
     (ROOT/'video-sitemap.xml').write_text('\n'.join(vs)+'\n')
+    from build_training import main as build_training
+    training_date = build_training()
+    urls.append(("/training/", "daily", training_date))
     # Revision dates persist across routine data refreshes; never pretend each build is a new article.
     revisions = json.loads((ROOT/'pages/seo-revisions.json').read_text())
     urls = [(u,f,max(m,revisions.get(u,m))) for u,f,m in urls]

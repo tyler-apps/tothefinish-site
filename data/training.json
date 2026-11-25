@@ -1,0 +1,472 @@
+{
+  "version": 1,
+  "as_of": "2026-11-24",
+  "latest_record": "2026-11-24",
+  "from_date": "2026-10-28",
+  "week": {
+    "start": "2026-11-23",
+    "end": "2026-11-29",
+    "planned_miles": 33.0,
+    "recorded_miles": 9.22,
+    "recorded_runs": 2,
+    "recorded_strength": 0,
+    "days": [
+      {
+        "date": "2026-11-23",
+        "future": false,
+        "run_miles": 4.03,
+        "strength": false
+      },
+      {
+        "date": "2026-11-24",
+        "future": false,
+        "run_miles": 5.19,
+        "strength": false
+      },
+      {
+        "date": "2026-11-25",
+        "future": true,
+        "run_miles": null,
+        "strength": false
+      },
+      {
+        "date": "2026-11-26",
+        "future": true,
+        "run_miles": null,
+        "strength": false
+      },
+      {
+        "date": "2026-11-27",
+        "future": true,
+        "run_miles": null,
+        "strength": false
+      },
+      {
+        "date": "2026-11-28",
+        "future": true,
+        "run_miles": null,
+        "strength": false
+      },
+      {
+        "date": "2026-11-29",
+        "future": true,
+        "run_miles": null,
+        "strength": false
+      }
+    ]
+  },
+  "featured": "2026-11-24-run-940f6ad4",
+  "sessions": [
+    {
+      "key": "2026-11-24-run-940f6ad4",
+      "date": "2026-11-24",
+      "kind": "run",
+      "title": "Six hill repeats and a test climb",
+      "distance_mi": 5.19,
+      "duration_s": 5168,
+      "avg_hr": 114.0,
+      "peak_hr": 166.0,
+      "ascent_ft": 979.0,
+      "source": "Garmin recording",
+      "review": {
+        "headline": "A hill test. An unanswered question.",
+        "planned": "Six 45-second uphill repeats, then a separate climb to check the maximum heart-rate estimate behind my training zones.",
+        "observed": "I recorded all six repeats and the test climb. The session peaked at 166 bpm, below the interim estimate of 171 bpm.",
+        "decision": "Kai kept my easy limit at 120 bpm. This recording did not establish a new maximum heart rate.",
+        "next": "The next check was the planned easy run. Its result was still unknown when this note was written.",
+        "reviewed_on": "2026-11-24",
+        "coach": "Kai · running"
+      },
+      "efforts": [
+        {
+          "seconds": 45,
+          "meters": 134
+        },
+        {
+          "seconds": 45,
+          "meters": 141
+        },
+        {
+          "seconds": 45,
+          "meters": 126
+        },
+        {
+          "seconds": 45,
+          "meters": 133
+        },
+        {
+          "seconds": 45,
+          "meters": 115
+        },
+        {
+          "seconds": 45,
+          "meters": 116
+        },
+        {
+          "seconds": 107,
+          "meters": 242
+        }
+      ]
+    },
+    {
+      "key": "2026-11-23-run-2574f1fd",
+      "date": "2026-11-23",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 4.03,
+      "duration_s": 3742,
+      "avg_hr": 110.0,
+      "peak_hr": 132.0,
+      "ascent_ft": 585.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-22-run-4039c07b",
+      "date": "2026-11-22",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 7.01,
+      "duration_s": 6267,
+      "avg_hr": 111.0,
+      "peak_hr": 149.0,
+      "ascent_ft": 740.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-21-run-989794c3",
+      "date": "2026-11-21",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 4.01,
+      "duration_s": 3015,
+      "avg_hr": 111.0,
+      "peak_hr": 126.0,
+      "ascent_ft": 319.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-20-run-810cfff2",
+      "date": "2026-11-20",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.11,
+      "duration_s": 4017,
+      "avg_hr": 130.0,
+      "peak_hr": 159.0,
+      "ascent_ft": 664.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-18-run-8e80f2f6",
+      "date": "2026-11-18",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.01,
+      "duration_s": 5072,
+      "avg_hr": 116.0,
+      "peak_hr": 141.0,
+      "ascent_ft": 727.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-17-run-03065a46",
+      "date": "2026-11-17",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.01,
+      "duration_s": 4751,
+      "avg_hr": 117.0,
+      "peak_hr": 137.0,
+      "ascent_ft": 613.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-16-run-aee2d966",
+      "date": "2026-11-16",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 2.65,
+      "duration_s": 2406,
+      "avg_hr": 97.0,
+      "peak_hr": 111.0,
+      "ascent_ft": 122.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-14-run-af58eb51",
+      "date": "2026-11-14",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 3.09,
+      "duration_s": 2138,
+      "avg_hr": 110.0,
+      "peak_hr": 130.0,
+      "ascent_ft": 161.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-13-run-1a22127b",
+      "date": "2026-11-13",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 3.15,
+      "duration_s": 2820,
+      "avg_hr": 100.0,
+      "peak_hr": 118.0,
+      "ascent_ft": 217.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-12-run-b6fabec9",
+      "date": "2026-11-12",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.25,
+      "duration_s": 4869,
+      "avg_hr": 110.0,
+      "peak_hr": 135.0,
+      "ascent_ft": 673.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-11-strength",
+      "date": "2026-11-11",
+      "kind": "strength",
+      "title": "Strength session",
+      "source": "Reported strength log",
+      "movements": [
+        {
+          "name": "Bench vs bands",
+          "load_lb": 150.0,
+          "reps": 1,
+          "sets": 1
+        }
+      ]
+    },
+    {
+      "key": "2026-11-11-run-e4b2fdeb",
+      "date": "2026-11-11",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.01,
+      "duration_s": 3910,
+      "avg_hr": 126.0,
+      "peak_hr": 152.0,
+      "ascent_ft": 681.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-09-strength",
+      "date": "2026-11-09",
+      "kind": "strength",
+      "title": "Strength session",
+      "source": "Reported strength log",
+      "movements": [
+        {
+          "name": "Box squat, close stance",
+          "load_lb": 295.0,
+          "reps": 1,
+          "sets": 1
+        },
+        {
+          "name": "Good morning",
+          "load_lb": 145.0,
+          "reps": 5,
+          "sets": 1
+        },
+        {
+          "name": "Barbell bent-over row",
+          "load_lb": 145.0,
+          "reps": 8,
+          "sets": 3
+        },
+        {
+          "name": "Standing calf raise",
+          "load_lb": 45.0,
+          "reps": 15,
+          "sets": 3
+        },
+        {
+          "name": "Weighted sit-ups",
+          "load_lb": 25.0,
+          "reps": 10,
+          "sets": 1
+        },
+        {
+          "name": "Weighted sit-ups",
+          "load_lb": 25.0,
+          "reps": 7,
+          "sets": 1
+        },
+        {
+          "name": "Banded leg curls",
+          "load_lb": null,
+          "reps": 50,
+          "sets": 2
+        }
+      ]
+    },
+    {
+      "key": "2026-11-09-run-2fa951c3",
+      "date": "2026-11-09",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.2,
+      "duration_s": 4534,
+      "avg_hr": 119.0,
+      "peak_hr": 147.0,
+      "ascent_ft": 724.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-07-run-3907d759",
+      "date": "2026-11-07",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 3.13,
+      "duration_s": 2654,
+      "avg_hr": 109.0,
+      "peak_hr": 126.0,
+      "ascent_ft": 387.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-06-strength",
+      "date": "2026-11-06",
+      "kind": "strength",
+      "title": "Strength session",
+      "source": "Reported strength log",
+      "movements": [
+        {
+          "name": "Strict overhead press",
+          "load_lb": 120.0,
+          "reps": 1,
+          "sets": 1
+        },
+        {
+          "name": "Strict overhead press drop sets",
+          "load_lb": 95.0,
+          "reps": 3,
+          "sets": 3
+        },
+        {
+          "name": "Floor press",
+          "load_lb": 85.0,
+          "reps": 10,
+          "sets": 3
+        }
+      ]
+    },
+    {
+      "key": "2026-11-06-run-47001f88",
+      "date": "2026-11-06",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.08,
+      "duration_s": 4166,
+      "avg_hr": 112.0,
+      "peak_hr": 136.0,
+      "ascent_ft": 749.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-05-run-cc2c2402",
+      "date": "2026-11-05",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.07,
+      "duration_s": 3174,
+      "avg_hr": 135.0,
+      "peak_hr": 153.0,
+      "ascent_ft": 450.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-04-run-5e0efbf4",
+      "date": "2026-11-04",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.01,
+      "duration_s": 3577,
+      "avg_hr": 116.0,
+      "peak_hr": 138.0,
+      "ascent_ft": 435.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-03-run-7d6c7622",
+      "date": "2026-11-03",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.04,
+      "duration_s": 3192,
+      "avg_hr": 118.0,
+      "peak_hr": 139.0,
+      "ascent_ft": 359.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-11-02-strength",
+      "date": "2026-11-02",
+      "kind": "strength",
+      "title": "Strength session",
+      "source": "Reported strength log",
+      "movements": [
+        {
+          "name": "Box squat",
+          "load_lb": 265.0,
+          "reps": 1,
+          "sets": 1
+        }
+      ]
+    },
+    {
+      "key": "2026-11-02-run-065c9b5b",
+      "date": "2026-11-02",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 3.44,
+      "duration_s": 2388,
+      "avg_hr": 111.0,
+      "peak_hr": 123.0,
+      "ascent_ft": 166.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-10-31-run-3d3a5078",
+      "date": "2026-10-31",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 2.22,
+      "duration_s": 1753,
+      "avg_hr": 105.0,
+      "peak_hr": 123.0,
+      "ascent_ft": 299.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-10-30-run-bc0c6b09",
+      "date": "2026-10-30",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 1.19,
+      "duration_s": 1109,
+      "avg_hr": 111.0,
+      "peak_hr": 130.0,
+      "ascent_ft": 235.0,
+      "source": "Garmin recording"
+    },
+    {
+      "key": "2026-10-28-run-e43019da",
+      "date": "2026-10-28",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.01,
+      "duration_s": 4038,
+      "avg_hr": 109.0,
+      "peak_hr": 134.0,
+      "ascent_ft": 509.0,
+      "source": "Garmin recording"
+    }
+  ]
+}

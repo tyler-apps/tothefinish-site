@@ -218,9 +218,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:13px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=f9e1c0c7">
-<link rel="stylesheet" href="/assets/motion.css?v=f9e1c0c7">
-<link rel="stylesheet" href="/assets/watch-story.css?v=f9e1c0c7">
+<link rel="stylesheet" href="/assets/ui.css?v=de6c2416">
+<link rel="stylesheet" href="/assets/motion.css?v=de6c2416">
+<link rel="stylesheet" href="/assets/watch-story.css?v=de6c2416">
+<link rel="stylesheet" href="/assets/training.css?v=de6c2416">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -232,8 +233,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav></details>
+      <nav class="nav" aria-label="Main"><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a href="/training/">Training</a><a class="navcta" href="/#letter">Sunday letter</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a href="/training/">Training</a><a class="navcta" href="/#letter">Sunday letter</a></nav></details>
     </div>
     <div class="hero">
       <div>
@@ -369,12 +370,12 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 <section id="progress">
   <div class="wrap">
     <p class="kicker">The chase · estimate versus goal</p>
-    <h2 class="display gap"><span class="gap-metric"><small>Watch estimate</small> <span data-k="now">4:36:08</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Marathon goal</small> <span class="o">2:59:59</span></span></h2>
-    <p class="body">There’s <b data-k="togo">1:36:09</b> between the watch’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
-    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 23</span>. These are predictions, not race results.</p>
+    <h2 class="display gap"><span class="gap-metric"><small>Watch estimate</small> <span data-k="now">4:37:36</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Marathon goal</small> <span class="o">2:59:59</span></span></h2>
+    <p class="body">There’s <b data-k="togo">1:37:37</b> between the watch’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
+    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 24</span>. These are predictions, not race results.</p>
     <div class="facts">
       <div><b data-k="weeksleft">45</b><span class="l">weeks to Chicago</span></div>
-      <div><b><span data-k="wkdone">4.0</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
+      <div><b><span data-k="wkdone">9.2</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
       <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
     </div>
     <a class="more" href="/races/">My races and results <span aria-hidden="true">→</span></a>
@@ -382,6 +383,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </section>
 
 
+
+<section class="training-preview" id="training" aria-labelledby="training-preview-title"><div class="wrap training-preview-layout">
+<div><p class="kicker">The training journal</p><h2 class="display" id="training-preview-title">The work behind<br>the goal.</h2><p class="body">The runs, the lifts and the decisions that shape the next session. Follow the work on my way to Chicago.</p><a class="more" href="/training/">Explore my training</a></div>
+<div class="training-preview-card" id="training-preview-latest"><span class="training-label" data-training-date>Nov 24, 2026 · run recorded</span><h3 data-training-title>Six hill repeats and a test climb</h3><div class="training-preview-stats"><div><b data-training-miles>9.22</b><span>miles recorded this week</span></div><div><b data-training-plan>33</b><span>miles planned</span></div></div><p data-training-note>Kai kept my easy limit at 120 bpm. This recording did not establish a new maximum heart rate.</p><a class="more" href="/training/#sessions" data-training-link>Read the latest session</a><p class="training-small" data-training-asof>Records checked Nov 24, 2026.</p></div>
+</div></section>
 
 <section id="road">
   <div class="wrap">
@@ -446,10 +452,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/watch-story.js?v=f9e1c0c7" defer></script>
-<script src="/assets/charts.js?v=f9e1c0c7"></script>
-<script src="/assets/join.js?v=f9e1c0c7"></script>
-<script src="/assets/motion.js?v=f9e1c0c7" defer></script>
+<script src="/assets/watch-story.js?v=de6c2416" defer></script>
+<script src="/assets/charts.js?v=de6c2416"></script>
+<script src="/assets/join.js?v=de6c2416"></script>
+<script src="/assets/motion.js?v=de6c2416" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -509,7 +515,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       take('miles',cw2?'<b>'+(cw2.done==null?'Not recorded':cw2.done)+'</b> of '+cw2.plan+' miles this week <span>\u00b7 '+peak+' at the peak</span>':peak+' miles a week at the peak');
       T.bars(document.getElementById('p-miles'),{data:bars,thin:true,label:'Weekly miles, planned and run; peak '+peak});
     }
-  }).catch(function(){var n=document.getElementById('data-status');if(n)n.textContent='Live data could not load. The saved numbers above are from Nov 23; try reloading for the latest.';document.querySelectorAll('.plot:empty').forEach(function(p){p.textContent='Chart unavailable. Please reload to try again.';});});
+  }).catch(function(){var n=document.getElementById('data-status');if(n)n.textContent='Live data could not load. The saved numbers above are from Nov 24; try reloading for the latest.';document.querySelectorAll('.plot:empty').forEach(function(p){p.textContent='Chart unavailable. Please reload to try again.';});});
   /* where my Chicago entry stands, in the words of data/my-races.json (today: the drawing, results Dec 8) */
   fetch('data/my-races.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(M){
     var g=(M.races||[]).filter(function(r){return r.goal;})[0];if(g&&g.status)set('chistatus',g.status);
@@ -524,5 +530,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
+<script src="/assets/training.js?v=de6c2416" defer></script>
 </body>
 </html>

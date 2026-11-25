@@ -66,7 +66,7 @@
     document.documentElement.classList.add('motion');
     observer = new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in');observer.unobserve(entry.target);}});},{rootMargin:'0px 0px 6% 0px',threshold:0});
     // Animate a card as a unit; nested reveals produce multiple unnecessary delays.
-    var selectors = 'section .kicker,section h2,section .wrap > .body,.wrap.cols > div,.coaches > *, .facts > *, .road > *, .viz, .vizgrid > *, .prose > *, .eplist > *, .qlist > *, .joincard, .coachhead, .feed-grid > *, .rlist > *, .rgrid > *';
+    var selectors = 'section .kicker,section h2,section .wrap > .body,.wrap.cols > div,.coaches > *, .facts > *, .road > *, .viz, .vizgrid > *, .prose > *, .eplist > *, .qlist > *, .joincard, .coachhead, .feed-grid > *, .rlist > *, .rgrid > *, .training-entry, .training-feature-grid > *, .training-preview-layout > *';
     var targets = Array.from(document.querySelectorAll(selectors));
     targets.forEach(function(el){
       if (el.parentElement.closest('.prose,.viz,.coach,.joincard') || targets.some(function(other){return other!==el && other.contains(el);})) return;
