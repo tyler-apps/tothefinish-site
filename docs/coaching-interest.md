@@ -19,3 +19,10 @@ Kit form10239995 “Coaching product updates,” uid6791db9330. Published and re
 Only existing automation rule: tothefinish.ai sign-up10209840 → Welcome sequence2977232. No visual automations, no RSS feeds; Broadcasts All shows only the already-sent Nov22 letter and no pending send. Created Sunday letter · explicit opt-in segment611071: ANY subscribed to form10209840 OR Welcome sequence. This preserves the two documented original imported readers and the subsequent form signup, and excludes coaching-only membership. Future letter broadcasts must target this segment; never all subscribers. No existing subscribers were edited or emailed. Counts include unresolved tests and do not establish real audience growth.
 
 Release config is ready from UI verification. No live signup submitted and no email-delivery test performed.
+
+## Latest wording · November24
+
+Public label is now AI coaching waitlist, CTA Join the AI coaching waitlist. Tyler explicitly commits to making the coaches available IF they help him run a sub-three-hour marathon. This replaces exploratory-only/“no promise of access” language, while keeping present access unavailable and no price/date/free-access promise. The milestone is an actual completed marathon under3hours, not a watch estimate. Site public copy is updated; see current work-status for Kit verification/publication. Internal field names, analytics, form10239995 and newsletter segment611071 stay stable.
+
+
+Signup refinement, November 24, 2026: Tyler requested “Want your own AI running coaches?” with availability conditional on his marathon in under three hours. Public signup copy removes pricing, product/exploration language, access disclaimers and provider implementation details. Keep the direct first-person condition and the quiet “Keep me posted” form button. Occasional email cadence, unsubscribe and separate Sunday-letter consent remain visible. This supersedes the prior no-conditional-availability wording for this explicit statement only. No race outcome or current availability is claimed.

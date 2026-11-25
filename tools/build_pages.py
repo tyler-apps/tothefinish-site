@@ -328,7 +328,7 @@ def story_page():
 
 def privacy_page():
     path = "/privacy/"
-    desc = ("What tothefinish.ai collects for the Sunday letter and coaching product updates, where it goes, "
+    desc = ("What tothefinish.ai collects for the Sunday letter and the AI coaching waitlist, where it goes, "
             "and how to get off the list.")
     page = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy | To The Finish",
             "url": SITE + path, "description": desc}
@@ -342,11 +342,11 @@ def privacy_page():
 <section>
   <div class="wrap prose">
     <h2>What the forms collect</h2>
-    <p>The Sunday letter form asks for your email and an optional first name. The coaching product updates form asks for your email and, optionally, which part of training is hardest to fit together. Please don’t send medical records through either form.</p>
+    <p>The Sunday letter form asks for your email and an optional first name. The AI coaching waitlist form asks for your email and, optionally, which part of training is hardest to fit together. Please don’t send medical records through either form.</p>
     <h2>Where it goes</h2>
-    <p>The forms send what you enter to Kit, the email service I use. The Sunday letter and coaching product updates are separate choices. Requesting one doesn’t sign you up for the other. I use the optional training answer to understand what people want from a possible coaching product.</p>
+    <p>The forms send what you enter to Kit, the email service I use. The Sunday letter and the AI coaching waitlist are separate choices. Requesting one doesn’t sign you up for the other. I use the optional training answer to understand what people want from their own AI coaches.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits, watch-link clicks and requests for the Sunday letter or coaching product updates. Those requests are counted separately; a form submission doesn’t tell me whether an email was delivered. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
+    <p>The site uses Google Analytics to count visits, watch-link clicks and requests for the Sunday letter or places on the AI coaching waitlist. Those requests are counted separately; a form submission doesn’t tell me whether an email was delivered. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>
