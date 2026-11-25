@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "as_of": "2026-11-24",
-  "latest_record": "2026-11-24",
-  "from_date": "2026-10-28",
+  "as_of": "2026-11-25",
+  "latest_record": "2026-11-25",
+  "from_date": "2026-10-29",
   "week": {
     "start": "2026-11-23",
     "end": "2026-11-29",
     "planned_miles": 33.0,
-    "recorded_miles": 9.22,
-    "recorded_runs": 2,
+    "recorded_miles": 14.23,
+    "recorded_runs": 3,
     "recorded_strength": 0,
     "days": [
       {
@@ -25,8 +25,8 @@
       },
       {
         "date": "2026-11-25",
-        "future": true,
-        "run_miles": null,
+        "future": false,
+        "run_miles": 5.01,
         "strength": false
       },
       {
@@ -57,6 +57,18 @@
   },
   "featured": "2026-11-24-run-940f6ad4",
   "sessions": [
+    {
+      "key": "2026-11-25-run-a65c22b7",
+      "date": "2026-11-25",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 5.01,
+      "duration_s": 4427,
+      "avg_hr": 105.0,
+      "peak_hr": 131.0,
+      "ascent_ft": 540.0,
+      "source": "Garmin recording"
+    },
     {
       "key": "2026-11-24-run-940f6ad4",
       "date": "2026-11-24",
@@ -454,18 +466,6 @@
       "avg_hr": 111.0,
       "peak_hr": 130.0,
       "ascent_ft": 235.0,
-      "source": "Garmin recording"
-    },
-    {
-      "key": "2026-10-28-run-e43019da",
-      "date": "2026-10-28",
-      "kind": "run",
-      "title": "Run",
-      "distance_mi": 5.01,
-      "duration_s": 4038,
-      "avg_hr": 109.0,
-      "peak_hr": 134.0,
-      "ascent_ft": 509.0,
       "source": "Garmin recording"
     }
   ]
