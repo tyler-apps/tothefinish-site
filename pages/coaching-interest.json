@@ -1,0 +1,17 @@
+{
+  "status": "ready",
+  "form_id": 10239995,
+  "challenge_field": "coaching_challenge",
+  "verified": {
+    "separate_form": true,
+    "newsletter_audience_isolated": true,
+    "no_newsletter_welcome_trigger": true,
+    "optional_field": true,
+    "confirmation_flow": true
+  },
+  "verified_at": "2026-11-24",
+  "double_opt_in": false,
+  "confirmation_email": false,
+  "auto_confirm": true,
+  "newsletter_segment_id": 611071
+}

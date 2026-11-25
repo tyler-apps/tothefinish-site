@@ -13,6 +13,8 @@ MODE="${2:-}"
 cd "$SITE" || exit 1
 echo "== $(date '+%Y-%m-%d %H:%M') publish: $MSG"
 
+python3 tools/check_coaching_interest.py --release || { echo "coaching signup is not release-ready"; exit 1; }
+
 git pull -q --rebase --autostash origin main || { echo "pull failed"; exit 1; }
 python3 tools/build_pages.py || { echo "build failed"; exit 1; }
 python3 tools/build_races.py || { echo "race page build failed"; exit 1; }

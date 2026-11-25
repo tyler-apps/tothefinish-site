@@ -36,7 +36,7 @@ def asset_ver():
     import hashlib
     h = hashlib.sha1()
     for f in ("site.css", "ui.css", "motion.css", "motion.js", "join.js", "races.js", "charts.js", "coaches-page.js", "feed.js",
-              "episode-live.js", "watch-story.css", "watch-story.js", "training.css", "training.js"):
+              "episode-live.js", "watch-story.css", "watch-story.js", "training.css", "training.js", "coaching-interest.css"):
         p = ROOT / "assets" / f
         if p.exists():
             h.update(p.read_bytes())
@@ -328,12 +328,12 @@ def story_page():
 
 def privacy_page():
     path = "/privacy/"
-    desc = ("What tothefinish.ai collects when you sign up for the Sunday letter, where it goes, "
+    desc = ("What tothefinish.ai collects for the Sunday letter and coaching product updates, where it goes, "
             "and how to get off the list.")
     page = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy | To The Finish",
             "url": SITE + path, "description": desc}
     return head("Privacy | To The Finish", desc, path, ld(page)) + """    <div class="page">
-      <p class="kicker">Updated November 21, 2026</p>
+      <p class="kicker">Updated November 24, 2026</p>
       <h1 class="display">Privacy, in <span class="o">plain words.</span></h1>
       <p class="lead">This is a one-person site. Here's what it collects and where that goes.</p>
     </div>
@@ -342,11 +342,11 @@ def privacy_page():
 <section>
   <div class="wrap prose">
     <h2>What the forms collect</h2>
-    <p>The Sunday letter form asks for your first name and your email. That's all it asks for.</p>
+    <p>The Sunday letter form asks for your email and an optional first name. The coaching product updates form asks for your email and, optionally, which part of training is hardest to fit together. Please don’t send medical records through either form.</p>
     <h2>Where it goes</h2>
-    <p>The form sends what you type to Kit, the email service I use to send the Sunday letter.</p>
+    <p>The forms send what you enter to Kit, the email service I use. The Sunday letter and coaching product updates are separate choices. Requesting one doesn’t sign you up for the other. I use the optional training answer to understand what people want from a possible coaching product.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits, watch-link clicks and requests to join the Sunday letter. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
+    <p>The site uses Google Analytics to count visits, watch-link clicks and requests for the Sunday letter or coaching product updates. Those requests are counted separately; a form submission doesn’t tell me whether an email was delivered. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>
@@ -546,7 +546,7 @@ def main():
     (ROOT / "404.html").write_text(notfound_page())
     home = ROOT / "index.html"
     h = home.read_text()
-    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js|watch-story\.css|watch-story\.js|training\.css|training\.js))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
+    h = re.sub(r'(/assets/(?:ui\.css|motion\.css|motion\.js|join\.js|charts\.js|episode-live\.js|watch-story\.css|watch-story\.js|training\.css|training\.js|coaching-interest\.css))(\?v=\w+)?"', lambda m: f'{m.group(1)}?v={VER}"', h)
     D = json.loads((ROOT / "data/progress.json").read_text())
     date = dt.date.fromisoformat(D["updated"])
     week = next((w for w in D.get("year",[]) if w.get("current")),{})
@@ -578,6 +578,8 @@ def main():
     from build_training import main as build_training
     training_date = build_training()
     urls.append(("/training/", "daily", training_date))
+    from build_coaching_interest import main as build_coaching_interest
+    urls.append(("/coaching/", "monthly", build_coaching_interest()))
     # Revision dates persist across routine data refreshes; never pretend each build is a new article.
     revisions = json.loads((ROOT/'pages/seo-revisions.json').read_text())
     urls = [(u,f,max(m,revisions.get(u,m))) for u,f,m in urls]

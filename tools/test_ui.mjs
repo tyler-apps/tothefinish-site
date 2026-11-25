@@ -3,9 +3,9 @@ import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import assert from 'node:assert/strict';
 const join = readFileSync(new URL('../assets/join.js',import.meta.url),'utf8');
-function signup(online) {
+function signup(online,purpose) {
   const handlers={},events=[],errors=[];
-  const form={id:'join-test',target:'old-frame',removeAttribute(k){delete this[k]},querySelector(){return null},appendChild(n){errors.push(n)},addEventListener(k,fn){handlers[k]=fn}};
+  const form={dataset:{signupPurpose:purpose},id:'join-test',target:'old-frame',removeAttribute(k){delete this[k]},querySelector(){return null},appendChild(n){errors.push(n)},addEventListener(k,fn){handlers[k]=fn}};
   runInNewContext(join,{document:{querySelectorAll:()=>[form],createElement:()=>({setAttribute(){}})},navigator:{onLine:online},window:{gtag:(...v)=>events.push(v)}});
   let prevented=false; handlers.submit({preventDefault(){prevented=true}});
   return {form,events,errors,prevented};
@@ -17,6 +17,11 @@ assert.equal(online.prevented,false); assert.equal(online.form.target,undefined)
 assert.equal(online.events[0][1],'newsletter_submit');
 assert.equal(JSON.stringify(online.events).includes('email'),false);
 assert.equal(online.events.some(e=>e[1]==='sign_up'),false);
+const coaching=signup(true,'coaching-interest');
+assert.equal(coaching.events[0][1],'coaching_interest_submit');
+assert.equal(coaching.prevented,false);
+assert.deepEqual(Object.keys(coaching.events[0][2]).sort(),['form_location','method','transport_type']);
+assert.equal(signup(false,'coaching-interest').events.length,0);
 // Reduced motion must work at entry and when a user changes the OS preference.
 const listeners={},winListeners={},classes=new Set();
 const pref={matches:true,addEventListener(k,fn){listeners[k]=fn}};

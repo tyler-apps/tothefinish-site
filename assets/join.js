@@ -11,7 +11,7 @@
         error = document.createElement('p'); error.className = 'formerr'; error.setAttribute('role','alert');
         error.textContent = 'You appear to be offline. Reconnect, then try again.'; form.appendChild(error); return;
       }
-      if (typeof window.gtag === 'function') window.gtag('event','newsletter_submit',{
+      if (typeof window.gtag === 'function') window.gtag('event',form.dataset && form.dataset.signupPurpose === 'coaching-interest' ? 'coaching_interest_submit' : 'newsletter_submit',{
         form_location:form.id,method:'kit',transport_type:'beacon'
       });
       // Leave browser validation, submission, errors and provider confirmation intact.
