@@ -184,6 +184,15 @@ footer p{margin:14px 0 0;line-height:1.5}
 .viz .take b{color:var(--orange);font-weight:800}
 .viz .take span{color:var(--muted)}
 .plot{width:100%;min-height:220px}
+.race-result-key{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.race-result-key>p{margin:0 0 18px;font-size:14px;font-weight:600;color:var(--soft)}
+.race-result-key ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.race-result-key li{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5}
+.race-number{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:var(--white);color:var(--ink);font-weight:700;font-size:12px}
+.race-result-key li div{display:grid;gap:4px}
+.race-result-key b{font-size:16px;color:var(--white)}
+.race-result-key small{font-size:12px;color:var(--muted)}
+@media(max-width:740px){.race-result-key ol{grid-template-columns:1fr;gap:20px}}
 .src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted)}
 .rcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
 .rc{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:20px}
@@ -218,11 +227,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:13px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=8d5561ef">
-<link rel="stylesheet" href="/assets/motion.css?v=8d5561ef">
-<link rel="stylesheet" href="/assets/watch-story.css?v=8d5561ef">
-<link rel="stylesheet" href="/assets/coaching-interest.css?v=8d5561ef">
-<link rel="stylesheet" href="/assets/training.css?v=8d5561ef">
+<link rel="stylesheet" href="/assets/ui.css?v=12ad7180">
+<link rel="stylesheet" href="/assets/motion.css?v=12ad7180">
+<link rel="stylesheet" href="/assets/watch-story.css?v=12ad7180">
+<link rel="stylesheet" href="/assets/coaching-interest.css?v=12ad7180">
+<link rel="stylesheet" href="/assets/training.css?v=12ad7180">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -263,14 +272,16 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 <section id="been">
   <div class="wrap">
     <div class="section-intro"><div><p class="kicker">Where I've been</p>
-    <h2 class="display">I've been <span class="o">faster.</span></h2></div><div><p class="body">In June 2024 I ran a half marathon in 1:32:31. That’s still my best. The chart uses a fitness score called VDOT to compare my past races with today’s estimate and the times I’m aiming for. Running under three hours would take me beyond my previous best.</p></div></div>
+    <h2 class="display">I've been <span class="o">faster.</span></h2></div><div><p class="body">In June 2024 I ran a half marathon in 1:32:31. That’s still my best. VDOT puts race distance and time into a single running fitness score. A higher score means a faster performance. It lets me compare a 10K with a half marathon and see how far I am from my marathon goal. Running under three hours would take me beyond my previous best.</p></div></div>
     <figure class="viz">
       <figcaption><p class="q">How fit am I, in one number?</p><p class="take" data-take="vdot"><b>40.5</b> now <span>· 49.2 at my best · sub-3 needs 53.5</span></p></figcaption>
       <div class="plot" id="p-vdot" role="img"></div>
+      <p class="fine">My son was born in October 2024 and my daughter in April 2026.</p>
+      <div class="race-result-key" aria-labelledby="race-result-heading"><p id="race-result-heading">The races behind the white dots</p><ol id="vdot-results"></ol></div>
       <div class="race-target-key" aria-labelledby="race-target-heading"><p id="race-target-heading">Race finish-time targets</p><ul id="vdot-targets"></ul></div>
-      <p class="src">White dots are real races. Between races the thin line is an estimate, from the pace my watch says I could hold for about an hour, so read it as a trend. Orange rings show Kai's target finish times for each race distance on the way to Chicago.</p>
+      <p class="src">White dots are scores calculated from my recorded race efforts, with an adjustment for hills. The times listed are from Garmin. The thin line estimates fitness from my watch’s threshold pace and begins on November 17, 2024. The shaded area has no trend data; I haven’t filled in the missing months. Orange rings are future race targets.</p>
     </figure>
-    <p class="fine">The fitness score and Garmin’s marathon prediction use different models. Neither is a finish time.</p>
+    <p class="fine">VDOT is a performance estimate, not a lab measurement of oxygen use. The watch-based line is an estimate between races. Race-day conditions and marathon endurance still matter. <a href="https://news.vdoto2.com/2017/11/what-is-vdot/">More about VDOT</a>.</p>
     <a class="more" href="#inside">See how my coaches use these records <span aria-hidden="true">↓</span></a>
   </div>
 </section>
@@ -460,10 +471,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/watch-story.js?v=8d5561ef" defer></script>
-<script src="/assets/charts.js?v=8d5561ef"></script>
-<script src="/assets/join.js?v=8d5561ef"></script>
-<script src="/assets/motion.js?v=8d5561ef" defer></script>
+<script src="/assets/watch-story.js?v=12ad7180" defer></script>
+<script src="/assets/charts.js?v=20261125-races"></script>
+<script src="/assets/join.js?v=12ad7180"></script>
+<script src="/assets/motion.js?v=12ad7180" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -494,8 +505,17 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       var V=D.vdot;set('vdnow',V.now);
       take('vdot','<b>'+V.now+'</b> now <span>\u00b7 '+V.best+' at my best \u00b7 sub-3 needs '+V.goal+'</span>');
       var ln=V.line.map(function(p){return{x:day(p.date),y:p.vdot};}),last=ln[ln.length-1];
-      var best=V.races.reduce(function(a,b){return b.vdot>a.vdot?b:a;});
-      var rc=V.races.map(function(r){return{x:day(r.date),y:r.vdot,label:r===best?r.time+' half':'',keep:r===best,anchor:'start'};});
+      function raceTitle(r){return r.name+', '+(r.location?r.location+', ':'')+r.date+', Garmin time '+r.time+', VDOT '+r.vdot;}
+      var rc=V.races.map(function(r,i){return{x:day(r.date),y:r.vdot,label:String(i+1),keep:true,below:i===2,title:raceTitle(r)};});
+      var resultList=document.getElementById('vdot-results');
+      resultList.replaceChildren();
+      V.races.forEach(function(r,i){
+        var item=document.createElement('li'),number=document.createElement('span'),detail=document.createElement('div'),name=document.createElement('b'),location=document.createElement('span'),result=document.createElement('small');
+        number.className='race-number';number.textContent=String(i+1);number.setAttribute('aria-hidden','true');
+        name.textContent=r.name;location.textContent=r.location||'';
+        result.textContent=day(r.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' · '+r.time+' · VDOT '+r.vdot;
+        detail.append(name,location,result);item.append(number,detail);resultList.appendChild(item);
+      });
       var LBL=[{below:true},{},{below:true},{anchor:'end'},{anchor:'start',dy:22}];
       function raceDistance(t){return t.name==='First 5K'?'5K':t.name==='Chicago'?'Marathon':t.name;}
       var tg=V.targets.map(function(t,i){var o=LBL[i]||{};return{x:day(t.date),y:t.vdot,label:raceDistance(t)+' · '+t.target,below:o.below,anchor:o.anchor,dy:o.dy,title:raceDistance(t)+' target finish time '+t.target+' on '+t.date};});
@@ -507,12 +527,17 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         date.textContent=day(t.date).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
         item.append(race,time,date);targetList.appendChild(item);
       });
-      var x0=day(V.races[0].date<V.line[0].date?V.races[0].date:V.line[0].date),x1=day('2027-11-15');
+      var x0=day('2024-01-01'),x1=day('2027-11-15');
+      var familyMilestones=[
+        {from:day('2024-10-01'),to:day('2024-11-01'),label:'Son born',dateLabel:'Oct 2024'},
+        {from:day('2026-04-01'),to:day('2026-05-01'),label:'Daughter born',dateLabel:'Apr 2026'}
+      ];
       T.timeline(document.getElementById('p-vdot'),{x0:x0,x1:x1,rightPad:170,yLo:36,yHi:56,yStep:5,goal:{y:V.goal,label:'Sub-3 needs '+V.goal},
-        xTicks:[2025,2026,2027].map(function(y){return{x:new Date(y,0,1,12),label:String(y)};}),
+        milestones:familyMilestones, gaps:[{from:x0,to:ln[0].x,label:'No trend data'}],
+        xTicks:[2024,2025,2026,2027].map(function(y){return{x:new Date(y,0,1,12),label:String(y)};}),
         layers:[{type:'line',data:ln,color:'#8a837c',width:1.5},{type:'dots',data:rc},{type:'rings',data:tg,path:true,from:last},
                 {type:'now',x:last.x,y:last.y,label:V.now+' now'}],
-        label:'Race fitness score: best '+V.best+', now '+V.now+', sub-3 needs '+V.goal+'. Orange rings are target race finish times: '+tg.map(function(t){return t.title;}).join('; ')});
+        label:'Timeline starts January 2024. Race result in June 2024; estimated trend begins November 17, 2024. Son born October 2024; daughter born April 2026. Races: '+V.races.map(raceTitle).join('; ')+'. Race fitness score: best '+V.best+', now '+V.now+', sub-3 needs '+V.goal+'. Orange rings are target race finish times: '+tg.map(function(t){return t.title;}).join('; ')});
     }
     if(T&&D.year&&document.getElementById('p-miles')){
       var W=(D.before||[]).map(function(w){return{monday:w.monday,done:w.done,plan:null};}).concat(D.year.map(function(w){return{monday:w.monday,done:w.done,plan:w.plan,current:w.current};}));
@@ -538,6 +563,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/training.js?v=8d5561ef" defer></script>
+<script src="/assets/training.js?v=12ad7180" defer></script>
 </body>
 </html>

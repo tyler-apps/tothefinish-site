@@ -31,3 +31,20 @@ Tyler requested a sub-three-hour marathon hero, then said the earlier 258 lb ver
 Tyler requested “created five AI coaches” instead of “hired” and the existing fitness chart immediately after the section about being 57 when his daughter starts high school. The #been section now connects those personal stakes to his recorded past fitness, current estimate and sub-three-hour target before introducing the coaches. Its chart data and factual distinctions are unchanged; it appears once. The hero and team introduction use “created five AI coaches.”
 
 Current order: hero → why → been → team → sharing → progress → training → road → inside → coaching invitation → tools → questions → Sunday letter.
+
+
+## Race history and family milestones · November25, 2026
+
+Tyler requested all available 2024 VDOT history, his children's birth months, names and locations for the white race dots, and a plain explanation of VDOT. The axis starts January 2024. The first race is June 2; the threshold-derived trend starts November 17. Shading and copy identify the missing trend months; no interpolation or Garmin VO₂max substitution was added. Existing VDOT values and calculations are unchanged.
+
+Public family annotations are Son born, October 2024, and Daughter born, April 2026 (Tyler corrected April 2025). Month spans avoid inventing an exact day. No names or causal claim about fitness changes.
+
+Each white dot has a persistent number, a hover title and an always-visible corresponding race entry with event, location, date, Garmin time and VDOT. The race metadata is owned by Brain `scripts/site_progress.py` and exported in `data/progress.json`; keep it through refreshes. These are Garmin-recorded times, not independently verified official chip results. Scores retain the existing grade adjustment.
+
+Sources verified November25:
+- June2,2024: Rock ’n’ Roll San Diego Half Marathon, San Diego, CA. Garmin activity15707829848, 1:32:31; prior Tyler confirmation in `brain/memory/project-garmin-run-progress.md`. [Organizer’s 2024 event guide](https://runrocknroll.kleecks-cdn.com/cdn1/attachments/document/66ae-3200533/2024_San_Diego_Final_Info.pdf) confirms race date.
+- October5,2025: Pacific Beach Half Marathon, Pacific Beach, San Diego, CA. Garmin activity20598483148 explicitly names the event, 1:34:21. [City event listing](https://www.sandiego.gov/event/pacific-beach-half-marathon) corroborates date/location.
+- November27,2025: Encinitas Turkey Trot 10K, Encinitas, CA. Inferred event match from existing Turkey Trot race designation, Garmin activity21107632965 named Encinitas Running, 6.17mi/42:34 at7:30AM, and [organizer’s 2025 listing](https://excelarace.com/). Not an inference from date alone.
+- VDOT explanation: [V.O2 definition](https://news.vdoto2.com/2017/11/what-is-vdot/) and [FAQ](https://support.vdoto2.com/v-o2-faq/). Race distance/time yields a comparable performance score; higher means faster. The threshold line is a separate estimate, not measured oxygen consumption. Public source link included.
+
+Validation: exporter output preserves49.2/48.3/47.9 and the November17 start; existing site/voice, UI, watch-story and six SEO tests pass. Desktop1440px and mobile390/320px visually inspected, all three race details visible with no horizontal overflow.

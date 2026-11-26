@@ -56,3 +56,6 @@ Hero focus, November25 latest: Tyler requested a sub-three-hour marathon hero, t
 
 
 Homepage wording and chart order, November25 latest: Tyler says he “created five AI coaches,” not hired them. Use that wording in the hero and team introduction. Move the existing #been fitness-history/current-estimate chart directly after #why (“I’ll be 57 when she starts high school”), before #team. Preserve chart data, labels, estimate/actual/target distinctions and all data hooks. Current order: hero → why → been → team → sharing → progress → training → road → inside → coaching invitation → tools → questions → letter.
+
+
+Fitness chart, November25 latest: #been starts January2024, with explicit missing trend coverage before November17,2024 and a separate June race result. Preserve the gap; do not splice Garmin VO₂max into VDOT. Show month-only Son born October2024 and Daughter born April2026. Number the three white race dots with corresponding visible names, locations, dates, Garmin times and scores, using metadata from Brain scripts/site_progress.py. Explain VDOT in plain language and distinguish grade-adjusted race scores, threshold estimates and future targets. Sources and matching evidence: docs/homepage-story.md.

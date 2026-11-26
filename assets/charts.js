@@ -163,14 +163,32 @@
 
 
   /* timeline: several layers on one date axis. opts: x0, x1 (Dates), yLo, yHi, yStep, yFmt, xTicks, goal {y,label},
+     Optional gaps [{from,to,label}], milestones [{from,to,label,dateLabel}].
      layers: [{type:'line', data:[{x,y}], color, width} | {type:'dots', data:[{x,y,label}], color} |
               {type:'rings', data:[{x,y,label}], path:true} | {type:'now', x, y, label}], label */
   function timeline(host, o) {
     redraw(host, function () {
-      var g = svgFor(host, o.h || (host.clientWidth < 520 ? 240 : 300)), s = g.s, w = g.w, h = g.h;
-      var L = g.small ? 34 : 44, R = g.small ? 14 : (o.rightPad || 24), T = 20, B = 28, x0 = +o.x0, x1 = +o.x1;
+      var milestones = o.milestones || [], extra = milestones.length ? 100 : 0;
+      var g = svgFor(host, o.h || (host.clientWidth < 520 ? 240 : 300) + extra), s = g.s, w = g.w, h = g.h;
+      var L = g.small ? 34 : 44, R = g.small ? 14 : (o.rightPad || 24), T = 20 + extra, B = 28, x0 = +o.x0, x1 = +o.x1;
       function X(v) { return L + (+v - x0) / ((x1 - x0) || 1) * (w - L - R); }
       function Y(v) { return T + (1 - (v - o.yLo) / (o.yHi - o.yLo)) * (h - T - B); }
+      // Missing trend data is a range, never a fabricated flat or connecting line.
+      (o.gaps || []).forEach(function (gap) {
+        var start = Math.max(L, X(gap.from)), end = Math.min(w - R, X(gap.to));
+        if (end <= start) return;
+        el(s, 'rect', { x: start, y: T, width: end - start, height: h - T - B, fill: C.faint, opacity: 0.25 });
+        text(s, start + 6, h - B - 14, gap.label, { fill: C.soft, size: 12 });
+      });
+      // Month-wide markers avoid presenting a private or inferred exact birthday.
+      milestones.forEach(function (m, i) {
+        var start = X(m.from), end = X(m.to), x = (start + end) / 2;
+        var y = 17 + i * 43, labelX = Math.max(L, Math.min(x, w - 145));
+        text(s, labelX, y, m.label, { fill: C.soft, size: 14, weight: 700 });
+        text(s, labelX, y + 18, m.dateLabel, { fill: C.axis, size: 12 });
+        el(s, 'line', { x1: x, x2: x, y1: y + 24, y2: h - B, stroke: C.axis, 'stroke-dasharray': '3 5', opacity: 0.5 });
+        el(s, 'rect', { x: start, y: T - 7, width: Math.max(2, end - start), height: 3, fill: C.soft });
+      });
       for (var t = Math.ceil(o.yLo / o.yStep) * o.yStep; t <= o.yHi; t += o.yStep) {
         el(s, 'line', { x1: L, x2: w - R, y1: Y(t), y2: Y(t), stroke: C.grid });
         text(s, L - 8, Y(t) + 4, o.yFmt ? o.yFmt(t) : t, { anchor: 'end' });
@@ -197,7 +215,8 @@
           });
         } else if (ly.type === 'dots') {
           ly.data.forEach(function (p) {
-            el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.white, stroke: C.ink, 'stroke-width': 2 });
+            var dot = el(s, 'circle', { cx: X(p.x), cy: Y(p.y), r: 6, fill: C.white, stroke: C.ink, 'stroke-width': 2 });
+            if (p.title) el(dot, 'title', {}, p.title);
             if (p.label && (!g.small || p.keep)) text(s, X(p.x) + (p.anchor === 'start' ? 10 : 0), Y(p.y) + (p.anchor === 'start' ? 4 : (p.below ? 22 : -13)), p.label, { anchor: p.anchor || 'middle', fill: C.white, weight: 700, size: 12 });
           });
         } else if (ly.type === 'now') {
