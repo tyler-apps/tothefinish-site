@@ -292,10 +292,11 @@ def coach_page(qs=()):
     <p><a href="/coaches/">Read each coach’s data and latest call</a></p>
     <h2>Questions people ask</h2>
     <ul class="qlist">""" + "".join(f'<li><a href="/{q["slug"]}/">{esc(q["question"])}</a></li>' for q in qs) + """</ul>
-    <h2>Can I use it?</h2>
-    <p>The coaches have one runner, and it's me. You can follow every week of it in the Sunday letter.</p>
   </div>
 </section>
+<link rel="stylesheet" href="/assets/watch-story.css?v=""" + VER + """">
+""" + (ROOT / "pages/how-it-works.html").read_text() + """
+<script src="/assets/watch-story.js?v=""" + VER + """" defer></script>
 <section>
   <div class="wrap">
     <p class="kicker">The Sunday letter</p>

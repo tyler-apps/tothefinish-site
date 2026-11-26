@@ -19,10 +19,10 @@ s.links[2].click();assert.equal(s.root.dataset.stage,'2'); // keyboard/native li
 s.pref.matches=false;s.pref.change();assert.equal(s.root.dataset.stage,'3');
 const m=setup({mobile:true});m.setTops([-800,-200,416,1000]);m.listeners.scroll();m.flush();assert.equal(m.root.dataset.stage,'2');
 const r=setup({reduced:true});assert.equal(r.listeners.scroll,undefined);assert.equal(r.classes.has('is-enhanced'),false);
-const h=readFileSync(new URL('../index.html',import.meta.url),'utf8');const d=JSON.parse(readFileSync(new URL('../data/watch-story.json',import.meta.url),'utf8'));
+const h=readFileSync(new URL('../pages/how-it-works.html',import.meta.url),'utf8');const d=JSON.parse(readFileSync(new URL('../data/watch-story.json',import.meta.url),'utf8'));
 for(const value of [d.distance_mi,d.duration,d.avg_hr,d.climb_ft,d.recovery.overnight_hrv_ms,d.recovery.garmin_seven_day_hrv_ms])assert.ok(h.includes(String(value)));
 assert.equal(d.date,'2026-11-23');assert.equal(d.recovery.nights.length,7);assert.equal(d.recovery.nights.at(-1).hrv_ms,85);
 assert.equal(/walking/i.test(h.split('<!-- WATCH STORY START -->')[1].split('<!-- WATCH STORY END -->')[0]),false);
 assert.equal(JSON.stringify(d).includes('latitude'),false);assert.equal(JSON.stringify(d).includes('longitude'),false);
-assert.ok(h.includes('href="#inside"'));assert.ok(h.includes('id="how"'));assert.ok(h.includes('id="research"'));
+assert.ok(readFileSync(new URL('../index.html',import.meta.url),'utf8').includes('href="/how-the-coaches-decide/">How it works'));assert.ok(readFileSync(new URL('../how-the-coaches-decide/index.html',import.meta.url),'utf8').includes('id="inside"'));assert.ok(h.includes('id="how"'));assert.ok(h.includes('id="research"'));
 console.log('PASS: four scroll stages, coalesced frames, mobile stage offset, reduced-motion entry/live changes, native selection, dated real values and no coordinates');

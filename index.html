@@ -231,7 +231,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </style>
 <link rel="stylesheet" href="/assets/ui.css?v=e6a15aef">
 <link rel="stylesheet" href="/assets/motion.css?v=e6a15aef">
-<link rel="stylesheet" href="/assets/watch-story.css?v=e6a15aef">
 <link rel="stylesheet" href="/assets/coaching-interest.css?v=e6a15aef">
 <link rel="stylesheet" href="/assets/training.css?v=e6a15aef">
 </head>
@@ -245,8 +244,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <div class="bar">
       <a class="mark" href="/">TO THE <span class="o">FINISH.</span></a>
-      <nav class="nav" aria-label="Main"><a href="/training/">Training</a><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav>
-      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/training/">Training</a><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/#inside">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav></details>
+      <nav class="nav" aria-label="Main"><a href="/training/">Training</a><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/how-the-coaches-decide/">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav>
+      <details class="mnav"><summary aria-label="Menu">Menu</summary><nav aria-label="Main"><a href="/training/">Training</a><a href="/episodes/">Watch</a><a href="/coaches/">The coaches</a><a href="/how-the-coaches-decide/">How it works</a><a class="navcta" href="/#letter">Sunday letter</a></nav></details>
     </div>
     <div class="hero tyler-hero" id="tyler">
       <div class="hero-copy">
@@ -289,9 +288,49 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <p class="src">White dots are scores calculated from my recorded race efforts, with an adjustment for hills. The times listed are from Garmin. The thin line estimates fitness from my watch’s threshold pace and begins on November 17, 2024. The shaded area has no trend data; I haven’t filled in the missing months. Orange rings are future race targets.</p>
     </figure>
     <p class="fine">VDOT is a performance estimate, not a lab measurement of oxygen use. The watch-based line is an estimate between races. Race-day conditions and marathon endurance still matter. <a href="https://news.vdoto2.com/2017/11/what-is-vdot/">More about VDOT</a>.</p>
-    <a class="more" href="#inside">See how my coaches use these records <span aria-hidden="true">↓</span></a>
+    <a class="more" href="/how-the-coaches-decide/">See how my coaches use these records <span aria-hidden="true">→</span></a>
   </div>
 </section>
+
+<section id="progress">
+  <div class="wrap">
+    <p class="kicker">Where I am now</p>
+    <h2 class="display gap"><span class="gap-metric"><small>Watch estimate</small> <span data-k="now">4:37:36</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Marathon goal</small> <span class="o">2:59:59</span></span></h2>
+    <p class="body">There’s <b data-k="togo">1:37:37</b> between the watch’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
+    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 24</span>. These are predictions, not race results.</p>
+    <div class="facts">
+      <div><b data-k="weeksleft">45</b><span class="l">weeks to Chicago</span></div>
+      <div><b><span data-k="wkdone">9.2</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
+      <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
+    </div>
+    <a class="more" href="/races/">My races and results <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section id="road">
+  <div class="wrap">
+    <div class="section-intro"><div><p class="kicker">The road to Chicago</p>
+    <h2 class="display">The races <span class="o">along the way.</span></h2></div><div><p class="body">Most of my miles are easy runs. I’ll use these races to see how the training is going before Chicago. The times beside them are Kai’s targets, not results.</p></div></div>
+    <ol class="road">
+      <li><span class="when">Sat Dec 26</span><b>5K</b><span class="tgt">Kai's target 22:40</span></li>
+      <li><span class="when">Sun Feb 7</span><b>5K</b><span class="tgt">Kai's target 21:30</span></li>
+      <li><span class="when">Sat May 15</span><b>10K</b><span class="tgt">Kai's target 40:00</span></li>
+      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's gate 1:24:30</span></li>
+      <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">My goal 2:59:59</span><span class="tgt" data-k="chistatus"></span></li>
+    </ol>
+    <a class="more" href="/chicago-marathon-2027/">The Chicago plan and my entry status <span aria-hidden="true">→</span></a>
+    <figure class="viz" style="margin-top:40px">
+      <figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption>
+      <div class="plot" id="p-miles" role="img"></div>
+      <p class="src">Planned miles each week from now to Chicago (outlines) and the miles I actually ran (filled), straight from my watch.</p>
+    </figure>
+  </div>
+</section>
+
+<section class="training-preview" id="training" aria-labelledby="training-preview-title"><div class="wrap training-preview-layout">
+<div><p class="kicker">The training journal</p><h2 class="display" id="training-preview-title">What I’m doing<br>this week.</h2><p class="body">You can see the sessions I’ve finished and what’s still planned. It’s the training as I actually do it, on my way to Chicago.</p><a class="more" href="/training/">Explore my training</a></div>
+<div class="training-preview-card" id="training-preview-latest"><span class="training-label" data-training-date>Nov 24, 2026 · run recorded</span><h3 data-training-title>Six hill repeats and a test climb</h3><div class="training-preview-stats"><div><b data-training-miles>9.22</b><span>miles recorded this week</span></div><div><b data-training-plan>33</b><span>miles planned</span></div></div><p data-training-note>Kai kept my easy limit at 120 bpm. This recording did not establish a new maximum heart rate.</p><a class="more" href="/training/#sessions" data-training-link>Read the latest session</a><p class="training-small" data-training-asof>Records checked Nov 24, 2026.</p></div>
+</div></section>
 
 <section id="team" class="team-intro" aria-labelledby="team-title">
   <div class="wrap">
@@ -333,8 +372,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         </div>
       </article>
     </div>
+    <a class="more" href="/how-the-coaches-decide/">How they decide, with a real day of my watch data <span aria-hidden="true">→</span></a>
   </div>
 </section>
+
+<div class="wrap"><aside class="coaching-invitation" aria-label="AI coaching waitlist"><p>If these AI coaches help me run a sub-three-hour marathon, I’ll make them available.</p><a href="/coaching/">Join the AI coaching waitlist <span aria-hidden="true">↗</span></a></aside></div>
 
 <section id="sharing" aria-labelledby="sharing-title">
   <div class="wrap cols">
@@ -343,119 +385,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <p class="body">There’s so much noise online that it can be hard to tell what someone actually did. I don’t want to make a good story out of training I didn’t do. My running stories start with my Garmin data, including the runs I wish had gone better.</p>
     <p class="body">I use animation to share those days and the conversations around them. The scenes are dramatized, but the training records are real. To me, AI is worth using if it helps me show who I am and connect with people.</p>
     <p class="body">I hope something here makes you want to work toward a goal of your own. And I’d love to build these coaches into something that can help you do that. For now, I’m finding out how well they can help me.</p>
-    <div class="hero-actions"><a class="btn" href="#letter">Get the Sunday letter <span aria-hidden="true">→</span></a><a class="episode-archive" href="/episodes/the-hiring/">Watch the first episode</a></div></div>
+    <div class="hero-actions"><a class="episode-archive" href="/episodes/the-hiring/">Watch the first episode</a></div></div>
   </div>
 </section>
-
-<section id="progress">
-  <div class="wrap">
-    <p class="kicker">Where I am now</p>
-    <h2 class="display gap"><span class="gap-metric"><small>Watch estimate</small> <span data-k="now">4:37:36</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Marathon goal</small> <span class="o">2:59:59</span></span></h2>
-    <p class="body">There’s <b data-k="togo">1:37:37</b> between the watch’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
-    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 24</span>. These are predictions, not race results.</p>
-    <div class="facts">
-      <div><b data-k="weeksleft">45</b><span class="l">weeks to Chicago</span></div>
-      <div><b><span data-k="wkdone">9.2</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
-      <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
-    </div>
-    <a class="more" href="/races/">My races and results <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
-<section class="training-preview" id="training" aria-labelledby="training-preview-title"><div class="wrap training-preview-layout">
-<div><p class="kicker">The training journal</p><h2 class="display" id="training-preview-title">What I’m doing<br>this week.</h2><p class="body">You can see the sessions I’ve finished and what’s still planned. It’s the training as I actually do it, on my way to Chicago.</p><a class="more" href="/training/">Explore my training</a></div>
-<div class="training-preview-card" id="training-preview-latest"><span class="training-label" data-training-date>Nov 24, 2026 · run recorded</span><h3 data-training-title>Six hill repeats and a test climb</h3><div class="training-preview-stats"><div><b data-training-miles>9.22</b><span>miles recorded this week</span></div><div><b data-training-plan>33</b><span>miles planned</span></div></div><p data-training-note>Kai kept my easy limit at 120 bpm. This recording did not establish a new maximum heart rate.</p><a class="more" href="/training/#sessions" data-training-link>Read the latest session</a><p class="training-small" data-training-asof>Records checked Nov 24, 2026.</p></div>
-</div></section>
-
-<section id="road">
-  <div class="wrap">
-    <div class="section-intro"><div><p class="kicker">The road to Chicago</p>
-    <h2 class="display">The races <span class="o">along the way.</span></h2></div><div><p class="body">Most of my miles are easy runs. I’ll use these races to see how the training is going before Chicago. The times beside them are Kai’s targets, not results.</p></div></div>
-    <ol class="road">
-      <li><span class="when">Sat Dec 26</span><b>5K</b><span class="tgt">Kai's target 22:40</span></li>
-      <li><span class="when">Sun Feb 7</span><b>5K</b><span class="tgt">Kai's target 21:30</span></li>
-      <li><span class="when">Sat May 15</span><b>10K</b><span class="tgt">Kai's target 40:00</span></li>
-      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's gate 1:24:30</span></li>
-      <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">My goal 2:59:59</span><span class="tgt" data-k="chistatus"></span></li>
-    </ol>
-    <a class="more" href="/chicago-marathon-2027/">The Chicago plan and my entry status <span aria-hidden="true">→</span></a>
-    <figure class="viz" style="margin-top:40px">
-      <figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption>
-      <div class="plot" id="p-miles" role="img"></div>
-      <p class="src">Planned miles each week from now to Chicago (outlines) and the miles I actually ran (filled), straight from my watch.</p>
-    </figure>
-  </div>
-</section>
-
-
-
-<!-- WATCH STORY START -->
-<section id="inside" class="watch-story" aria-labelledby="inside-title" data-stage="0">
- <div class="wrap">
-  <span id="how"></span><div class="inside-heading"><div><p class="kicker" id="research">Inside my coaching team</p><h2 id="inside-title" class="display">How they use <span class="o">my watch data.</span></h2></div><div><p class="body">After my watch syncs, the coaching checks compare the workout with my training history and the rules we’ve built from research. Those checks help update my plan.</p><p class="fine">This example uses my run and coaching review from November 23, 2026.</p></div></div>
-  <div class="watch-walkthrough">
-   <div class="watch-sticky">
-    <div class="watch-theatre" aria-hidden="true">
-     <div class="watch-halo"></div>
-     <div class="watch-strap strap-top"></div><div class="watch-strap strap-bottom"></div>
-     <div class="epix-watch">
-      <i class="watch-button b1"></i><i class="watch-button b2"></i><i class="watch-button b3"></i><i class="watch-button b4"></i><i class="watch-button b5"></i>
-      <div class="watch-bezel"><span class="bezel-brand">GARMIN</span><span class="bezel-model">EPIX PRO</span><i class="bezel-screw s1"></i><i class="bezel-screw s2"></i><i class="bezel-screw s3"></i><i class="bezel-screw s4"></i>
-       <div class="watch-glass">
-        <div class="watch-screen-page screen-workout"><span class="watch-eyebrow">TRAIL RUN · NOV 23</span><strong class="watch-distance">4.03<span> mi</span></strong><span class="watch-workout">EASY + HILL SPRINTS</span><div class="watch-metrics"><div><span>TIME</span><b>1:02:22</b></div><div><span>AVG HR</span><b>110 <small>bpm</small></b></div></div><div class="watch-climb">↗ 585 ft climbed</div><span class="watch-saved">✓ WORKOUT SAVED</span></div>
-        <div class="watch-screen-page screen-research"><span class="watch-eyebrow">OVERNIGHT HRV · NOV 23</span><strong class="watch-heart">85<small> ms</small></strong><span class="watch-window">Seven nights · Nov 17 to 23</span><div class="watch-trace"><svg viewBox="0 0 220 58" fill="none"><polyline points="0.0,8.4 36.7,15.0 73.3,42.5 110.0,13.9 146.7,12.8 183.3,9.5 220.0,15.0" stroke="currentColor" stroke-width="2.5"/></svg></div><div class="watch-mini"><span>7-day avg 83 ms</span><span>Sleep 8h 13m</span></div><span class="watch-saved">READ THE TREND</span></div>
-        <div class="watch-screen-page screen-team"><span class="watch-eyebrow">THE TEAM’S READ</span><div class="watch-team-faces"><img src="/assets/kai-96.webp" alt="" width="60" height="60"><img src="/assets/mo-96.webp" alt="" width="60" height="60"><img src="/assets/rook-96.webp" alt="" width="60" height="60"></div><strong class="watch-call">Read the<br>whole week.</strong><span class="watch-saved">RUN + SLEEP + RECOVERY</span></div>
-        <div class="watch-screen-page screen-plan"><span class="watch-eyebrow">NEXT · TUE NOV 24</span><strong class="watch-call">Hills.<br>Check the<br>HR limit.</strong><span class="watch-workout">ALREADY PLANNED</span><span class="watch-plan-rule">Morning checks.<br>Then the scheduled session.</span><span class="watch-saved">PLAN → WATCH</span></div>
-       </div>
-      </div>
-     </div>
-     <div class="watch-satellite sat-data"><span>THE RECORD</span><b>Run + recovery</b><i></i></div>
-     <div class="watch-satellite sat-research"><span>THE EVIDENCE</span><b>Research → rules</b><i></i></div>
-     <div class="watch-satellite sat-result"><span>THE DECISION</span><b>The next session</b><i></i></div>
-     <div class="research-paper"><span>REVIEWED NOV 21</span><b>Research library</b><div>Recovery trials<br>Strength reviews<br>Fueling research</div><p>Findings → coaching rules</p></div><div class="coach-orbit"><div class="orbit-person orbit-kai"><img src="/assets/kai-96.webp" alt="" width="44" height="44"><span>Kai</span></div><div class="orbit-person orbit-bo"><img src="/assets/bo-96.webp" alt="" width="44" height="44"><span>Bo</span></div><div class="orbit-person orbit-mo"><img src="/assets/mo-96.webp" alt="" width="44" height="44"><span>Mo</span></div><div class="orbit-person orbit-juno"><img src="/assets/juno-96.webp" alt="" width="44" height="44"><span>Juno</span></div><div class="orbit-person orbit-rook"><img src="/assets/rook-96.webp" alt="" width="44" height="44"><span>Rook</span></div></div><svg class="watch-connections" viewBox="0 0 520 510" fill="none"><path pathLength="1" d="M72 145 H132 Q155 145 155 180 L180 220 M450 150 H400 Q380 150 375 180 L350 220 M260 370 V428 H410"/></svg>
-    </div>
-    <nav class="watch-controls" aria-label="Explore the coaching process"><a href="#inside-record" data-watch-go="0" aria-current="step"><span>01</span> Watch</a><a href="#inside-research" data-watch-go="1"><span>02</span> Research</a><a href="#inside-coaches" data-watch-go="2"><span>03</span> Coaches</a><a href="#inside-next" data-watch-go="3"><span>04</span> Next</a></nav>
-    <p class="watch-caption">Garmin epix Pro (Gen 2) illustration.<br>Real recorded values; screens adapted to explain the process.</p>
-   </div>
-   <div class="watch-chapters">
-    <article class="watch-chapter" id="inside-record" data-watch-step="0"><p class="kicker"><span>01</span> The workout comes in</p><h3>They look at how the run went.</h3><p>This was 4.03 miles in 1:02:22, with 585 feet of climbing. The coaches read heart rate against the hills, then put the run beside my sleep and recovery history.</p><div class="data-ribbons"><span>Heart rate</span><span>Pace + hills</span><span>Cadence</span><span>Running form</span><span>Sleep + HRV</span><span>Training history</span></div><p class="chapter-callout"><b>Automatic after Garmin sync</b><span>The workout is imported, the checks run, and my day is rebuilt.</span></p></article>
-    <article class="watch-chapter" id="inside-research" data-watch-step="1"><p class="kicker"><span>02</span> Research becomes a rule</p><h3>Research can change the plan.</h3><p>The coaches keep a reviewed research library. They turn findings into rules for my plan, with the source and the limits written down.</p><div class="research-translation"><span>RESEARCH</span><p>Recovery trials use a trend in heart-rate variability to help decide when to back off.</p><div class="translation-arrow">↓</div><span>MY RUNNING RULE</span><p>One low HRV reading had changed three training days. The Nov 21 review removed that trigger. The revised checks consider recovery trends, sleep, resting heart rate and any pain I report. A warning can reduce work; a good score can’t add it.</p></div><p class="fine">The latest research review was Nov 21, 2026. The exact thresholds are choices in my coaching setup, not results from a trial.</p><a class="more" href="#inside-evidence">Open the research behind the rules ↓</a></article>
-    <article class="watch-chapter" id="inside-coaches" data-watch-step="2"><p class="kicker"><span>03</span> The coaches compare notes</p><h3>They check the rest of my week, too.</h3><div class="coach-reading"><img src="/assets/mo-96.webp" alt="" width="48" height="48"><div><b>Mo · Recovery</b><p>My overnight heart-rate variability was 85 milliseconds; Garmin’s seven-day average was 83. I slept 8 hours and 13 minutes. Mo reads those together with resting heart rate and any pain I report. One good night doesn’t earn extra work.</p><p class="fine">At the Nov 23 review, I had 11 of the 21 eligible nights required for the longer recovery comparison. That baseline was still building, so the comparison was unavailable.</p></div></div><div class="coach-reading"><img src="/assets/kai-96.webp" alt="" width="48" height="48"><div><b>Kai · Running</b><p>Kai puts the recorded 4.03 miles and 585 feet of climbing beside the hills scheduled for Nov 24. The morning recovery checks can make that session easier. They can’t make it harder.</p></div></div><div class="coach-reading"><img src="/assets/juno-96.webp" alt="" width="48" height="48"><div><b>Juno · Fuel</b><p>My food plan follows the training. After the research review, we brought carbohydrates back around hard runs.</p></div></div><p class="fine">Recorded values and plan from Nov 23, 2026. The next morning’s readings and the Nov 24 workout result were not yet available at this review.</p></article>
-    <article class="watch-chapter" id="inside-next" data-watch-step="3"><p class="kicker"><span>04</span> One plan comes back</p><h3>The workout goes back to my watch.</h3><p>At the Nov 23 review, November 24 was scheduled for two easy miles, six 45-second hills, then two easy miles. The hill session also checks my estimated heart-rate limit. The plan still needed the next morning’s checks before it could be finalized.</p><div class="plan-receipt"><span>NOV 23 REVIEW → NEXT CHECK</span><b>Hill session + heart-rate test</b><p>Scheduled at the Nov 23 review. This example does not show the workout result.</p><div><span>Recovery checked first</span><span>Fuel follows the session</span></div></div><p>When the approved plan changes, the automatic chain rebuilds my day and sends the workout and zones back to Garmin. I still have to put the watch on and do it.</p><a class="more" href="/coaches/">See the data each coach uses →</a></article>
-   </div>
-  </div>
-  <div class="inside-details">
-   <details id="inside-evidence"><summary>The research, and what it changed</summary><div class="evidence-grid"><article><span class="evidence-kind">RECOVERY · TRIALS + REVIEWS</span><h4>Read a trend before changing a day.</h4><p>Research on training guided by heart-rate variability informs the scale-back checks. My rules use several nights and other recovery signals; they are an adaptation to my watch data.</p><a href="https://pubmed.ncbi.nlm.nih.gov/26909534/">Heart-rate variability training trial ↗</a></article><article><span class="evidence-kind">STRENGTH · 2024 META-ANALYSIS</span><h4>Keep the heavy work useful.</h4><p>High-load strength training can improve running economy. Bo’s plan uses heavy lifting and jumps, fitted around the running. The dose and timing are his choices for my week.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11052887/">Strength and running economy review ↗</a></article><article><span class="evidence-kind">FUEL · RESEARCH FRAMEWORK</span><h4>Feed the session that matters.</h4><p>After reviewing the research on carbohydrates and training, we brought rice, honey and sweet potatoes back around hard runs on Nov 20.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5889771/">Carbohydrate periodization framework ↗</a></article></div><p class="fine">The research helps us choose the rules. I still have to find out whether the training gets me under three hours. Research reviews happen separately from the automatic workout checks.</p></details>
-   <details><summary>What the coaches can read from my watch</summary><div class="data-inventory"><div><h4>During a run</h4><p>Heart rate, pace, distance, elevation, laps, cadence, stride length, ground contact time and balance, vertical movement, power and breathing estimates. Beat intervals are available when the recording supports them.</p></div><div><h4>Between runs</h4><p>Sleep duration, overnight heart-rate variability, resting heart rate and training history. The coaches compare trends instead of treating each number as a verdict.</p></div><div><h4>Beyond the watch</h4><p>My strength log, food records, race calendar and what I report. The watch doesn’t know everything I ate or whether something hurts.</p></div></div><p class="fine">Available fields vary by recording and sensor. Missing data stays missing. Power, sleep stages and race predictions are not automatic permission to train harder.</p><a class="more" href="/coaches/#data">Explore the full data →</a></details>
-   <details><summary>What happens automatically</summary><ol class="automation-chain"><li><b>Watch → Garmin Connect</b><span>My watch uploads when it syncs.</span></li><li><b>New data → coaching checks</b><span>A local job checks for changes every 10 minutes, then imports the records and runs the rules.</span></li><li><b>Checks → my day</b><span>The run, recovery and weekly-volume checks rebuild the plan and record changes.</span></li><li><b>Approved plan → Garmin</b><span>The workout and heart-rate zones sync back. The next recording starts the loop again.</span></li></ol><p class="fine">This chain runs on my own setup. Research updates enter through dated reviews; pain reports and changes to my food rules still need my input. My laptop and Garmin connection need to be available.</p></details>
-  </div>
- </div>
-</section>
-<!-- WATCH STORY END -->
-
-<div class="wrap"><aside class="coaching-invitation" aria-label="AI coaching waitlist"><p>If these AI coaches help me run a sub-three-hour marathon, I’ll make them available.</p><a href="/coaching/">Join the AI coaching waitlist <span aria-hidden="true">↗</span></a></aside></div>
-
-<section id="tools" class="tool-credits" aria-labelledby="tools-title">
- <div class="wrap">
-  <p class="kicker">Behind the project</p>
-  <h2 id="tools-title" class="display">What I use.</h2>
-  <p class="body">My watch records the work. I use Claude Code and Codex to build and improve the coaching workflows, website and stories around it.</p>
-  <div class="tool-credit-grid">
-   <article><p class="tool-job">The training data</p><h3><a href="https://www.garmin.com/">Garmin <span aria-hidden="true">↗</span></a></h3><p>My epix Pro (Gen 2) records my workouts and recovery data. Those readings feed the coaching checks you just saw.</p></article>
-   <article><p class="tool-job">Coaching workflows</p><h3><a href="https://claude.com/">Claude <span aria-hidden="true">↗</span></a></h3><p class="tool-maker">By Anthropic</p><p>I built the original coaching workflows and this project with Claude Code. I still use it to develop them.</p></article>
-   <article><p class="tool-job">Development and review</p><h3><a href="https://openai.com/">Codex <span aria-hidden="true">↗</span></a></h3><p class="tool-maker">By OpenAI</p><p>I use Codex to develop the website, review scripts and improve the shared workflows alongside Claude Code.</p></article>
-  </div>
-  <div class="tool-credit-foot"><div><p>The scheduled checks run through my own scripts and coaching rules.</p><p class="fine">Independent project. These credits do not imply sponsorship or endorsement.</p></div><a class="partnership-link" href="mailto:hello@tothefinish.ai?subject=To%20The%20Finish%20partnership%20inquiry">Partnership inquiries <span aria-hidden="true">↗</span></a></div>
- </div>
-</section>
-
-<section id="questions" aria-labelledby="questions-title"><div class="wrap">
-<div class="section-intro"><div><p class="kicker">A closer look</p><h2 class="display" id="questions-title">About the coaches.</h2></div><p class="body">I’m learning how well these coaches work by training with them. Here’s what they can do so far.</p></div>
-<div class="inside-details">
-<details><summary>Can I use these coaches?</summary><p>The coaches have one runner, and it’s me. If these AI coaches help me run a sub-three-hour marathon, I’ll make them available. You can <a href="/coaching/">join the AI coaching waitlist</a> now. Access isn’t available yet, and the waitlist is separate from the Sunday letter below.</p></details>
-<details><summary>What runs automatically?</summary><p>My laptop checks for new Garmin records every 10 minutes. When new data arrives, scripts run the coaching checks, rebuild my day and send approved workout changes and heart-rate zones back to Garmin. My laptop and Garmin connection need to be available. I still report pain and decide changes to my food rules.</p><p>Five fresh AI conversations don’t run on every sync.</p></details>
-<details><summary>How does research change the plan?</summary><p>When we review research, we write down what it changes in my plan, where it came from and what it can’t tell us. The scheduled checks then apply those rules to my data. On Nov 21, a review removed the rule that let one low HRV reading change several training days. Changing a rule doesn’t tell me whether I’ll run faster. I need the races to find that out.</p><a href="#inside-evidence">Read the research behind the rules ↑</a></details>
-</div></div></section>
 
 <section id="club"><div class="wrap letter-layout" id="letter">
 <div><p class="kicker">The Sunday letter</p><h2 class="display">Every Sunday, <span class="o">the week’s real numbers.</span></h2><p class="body who-for">This is for anyone who used to be fit and wonders if it’s too late. I’m finding out with my real numbers.</p><p class="body">Each week I’ll tell you what my watch recorded, what my coaches changed and whether I’m any closer to three hours. The bad weeks go in too. When there’s a new episode, it’s at the bottom.</p><p class="body">The next two letters worth opening are the one after Tue Dec 8, when I find out if I got into Chicago, and the one after Sat Dec 26, with my first 5K time.</p><p class="fine">Free. One email a week. Leave any time.</p><a class="more" href="https://www.strava.com/clubs/tothefinish">The Strava club <span aria-hidden="true">↗</span></a></div>
@@ -478,7 +410,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </footer>
 
-<script src="/assets/watch-story.js?v=e6a15aef" defer></script>
 <script src="/assets/charts.js?v=20261125-races"></script>
 <script src="/assets/join.js?v=e6a15aef"></script>
 <script src="/assets/motion.js?v=e6a15aef" defer></script>
