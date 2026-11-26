@@ -309,13 +309,13 @@ def coach_page(qs=()):
 def story_page():
     desc = "I’m Tyler Stewart, a dad of two who started at 258 lb. My real Garmin data and training become To The Finish, an animated account of my attempt to run a sub-3 marathon with five AI coaches."
     schema = {"@context":"https://schema.org","@type":"AboutPage","url":SITE+"/story/","name":"About Tyler | To The Finish",
-        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/","image":SITE+"/assets/tyler-real-and-animated.png"},
+        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/","image":SITE+"/assets/tyler-real-and-animated-v2.png"},
         "isPartOf":{"@id":SITE+"/#website"}}
-    return head("About Tyler | To The Finish",desc,"/story/",ld(schema),share_image=SITE+"/assets/tyler-real-and-animated.png")+'''<div class="page about-hero">
+    return head("About Tyler | To The Finish",desc,"/story/",ld(schema),share_image=SITE+"/assets/tyler-real-and-animated-v2.png")+'''<div class="page about-hero">
       <div class="about-intro"><p class="kicker">About Tyler Stewart</p><h1 class="display">I’m Tyler.<br><span class="o">I have to run it.</span></h1>
       <p class="lead">I’m a dad of two who started at 258 lb and hired five AI coaches to help me run a marathon in under three hours. Everything I share here grows out of my real Garmin data and the training I actually do.</p>
       <p class="body">I’m not here to chase clout or make the numbers look better. I want to see how far I can get, and let my kids see me try.</p></div>
-      <figure class="about-split"><img src="/assets/tyler-real-and-animated.png" width="1086" height="1448" alt="Tyler sitting on his workout bench, with the left half shown as a photograph and the right half illustrated in the show’s animation style" fetchpriority="high"><figcaption><span>Me, November 25, 2026.</span><span>Right half illustrated with AI.</span></figcaption></figure>
+      <figure class="about-split"><img src="/assets/tyler-real-and-animated-v2.png" width="1086" height="1448" alt="Tyler sitting on his workout bench, with the left half shown as a photograph and the right half illustrated in the show’s animation style" fetchpriority="high"><figcaption><span>Me, November 25, 2026.</span><span>Right half illustrated with AI.</span></figcaption></figure>
     </div></div></header>
 <section><div class="wrap about-body">
   <div class="prose"><h2>The person doing the running</h2><p>I’m 43, I’m a dad of two, and I’m training for the Chicago Marathon. I built To The Finish around a question I can’t answer yet: can five AI coaches help me run it in under three hours?</p><p>I do the training and share the results here. The animated version of me is how I tell the story of those weeks.</p><h2>Why Chicago</h2><p>My son was born a few weeks after I turned 41. My daughter came this April. I’ll be 57 when she starts high school. I’d like to still win a few races up a hill by then.</p><p>I want them to see me go after something I might miss, and see what I do the next morning.</p>
