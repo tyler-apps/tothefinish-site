@@ -66,8 +66,6 @@ def row(s):
     review=s.get('review')
     if review:
         detail+='<div class="training-comparison">'+''.join(f'<div><h4>{label}</h4><p>{esc(review[key])}</p></div>' for key,label in [('planned','What was planned'),('observed','What happened'),('decision','The coach’s decision')])+'</div>'
-    else:
-        detail+='<p class="training-small">This entry shows recorded work. A reviewed coaching note has not been added.</p>'
     return f'''<article class="training-entry" data-kind="{s['kind']}" id="{s['key']}"><div class="training-date"><time datetime="{s['date']}"><span>{d:%b}</span><b>{d.day:02}</b><span>{d:%a}</span></time></div><div class="training-entry-body"><div class="training-entry-top"><p class="training-label">{'Run' if s['kind']=='run' else 'Strength'} · recorded</p><span>{esc(s['source'])}</span></div><h3>{esc(s['title'])}</h3><div class="training-entry-metrics">{metrics}</div><details><summary>Session details{' & coach’s note' if review else ''}</summary><div class="training-detail-content">{detail}</div></details></div></article>'''
 
 
