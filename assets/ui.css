@@ -495,4 +495,4 @@ footer .sign .o{color:var(--muted)}
 .tyler-hero .tyler-portrait img{aspect-ratio:3/4;object-fit:contain}
 .tyler-hero .art-caption{font-size:12px;line-height:1.5;flex-wrap:wrap}
 .tyler-hero .fine a{text-underline-offset:3px}
-@media(max-width:860px){.top .tyler-hero{grid-template-columns:1fr;gap:24px}.tyler-hero .hero-copy{display:contents}.tyler-hero .kicker{order:0;margin-bottom:0}.tyler-hero h1{order:1}.tyler-hero .tyler-portrait{order:2;justify-self:center;width:100%;max-width:480px}.tyler-hero p.lead{order:3;margin:0!important}.tyler-hero .hero-actions{order:4}.tyler-hero .fine{order:5;margin-top:0!important}.tyler-hero .tyler-portrait img{aspect-ratio:3/4}}
+@media(max-width:860px){.top .tyler-hero{grid-template-columns:1fr;gap:24px}.tyler-hero .hero-copy{display:contents}.tyler-hero .kicker{order:0;margin-bottom:0}.tyler-hero h1{order:1}.tyler-hero .tyler-portrait{order:2;justify-self:center;width:100%;max-width:480px}.tyler-hero p.lead{order:3;margin:0!important}.tyler-hero .hero-actions{order:4}.tyler-hero .hero-join{order:4;margin-top:0}.tyler-hero .fine{order:5;margin-top:0!important}.tyler-hero .tyler-portrait img{aspect-ratio:3/4}}

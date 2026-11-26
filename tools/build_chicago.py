@@ -86,7 +86,7 @@ def main():
     LOTTERY = ("Lottery results went out <b>Tuesday, December 8, 2026</b>. If you weren't picked, charity entries stay open until September 10, 2027, and tour operators have entries too."
                if results_out else
                "Lottery results come out <b>Tuesday, December 8, 2026</b>. If you're not picked, charity entries stay open until September 10, 2027.")
-    title = "Chicago Marathon 2027: Date, Lottery, Qualifying Times and a Sub-3 Training Plan | To The Finish"
+    title = "Chicago Marathon 2027: Lottery Results, Date and Qualifying Times | To The Finish"
     desc = ("The 2027 Chicago Marathon is Sunday, October 10. Lottery results, every way in, the 2027 qualifying "
             "times by age, and how I'm training to run it under 3 hours.")
     # no FAQPage markup: the AEO playbook rules it out (the rich result is gone); the answers stay on the page

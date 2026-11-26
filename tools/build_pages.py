@@ -132,7 +132,7 @@ FORM = """<form class="join" action="https://app.kit.com/forms/10209840/subscrip
   <label>Email<input name="email_address" type="email" required autocomplete="email"></label>
   <button type="submit">{button}</button>
 </form>
-<p class="fine">One email a week: my miles, what went sideways, and the new episode when one’s out. Leave any time. Continue to Kit to join. <a href="/privacy/">How I use your email</a>.</p>"""
+<p class="fine">One email a week: my miles, what went sideways, and the new episode when one’s out. Free, and you can leave any time. You’ll confirm on Kit’s page. <a href="/privacy/">How I use your email</a>.</p>"""
 
 FOOT = "</main>\n" + site_footer() + """
 <script src="/assets/join.js?v=VERSION"></script>
@@ -244,7 +244,7 @@ def episode_page(e):
 
 def episodes_index(eps):
     path = "/episodes/"
-    desc = "Watch To The Finish, the animated series. A dad who started at 258 lb hires five AI coaches for a sub-3 marathon. Start with Episode 1: The Hiring."
+    desc = "Watch To The Finish, the animated series. A dad who started at 258 lb created five AI coaches for a sub-3 marathon. Start with Episode 1: The Hiring."
     cards = []
     for e in reversed(eps):
         cards.append(f'''<li><a class="episode-card" href="/episodes/{esc(e['slug'])}/">
