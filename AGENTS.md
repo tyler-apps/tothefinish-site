@@ -41,3 +41,6 @@ Signup refinement, November 24, 2026: Tyler requested “Want your own AI runnin
 
 
 Homepage narrative, November25 (latest): Tyler explicitly wants the site to lead with him, then the methodology. Hero is his current split photographic/animated bench portrait (`tyler-real-and-animated-v3.png`), light gray Nike tank and black shorts. Primary link My story; secondary real training. Order: hero → #why → #progress → #training → #team → #inside, followed by existing support sections. This supersedes the earlier coach-lineup hero and team-first order. Preserve Garmin data hooks and factual distinctions. The explainer remains held. About `/story/` uses the same portrait and owns person/character identity. Public copy is a dad’s actual training, real Garmin evidence and honest setbacks; no clout chasing or invented progress.
+
+
+Latest November25 decision: Tyler removed the separate About Tyler page. Keep his portrait and story on the homepage. No About Tyler navigation/footer links. Hero My story and portrait link to #why. Homepage #tyler is the Person/author identity; generated author links point there. `/story/` is only a compatibility redirect to `/`, excluded from the sitemap. Its full content generator is removed, so rebuilding must not restore it. This supersedes earlier About-page instructions.

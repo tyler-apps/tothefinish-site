@@ -198,7 +198,7 @@ def episode_page(e):
         "description":e["description"], "thumbnailUrl":[thumb],
         "uploadDate":e.get("published_at",e["date"]), "embedUrl":embed,
         "url":SITE+path, "mainEntityOfPage":SITE+path, "inLanguage":"en",
-        "creator":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/"},
+        "creator":{"@type":"Person","@id":SITE+"/#tyler","name":"Tyler Stewart","url":SITE+"/#tyler"},
         "partOfSeries":{"@type":"CreativeWorkSeries","@id":SITE+"/#series","name":"To The Finish","url":SITE+"/"}}
     if e.get("duration"): video["duration"] = e["duration"]
     if e.get("video_file"): video["contentUrl"] = SITE + e["video_file"]
@@ -225,7 +225,7 @@ def episode_page(e):
       <p class="kicker">Episode {e['number']} · {duration_label(e)}</p>
       <h1 class="display">{esc(e['title'])}</h1>
       <p class="lead">{esc(e['description'])}</p>
-      <p class="fine">Published <time datetime="{e['date']}">{date_h}</time> · By <a href="/story/">Tyler Stewart</a></p>
+      <p class="fine">Published <time datetime="{e['date']}">{date_h}</time> · By <a href="/#tyler">Tyler Stewart</a></p>
       <p class="fine">Animated AI characters and voices. My real training.</p>
       <a class="more" href="#behind-episode">The real numbers behind it <span aria-hidden="true">↓</span></a>
     </div>
@@ -306,28 +306,6 @@ def coach_page(qs=()):
 """ + FOOT
 
 
-def story_page():
-    desc = "I’m Tyler Stewart, a dad of two who started at 258 lb. My real Garmin data and training become To The Finish, an animated account of my attempt to run a sub-3 marathon with five AI coaches."
-    schema = {"@context":"https://schema.org","@type":"AboutPage","url":SITE+"/story/","name":"About Tyler | To The Finish",
-        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/","image":SITE+"/assets/tyler-real-and-animated-v3.png"},
-        "isPartOf":{"@id":SITE+"/#website"}}
-    return head("About Tyler | To The Finish",desc,"/story/",ld(schema),share_image=SITE+"/assets/tyler-real-and-animated-v3.png")+'''<div class="page about-hero">
-      <div class="about-intro"><p class="kicker">About Tyler Stewart</p><h1 class="display">I’m Tyler.<br><span class="o">I have to run it.</span></h1>
-      <p class="lead">I’m a dad of two who started at 258 lb and hired five AI coaches to help me run a marathon in under three hours. Everything I share here grows out of my real Garmin data and the training I actually do.</p>
-      <p class="body">I’m not here to chase clout or make the numbers look better. I want to see how far I can get, and let my kids see me try.</p></div>
-      <figure class="about-split"><img src="/assets/tyler-real-and-animated-v3.png" width="1086" height="1448" alt="Tyler sitting on his workout bench, with the left half shown as a photograph and the right half illustrated in the show’s animation style" fetchpriority="high"><figcaption><span>Me, November 25, 2026.</span><span>Right half illustrated with AI.</span></figcaption></figure>
-    </div></div></header>
-<section><div class="wrap about-body">
-  <div class="prose"><h2>The person doing the running</h2><p>I’m 43, I’m a dad of two, and I’m training for the Chicago Marathon. I built To The Finish around a question I can’t answer yet: can five AI coaches help me run it in under three hours?</p><p>I do the training and share the results here. The animated version of me is how I tell the story of those weeks.</p><h2>Why Chicago</h2><p>My son was born a few weeks after I turned 41. My daughter came this April. I’ll be 57 when she starts high school. I’d like to still win a few races up a hill by then.</p><p>I want them to see me go after something I might miss, and see what I do the next morning.</p>
-  <h2>I’ve run faster before</h2><p>In June 2024 I ran a half marathon in 1:32:31. That is still my best. When I first asked my watch about a marathon on October 19, 2026, it estimated 4:39:49. My goal for Chicago on October 10, 2027 is under three hours. I don’t know yet whether I’ll get there.</p>
-  <h2>No sugar coating</h2><p>The stories come from my Garmin records and actual conversations with the coaches. I won’t make a slow run look fast or turn a missed session into a completed one. A watch prediction stays labeled as an estimate. A goal doesn’t become a result until I run it.</p><p>The training journal is here so you can see what I did, including the days that don’t make a good highlight.</p><h2>What’s real, and what’s drawn</h2><p>The training is mine. The watch records my runs, and the coaches read that data to help plan the next day. The five coaches are AI characters with animated faces and AI voices. They can change a plan. They can’t do the run or feel my pain.</p><p>The episodes turn those weeks into scenes. The site shows the estimates beside the goals and race results, so you can check how the chase is going. This is my personal coaching setup, not medical or nutrition advice.</p>
-  <h2>Who’s talking?</h2><p>When I write “I” on this site or in a post, that’s me, Tyler. When a coach speaks in a video, the name identifies the character: Kai coaches my running, Bo handles strength, Juno handles food, Mo handles recovery, and Rook is the head coach.</p><p>Their scenes are written from my training and coaching conversations. The dialogue is a dramatization; the characters aren’t human coaches, and their voices aren’t recordings of me.</p>
-  <p><a href="/training/">My training journal</a> · <a href="/coaches/">What the coaches can see</a> · <a href="/races/">My races</a></p>
-  <h2>Start with the morning they got hired</h2><p><a class="btn" href="/episodes/the-hiring/">Watch Episode 1 →</a></p><p>Or write to me at <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a>.</p></div>
-</div></section>
-<section><div class="wrap letter-layout"><div><p class="kicker">The Sunday letter</p><h2 class="display">I’ll tell you<br><span class="o">how the week went.</span></h2></div><div>''' + FORM.format(id='story',button='Get the Sunday letter') + '</div></div></section>' + FOOT
-
-
 def privacy_page():
     path = "/privacy/"
     desc = ("What tothefinish.ai collects for the Sunday letter and the AI coaching waitlist, where it goes, "
@@ -374,7 +352,7 @@ def notfound_page():
 """ + FOOT
 
 
-AUTHOR = {"@type":"Person", "@id":SITE+"/story/#tyler", "name":"Tyler Stewart", "url":SITE+"/story/"}
+AUTHOR = {"@type":"Person", "@id":SITE+"/#tyler", "name":"Tyler Stewart", "url":SITE+"/#tyler"}
 
 
 def question_page(q, all_q):
@@ -405,7 +383,7 @@ def question_page(q, all_q):
 </header>
 <section>
   <div class="wrap prose">{out}
-    <p class="note">By <a href="/story/" rel="author">Tyler Stewart</a>. Numbers from my Garmin (chest-strap heart rate). Not medical or nutrition advice; the coaches are AI characters.</p>
+    <p class="note">By <a href="/#tyler" rel="author">Tyler Stewart</a>. Numbers from my Garmin (chest-strap heart rate). Not medical or nutrition advice; the coaches are AI characters.</p>
   </div>
 </section>
 <section>
@@ -495,7 +473,7 @@ def live_questions(qs):
 
 # Old addresses (2026-11-22, Tyler: "Yes lean into the change"): the show is an animated series, so the pages named
 # for a running coach moved. The old address forwards to the new one.
-MOVED = {"ai-running-coach": "/how-the-coaches-decide/",
+MOVED = {"story": "/", "ai-running-coach": "/how-the-coaches-decide/",
          "ai-running-coach-for-heavier-runners": "/training-for-a-marathon-from-258-lb/"}
 
 
@@ -537,10 +515,6 @@ def main():
         d = ROOT / old
         d.mkdir(exist_ok=True)
         (d / "index.html").write_text(moved_page(new))
-    d = ROOT / "story"
-    d.mkdir(exist_ok=True)
-    (d / "index.html").write_text(story_page())
-    urls.append(("/story/", "monthly", "2026-11-23"))
     d = ROOT / "privacy"
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(privacy_page())

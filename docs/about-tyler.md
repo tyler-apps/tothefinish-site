@@ -21,3 +21,8 @@ Latest wardrobe edit: Tyler requested a plain gray shirt and black shorts to mat
 Tyler requested the final lighter Episode1 gray tank, Nike swoosh, black shorts, photographic left and animated right. Selected asset is `assets/tyler-real-and-animated-v3.png`, used on About and homepage, with the same image in sharing metadata. The original photo remains unchanged; the wardrobe is an intentional image edit, not sponsor evidence.
 
 Tyler then asked for the homepage to be more about him before the methodology. New order: personal photo/goal → family motivation → honest Garmin estimate versus goal → actual training journal → five AI coaches → watch/research/decision walkthrough → existing supporting sections. Existing data hooks, signup consent, training exports, launch hold and replay pause remain. Mobile shows the portrait immediately after the headline; all five coaches remain together below the personal record.
+
+
+## Separate page removed · latest November25 request
+
+Tyler requested removal of the About Tyler page. Its content and generator are removed; all navigation/footer references are removed. Homepage photo/story remain. My story and portrait now scroll to #why. Author schema and bylines use homepage #tyler. `/story/` redirects to `/` for previously shared links and is absent from the sitemap. Earlier page-specific notes above are historical.
