@@ -50,3 +50,6 @@ Homepage voice, November25 latest: lead with Tyler’s own reasons for training 
 
 
 Homepage flow review, November25 latest: introduce the five AI coaches before discussing their improvement, quoting their training notes or explaining their method. Current order: hero → #why → #team → #sharing → #progress → #training → #road → #been → #inside → secondary coaching invitation → #tools → #questions → #club/#letter. This supersedes earlier orders. Keep Tyler’s personal opening and removed About page. The #sharing section offers the primary Sunday-letter path and existing first episode before technical detail; the separately consented waitlist stays secondary. Strategy sources and rationale: docs/homepage-story.md.
+
+
+Hero focus, November25 latest: Tyler requested a sub-three-hour marathon hero, then explicitly preferred the earlier 258 lb version. Restore “Can a 258 lb dad run a marathon in under three hours?” Supporting copy must say “I started at 258 lb” so the starting point is clear, then name Chicago, five AI coaches and actual Garmin records. Primary See my progress → #progress, secondary Why I’m doing this → #why. Keep the split portrait and personal story below the hero. This overrides the family-first hero headline, not the remaining page order or launch hold. See docs/homepage-story.md.
