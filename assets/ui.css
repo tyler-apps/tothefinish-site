@@ -523,3 +523,8 @@ section h2.display .o{color:inherit}
  .tyler-hero .hero-actions{order:6}
  .tyler-hero .fine:not(.hero-letter-note){order:7}
 }
+/* Marathon estimate: start, now, goal (Tyler 2026-11-26: "include the estimate when I started running in October, where I am now ... a date on it") */
+#progress .gap.gap-three{grid-template-columns:auto auto auto auto auto;justify-content:space-between;gap:24px;font-size:clamp(52px,6.2vw,96px)}
+#progress .gap-three .gap-metric small{white-space:nowrap}
+@media(max-width:900px){#progress .gap.gap-three{grid-template-columns:1fr;justify-content:start;gap:22px;font-size:64px}#progress .gap-three .to{display:none}}
+@media(max-width:640px){#progress .gap.gap-three{font-size:56px}}

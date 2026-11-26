@@ -528,7 +528,9 @@ def main():
     date = dt.date.fromisoformat(D["updated"])
     week = next((w for w in D.get("year",[]) if w.get("current")),{})
     gap = int(round(D["to_go_s"]))
-    values = {"now":D["now"]["marathon"], "asof":date.strftime("%b %-d"),
+    full = lambda iso: dt.date.fromisoformat(iso).strftime("%b %-d, %Y")
+    values = {"now":D["now"]["marathon"], "nowdate":full(D["now"]["date"]),
+        "start":D["start"]["marathon"], "startdate":full(D["start"]["date"]), "asof":date.strftime("%b %-d"),
         "togo":f"{gap//3600}:{gap%3600//60:02d}:{gap%60:02d}",
         "weeksleft":max(0,(dt.date(2027,10,10)-dt.date.fromisoformat(TODAY)).days//7),
         "wkdone":week.get("done") if week.get("done") is not None else "Not recorded", "wkplan":week.get("plan","Not set")}

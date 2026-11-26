@@ -4,7 +4,7 @@ from pathlib import Path
 import re, subprocess, sys
 ROOT=Path(__file__).resolve().parents[1]
 def normalize(text):
-    keys='now|asof|togo|weeksleft|wkdone|wkplan'
+    keys='now|nowdate|start|startdate|asof|togo|weeksleft|wkdone|wkplan'
     text=re.sub(r'(<[^>]+data-k="(?:'+keys+r')"[^>]*>)[^<]*(</[^>]+>)',r'\1GENERATED\2',text)
     return re.sub(r'The saved numbers above are from [A-Z][a-z]{2} \d{1,2};','The saved numbers above are from DATE;',text)
 if __name__=='__main__':
