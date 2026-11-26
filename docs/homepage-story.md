@@ -48,3 +48,16 @@ Sources verified November25:
 - VDOT explanation: [V.O2 definition](https://news.vdoto2.com/2017/11/what-is-vdot/) and [FAQ](https://support.vdoto2.com/v-o2-faq/). Race distance/time yields a comparable performance score; higher means faster. The threshold line is a separate estimate, not measured oxygen consumption. Public source link included.
 
 Validation: exporter output preserves49.2/48.3/47.9 and the November17 start; existing site/voice, UI, watch-story and six SEO tests pass. Desktop1440px and mobile390/320px visually inspected, all three race details visible with no horizontal overflow.
+
+
+## VO₂ max leads; VDOT stays with races · November25, 2026
+
+Tyler approved splitting the metrics. The first #been figure now shows Garmin-estimated VO₂ max and the month-only birth markers. A second figure keeps race-derived VDOT scores, named race results/locations and future finish-time targets, including the53.5 sub-three-hour benchmark. The VDOT chart no longer displays the threshold-estimated history/current dot or birth markers. Do not combine the two measures, reuse the VO₂ max value as VDOT, or put the sub-three-hour line on VO₂ max. Other coach-page uses of the existing VDOT data are unchanged.
+
+New `vo2_history` export in Brain `scripts/site_progress.py` reads `brain/health/runs/vo2max-history.json` (RUNNING only) and adds missing dated values from `fitness.json` snapshots. Both are Garmin generic max-metrics precise values; source ingestors are `garmin_vo2_history.py` and `ingest_garmin_runs.py`. Archive values win duplicate dates. No missing-day filling, raw health streams, cycling series or future readings. Dates and values only, with unit, latest and best summaries. Both Brain checkouts contain the same exporter update. The data refresher will maintain the new field.
+
+Verified193 points:190 historical readings May5,2024–November11,2026 plus daily snapshots November18 (49.9), November20 (49.4), November22 (49.3). Highest60.3 onAugust20,2024. The latest point is explicitly dated November22, not presented as today's reading. No January–April2024 readings; shaded before first reading. Timeline lines break whenever adjacent readings are more than30days apart, including the spring2026 gap. Individual recorded points remain visible. Line segments are visual connections, not exported/interpolated observations.
+
+Public wording explains oxygen use relative to body weight and labels Garmin estimates versus lab tests, linking the [Garmin definition](https://www.garmin.com/en-GB/garmin-technology/running-science/physiological-measurements/vo2-max/). VDOT retains its own explanation/source. Birth labels are chronology, not a claim that having children caused a fitness change. This overrides the earlier single-VDOT history chart direction.
+
+Validation: exporter fixture verifies duplicate precedence, running filter, omitted missing/future values and dated latest/best; full data count and summary checked. Site/voice, internal links, UI, watch-story and six SEO tests pass. Desktop1440px and mobile390/320px visually checked; no horizontal overflow. DOM verifies193 history points plus one latest marker, three disconnected history segments, and no VDOT trend path or birth annotations.
