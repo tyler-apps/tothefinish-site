@@ -25,3 +25,9 @@ Validation: site writing/internal destinations/SEO passed; all six SEO tests and
 ## Hero focus · November25, 2026, latest
 
 Tyler requested a sub-three-hour marathon hero, then said the earlier 258 lb version was better. Restored the original question: “Can a 258 lb dad run a marathon in under three hours?” Supporting copy immediately clarifies “I started at 258 lb” and connects Chicago, five AI coaches and real Garmin records. Primary action is See my progress; the secondary action leads to his reasons for doing it. The split portrait, family story immediately below, coach introduction and later methodology retain their roles. The goal is not an achieved result or a guarantee. This changes the current arc's emphasis, not the broader To The Finish identity or future-goal flexibility.
+
+## Fitness context after the family story · November25, 2026
+
+Tyler requested “created five AI coaches” instead of “hired” and the existing fitness chart immediately after the section about being 57 when his daughter starts high school. The #been section now connects those personal stakes to his recorded past fitness, current estimate and sub-three-hour target before introducing the coaches. Its chart data and factual distinctions are unchanged; it appears once. The hero and team introduction use “created five AI coaches.”
+
+Current order: hero → why → been → team → sharing → progress → training → road → inside → coaching invitation → tools → questions → Sunday letter.

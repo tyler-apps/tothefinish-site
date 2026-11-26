@@ -53,3 +53,6 @@ Homepage flow review, November25 latest: introduce the five AI coaches before di
 
 
 Hero focus, November25 latest: Tyler requested a sub-three-hour marathon hero, then explicitly preferred the earlier 258 lb version. Restore “Can a 258 lb dad run a marathon in under three hours?” Supporting copy must say “I started at 258 lb” so the starting point is clear, then name Chicago, five AI coaches and actual Garmin records. Primary See my progress → #progress, secondary Why I’m doing this → #why. Keep the split portrait and personal story below the hero. This overrides the family-first hero headline, not the remaining page order or launch hold. See docs/homepage-story.md.
+
+
+Homepage wording and chart order, November25 latest: Tyler says he “created five AI coaches,” not hired them. Use that wording in the hero and team introduction. Move the existing #been fitness-history/current-estimate chart directly after #why (“I’ll be 57 when she starts high school”), before #team. Preserve chart data, labels, estimate/actual/target distinctions and all data hooks. Current order: hero → why → been → team → sharing → progress → training → road → inside → coaching invitation → tools → questions → letter.
