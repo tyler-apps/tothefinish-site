@@ -44,3 +44,6 @@ Homepage narrative, November25 (latest): Tyler explicitly wants the site to lead
 
 
 Latest November25 decision: Tyler removed the separate About Tyler page. Keep his portrait and story on the homepage. No About Tyler navigation/footer links. Hero My story and portrait link to #why. Homepage #tyler is the Person/author identity; generated author links point there. `/story/` is only a compatibility redirect to `/`, excluded from the sitemap. Its full content generator is removed, so rebuilding must not restore it. This supersedes earlier About-page instructions.
+
+
+Homepage voice, November25 latest: lead with Tyler’s own reasons for training (playing with kids as he ages, modeling work toward a goal, proving to himself he can still do it). #sharing explains real Garmin stories, authenticity/connection, and improving the coaches over the year as a goal. This is not evidence of validated coaching effectiveness. Use conversational full thoughts, avoid colon-led setups and stacked slogan fragments. Keep legitimate time notation. See docs/homepage-story.md. Preserve the removed About page and existing conditional product availability.
