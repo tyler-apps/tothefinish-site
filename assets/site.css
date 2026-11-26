@@ -1,5 +1,5 @@
 @font-face{font-family:"Barlow Condensed";src:url(/assets/barlow-condensed-800.woff2) format("woff2");font-weight:800;font-display:swap}
-:root{--ink:#12100e;--ink-2:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
+:root{--ink:#12100e;--ink-2:#1b1815;--ink-3:#2a2622;--paper:#fdefe1;--muted:#a8a29e;--orange:#ff6a1f;--white:#fff;--line:#2f2a25;--soft:#e7e1db}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--ink);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -25,13 +25,13 @@ p.body.turn b{color:var(--orange)}
 
 /* form */
 form.join{display:flex;flex-wrap:wrap;gap:10px;max-width:520px}
-form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2);color:var(--white);font-size:16px}
+form.join input{flex:1 1 160px;min-width:0;padding:15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-3);color:var(--white);font-size:16px}
 form.join input::placeholder{color:#8a837c}
 form.join input.wide{flex-basis:100%}
 form.join button{flex:1 1 100%;padding:16px;border:0;border-radius:10px;background:var(--orange);color:var(--ink);font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
 form.join button:hover{filter:brightness(1.06)}
 .fine{font-size:13px;color:var(--muted);margin-top:10px}
-.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-2);border:1px solid var(--orange);font-size:17px;line-height:1.45}
+.thanks{display:none;max-width:520px;padding:18px;border-radius:10px;background:var(--ink-3);border:1px solid var(--orange);font-size:17px;line-height:1.45}
 
 /* progress */
 .gap-head{font-size:clamp(52px,9vw,112px)}
@@ -143,7 +143,7 @@ ul.qlist{padding-left:18px;margin:0 0 10px}ul.qlist li{font-size:18px;line-heigh
 .rdate{display:flex;flex-direction:column;align-items:center;line-height:1;text-transform:uppercase}
 .rdate .dw,.rdate .dm{font-size:12px;font-weight:700;letter-spacing:1px;color:var(--muted)}
 .rdate .dn{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:38px;margin:3px 0}
-.rmain h3{margin:0;font-size:19px;line-height:1.3;font-weight:650}
+.rmain h3{margin:0;font-size:19px;line-height:1.3;font-weight:600}
 .rmain h3 a{text-decoration:none}
 .rmain h3 a:hover{text-decoration:underline}
 .rmeta{margin:3px 0 8px;color:var(--muted);font-size:14px}
@@ -178,7 +178,7 @@ ul.qlist{padding-left:18px;margin:0 0 10px}ul.qlist li{font-size:18px;line-heigh
 h2.sec{font-size:clamp(44px,6vw,72px);margin-bottom:16px}
 .entry{margin-top:20px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
 .ftable{width:100%;max-width:640px;border-collapse:collapse;margin:18px 0 10px;font-size:17px}
-.ftable th{text-align:left;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.ftable th{text-align:left;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
 .ftable td{padding:11px 12px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
 .ftable tr.me td{color:var(--orange);font-weight:700}
 .gapline{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 22px;margin:18px 0 20px}
@@ -189,7 +189,7 @@ h2.sec{font-size:clamp(44px,6vw,72px);margin-bottom:16px}
 @media (max-width:860px){.facts{grid-template-columns:1fr 1fr}.facts b{font-size:28px}}
 
 /* race picker + race reports (2026-11-20): the select matches the inputs; .say is the home page's coach quote */
-form.join select{flex:1 1 100%;min-width:0;padding:15px 40px 15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8a29e' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--white);font-size:16px;-webkit-appearance:none;appearance:none}
+form.join select{flex:1 1 100%;min-width:0;padding:15px 40px 15px 14px;border-radius:10px;border:1px solid #3a342e;background:var(--ink-3) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23a8a29e' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--white);font-size:16px;-webkit-appearance:none;appearance:none}
 form.join input.other{display:none}
 form.join:has(option.else:checked) input.other{display:block}
 .page form.join{margin-top:6px}

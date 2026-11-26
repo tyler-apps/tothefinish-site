@@ -135,7 +135,7 @@ CSS = """<style>
 .viz .take span{display:block;margin-top:4px;font-size:20px;color:var(--muted)}
 .plot{width:100%;min-height:200px}
 .src{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--muted);align-self:end}
-.key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:-6px 0 14px;font-size:13px;color:var(--soft)}
+.key{display:flex;flex-wrap:wrap;gap:6px 16px;margin:-6px 0 14px;font-size:14px;color:var(--soft)}
 .key span{display:inline-flex;align-items:center;gap:7px}
 .sw{display:inline-block;width:12px;height:12px;border-radius:3px}
 .sw.orange{background:#ff6a1f}.sw.white{background:#fff}.sw.muted{background:#5f5750}.sw.dim{background:#5f5750;opacity:.55}.sw.ghost{border:1.5px solid #6b625a}

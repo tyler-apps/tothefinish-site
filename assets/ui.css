@@ -196,7 +196,7 @@ form.join{margin-top:24px}
 /* Premium refinement, November 23: TTF palette and display face, editorial spacing.
    Structure: Linear's repeated chapters; Apple's quiet controls and gallery rhythm.
    Keep this shared so generated pages and the homepage remain one product. */
-:root{--content-width:1240px;--section-space:112px;--surface:#1b1815;--body-font:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif}
+:root{--content-width:1240px;--section-space:112px;--surface:var(--ink-2);--body-font:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Helvetica,Arial,sans-serif}
 .wrap{max-width:var(--content-width);padding-inline:40px}
 section{padding-block:var(--section-space)}
 .display{text-wrap:balance;letter-spacing:-.02em}
@@ -379,7 +379,7 @@ section h2.display .o{color:var(--soft)}
 #inside .inside-details{margin-top:56px;border-top:1px solid var(--line)}
 #inside .inside-details summary{list-style:none;position:relative;padding-right:48px}
 #inside .inside-details summary::-webkit-details-marker{display:none}
-#inside .inside-details summary::after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--muted);font-weight:300}
+#inside .inside-details summary::after{content:'+';position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--muted);font-weight:400}
 #inside .inside-details details[open]>summary::after{content:'−'}
 #tools.tool-credits{background:var(--ink);border-top:0;padding-top:72px}
 #tools .tool-credit-grid{gap:48px}
@@ -473,7 +473,7 @@ footer .sign .o{color:var(--muted)}
 .race-target-key ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
 .race-target-key li{display:grid;gap:5px;font-size:14px}
 .race-target-key b{font-size:20px;font-variant-numeric:tabular-nums;color:var(--orange)}
-.race-target-key small{color:var(--muted);font-size:12px}
+.race-target-key small{color:var(--muted);font-size:14px}
 @media(max-width:640px){.race-target-key ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}}
 
 /* About Tyler: one real photograph becomes the animated character. */
@@ -483,7 +483,7 @@ footer .sign .o{color:var(--muted)}
 .about-hero .body{color:var(--muted);font-size:18px;line-height:1.75;max-width:36em}
 .about-split{margin:0}
 .about-split img{display:block;width:100%;height:auto;border-radius:12px}
-.about-split figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--muted);font-size:12px;line-height:1.5}
+.about-split figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--muted);font-size:14px;line-height:1.5}
 .about-body{max-width:860px}
 .about-body .prose h2:first-child{margin-top:0}
 @media(max-width:860px){.page.about-hero{gap:36px}.about-hero h1{font-size:62px}.about-split figcaption{display:block}.about-split figcaption span{display:block}}
@@ -493,6 +493,6 @@ footer .sign .o{color:var(--muted)}
 .top .tyler-hero{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:64px}
 .tyler-hero .tyler-portrait{display:block;max-width:480px;justify-self:end;text-decoration:none}
 .tyler-hero .tyler-portrait img{aspect-ratio:3/4;object-fit:contain}
-.tyler-hero .art-caption{font-size:12px;line-height:1.5;flex-wrap:wrap}
+.tyler-hero .art-caption{font-size:14px;line-height:1.5;flex-wrap:wrap}
 .tyler-hero .fine a{text-underline-offset:3px}
 @media(max-width:860px){.top .tyler-hero{grid-template-columns:1fr;gap:24px}.tyler-hero .hero-copy{display:contents}.tyler-hero .kicker{order:0;margin-bottom:0}.tyler-hero h1{order:1}.tyler-hero .tyler-portrait{order:2;justify-self:center;width:100%;max-width:480px}.tyler-hero p.lead{order:3;margin:0!important}.tyler-hero .hero-actions{order:4}.tyler-hero .hero-join{order:4;margin-top:0}.tyler-hero .fine{order:5;margin-top:0!important}.tyler-hero .tyler-portrait img{aspect-ratio:3/4}}
