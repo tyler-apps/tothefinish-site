@@ -61,3 +61,8 @@ Verified193 points:190 historical readings May5,2024–November11,2026 plus dail
 Public wording explains oxygen use relative to body weight and labels Garmin estimates versus lab tests, linking the [Garmin definition](https://www.garmin.com/en-GB/garmin-technology/running-science/physiological-measurements/vo2-max/). VDOT retains its own explanation/source. Birth labels are chronology, not a claim that having children caused a fitness change. This overrides the earlier single-VDOT history chart direction.
 
 Validation: exporter fixture verifies duplicate precedence, running filter, omitted missing/future values and dated latest/best; full data count and summary checked. Site/voice, internal links, UI, watch-story and six SEO tests pass. Desktop1440px and mobile390/320px visually checked; no horizontal overflow. DOM verifies193 history points plus one latest marker, three disconnected history segments, and no VDOT trend path or birth annotations.
+
+
+## Return to VDOT · November25,2026, latest
+
+Tyler said “Go back to the VDOT chart.” Restored the reviewed941caea homepage/chart implementation: single VDOT figure after the family story, dated birth markers, threshold-estimated history/current value, numbered race results with names/locations and future targets/sub-three-hour benchmark. The January2024 axis, missing-trend shading and VDOT explanation remain. Removed the VO₂ max chart and its unused public-history export; all private Garmin history is retained. Prior metric-split instructions are superseded.

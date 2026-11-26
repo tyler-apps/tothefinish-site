@@ -62,3 +62,6 @@ Fitness chart, November25 latest: #been starts January2024, with explicit missin
 
 
 Metric split, November25 latest: the main #been history chart is Garmin-estimated VO₂ max with month-only birth markers, explicit units and latest-reading date. Export `vo2_history` from the running archive plus missing daily snapshot readings; preserve missing data and break connections over30days. Keep VDOT in a separate figure for recorded races and future targets/sub-three-hour goal, with named race entries. No threshold history/current estimate or family markers on that VDOT figure. Never treat VO₂ max and VDOT as interchangeable. docs/homepage-story.md owns sources and validation. This overrides the earlier single-VDOT history layout.
+
+
+VDOT restored, November25 latest: Tyler reversed the VO₂ max layout. Restore the single VDOT chart in #been, with threshold-estimated history/current value, named race results/locations, son October2024 and daughter April2026 birth markers, and future race/sub-three-hour targets. Keep the explicit missing-data region and plain VDOT explanation. The VO₂ max chart/export is removed; raw source history is preserved. This supersedes the preceding metric-split rule.

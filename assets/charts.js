@@ -200,9 +200,8 @@
       }
       o.layers.forEach(function (ly) {
         if (ly.type === 'line') {
-          el(s, 'path', { d: ly.data.map(function (p, i) { var gap = i && ly.maxGapDays && (+p.x - +ly.data[i-1].x) > ly.maxGapDays * 864e5; return (i && !gap ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' '),
+          el(s, 'path', { d: ly.data.map(function (p, i) { return (i ? 'L' : 'M') + X(p.x).toFixed(1) + ' ' + Y(p.y).toFixed(1); }).join(' '),
             fill: 'none', stroke: ly.color || C.axis, 'stroke-width': ly.width || 1.5, 'stroke-linejoin': 'round', opacity: ly.opacity || 1 });
-          if (ly.points) ly.data.forEach(function (p) { el(s, 'circle', {cx:X(p.x),cy:Y(p.y),r:1.8,fill:ly.color || C.axis}); });
         } else if (ly.type === 'rings') {
           if (ly.path && ly.from) {
             var pts = [ly.from].concat(ly.data);
