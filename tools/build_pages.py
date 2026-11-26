@@ -309,12 +309,12 @@ def coach_page(qs=()):
 
 def privacy_page():
     path = "/privacy/"
-    desc = ("What tothefinish.ai collects for the Sunday letter and the AI coaching waitlist, where it goes, "
+    desc = ("What tothefinish.ai collects for the Sunday letter, where it goes, "
             "and how to get off the list.")
     page = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacy | To The Finish",
             "url": SITE + path, "description": desc}
     return head("Privacy | To The Finish", desc, path, ld(page)) + """    <div class="page">
-      <p class="kicker">Updated November 24, 2026</p>
+      <p class="kicker">Updated November 26, 2026</p>
       <h1 class="display">Privacy, in <span class="o">plain words.</span></h1>
       <p class="lead">This is a one-person site. Here's what it collects and where that goes.</p>
     </div>
@@ -323,11 +323,11 @@ def privacy_page():
 <section>
   <div class="wrap prose">
     <h2>What the forms collect</h2>
-    <p>The Sunday letter form asks for your email and an optional first name. The AI coaching waitlist form asks for your email and, optionally, which part of training is hardest to fit together. Please don’t send medical records through either form.</p>
+    <p>The Sunday letter form asks for your email and an optional first name. From November 24 to 26 the site also had an AI coaching interest form. It’s closed now. If you joined it, you can leave the same way as the letter, below. Please don’t send medical records through the form.</p>
     <h2>Where it goes</h2>
-    <p>The forms send what you enter to Kit, the email service I use. The Sunday letter and the AI coaching waitlist are separate choices. Requesting one doesn’t sign you up for the other. I use the optional training answer to understand what people want from their own AI coaches.</p>
+    <p>The forms send what you enter to Kit, the email service I use. The closed coaching interest list was kept separate from the Sunday letter, and joining one never signed you up for the other.</p>
     <h2>What the site counts</h2>
-    <p>The site uses Google Analytics to count visits, watch-link clicks and requests for the Sunday letter or places on the AI coaching waitlist. Those requests are counted separately; a form submission doesn’t tell me whether an email was delivered. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
+    <p>The site uses Google Analytics to count visits, watch-link clicks and requests for the Sunday letter; a form submission doesn’t tell me whether an email was delivered. It sets a cookie to tell one visit from the next. Your name, your email and anything you type are never sent to it. Episode 1 plays directly on this site. You can also open it on YouTube.</p>
     <h2>Getting off the list</h2>
     <p>Every email has an unsubscribe link at the bottom. Or write to <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a> and I'll take you off and delete what you sent.</p>
     <h2>The coaches</h2>
@@ -474,7 +474,7 @@ def live_questions(qs):
 
 # Old addresses (2026-11-22, Tyler: "Yes lean into the change"): the show is an animated series, so the pages named
 # for a running coach moved. The old address forwards to the new one.
-MOVED = {"story": "/", "ai-running-coach": "/how-the-coaches-decide/",
+MOVED = {"story": "/", "coaching": "/how-the-coaches-decide/", "ai-running-coach": "/how-the-coaches-decide/",
          "ai-running-coach-for-heavier-runners": "/training-for-a-marathon-from-258-lb/"}
 
 
@@ -557,8 +557,8 @@ def main():
     from build_training import main as build_training
     training_date = build_training()
     urls.append(("/training/", "daily", training_date))
-    from build_coaching_interest import main as build_coaching_interest
-    urls.append(("/coaching/", "monthly", build_coaching_interest()))
+    # /coaching/ closed 2026-11-26 (Gerben, Bare, Hormozi and Godin audits; Tyler: "No wait list unless I am truly needed"):
+    # nothing under the To The Finish name offers coaching. It redirects through MOVED; build_coaching_interest stays for a separately named product.
     # Revision dates persist across routine data refreshes; never pretend each build is a new article.
     revisions = json.loads((ROOT/'pages/seo-revisions.json').read_text())
     urls = [(u,f,max(m,revisions.get(u,m))) for u,f,m in urls]
