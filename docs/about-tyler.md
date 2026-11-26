@@ -15,3 +15,9 @@ Tyler supplied a photograph taken today and explicitly requested the right half 
 Tyler’s accompanying editorial direction: all content grounded in real Garmin data, no sugar coating, no clout chasing, just a dad. The revised lead and “No sugar coating” section state that intent in his voice and keep estimates, goals and completed results distinct. Retain the explanation that animated dialogue is a dramatization of real training/coaching conversations.
 
 Latest wardrobe edit: Tyler requested a plain gray shirt and black shorts to match the videos. `assets/tyler-real-and-animated-v2.png` applies those changes to both halves. This supersedes v1; preserve the source photograph unchanged.
+
+## Homepage leads with Tyler · latest November25 direction
+
+Tyler requested the final lighter Episode1 gray tank, Nike swoosh, black shorts, photographic left and animated right. Selected asset is `assets/tyler-real-and-animated-v3.png`, used on About and homepage, with the same image in sharing metadata. The original photo remains unchanged; the wardrobe is an intentional image edit, not sponsor evidence.
+
+Tyler then asked for the homepage to be more about him before the methodology. New order: personal photo/goal → family motivation → honest Garmin estimate versus goal → actual training journal → five AI coaches → watch/research/decision walkthrough → existing supporting sections. Existing data hooks, signup consent, training exports, launch hold and replay pause remain. Mobile shows the portrait immediately after the headline; all five coaches remain together below the personal record.
