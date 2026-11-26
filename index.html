@@ -229,10 +229,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=e6a15aef">
-<link rel="stylesheet" href="/assets/motion.css?v=e6a15aef">
-<link rel="stylesheet" href="/assets/coaching-interest.css?v=e6a15aef">
-<link rel="stylesheet" href="/assets/training.css?v=e6a15aef">
+<link rel="stylesheet" href="/assets/ui.css?v=690481fc">
+<link rel="stylesheet" href="/assets/motion.css?v=690481fc">
+<link rel="stylesheet" href="/assets/coaching-interest.css?v=690481fc">
+<link rel="stylesheet" href="/assets/training.css?v=690481fc">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -253,14 +253,14 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         <h1 class="display">Can a 258&nbsp;lb dad run a marathon in <span class="o">under three&nbsp;hours?</span></h1>
         <p class="lead">I started at 258 lb and created five AI coaches to help me run Chicago in under three hours. I’m sharing the training and the setbacks, with my actual Garmin records alongside the story.</p>
         <div class="hero-actions">
-          <a class="btn watch-first" href="#progress">See my progress <span aria-hidden="true">→</span></a>
+          <a class="episode-archive" href="#progress">See my progress <span aria-hidden="true">→</span></a>
           <a class="episode-archive" href="#why">Why I’m doing this</a>
         </div>
         <form class="join hero-join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-hero">
           <label class="sr-only" for="hero-email">Email</label><input id="hero-email" name="email_address" type="email" required autocomplete="email" placeholder="Your email">
           <button type="submit">Send me the Sunday letter</button>
         </form>
-        <p class="fine hero-letter-note">Each Sunday I send the week’s real numbers and what my coaches changed. <span data-k="nextline"><b>Next:</b> Tue Dec 8, the Chicago drawing. Then Sat Dec 26, my first 5K.</span></p>
+        <p class="fine hero-letter-note">Each Sunday I send the week’s real numbers and what my coaches changed. <span data-k="nextline"><b>Next:</b> Tue Dec 8, the Chicago drawing. Then Sat Dec 26, my first 5K.</span> Free. One email a week. Leave any time.</p>
         <p class="fine">The videos turn my real training and coaching conversations into animation. <a href="/episodes/the-hiring/">Watch the first episode.</a></p>
       </div>
       <a class="hero-art tyler-portrait" href="#why" aria-label="Meet Tyler, the dad behind To The Finish"><img src="/assets/tyler-hero-1086.webp" srcset="/assets/tyler-hero-600.webp 600w, /assets/tyler-hero-1086.webp 1086w" sizes="(max-width:860px) 100vw, 540px" alt="Tyler on his workout bench in a gray tank and black shorts, photographed on the left and illustrated on the right" width="1086" height="1448" fetchpriority="high" decoding="async"><p class="art-caption"><span>That’s me.</span><span>Right half illustrated with AI.</span></p></a>
@@ -411,8 +411,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <script src="/assets/charts.js?v=20261125-races"></script>
-<script src="/assets/join.js?v=e6a15aef"></script>
-<script src="/assets/motion.js?v=e6a15aef" defer></script>
+<script src="/assets/join.js?v=690481fc"></script>
+<script src="/assets/motion.js?v=690481fc" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -501,6 +501,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/training.js?v=e6a15aef" defer></script>
+<script src="/assets/training.js?v=690481fc" defer></script>
 </body>
 </html>

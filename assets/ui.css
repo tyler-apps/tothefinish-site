@@ -511,3 +511,15 @@ main h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2{
 main a.more{color:var(--white);font-weight:600;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:6px}
 main a.more:hover{color:var(--orange)}
 section h2.display .o{color:inherit}
+/* Phone hero, 2026-11-26 (Schoger fix 3): the split portrait stays right after the headline (Tyler, Nov 23),
+   cropped shorter so the Sunday letter signup lands on the first screen. Both halves stay in frame. */
+@media(max-width:860px){
+ .top .tyler-hero{gap:16px}
+ .tyler-hero .tyler-portrait img{aspect-ratio:16/10;object-fit:cover;object-position:50% 0}
+ .tyler-hero .tyler-portrait .art-caption{flex-wrap:nowrap;justify-content:space-between;padding:12px 6px 4px;font-size:14px}
+ .tyler-hero .hero-join{order:3}
+ .tyler-hero .hero-letter-note{order:4}
+ .tyler-hero p.lead{order:5}
+ .tyler-hero .hero-actions{order:6}
+ .tyler-hero .fine:not(.hero-letter-note){order:7}
+}
