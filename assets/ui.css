@@ -476,12 +476,15 @@ footer .sign .o{color:var(--muted)}
 .race-target-key small{color:var(--muted);font-size:12px}
 @media(max-width:640px){.race-target-key ul{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}}
 
-/* About Tyler: real portrait and animated counterpart, November 25, 2026. */
-.story-portraits{display:grid;gap:28px}
-.story-portraits figure{margin:0}
-.story-portraits img{display:block;width:100%;height:auto;border-radius:12px}
-.story-portraits figcaption{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.5}
-.story-portraits figcaption strong{display:block;color:var(--soft);font-weight:600;margin-bottom:3px}
-.story-animation{width:72%}
+/* About Tyler: one real photograph becomes the animated character. */
 @media(max-width:1100px){.bar .nav{display:none}.bar .mnav{display:block}}
-@media(max-width:640px){.story-portraits{grid-template-columns:1fr 1fr;gap:18px;align-items:start}.story-animation{width:100%}.story-animation img{aspect-ratio:1;object-fit:cover;object-position:50% 35%}}
+.page.about-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:64px;align-items:center;max-width:none;padding-bottom:64px}
+.about-hero h1{font-size:clamp(56px,6.4vw,88px)}
+.about-hero .body{color:var(--muted);font-size:18px;line-height:1.75;max-width:36em}
+.about-split{margin:0}
+.about-split img{display:block;width:100%;height:auto;border-radius:12px}
+.about-split figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:12px;color:var(--muted);font-size:12px;line-height:1.5}
+.about-body{max-width:860px}
+.about-body .prose h2:first-child{margin-top:0}
+@media(max-width:860px){.page.about-hero{gap:36px}.about-hero h1{font-size:62px}.about-split figcaption{display:block}.about-split figcaption span{display:block}}
+@media(max-width:640px){.page.about-hero{grid-template-columns:1fr;gap:28px;padding-bottom:36px}.about-hero h1{font-size:56px}.about-split{max-width:440px}.about-split figcaption{display:flex}.about-body .prose h2{font-size:36px}}

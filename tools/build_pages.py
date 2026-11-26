@@ -307,22 +307,20 @@ def coach_page(qs=()):
 
 
 def story_page():
-    desc = "I’m Tyler Stewart, a dad of two who started at 258 lb. To The Finish follows my attempt to run a sub-3 marathon with five AI coaches."
+    desc = "I’m Tyler Stewart, a dad of two who started at 258 lb. My real Garmin data and training become To The Finish, an animated account of my attempt to run a sub-3 marathon with five AI coaches."
     schema = {"@context":"https://schema.org","@type":"AboutPage","url":SITE+"/story/","name":"About Tyler | To The Finish",
-        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/","image":SITE+"/assets/tyler-stewart.png"},
+        "mainEntity":{"@type":"Person","@id":SITE+"/story/#tyler","name":"Tyler Stewart","url":SITE+"/story/","image":SITE+"/assets/tyler-real-and-animated.png"},
         "isPartOf":{"@id":SITE+"/#website"}}
-    return head("About Tyler | To The Finish",desc,"/story/",ld(schema),share_image=SITE+"/assets/tyler-stewart.png")+'''<div class="page">
-      <p class="kicker">About Tyler Stewart</p><h1 class="display">I’m Tyler.<br><span class="o">I have to run it.</span></h1>
-      <p class="lead">I started at 258 lb, I’ve got a two-year-old and a baby, and I hired five AI coaches to get me under three hours in the marathon. They argue over every run.</p>
+    return head("About Tyler | To The Finish",desc,"/story/",ld(schema),share_image=SITE+"/assets/tyler-real-and-animated.png")+'''<div class="page about-hero">
+      <div class="about-intro"><p class="kicker">About Tyler Stewart</p><h1 class="display">I’m Tyler.<br><span class="o">I have to run it.</span></h1>
+      <p class="lead">I’m a dad of two who started at 258 lb and hired five AI coaches to help me run a marathon in under three hours. Everything I share here grows out of my real Garmin data and the training I actually do.</p>
+      <p class="body">I’m not here to chase clout or make the numbers look better. I want to see how far I can get, and let my kids see me try.</p></div>
+      <figure class="about-split"><img src="/assets/tyler-real-and-animated.png" width="1086" height="1448" alt="Tyler sitting on his workout bench, with the left half shown as a photograph and the right half illustrated in the show’s animation style" fetchpriority="high"><figcaption><span>Me, November 25, 2026.</span><span>Right half illustrated with AI.</span></figcaption></figure>
     </div></div></header>
-<section><div class="wrap story-layout">
-  <div class="story-portraits">
-    <figure class="story-photo"><img src="/assets/tyler-stewart.png" width="800" height="798" alt="Tyler Stewart smiling in a blue jacket" fetchpriority="high"><figcaption><strong>Tyler Stewart</strong>That’s me.</figcaption></figure>
-    <figure class="story-animation"><img src="/assets/episode-1-poster.webp" width="540" height="960" alt="Tyler’s animated character sitting on the garage bench in Episode 1" loading="lazy"><figcaption><strong>Me in the show</strong>The animated character follows my real training.</figcaption></figure>
-  </div>
+<section><div class="wrap about-body">
   <div class="prose"><h2>The person doing the running</h2><p>I’m 43, I’m a dad of two, and I’m training for the Chicago Marathon. I built To The Finish around a question I can’t answer yet: can five AI coaches help me run it in under three hours?</p><p>I do the training and share the results here. The animated version of me is how I tell the story of those weeks.</p><h2>Why Chicago</h2><p>My son was born a few weeks after I turned 41. My daughter came this April. I’ll be 57 when she starts high school. I’d like to still win a few races up a hill by then.</p><p>I want them to see me go after something I might miss, and see what I do the next morning.</p>
   <h2>I’ve run faster before</h2><p>In June 2024 I ran a half marathon in 1:32:31. That is still my best. When I first asked my watch about a marathon on October 19, 2026, it estimated 4:39:49. My goal for Chicago on October 10, 2027 is under three hours. I don’t know yet whether I’ll get there.</p>
-  <h2>What’s real, and what’s drawn</h2><p>The training is mine. The watch records my runs, and the coaches read that data to help plan the next day. The five coaches are AI characters with animated faces and AI voices. They can change a plan. They can’t do the run or feel my pain.</p><p>The episodes turn those weeks into scenes. The site shows the estimates beside the goals and race results, so you can check how the chase is going. This is my personal coaching setup, not medical or nutrition advice.</p>
+  <h2>No sugar coating</h2><p>The stories come from my Garmin records and actual conversations with the coaches. I won’t make a slow run look fast or turn a missed session into a completed one. A watch prediction stays labeled as an estimate. A goal doesn’t become a result until I run it.</p><p>The training journal is here so you can see what I did, including the days that don’t make a good highlight.</p><h2>What’s real, and what’s drawn</h2><p>The training is mine. The watch records my runs, and the coaches read that data to help plan the next day. The five coaches are AI characters with animated faces and AI voices. They can change a plan. They can’t do the run or feel my pain.</p><p>The episodes turn those weeks into scenes. The site shows the estimates beside the goals and race results, so you can check how the chase is going. This is my personal coaching setup, not medical or nutrition advice.</p>
   <h2>Who’s talking?</h2><p>When I write “I” on this site or in a post, that’s me, Tyler. When a coach speaks in a video, the name identifies the character: Kai coaches my running, Bo handles strength, Juno handles food, Mo handles recovery, and Rook is the head coach.</p><p>Their scenes are written from my training and coaching conversations. The dialogue is a dramatization; the characters aren’t human coaches, and their voices aren’t recordings of me.</p>
   <p><a href="/training/">My training journal</a> · <a href="/coaches/">What the coaches can see</a> · <a href="/races/">My races</a></p>
   <h2>Start with the morning they got hired</h2><p><a class="btn" href="/episodes/the-hiring/">Watch Episode 1 →</a></p><p>Or write to me at <a href="mailto:hello@tothefinish.ai">hello@tothefinish.ai</a>.</p></div>
