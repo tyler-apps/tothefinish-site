@@ -496,3 +496,9 @@ footer .sign .o{color:var(--muted)}
 .tyler-hero .art-caption{font-size:14px;line-height:1.5;flex-wrap:wrap}
 .tyler-hero .fine a{text-underline-offset:3px}
 @media(max-width:860px){.top .tyler-hero{grid-template-columns:1fr;gap:24px}.tyler-hero .hero-copy{display:contents}.tyler-hero .kicker{order:0;margin-bottom:0}.tyler-hero h1{order:1}.tyler-hero .tyler-portrait{order:2;justify-self:center;width:100%;max-width:480px}.tyler-hero p.lead{order:3;margin:0!important}.tyler-hero .hero-actions{order:4}.tyler-hero .hero-join{order:4;margin-top:0}.tyler-hero .fine{order:5;margin-top:0!important}.tyler-hero .tyler-portrait img{aspect-ratio:3/4}}
+/* Schoger audit 2026-11-26: field font + height match, h1 stays largest, hover stays orange */
+form.join input,form.join select{font-family:inherit}
+#join-hero input{min-height:52px}
+main h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2{font-size:clamp(44px,4.4vw,64px)}
+@media (max-width:640px){main h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2,#club .letter-layout h2{font-size:40px}}
+.hero-actions .btn:hover,form.join button:hover{background:var(--orange);filter:brightness(1.08)}
