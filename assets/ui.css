@@ -502,3 +502,12 @@ form.join input,form.join select{font-family:inherit}
 main h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2{font-size:clamp(44px,4.4vw,64px)}
 @media (max-width:640px){main h2.display,.team-intro-heading .display,#inside .inside-heading h2,#why h2,#club .letter-layout h2{font-size:40px}}
 .hero-actions .btn:hover,form.join button:hover{background:var(--orange);filter:brightness(1.08)}
+/* Schoger button system 2026-11-26: one solid orange per view, and it is always the Sunday letter.
+   Top of page: the hero form button. Mid-page: the joinbar. Bottom: the letter form. Everything else steps down. */
+.hero-actions .btn{background:transparent;color:var(--white);border:1px solid #5a524a}
+.hero-actions .btn:hover{background:transparent;border-color:var(--orange);filter:none}
+.joinbar .btn{background:var(--orange);color:var(--ink);border:0}
+.joinbar .btn:hover{background:var(--orange);color:var(--ink);filter:brightness(1.08)}
+main a.more{color:var(--white);font-weight:600;text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:6px}
+main a.more:hover{color:var(--orange)}
+section h2.display .o{color:inherit}
