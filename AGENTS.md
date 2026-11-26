@@ -47,3 +47,6 @@ Latest November25 decision: Tyler removed the separate About Tyler page. Keep hi
 
 
 Homepage voice, November25 latest: lead with Tyler’s own reasons for training (playing with kids as he ages, modeling work toward a goal, proving to himself he can still do it). #sharing explains real Garmin stories, authenticity/connection, and improving the coaches over the year as a goal. This is not evidence of validated coaching effectiveness. Use conversational full thoughts, avoid colon-led setups and stacked slogan fragments. Keep legitimate time notation. See docs/homepage-story.md. Preserve the removed About page and existing conditional product availability.
+
+
+Homepage flow review, November25 latest: introduce the five AI coaches before discussing their improvement, quoting their training notes or explaining their method. Current order: hero → #why → #team → #sharing → #progress → #training → #road → #been → #inside → secondary coaching invitation → #tools → #questions → #club/#letter. This supersedes earlier orders. Keep Tyler’s personal opening and removed About page. The #sharing section offers the primary Sunday-letter path and existing first episode before technical detail; the separately consented waitlist stays secondary. Strategy sources and rationale: docs/homepage-story.md.
