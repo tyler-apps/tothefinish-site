@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "as_of": "2026-11-26",
-  "latest_record": "2026-11-25",
-  "from_date": "2026-10-30",
+  "as_of": "2026-11-27",
+  "latest_record": "2026-11-26",
+  "from_date": "2026-10-31",
   "week": {
     "start": "2026-11-23",
     "end": "2026-11-29",
     "planned_miles": 33.0,
-    "recorded_miles": 14.23,
-    "recorded_runs": 3,
+    "recorded_miles": 20.53,
+    "recorded_runs": 4,
     "recorded_strength": 0,
     "days": [
       {
@@ -32,12 +32,12 @@
       {
         "date": "2026-11-26",
         "future": false,
-        "run_miles": null,
+        "run_miles": 6.3,
         "strength": false
       },
       {
         "date": "2026-11-27",
-        "future": true,
+        "future": false,
         "run_miles": null,
         "strength": false
       },
@@ -58,10 +58,22 @@
   "featured": "2026-11-24-run-940f6ad4",
   "sessions": [
     {
+      "key": "2026-11-26-run-002b4e7c",
+      "date": "2026-11-26",
+      "kind": "run",
+      "title": "Run",
+      "distance_mi": 6.3,
+      "duration_s": 3740,
+      "avg_hr": 136.0,
+      "peak_hr": 175.0,
+      "ascent_ft": 73.0,
+      "source": "Garmin recording"
+    },
+    {
       "key": "2026-11-25-run-a65c22b7",
       "date": "2026-11-25",
       "kind": "run",
-      "title": "5 mi easy",
+      "title": "Run",
       "distance_mi": 5.01,
       "duration_s": 4427,
       "avg_hr": 105.0,
@@ -124,7 +136,7 @@
       "key": "2026-11-23-run-2574f1fd",
       "date": "2026-11-23",
       "kind": "run",
-      "title": "4 mi easy + 4 hill sprints (8 s)",
+      "title": "Run",
       "distance_mi": 4.03,
       "duration_s": 3742,
       "avg_hr": 110.0,
@@ -136,7 +148,7 @@
       "key": "2026-11-22-run-4039c07b",
       "date": "2026-11-22",
       "kind": "run",
-      "title": "7 mi progression run",
+      "title": "Run",
       "distance_mi": 7.01,
       "duration_s": 6267,
       "avg_hr": 111.0,
@@ -148,78 +160,19 @@
       "key": "2026-11-21-run-989794c3",
       "date": "2026-11-21",
       "kind": "run",
-      "title": "Four easy miles that stayed easy",
+      "title": "Run",
       "distance_mi": 4.01,
       "duration_s": 3015,
       "avg_hr": 111.0,
       "peak_hr": 126.0,
       "ascent_ft": 319.0,
-      "source": "Garmin recording",
-      "review": {
-        "headline": "The easy run that held.",
-        "planned": "Four easy miles with my heart under 120 beats a minute, then six 8-second hill sprints.",
-        "observed": "My heart went over 120 once and came back down. That was 33 seconds over in four miles, at 12:31 a mile. Earlier that week I'd been over for 23 and 25 minutes.",
-        "decision": "Kai kept the 120 limit. Slow on easy days is how he wants me fresh for the hard ones, even when the pace stings.",
-        "next": "Sunday's 7-mile progression run.",
-        "reviewed_on": "2026-11-26",
-        "coach": "Kai · running"
-      },
-      "efforts": [
-        {
-          "seconds": 704,
-          "meters": 1609
-        },
-        {
-          "seconds": 777,
-          "meters": 1609
-        },
-        {
-          "seconds": 201,
-          "meters": 383
-        },
-        {
-          "seconds": 8,
-          "meters": 23
-        },
-        {
-          "seconds": 8,
-          "meters": 26
-        },
-        {
-          "seconds": 8,
-          "meters": 25
-        },
-        {
-          "seconds": 8,
-          "meters": 28
-        },
-        {
-          "seconds": 8,
-          "meters": 27
-        },
-        {
-          "seconds": 8,
-          "meters": 26
-        },
-        {
-          "seconds": 697,
-          "meters": 1609
-        },
-        {
-          "seconds": 334,
-          "meters": 729
-        },
-        {
-          "seconds": 3,
-          "meters": 10
-        }
-      ]
+      "source": "Garmin recording"
     },
     {
       "key": "2026-11-20-run-810cfff2",
       "date": "2026-11-20",
       "kind": "run",
-      "title": "Threshold run",
+      "title": "Run",
       "distance_mi": 6.11,
       "duration_s": 4017,
       "avg_hr": 130.0,
@@ -231,7 +184,7 @@
       "key": "2026-11-18-run-8e80f2f6",
       "date": "2026-11-18",
       "kind": "run",
-      "title": "6 mi easy",
+      "title": "Run",
       "distance_mi": 6.01,
       "duration_s": 5072,
       "avg_hr": 116.0,
@@ -243,7 +196,7 @@
       "key": "2026-11-17-run-03065a46",
       "date": "2026-11-17",
       "kind": "run",
-      "title": "6 mi easy + 4 hill sprints (8 s)",
+      "title": "Run",
       "distance_mi": 6.01,
       "duration_s": 4751,
       "avg_hr": 117.0,
@@ -255,7 +208,7 @@
       "key": "2026-11-16-run-aee2d966",
       "date": "2026-11-16",
       "kind": "run",
-      "title": "40 min easy",
+      "title": "Run",
       "distance_mi": 2.65,
       "duration_s": 2406,
       "avg_hr": 97.0,
@@ -267,7 +220,7 @@
       "key": "2026-11-14-run-af58eb51",
       "date": "2026-11-14",
       "kind": "run",
-      "title": "15 × (45 s on/15 s off)",
+      "title": "Run",
       "distance_mi": 3.09,
       "duration_s": 2138,
       "avg_hr": 110.0,
@@ -279,7 +232,7 @@
       "key": "2026-11-13-run-1a22127b",
       "date": "2026-11-13",
       "kind": "run",
-      "title": "3 mi easy + strides",
+      "title": "Run",
       "distance_mi": 3.15,
       "duration_s": 2820,
       "avg_hr": 100.0,
@@ -291,7 +244,7 @@
       "key": "2026-11-12-run-b6fabec9",
       "date": "2026-11-12",
       "kind": "run",
-      "title": "30 × (1 on/1 off)",
+      "title": "Run",
       "distance_mi": 6.25,
       "duration_s": 4869,
       "avg_hr": 110.0,
@@ -318,7 +271,7 @@
       "key": "2026-11-11-run-e4b2fdeb",
       "date": "2026-11-11",
       "kind": "run",
-      "title": "6 mi easy (medium-long day)",
+      "title": "Run",
       "distance_mi": 6.01,
       "duration_s": 3910,
       "avg_hr": 126.0,
@@ -381,7 +334,7 @@
       "key": "2026-11-09-run-2fa951c3",
       "date": "2026-11-09",
       "kind": "run",
-      "title": "5 mi easy + hill strides",
+      "title": "Run",
       "distance_mi": 6.2,
       "duration_s": 4534,
       "avg_hr": 119.0,
@@ -393,7 +346,7 @@
       "key": "2026-11-07-run-3907d759",
       "date": "2026-11-07",
       "kind": "run",
-      "title": "7 mi easy",
+      "title": "Run",
       "distance_mi": 3.13,
       "duration_s": 2654,
       "avg_hr": 109.0,
@@ -432,7 +385,7 @@
       "key": "2026-11-06-run-47001f88",
       "date": "2026-11-06",
       "kind": "run",
-      "title": "4 mi easy + strides",
+      "title": "Run",
       "distance_mi": 5.08,
       "duration_s": 4166,
       "avg_hr": 112.0,
@@ -444,7 +397,7 @@
       "key": "2026-11-05-run-cc2c2402",
       "date": "2026-11-05",
       "kind": "run",
-      "title": "13 × (3 on/1 off)",
+      "title": "Run",
       "distance_mi": 5.07,
       "duration_s": 3174,
       "avg_hr": 135.0,
@@ -456,7 +409,7 @@
       "key": "2026-11-04-run-5e0efbf4",
       "date": "2026-11-04",
       "kind": "run",
-      "title": "5 mi easy (medium-long day)",
+      "title": "Run",
       "distance_mi": 5.01,
       "duration_s": 3577,
       "avg_hr": 116.0,
@@ -468,7 +421,7 @@
       "key": "2026-11-03-run-7d6c7622",
       "date": "2026-11-03",
       "kind": "run",
-      "title": "10 × 1 km",
+      "title": "Run",
       "distance_mi": 5.04,
       "duration_s": 3192,
       "avg_hr": 118.0,
@@ -495,7 +448,7 @@
       "key": "2026-11-02-run-065c9b5b",
       "date": "2026-11-02",
       "kind": "run",
-      "title": "3 mi easy + strides",
+      "title": "Run",
       "distance_mi": 3.44,
       "duration_s": 2388,
       "avg_hr": 111.0,
@@ -507,24 +460,12 @@
       "key": "2026-10-31-run-3d3a5078",
       "date": "2026-10-31",
       "kind": "run",
-      "title": "12 mi easy",
+      "title": "Run",
       "distance_mi": 2.22,
       "duration_s": 1753,
       "avg_hr": 105.0,
       "peak_hr": 123.0,
       "ascent_ft": 299.0,
-      "source": "Garmin recording"
-    },
-    {
-      "key": "2026-10-30-run-bc0c6b09",
-      "date": "2026-10-30",
-      "kind": "run",
-      "title": "16 × (2 on/1 off)",
-      "distance_mi": 1.19,
-      "duration_s": 1109,
-      "avg_hr": 111.0,
-      "peak_hr": 130.0,
-      "ascent_ft": 235.0,
       "source": "Garmin recording"
     }
   ]

@@ -1,15 +1,15 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-27",
  "goal": "2:59:59",
  "start": {
   "date": "2026-10-19",
   "marathon": "4:39:49"
  },
  "now": {
-  "date": "2026-11-24",
-  "marathon": "4:37:36"
+  "date": "2026-11-27",
+  "marathon": "4:23:12"
  },
- "to_go_s": 5857,
+ "to_go_s": 4993,
  "gap": [
   {
    "date": "2026-10-19",
@@ -158,6 +158,18 @@
   {
    "date": "2026-11-24",
    "marathon": "4:37:36"
+  },
+  {
+   "date": "2026-11-25",
+   "marathon": "4:37:29"
+  },
+  {
+   "date": "2026-11-26",
+   "marathon": "4:23:49"
+  },
+  {
+   "date": "2026-11-27",
+   "marathon": "4:23:12"
   }
  ],
  "engine": [
@@ -348,13 +360,17 @@
   {
    "date": "2026-11-20",
    "pace": "8:07"
+  },
+  {
+   "date": "2026-11-26",
+   "pace": "8:07"
   }
  ],
  "half_pr": {
   "time": "1:32:31",
   "date": "2024-06-02"
  },
- "vo2max": 49.3,
+ "vo2max": 48.3,
  "year": [
   {
    "week": 4,
@@ -367,7 +383,7 @@
    "week": 5,
    "monday": "2026-11-23",
    "plan": 33,
-   "done": 9.2,
+   "done": 20.5,
    "current": true
   },
   {
@@ -724,35 +740,35 @@
   {
    "name": "First 5K",
    "date": "2026-12-26",
-   "today": "24:41",
+   "today": "23:43",
    "goal": null,
    "target": "22:40"
   },
   {
    "name": "5K",
    "date": "2027-02-07",
-   "today": "24:41",
+   "today": "23:43",
    "goal": null,
    "target": "21:30"
   },
   {
    "name": "10K",
    "date": "2027-05-15",
-   "today": "53:38",
+   "today": "50:36",
    "goal": null,
    "target": "40:00"
   },
   {
    "name": "Half marathon",
    "date": "2027-09-05",
-   "today": "2:03:09",
+   "today": "1:56:49",
    "goal": null,
    "target": "1:24:30"
   },
   {
    "name": "Chicago Marathon",
    "date": "2027-10-10",
-   "today": "4:37:36",
+   "today": "4:23:12",
    "goal": "2:59:59",
    "target": null
   }
@@ -840,32 +856,32 @@
   },
   {
    "monday": "2026-11-23",
-   "mpb": 1.118,
-   "n": 16
+   "mpb": 1.11,
+   "n": 17
   }
  ],
  "vdot": {
   "races": [
    {
     "date": "2024-06-02",
-    "name": "Rock ’n’ Roll San Diego Half Marathon",
+    "name": "Rock \u2019n\u2019 Roll San Diego Half Marathon",
+    "location": "San Diego, CA",
     "time": "1:32:31",
-    "vdot": 49.2,
-    "location": "San Diego, CA"
+    "vdot": 49.2
    },
    {
     "date": "2025-10-05",
     "name": "Pacific Beach Half Marathon",
+    "location": "Pacific Beach, San Diego, CA",
     "time": "1:34:21",
-    "vdot": 48.3,
-    "location": "Pacific Beach, San Diego, CA"
+    "vdot": 48.3
    },
    {
     "date": "2025-11-27",
     "name": "Encinitas Turkey Trot 10K",
+    "location": "Encinitas, CA",
     "time": "42:34",
-    "vdot": 47.9,
-    "location": "Encinitas, CA"
+    "vdot": 47.9
    }
   ],
   "line": [
@@ -1056,6 +1072,10 @@
    {
     "date": "2026-11-20",
     "vdot": 40.5
+   },
+   {
+    "date": "2026-11-26",
+    "vdot": 40.5
    }
   ],
   "targets": [
@@ -1095,7 +1115,7 @@
   "best": 49.2
  },
  "system": {
-  "runs_total": 444,
+  "runs_total": 446,
   "runs_by_month": [
    {
     "month": "2024-05",
@@ -1211,7 +1231,7 @@
    },
    {
     "month": "2026-11",
-    "n": 19
+    "n": 21
    }
   ],
   "decisions": [
@@ -1227,24 +1247,24 @@
    },
    {
     "monday": "2026-11-23",
-    "kai": 3,
-    "rook": 1
+    "kai": 7,
+    "rook": 3
    }
   ],
-  "decisions_total": 111,
-  "watch_days": 73,
-  "hilly_laps": 5168,
+  "decisions_total": 117,
+  "watch_days": 70,
+  "hilly_laps": 5177,
   "calls": [
    {
     "coach": "Kai",
-    "auto": 41,
-    "called": 23,
+    "auto": 45,
+    "called": 24,
     "yours": 7
    },
    {
     "coach": "Bo",
     "auto": 0,
-    "called": 15,
+    "called": 16,
     "yours": 0
    },
    {
@@ -1268,13 +1288,13 @@
   ],
   "calls_since": "2026-11-09",
   "zones": [
-   86,
-   109,
+   90,
+   107,
    121,
    152,
    164
   ],
-  "zones_max": 171,
+  "zones_max": 180,
   "easy_top": null
  },
  "mo": {
@@ -1328,10 +1348,25 @@
     "date": "2026-11-24",
     "hours": 5.8,
     "broken": true
+   },
+   {
+    "date": "2026-11-25",
+    "hours": 6.8,
+    "broken": false
+   },
+   {
+    "date": "2026-11-26",
+    "hours": 5.7,
+    "broken": true
+   },
+   {
+    "date": "2026-11-27",
+    "hours": 5.8,
+    "broken": false
    }
   ],
-  "sleep_avg7": 6.5,
-  "sleep_7plus": 2,
+  "sleep_avg7": 6.4,
+  "sleep_7plus": 1,
   "sleep_worn7": 7,
   "easy": [
    {
@@ -1378,23 +1413,13 @@
    },
    {
     "monday": "2026-11-23",
-    "easy": 89,
-    "steady": 11,
-    "hard": 0,
-    "minutes": 148
+    "easy": 81,
+    "steady": 13,
+    "hard": 6,
+    "minutes": 285
    }
   ],
   "spike": [
-   {
-    "date": "2026-09-29",
-    "minutes": 45,
-    "cap": 79
-   },
-   {
-    "date": "2026-10-01",
-    "minutes": 40,
-    "cap": 79
-   },
    {
     "date": "2026-10-13",
     "minutes": 35,
@@ -1554,6 +1579,16 @@
     "date": "2026-11-24",
     "minutes": 86,
     "cap": 115
+   },
+   {
+    "date": "2026-11-25",
+    "minutes": 74,
+    "cap": 115
+   },
+   {
+    "date": "2026-11-26",
+    "minutes": 62,
+    "cap": 115
    }
   ],
   "next_cap": 115,
@@ -1594,24 +1629,6 @@
  "juno": {
   "week": [
    {
-    "date": "2026-11-24",
-    "carbs": 216,
-    "protein": 199,
-    "work": "hard"
-   },
-   {
-    "date": "2026-11-25",
-    "carbs": 151,
-    "protein": 180,
-    "work": "easy"
-   },
-   {
-    "date": "2026-11-26",
-    "carbs": 195,
-    "protein": 198,
-    "work": "hard"
-   },
-   {
     "date": "2026-11-27",
     "carbs": 83,
     "protein": 193,
@@ -1634,6 +1651,24 @@
     "carbs": 151,
     "protein": 198,
     "work": "easy"
+   },
+   {
+    "date": "2026-12-01",
+    "carbs": 216,
+    "protein": 199,
+    "work": "hard"
+   },
+   {
+    "date": "2026-12-02",
+    "carbs": 155,
+    "protein": 180,
+    "work": "easy"
+   },
+   {
+    "date": "2026-12-03",
+    "carbs": 124,
+    "protein": 197,
+    "work": "rest"
    }
   ]
  },
@@ -1674,27 +1709,27 @@
    }
   ]
  },
- "to_go_txt": "1:37:37",
+ "to_go_txt": "1:23:13",
  "lines": {
-  "rook": "Tyler, 1:37:37 to find. The watch will wobble. Dec 26, the 5K, is the next number that counts. What you tell me stays at the top of the board.",
+  "rook": "Tyler, 1:23:13 to find. The watch will wobble. Dec 26, the 5K, is the next number that counts. What you tell me stays at the top of the board.",
   "kai_eff": "Flat, Tyler. Mission Trails dirt hides it for now. This line moves on the days you let me slow you down, and we both know which days those are.",
   "kai_vdot": "40.5 on paper. 49.2 the day you ran 1:32. Dec 26, the 5K, we get a real dot. Until then, the dirt.",
   "kai_engine": "6:42, Tyler. Your pace, your file. The way back to it is easy dirt at Mission Trails and Fridays on the Serra Trail.",
   "kai_year": "33 this week, 90 in August. I want every one of them, and I want most of them slow.",
   "mo_easy": "74% easy last week. Kai's number is 80. Mine is what the other 26% cost you the next morning, Tyler.",
   "mo_spike": "Your ceiling right now is about 7.7 miles: ten percent past your longest run of the last 30 days. Anything longer waits until a long run earns it. I'll be the one saying no.",
-  "mo_sleep": "2 of the last 7 nights reached seven hours. Average 6.5. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
+  "mo_sleep": "1 of the last 7 nights reached seven hours. Average 6.4. Sleep is the cheapest recovery there is, Tyler, and it's the one you're short on. What took the missing hours?",
   "bo": "Tyler! 295 on the box squat. Run first, then we lift, hours apart. That's the deal.",
-  "juno": "Tyler. 216 grams of carbs on the hard and long days, 139 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
+  "juno": "Tyler. 227 grams of carbs on the hard and long days, 137 on the rest. You'll want to skip the banana before Tuesday's run because it's early and you're not hungry. Don't."
  },
  "coaches": {
   "Kai": {
    "studies": 75,
-   "live": 444
+   "live": 446
   },
   "Mo": {
    "studies": 188,
-   "live": 165
+   "live": 168
   },
   "Bo": {
    "studies": 40,
@@ -1706,7 +1741,7 @@
   },
   "Rook": {
    "studies": 167,
-   "live": 70
+   "live": 72
   },
   "all_studies": 622
  }

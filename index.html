@@ -300,12 +300,12 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 <section id="progress">
   <div class="wrap">
     <p class="kicker">My marathon time, as Garmin estimates it</p>
-    <h2 class="display gap gap-three"><span class="gap-metric"><small>When I started · <span data-k="startdate">Oct 19, 2026</span></small> <span data-k="start">4:39:49</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Now · <span data-k="nowdate">Nov 24, 2026</span></small> <span data-k="now">4:37:36</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Goal · Chicago, Oct 10, 2027</small> <span class="o">2:59:59</span></span></h2>
-    <p class="body">There’s <b data-k="togo">1:37:37</b> between Garmin’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
-    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 24</span>. These are predictions, not race results.</p>
+    <h2 class="display gap gap-three"><span class="gap-metric"><small>When I started · <span data-k="startdate">Oct 19, 2026</span></small> <span data-k="start">4:39:49</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Now · <span data-k="nowdate">Nov 27, 2026</span></small> <span data-k="now">4:23:12</span></span><span class="to" aria-hidden="true">→</span><span class="gap-metric"><small>Goal · Chicago, Oct 10, 2027</small> <span class="o">2:59:59</span></span></h2>
+    <p class="body">There’s <b data-k="togo">1:23:13</b> between Garmin’s marathon estimate and my goal. Some weeks the estimate gets worse. The races will tell me whether the training is working.</p>
+    <p class="fine" id="data-status" role="status">Watch data as of <span data-k="asof">Nov 27</span>. These are predictions, not race results.</p>
     <div class="facts">
       <div><b data-k="weeksleft">45</b><span class="l">weeks to Chicago</span></div>
-      <div><b><span data-k="wkdone">9.2</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
+      <div><b><span data-k="wkdone">20.5</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
       <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
     </div>
     <figure class="viz" style="margin-top:40px">
@@ -484,7 +484,7 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       take('miles',cw2?'<b>'+(cw2.done==null?'Not recorded':cw2.done)+'</b> of '+cw2.plan+' miles this week <span>\u00b7 '+peak+' at the peak</span>':peak+' miles a week at the peak');
       T.bars(document.getElementById('p-miles'),{data:bars,thin:true,label:'Weekly miles, planned and run; peak '+peak});
     }
-  }).catch(function(){var n=document.getElementById('data-status');if(n)n.textContent='Live data could not load. The saved numbers above are from Nov 24; try reloading for the latest.';document.querySelectorAll('.plot:empty').forEach(function(p){p.textContent='Chart unavailable. Please reload to try again.';});});
+  }).catch(function(){var n=document.getElementById('data-status');if(n)n.textContent='Live data could not load. The saved numbers above are from Nov 27; try reloading for the latest.';document.querySelectorAll('.plot:empty').forEach(function(p){p.textContent='Chart unavailable. Please reload to try again.';});});
   /* where my Chicago entry stands, in the words of data/my-races.json (today: the drawing, results Dec 8) */
   fetch('data/my-races.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(M){
     var g=(M.races||[]).filter(function(r){return r.goal;})[0];if(g&&g.status)set('chistatus',g.status);

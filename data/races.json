@@ -1,124 +1,7 @@
 {
- "updated": "2026-11-22",
+ "updated": "2026-11-27",
  "near": "35 miles of San Diego",
  "races": [
-  {
-   "id": "rsu-209962",
-   "name": "Grateful Run 5K/10K",
-   "date": "2026-11-22",
-   "end": "2026-11-22",
-   "city": "San Diego",
-   "distances": [
-    "5K",
-    "10K"
-   ],
-   "other": [],
-   "start": "07:15",
-   "url": "https://runsignup.com/Race/CA/SanDiego/GratefulRun?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "rsu-162637",
-   "name": "25th Annual Run for Hope Thanksgiving Day 5K",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "San Diego",
-   "distances": [
-    "5K"
-   ],
-   "other": [],
-   "start": "07:15",
-   "url": "https://runsignup.com/Race/CA/SanDiego/FJV5K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "rsu-171874",
-   "name": "Coronado Turkey Trot presented by Rady Children\u2019s Hospital Auxiliary",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "Coronado",
-   "distances": [
-    "5K"
-   ],
-   "other": [],
-   "start": "08:00",
-   "url": "https://runsignup.com/Race/CA/Coronado/CoronadoTurkeyTrotPresentedByRadyChildrensHospital?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "encinitas-turkey-trot-2026",
-   "name": "Encinitas Turkey Trot",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "Encinitas",
-   "distances": [
-    "5K",
-    "10K"
-   ],
-   "other": [],
-   "start": "07:30",
-   "url": "",
-   "source": "race site"
-  },
-  {
-   "id": "rsu-216314",
-   "name": "Rancho San Pasqual Turkey Trot",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "Escondido",
-   "distances": [
-    "5K"
-   ],
-   "other": [],
-   "start": "08:00",
-   "url": "https://runsignup.com/Race/CA/Escondido/RANCHOSANPASQUALTURKEYTROT?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "rsu-2240",
-   "name": "Running of the Turkeys 5K & 10K Trail Run",
-   "date": "2026-11-26",
-   "end": "2026-11-29",
-   "city": "San Diego",
-   "distances": [
-    "5K",
-    "10K"
-   ],
-   "other": [],
-   "start": "08:00",
-   "url": "https://runsignup.com/Race/CA/SanDiego/TurkeyTrot5K10K?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "rsu-186747",
-   "name": "San Diego-North County Turkey Trot",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "San Diego",
-   "distances": [
-    "5K",
-    "10K"
-   ],
-   "other": [],
-   "start": "07:15",
-   "url": "https://runsignup.com/Race/CA/SanDiego/NCTT?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
-  {
-   "id": "rsu-185641",
-   "name": "Thankful Paws Turkey Trot",
-   "date": "2026-11-26",
-   "end": "2026-11-26",
-   "city": "Bonita",
-   "distances": [
-    "5K",
-    "10K"
-   ],
-   "other": [],
-   "start": "08:30",
-   "url": "https://runsignup.com/Race/CA/Bonita/ThankfulPawsTurkeyTrot?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
-   "source": "RunSignup"
-  },
   {
    "id": "rsu-201479",
    "name": "Coffee Lovers Run 5K/10K/13.1 San Diego",
@@ -221,7 +104,7 @@
     "Half"
    ],
    "other": [],
-   "start": "07:30",
+   "start": "08:30",
    "url": "https://runsignup.com/Race/CA/SanDiego/SanDiegoHolidayHalf?aflt_token=O6rN4pQ1wUO93gOcx0Dr7ES8b7Jy1T4y",
    "source": "RunSignup"
   },
