@@ -565,3 +565,36 @@ section h2.display .o{color:inherit}
 .predict-scale{display:flex;justify-content:space-between;gap:16px;margin:0 0 28px;font-size:14px;color:var(--muted)}
 .predict-scale #pt-say{color:var(--white);font-weight:600}
 @media(max-width:860px){.predict .predict-cards{grid-template-columns:1fr;gap:14px}.pc{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:20px}.pc b{font-size:56px;width:100%}}
+
+/* The scorecard, Nov 27 2026 (Tyler: "this section is everything it needs to feel like a true score card") */
+.scorecard{margin-top:48px;padding:0 0 8px;border-radius:20px;background:linear-gradient(180deg,#221b16,#1a1512);box-shadow:0 1px 0 #ffffff0d inset,0 24px 60px #0007,0 2px 6px #0005;overflow:hidden}
+.sc-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 32px;background:#2a211b;border-bottom:1px solid #ffffff10}
+.sc-title{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:22px;letter-spacing:.06em;text-transform:uppercase;color:var(--white)}
+.sc-asof{font-size:14px;color:#b9a898}
+.sc-main{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end}
+.sc-cell{display:flex;flex-direction:column;gap:10px;padding:36px 32px 28px}
+.sc-cell+.sc-cell{box-shadow:-1px 0 0 #ffffff0f}
+.sc-label{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b9a898}
+.sc-val{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:clamp(56px,5.6vw,88px);line-height:.95;color:var(--white);font-variant-numeric:tabular-nums}
+.sc-sub{font-size:15px;line-height:1.5;color:#b9a898}
+.sc-gap{background:#f973160f}
+.sc-gap .sc-label{color:var(--orange)}
+.sc-gap .sc-val{color:var(--orange);font-size:clamp(68px,7vw,116px)}
+.sc-goal .sc-val{color:#e9ddd2}
+.sc-track{position:relative;height:12px;margin:8px 32px 10px;border-radius:999px;background:#ffffff12}
+.sc-track .pt-fill{position:absolute;left:0;top:0;bottom:0;width:var(--pct,0%);border-radius:999px;background:linear-gradient(90deg,#7a6a5c,var(--orange));transition:width 1s ease}
+.sc-now{position:absolute;top:50%;left:var(--pct,0%);width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--white);box-shadow:0 0 0 5px #f9731640}
+.scorecard .predict-scale{margin:0 32px 28px}
+.sc-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 16px 16px;border-radius:14px;background:#ffffff08}
+.sc-stats>div{display:flex;flex-direction:column;gap:8px;padding:22px 20px}
+.sc-stats>div+div{box-shadow:-1px 0 0 #ffffff0f}
+.sc-stats b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:44px;line-height:1;color:var(--white)}
+.sc-stats b small{font-size:22px;color:#b9a898}
+.sc-note{font-size:14px;color:#b9a898}
+.sc-mini{display:block;height:6px;border-radius:999px;background:#ffffff14;overflow:hidden}
+.sc-mini span{display:block;height:100%;width:0;background:var(--orange);border-radius:999px;transition:width 1s ease}
+@media(max-width:860px){.sc-head{flex-direction:column;align-items:flex-start;gap:4px;padding:14px 20px}.sc-main{grid-template-columns:1fr}.sc-cell{padding:22px 20px}.sc-cell+.sc-cell{box-shadow:0 -1px 0 #ffffff0f}.sc-gap{order:-1}.sc-track{margin:8px 20px 10px}.scorecard .predict-scale{margin:0 20px 20px}.sc-stats{grid-template-columns:1fr 1fr;margin:0 10px 10px}.sc-stats>div:nth-child(3){box-shadow:0 -1px 0 #ffffff0f}.sc-stats>div:nth-child(4){box-shadow:-1px 0 0 #ffffff0f,0 -1px 0 #ffffff0f}.sc-stats b{font-size:38px}}
+.sc-chip{align-self:flex-start;padding:4px 10px;border-radius:999px;background:#f973161f;color:#ffb27a;font-size:13px;font-weight:700}
+.sc-main{align-items:stretch}.sc-cell{justify-content:flex-end}
+.sc-stats b{white-space:nowrap}
+@media(max-width:860px){.sc-stats b small{font-size:17px}.sc-stats>div{padding:18px 16px}}

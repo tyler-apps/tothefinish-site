@@ -220,10 +220,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=52760540">
-<link rel="stylesheet" href="/assets/motion.css?v=52760540">
-<link rel="stylesheet" href="/assets/coaching-interest.css?v=52760540">
-<link rel="stylesheet" href="/assets/training.css?v=52760540">
+<link rel="stylesheet" href="/assets/ui.css?v=3d108f52">
+<link rel="stylesheet" href="/assets/motion.css?v=3d108f52">
+<link rel="stylesheet" href="/assets/coaching-interest.css?v=3d108f52">
+<link rel="stylesheet" href="/assets/training.css?v=3d108f52">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -301,18 +301,21 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     <div class="section-intro"><div><p class="kicker">Garmin’s marathon prediction</p>
     <h2 class="display">My watch says <span data-k="now">4:23:12</span>.<br><span class="o">I need 2:59:59.</span></h2></div>
     <div><p class="body">After my runs, my Garmin predicts the marathon time I could run today. It’s an estimate from my training, not a race result. Right now there’s <b data-k="togo">1:23:13</b> between that prediction and my goal, and some weeks it gets worse. The races will tell me whether the training is working.</p></div></div>
-    <div class="predict-cards">
-      <div class="pc"><span class="pc-tag">Garmin prediction</span><span class="pc-when">When I started · <span data-k="startdate">Oct 19, 2026</span></span><b data-k="start">4:39:49</b></div>
-      <div class="pc now"><span class="pc-tag">Garmin prediction</span><span class="pc-when">Now · <span data-k="nowdate">Nov 27, 2026</span></span><b data-k="now">4:23:12</b></div>
-      <div class="pc goal"><span class="pc-tag">My goal</span><span class="pc-when">Chicago Marathon · Oct 10, 2027</span><b>2:59:59</b></div>
-    </div>
-    <div class="predict-track" aria-hidden="true"><span class="pt-fill"></span></div>
-    <p class="predict-scale"><span>Garmin’s first prediction</span><span id="pt-say"></span><span>My goal</span></p>
-    <p class="fine" id="data-status" role="status">Garmin data as of <span data-k="asof">Nov 27</span>. These are watch predictions, not race results.</p>
-    <div class="facts">
-      <div><b data-k="weeksleft">45</b><span class="l">weeks to the Chicago Marathon</span></div>
-      <div><b><span data-k="wkdone">20.5</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
-      <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
+    <div class="scorecard">
+      <div class="sc-head"><span class="sc-title">The scorecard</span><span class="sc-asof" id="data-status" role="status">Garmin data as of <span data-k="asof">Nov 27</span> · watch predictions, not race results</span></div>
+      <div class="sc-main">
+        <div class="sc-cell"><span class="sc-label">Garmin prediction · <span data-k="nowdate">Nov 27, 2026</span></span><b class="sc-val" data-k="now">4:23:12</b><span class="sc-sub">Started at <span data-k="start">4:39:49</span> on <span data-k="startdate">Oct 19, 2026</span></span><span class="sc-chip" id="sc-delta" hidden></span></div>
+        <div class="sc-cell sc-gap"><span class="sc-label">The gap</span><b class="sc-val" data-k="togo">1:23:13</b><span class="sc-sub">to cut before race day</span></div>
+        <div class="sc-cell sc-goal"><span class="sc-label">My goal · Chicago Marathon</span><b class="sc-val">2:59:59</b><span class="sc-sub">Sun Oct 10, 2027</span></div>
+      </div>
+      <div class="sc-track" aria-hidden="true"><span class="pt-fill"></span><span class="sc-now"></span></div>
+      <p class="predict-scale"><span>Garmin’s first prediction</span><span id="pt-say"></span><span>My goal</span></p>
+      <div class="sc-stats">
+        <div><span class="sc-label">This week</span><b><span data-k="wkdone">20.5</span><small> / <span data-k="wkplan">33</span> mi</small></b><span class="sc-mini" aria-hidden="true"><span id="sc-week"></span></span></div>
+        <div><span class="sc-label">Weeks to Chicago</span><b data-k="weeksleft">45</b></div>
+        <div><span class="sc-label" data-k="nextdate">next race</span><b data-k="nextrace">5K</b><span class="sc-note" id="sc-target">Kai’s target 22:40</span></div>
+        <div><span class="sc-label">Checkpoints</span><b>2 <small>to go</small></b><span class="sc-note">10K in May, half in September</span></div>
+      </div>
     </div>
     <figure class="viz" style="margin-top:40px">
       <figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption>
@@ -423,8 +426,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <script src="/assets/charts.js?v=20261125-races"></script>
-<script src="/assets/join.js?v=52760540"></script>
-<script src="/assets/motion.js?v=52760540" defer></script>
+<script src="/assets/join.js?v=3d108f52"></script>
+<script src="/assets/motion.js?v=3d108f52" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -436,11 +439,11 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   function day(d){return new Date(d+'T12:00:00');}
   fetch('data/progress.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(D){
     var race=day('2027-10-10'),now=new Date(),wl=Math.max(1,Math.floor((race-now)/6048e5));
-    set('now',D.now.marathon);if(D.start){set('start',D.start.marathon);set('startdate',fullDate(D.start.date));}if(D.now.date)set('nowdate',fullDate(D.now.date));if(D.updated){var up=day(D.updated);set('asof',MON[up.getMonth()]+' '+up.getDate());}set('togo',hms(D.to_go_s));if(D.start&&D.goal){var s0=sec(D.start.marathon),n0=sec(D.now.marathon),g0=sec(D.goal),pc=Math.max(0,Math.min(100,(s0-n0)/(s0-g0)*100));var pr=document.getElementById('progress');if(pr)pr.style.setProperty('--pct',pc.toFixed(1)+'%');var ps=document.getElementById('pt-say');if(ps)ps.textContent=Math.round(pc)+'% of the way there';}set('weeksleft',wl);
+    set('now',D.now.marathon);if(D.start){set('start',D.start.marathon);set('startdate',fullDate(D.start.date));}if(D.now.date)set('nowdate',fullDate(D.now.date));if(D.updated){var up=day(D.updated);set('asof',MON[up.getMonth()]+' '+up.getDate());}set('togo',hms(D.to_go_s));if(D.start&&D.goal){var s0=sec(D.start.marathon),n0=sec(D.now.marathon),g0=sec(D.goal),pc=Math.max(0,Math.min(100,(s0-n0)/(s0-g0)*100));var pr=document.getElementById('progress');if(pr)pr.style.setProperty('--pct',pc.toFixed(1)+'%');var ps=document.getElementById('pt-say');if(ps)ps.textContent=Math.round(pc)+'% of the way there';var dl=document.getElementById('sc-delta');if(dl&&s0>n0){dl.textContent='▼ '+hms(s0-n0).replace(/^0:/,'')+' faster since I started';dl.hidden=false;}}set('weeksleft',wl);
     var cw=(D.year||[]).filter(function(w){return w.current;})[0];
-    if(cw){set('wkdone',cw.done==null?'Not recorded':cw.done);set('wkplan',cw.plan);set('wkplan2',cw.plan);}
+    if(cw){set('wkdone',cw.done==null?'Not recorded':cw.done);set('wkplan',cw.plan);set('wkplan2',cw.plan);}var wb=document.getElementById('sc-week');if(wb&&cw&&cw.plan)wb.style.width=Math.min(100,(cw.done||0)/cw.plan*100).toFixed(0)+'%';
     var today=new Date().toLocaleDateString('en-CA',{timeZone:'America/Los_Angeles'}),nx=(D.races||[]).filter(function(r){return r.date>=today;})[0];
-    if(nx){var x=day(nx.date);set('nextrace',nx.name.replace(/^First\s+/,''));set('nextdate','next race · '+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+MON[x.getMonth()]+' '+x.getDate());}
+    if(nx){var tg=document.getElementById('sc-target');if(tg)tg.textContent=nx.target?'Kai’s target '+nx.target:'';var x=day(nx.date);set('nextrace',nx.name.replace(/^First\s+/,''));set('nextdate','next race · '+['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]+' '+MON[x.getMonth()]+' '+x.getDate());}
     var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],ev=[{date:'2026-12-08',what:'the Chicago drawing'}].concat((D.races||[]).map(function(r){return{date:r.date,what:'the '+r.name.replace(/^First /,'first ').replace(/^Half/,'half')};}))
       .filter(function(e){return e.date>=today;}).sort(function(a,b){return a.date<b.date?-1:1;}).slice(0,2)
       .map(function(e){var x=day(e.date);return DOW[x.getDay()]+' '+MON[x.getMonth()]+' '+x.getDate()+', '+e.what;});
@@ -505,6 +508,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/training.js?v=52760540" defer></script>
+<script src="/assets/training.js?v=3d108f52" defer></script>
 </body>
 </html>
