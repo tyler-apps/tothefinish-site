@@ -26,3 +26,7 @@ Web delivery: H.264/AAC, 720×1280, 30 fps, fast-start, burned captions, matchin
 ## Launch hold · November 23 evening
 
 Tyler asked to remove the explainer until launch. All Inside the Coaches delivery versions, posters and VTTs are held outside the public site in Brain/brain/social/productions/pinned-explainer/technical-sync-film/v4/held-site-media/. The current final remains v4; earlier versions are history. Episode 1 remains published. Restore the final explainer only on Tyler’s launch instruction.
+
+## Coach scenes · November 26, 2026
+
+The five homepage coach cards (`assets/scene-{kai,bo,mo,juno,rook}-432/864.webp` and `.jpg`) show each coach working with animated Tyler: Kai on a sunrise trail run, Bo spotting a backyard squat, Mo on calf rolling, Juno at breakfast, Rook pointing up the hill before dawn. Tyler 2026-11-26 asked for "a graphic of each coach coaching me while the animated version of myself is doing the thing." Drawn in ChatGPT on Tyler's subscription, in the "Create Character Lineup" chat, with the five-coach lineup sheet and the animated half of the hero portrait as references. Bo, Juno and Rook were redrawn once to remove muscle from Tyler (6'6", soft build, never ripped). Masters, 1122×1402 PNG: `video-studio/projects/ep01-pilot/assets/art/coach-scenes-2026-11-26/`. The headshots (`kai.jpg` and the rest) stay on /coaches/. Dramatized illustration, not a record of a specific workout.
