@@ -598,3 +598,47 @@ section h2.display .o{color:inherit}
 .sc-main{align-items:stretch}.sc-cell{justify-content:flex-end}
 .sc-stats b{white-space:nowrap}
 @media(max-width:860px){.sc-stats b small{font-size:17px}.sc-stats>div{padding:18px 16px}}
+
+/* Race track: start -> now -> goal, Nov 27 2026 (Tyler: "make clear the first prediction is when i started and the middle is current. innovate on the best way to design it") */
+.rt{position:relative;height:330px;margin:8px 40px 8px}
+.rt-bar{position:absolute;left:0;right:0;top:168px;height:12px;border-radius:999px;background:repeating-linear-gradient(90deg,#ffffff24 0 10px,transparent 10px 18px)}
+.rt-fill{position:absolute;left:0;top:0;bottom:0;width:var(--pct,0%);border-radius:999px;background:linear-gradient(90deg,#7a6a5c,var(--orange));transition:width 1s ease}
+.rt-bar::before{content:"";position:absolute;left:-6px;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;background:#1a1512;border:3px solid #7a6a5c}
+.rt-dot{position:absolute;top:50%;left:var(--pct,0%);width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--white);box-shadow:0 0 0 6px #f9731640,0 4px 14px #0008;z-index:2}
+.rt-goaldot{position:absolute;right:-8px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 6px #f9731626}
+.rt-stop{position:absolute;display:flex;flex-direction:column;gap:6px}
+.rt-stop b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;line-height:.95;font-variant-numeric:tabular-nums;color:var(--white)}
+.rt-tag{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b9a898}
+.rt-what{font-size:14px;color:#b9a898}
+.rt-now{bottom:calc(100% - 140px);left:clamp(130px,var(--pct,0%),calc(100% - 330px));transform:translateX(-50%);align-items:center;text-align:center;padding:14px 18px 12px;border-radius:14px;background:#2c241e;box-shadow:0 10px 30px #0006}
+.rt-now::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:28px;margin-left:-1px;background:#ffffff55}
+.rt-now .rt-tag{color:var(--white)}
+.rt-now b{font-size:clamp(54px,5vw,76px)}
+.rt-now .sc-chip{align-self:center}
+.rt-start{top:204px;left:0}
+.rt-start b{font-size:40px;color:#d8cbbf}
+.rt-goal{top:204px;right:0;align-items:flex-end;text-align:right}
+.rt-goal .rt-tag{color:var(--orange)}
+.rt-goal b{font-size:40px;color:var(--orange)}
+.rt-left{top:200px;left:min(calc(var(--pct,0%) + (100% - var(--pct,0%)) / 2),calc(100% - 420px));transform:translateX(-50%);align-items:center;text-align:center}
+.rt-left b{font-size:clamp(48px,4.6vw,68px);color:var(--orange)}
+.rt-togo{font-size:.5em;color:#ffb27a}
+.scorecard .sc-stats{margin-top:12px}
+@media(max-width:860px){
+ .rt{height:auto;margin:20px 20px 8px;padding-left:40px;display:flex;flex-direction:column;gap:22px}
+ .rt-bar{display:none}
+ .rt-stop{position:relative;inset:auto;transform:none;left:auto;right:auto;top:auto;bottom:auto;align-items:flex-start;text-align:left;padding:0;background:none;box-shadow:none}
+ .rt-start{order:1}.rt-now{order:2}.rt-left{order:3}.rt-goal{order:4}
+ .rt-now::after{display:none}
+ .rt-now .sc-chip{align-self:flex-start}
+ .rt-stop::before{content:"";position:absolute;left:-36px;top:4px;width:18px;height:18px;border-radius:50%;background:#1a1512;border:3px solid #7a6a5c;z-index:1}
+ .rt-now::before{width:22px;height:22px;left:-38px;background:var(--white);border:0;box-shadow:0 0 0 5px #f9731640}
+ .rt-goal::before{background:var(--orange);border-color:var(--orange)}
+ .rt-left::before{display:none}
+ .rt-stop::after{content:"";position:absolute;left:-29px;top:20px;bottom:-22px;width:4px;border-radius:2px;background:repeating-linear-gradient(180deg,#ffffff30 0 8px,transparent 8px 14px)}
+ .rt-start::after{background:linear-gradient(180deg,#7a6a5c,var(--orange))}
+ .rt-now::after{display:block;margin:0;width:4px;height:auto;background:repeating-linear-gradient(180deg,#ffffff30 0 8px,transparent 8px 14px)}
+ .rt-goal::after{display:none}
+ .rt-now b{font-size:60px}.rt-start b,.rt-goal b{font-size:40px}.rt-left b{font-size:52px}
+}
+@media(min-width:861px){.rt{margin-top:56px}}
