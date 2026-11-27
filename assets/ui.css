@@ -548,3 +548,20 @@ section h2.display .o{color:inherit}
 .road li.cut::before{border-color:var(--orange);box-shadow:0 0 0 4px #f9731633}
 .road .badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:999px;background:var(--orange);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 #stakes .road li.cut b{color:var(--orange);font-size:34px}
+
+/* Garmin prediction cards, Nov 27 2026 (Tyler: "i need better design on this section and make clear these are garmin predictions") */
+.predict .predict-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px}
+.pc{display:flex;flex-direction:column;gap:12px;padding:26px 28px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.pc.now{border-color:#6b5a4a;background:linear-gradient(160deg,#2a211b,var(--surface) 75%)}
+.pc.goal{border-color:var(--orange)}
+.pc-tag{align-self:flex-start;padding:4px 10px;border:1px solid #6b5a4a;border-radius:999px;color:var(--soft);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pc.goal .pc-tag{background:var(--orange);border-color:var(--orange);color:var(--ink)}
+.pc-when{font-size:15px;color:var(--muted)}
+.pc b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;font-size:clamp(56px,6vw,92px);line-height:.95;color:var(--white);letter-spacing:-.01em}
+.pc:first-child b{color:var(--soft)}
+.pc.goal b{color:var(--orange)}
+.predict-track{position:relative;height:10px;margin:36px 0 12px;border-radius:999px;background:#2b2420;overflow:hidden}
+.pt-fill{position:absolute;left:0;top:0;bottom:0;width:var(--pct,0%);border-radius:999px;background:linear-gradient(90deg,#8a7a6a,var(--orange));transition:width 1s ease}
+.predict-scale{display:flex;justify-content:space-between;gap:16px;margin:0 0 28px;font-size:14px;color:var(--muted)}
+.predict-scale #pt-say{color:var(--white);font-weight:600}
+@media(max-width:860px){.predict .predict-cards{grid-template-columns:1fr;gap:14px}.pc{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px 14px;padding:20px}.pc b{font-size:56px;width:100%}}
