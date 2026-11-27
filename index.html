@@ -220,10 +220,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=582f80a5">
-<link rel="stylesheet" href="/assets/motion.css?v=582f80a5">
-<link rel="stylesheet" href="/assets/coaching-interest.css?v=582f80a5">
-<link rel="stylesheet" href="/assets/training.css?v=582f80a5">
+<link rel="stylesheet" href="/assets/ui.css?v=a4209cc9">
+<link rel="stylesheet" href="/assets/motion.css?v=a4209cc9">
+<link rel="stylesheet" href="/assets/coaching-interest.css?v=a4209cc9">
+<link rel="stylesheet" href="/assets/training.css?v=a4209cc9">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -243,8 +243,9 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
         <p class="kicker">I’m Tyler, a dad of two</p>
         <h1 class="display">Can a 258&nbsp;lb dad run a marathon in <span class="o">under three&nbsp;hours?</span></h1>
         <p class="lead">I started at 258 lb and created five AI coaches to help me run Chicago in under three hours. I’m sharing the training and the setbacks, with my actual Garmin records alongside the story.</p>
+        <p class="lead stakes-line">I have until October 10, 2027, and two race days along the way can take sub-three off the table.</p>
         <div class="hero-actions">
-          <a class="episode-archive" href="#progress">See my progress <span aria-hidden="true">→</span></a>
+          <a class="episode-archive" href="#stakes">What’s at stake <span aria-hidden="true">→</span></a>
           <a class="episode-archive" href="#why">Why I’m doing this</a>
         </div>
         <form class="join hero-join" action="https://app.kit.com/forms/10209840/subscriptions" method="post" id="join-hero">
@@ -258,6 +259,22 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     </div>
   </div>
 </header>
+<section id="stakes" class="stakes">
+  <div class="wrap">
+    <span id="road" class="anchor-compat" aria-hidden="true"></span>
+    <div class="section-intro"><div><p class="kicker">What’s at stake</p>
+    <h2 class="display">Two of these days can end sub-three <span class="o">before Chicago.</span></h2></div><div><p class="body">Sub-three is the goal, but I don’t get to wait until October to find out if it’s still possible. My coach Kai set two checkpoints along the way. If I’m too slow at either one, I run Chicago at a slower goal. If I miss one, you’ll see it here first.</p></div></div>
+    <ol class="road">
+      <li><span class="when">Tue Dec 8</span><b>Am I even in?</b><span class="stake">The Chicago drawing picks who gets a spot. If my name isn’t drawn, I have to find another way into the race.</span></li>
+      <li><span class="when">Sat Dec 26</span><b>My first all-out race</b><span class="stake">A 5K. Kai’s target is 22:40. It’s the first honest read on where I really am.</span></li>
+      <li><span class="when">Mid-May</span><b>The first cut</b><span class="stake">A flat 10K. If I’m slower than 41:30, sub-three becomes a stretch goal.</span></li>
+      <li><span class="when">Sun Sep 5</span><b>The last cut</b><span class="stake">A half marathon. If I’m slower than 1:24:30, I run Chicago at a slower pace.</span></li>
+      <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="stake">2:59:59. Everything before it is practice for this one morning.</span><span class="tgt" data-k="chistatus"></span></li>
+    </ol>
+    <a class="more" href="/chicago-marathon-2027/">The Chicago plan and my entry status <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
 <section class="why" id="why">
   <div class="wrap cols">
     <div><p class="kicker">Why I'm doing this</p>
@@ -266,21 +283,19 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </section>
 
-<section id="been">
+<section id="story-so-far" class="story-so-far" aria-labelledby="story-title">
   <div class="wrap">
-    <div class="section-intro"><div><p class="kicker">Where I've been</p>
-    <h2 class="display">I've been <span class="o">faster.</span></h2></div><div><p class="body">In June 2024 I ran a half marathon in 1:32:31. That’s still my best. VDOT puts race distance and time into a single running fitness score. A higher score means a faster performance. It lets me compare a 10K with a half marathon and see how far I am from my marathon goal. Running under three hours would take me beyond my previous best.</p></div></div>
-    <figure class="viz">
-      <figcaption><p class="q">How fit am I, in one number?</p><p class="take" data-take="vdot"><b>40.5</b> now <span>· 49.2 at my best · sub-3 needs 53.5</span></p></figcaption>
-      <div class="plot" id="p-vdot" role="img"></div>
-      <p class="fine">My son was born in October 2024 and my daughter in April 2026.</p>
-      <div class="race-target-key" aria-labelledby="race-target-heading"><p id="race-target-heading">Race finish-time targets</p><ul id="vdot-targets"></ul></div>
-      <p class="src">White dots are my past races, scored from my Garmin race times with an adjustment for hills. The thin line estimates fitness from my watch’s threshold pace and begins on November 17, 2024. The shaded area has no trend data; I haven’t filled in the missing months. Orange rings are future race targets.</p>
-    </figure>
-    <p class="fine">VDOT is a performance estimate, not a lab measurement of oxygen use. The watch-based line is an estimate between races. Race-day conditions and marathon endurance still matter. <a href="https://news.vdoto2.com/2017/11/what-is-vdot/">More about VDOT</a>.</p>
-    <a class="more" href="/how-the-coaches-decide/">See how my coaches use these records <span aria-hidden="true">→</span></a>
+    <div class="section-intro"><div><p class="kicker">The story so far</p>
+    <h2 class="display" id="story-title">Every chapter is a real day <span class="o">of my training.</span></h2></div><div><p class="body">I turn my real runs, my Garmin data and the calls my coaches make into a short animated series. This is where it stands.</p></div></div>
+    <ol class="chapters">
+      <li><a class="chapter-card" href="/episodes/the-hiring/"><img src="/assets/episode-1-poster.webp" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="chapter-no">Episode 1</span><b>I started at 258 lb and created five AI coaches. They argued before I ran a mile.</b><span class="chapter-go">Watch <span aria-hidden="true">→</span></span></a></li>
+      <li><a class="chapter-card" href="https://youtube.com/shorts/HQrgtYLbK-Y"><img src="/assets/chapter-2-still.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="chapter-no">Chapter 2</span><b>My coach made me run slow on purpose. Then my watch said I’d gotten worse.</b><span class="chapter-go">Watch on YouTube <span aria-hidden="true">→</span></span></a></li>
+      <li><a class="chapter-card" href="https://youtube.com/shorts/oax-4x3Fj-w"><img src="/assets/chapter-3-still.jpg" alt="" width="360" height="640" loading="lazy" decoding="async"><span class="chapter-no">Chapter 3</span><b>Told not to race the Turkey Trot, I let a stranger go. Then I raced my own last mile.</b><span class="chapter-go">Watch on YouTube <span aria-hidden="true">→</span></span></a></li>
+      <li class="chapter-next"><span class="chapter-no">Coming up</span><b>Chapter 4 is Saturday. Then December 26, when Kai finally lets me race all out.</b><a class="chapter-go" href="#letter">Get it in the Sunday letter <span aria-hidden="true">→</span></a></li>
+    </ol>
   </div>
 </section>
+
 
 <section id="progress">
   <div class="wrap">
@@ -293,29 +308,15 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
       <div><b><span data-k="wkdone">9.2</span><small> / <span data-k="wkplan">33</span></small></b><span class="l">miles run / planned this week</span></div>
       <div><b data-k="nextrace">5K</b><span class="l" data-k="nextdate">next race</span></div>
     </div>
-    <a class="more" href="/races/">My races and results <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
-<section id="road">
-  <div class="wrap">
-    <div class="section-intro"><div><p class="kicker">The road to Chicago</p>
-    <h2 class="display">The races <span class="o">along the way.</span></h2></div><div><p class="body">Most of my miles are easy runs. I’ll use these races to see how the training is going before Chicago. The times beside them are Kai’s targets, not results.</p></div></div>
-    <ol class="road">
-      <li><span class="when">Sat Dec 26</span><b>5K</b><span class="tgt">Kai's target 22:40</span></li>
-      <li><span class="when">Sun Feb 7</span><b>5K</b><span class="tgt">Kai's target 21:30</span></li>
-      <li><span class="when">Sat May 15</span><b>10K</b><span class="tgt">Kai's target 40:00</span></li>
-      <li><span class="when">Sun Sep 5</span><b>Half marathon</b><span class="tgt">Kai's gate 1:24:30</span></li>
-      <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="tgt">My goal 2:59:59</span><span class="tgt" data-k="chistatus"></span></li>
-    </ol>
-    <a class="more" href="/chicago-marathon-2027/">The Chicago plan and my entry status <span aria-hidden="true">→</span></a>
     <figure class="viz" style="margin-top:40px">
       <figcaption><p class="q">Am I running the miles?</p><p class="take" data-take="miles">&nbsp;</p></figcaption>
       <div class="plot" id="p-miles" role="img"></div>
       <p class="src">Planned miles each week from now to Chicago (outlines) and the miles I actually ran (filled), straight from my watch.</p>
     </figure>
+    <a class="more" href="/races/">My races and results <span aria-hidden="true">→</span></a>
   </div>
 </section>
+
 
 <section class="training-preview" id="training" aria-labelledby="training-preview-title"><div class="wrap training-preview-layout">
 <div><p class="kicker">The training journal</p><h2 class="display" id="training-preview-title">What I’m doing<br>this week.</h2><p class="body">You can see the sessions I’ve finished and what’s still planned. It’s the training as I actually do it, on my way to Chicago.</p><a class="more" href="/training/">Explore my training</a></div>
@@ -378,6 +379,22 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   </div>
 </section>
 
+<section id="been">
+  <div class="wrap">
+    <div class="section-intro"><div><p class="kicker">Where I've been</p>
+    <h2 class="display">I've been <span class="o">faster.</span></h2></div><div><p class="body">In June 2024 I ran a half marathon in 1:32:31. That’s still my best. VDOT puts race distance and time into a single running fitness score. A higher score means a faster performance. It lets me compare a 10K with a half marathon and see how far I am from my marathon goal. Running under three hours would take me beyond my previous best.</p></div></div>
+    <figure class="viz">
+      <figcaption><p class="q">How fit am I, in one number?</p><p class="take" data-take="vdot"><b>40.5</b> now <span>· 49.2 at my best · sub-3 needs 53.5</span></p></figcaption>
+      <div class="plot" id="p-vdot" role="img"></div>
+      <p class="fine">My son was born in October 2024 and my daughter in April 2026.</p>
+      <div class="race-target-key" aria-labelledby="race-target-heading"><p id="race-target-heading">Race finish-time targets</p><ul id="vdot-targets"></ul></div>
+      <p class="src">White dots are my past races, scored from my Garmin race times with an adjustment for hills. The thin line estimates fitness from my watch’s threshold pace and begins on November 17, 2024. The shaded area has no trend data; I haven’t filled in the missing months. Orange rings are future race targets.</p>
+    </figure>
+    <p class="fine">VDOT is a performance estimate, not a lab measurement of oxygen use. The watch-based line is an estimate between races. Race-day conditions and marathon endurance still matter. <a href="https://news.vdoto2.com/2017/11/what-is-vdot/">More about VDOT</a>.</p>
+    <a class="more" href="/how-the-coaches-decide/">See how my coaches use these records <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
 <section id="club"><div class="wrap letter-layout" id="letter">
 <div><p class="kicker">The Sunday letter</p><h2 class="display">Every Sunday, <span class="o">the week’s real numbers.</span></h2><p class="body who-for">This is for anyone who used to be fit and wonders if it’s too late. I’m finding out with my real numbers.</p><p class="body">Each week I’ll tell you what my watch recorded, what my coaches changed and whether I’m any closer to three hours. The bad weeks go in too. When there’s a new episode, it’s at the bottom.</p><p class="body">The next two letters worth opening are the one after Tue Dec 8, when I find out if I got into Chicago, and the one after Sat Dec 26, with my first 5K time.</p><p class="fine">Free. One email a week. Leave any time.</p><a class="more" href="https://www.strava.com/clubs/tothefinish">The Strava club <span aria-hidden="true">↗</span></a></div>
 <div class="joincard"><span id="join-top"></span><h3>Come along.</h3>
@@ -400,8 +417,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <script src="/assets/charts.js?v=20261125-races"></script>
-<script src="/assets/join.js?v=582f80a5"></script>
-<script src="/assets/motion.js?v=582f80a5" defer></script>
+<script src="/assets/join.js?v=a4209cc9"></script>
+<script src="/assets/motion.js?v=a4209cc9" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -482,6 +499,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/training.js?v=582f80a5" defer></script>
+<script src="/assets/training.js?v=a4209cc9" defer></script>
 </body>
 </html>

@@ -399,9 +399,9 @@ section h2.display .o{color:var(--soft)}
 #progress .facts>div{padding:0 0 0 24px;border-top:0;border-left:1px solid var(--line);background:transparent}
 #progress .facts b{font-size:44px;line-height:1.1}
 #progress .facts .l{font-size:15px;margin-top:12px;line-height:1.5}
-#road,#been{background:var(--ink)}
-#road .road{margin-block:48px 0}
-#road .road li{padding-top:34px}
+#road,#stakes,#been{background:var(--ink)}
+#road .road,#stakes .road{margin-block:48px 0}
+#road .road li,#stakes .road li{padding-top:34px}
 .viz{padding:32px;border-radius:8px;background:var(--surface);box-shadow:none}
 .viz figcaption{display:flex;justify-content:space-between;gap:24px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:24px}
 .viz .q{font-size:16px;font-weight:500;color:var(--soft);max-width:25ch}
@@ -438,7 +438,7 @@ footer .sign .o{color:var(--muted)}
  #club .letter-layout h2{font-size:56px}
  .hero-art .art-caption{flex-wrap:nowrap}.hero-art .art-caption>span:last-child{margin-left:0}
  .viz figcaption{display:block}.viz .take{text-align:left;max-width:none;margin-top:14px}
- #road .road li{padding-top:0}
+ #road .road li,#stakes .road li{padding-top:0}
 }
 @media(max-width:640px){
  .hero-art .art-caption{padding:14px;gap:8px;flex-wrap:wrap}
@@ -528,3 +528,20 @@ section h2.display .o{color:inherit}
 #progress .gap-three .gap-metric small{white-space:nowrap}
 @media(max-width:900px){#progress .gap.gap-three{grid-template-columns:1fr;justify-content:start;gap:22px;font-size:64px}#progress .gap-three .to{display:none}}
 @media(max-width:640px){#progress .gap.gap-three{font-size:56px}}
+
+/* Stakes and story so far, Nov 27 2026 (Tyler: "make something at stake on the website and i just make it more about my story") */
+.top .hero p.stakes-line{color:var(--white);font-weight:600;margin-top:-6px}
+.anchor-compat{display:block;position:relative;top:-80px;height:0}
+.road .stake{display:block;margin-top:10px;font-size:16px;line-height:1.5;color:var(--soft);max-width:30ch;padding-right:12px}
+#stakes .road b{font-size:30px}
+.story-so-far .chapters{list-style:none;padding:0;margin:48px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.chapter-card,.chapter-next{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--white);border:1px solid #4a3c30;border-radius:14px;overflow:hidden;background:var(--surface)}
+.chapter-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+.chapter-no{display:block;margin:18px 18px 0;font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.chapter-card b,.chapter-next b{display:block;margin:8px 18px 0;font-size:19px;line-height:1.4;font-weight:600}
+.chapter-go{display:block;margin:auto 18px 18px;padding-top:16px;color:var(--orange);font-size:16px;font-weight:600;text-decoration:none}
+.chapter-next{justify-content:flex-start;padding-top:8px;background:linear-gradient(160deg,#2a211b,var(--ink) 80%);border-style:dashed}
+.chapter-next b{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase;font-size:30px;line-height:1.05}
+@media(prefers-reduced-motion:no-preference){.chapter-card{transition:border-color .25s}.chapter-card:hover{border-color:var(--orange)}}
+@media(max-width:1024px){.story-so-far .chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.story-so-far .chapters{grid-template-columns:1fr;gap:18px}.chapter-card{display:grid;grid-template-columns:120px minmax(0,1fr);grid-template-rows:auto auto 1fr}.chapter-card img{grid-row:1/4;height:100%;aspect-ratio:auto}.chapter-card b{font-size:17px}.road .stake{max-width:none}}

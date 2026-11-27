@@ -66,3 +66,8 @@ Validation: exporter fixture verifies duplicate precedence, running filter, omit
 ## Return to VDOT · November25,2026, latest
 
 Tyler said “Go back to the VDOT chart.” Restored the reviewed941caea homepage/chart implementation: single VDOT figure after the family story, dated birth markers, threshold-estimated history/current value, numbered race results with names/locations and future targets/sub-three-hour benchmark. The January2024 axis, missing-trend shading and VDOT explanation remain. Removed the VO₂ max chart and its unused public-history export; all private Garmin history is retained. Prior metric-split instructions are superseded.
+
+
+## Stakes and story · November 27, 2026
+
+Stakes and story, November 27, 2026 (latest): Tyler said Chapter 3 worked because something was at stake, and asked to "make something at stake on the website and i just make it more about my story." Hero adds the deadline line and its primary link is What’s at stake → #stakes. New #stakes replaces the race list (old #road anchor kept inside it): Dec 8 drawing, Dec 26 all-out 5K (Kai's 22:40), mid-May 10K cut (41:30), Sep 5 half cut (1:24:30), Chicago 2:59:59, from Brain `brain/methods/running/research/build-2027/targets.md` § The gate. Keep "If I miss one, you’ll see it here first" true by updating the strip with results. New #story-so-far lists the episode and chapters (Ep 1 page, Ch 2 and Ch 3 on YouTube) with a Coming up card; add each new chapter there. The weekly-miles chart moved into #progress; #been (fitness charts) moved below #sharing. Order: hero → stakes → why → story-so-far → progress → training → team → sharing → been → letter. Mom stays off the site unless the charity entry happens. All data-k hooks preserved.
