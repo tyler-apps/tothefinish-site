@@ -545,3 +545,6 @@ section h2.display .o{color:inherit}
 @media(prefers-reduced-motion:no-preference){.chapter-card{transition:border-color .25s}.chapter-card:hover{border-color:var(--orange)}}
 @media(max-width:1024px){.story-so-far .chapters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.story-so-far .chapters{grid-template-columns:1fr;gap:18px}.chapter-card{display:grid;grid-template-columns:120px minmax(0,1fr);grid-template-rows:auto auto 1fr}.chapter-card img{grid-row:1/4;height:100%;aspect-ratio:auto}.chapter-card b{font-size:17px}.road .stake{max-width:none}}
+.road li.cut::before{border-color:var(--orange);box-shadow:0 0 0 4px #f9731633}
+.road .badge{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:999px;background:var(--orange);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+#stakes .road li.cut b{color:var(--orange);font-size:34px}

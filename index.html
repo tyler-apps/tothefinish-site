@@ -220,10 +220,10 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 /* Final animated explainer: tap-to-play, with transcript and no eager video download. */
 .coach-film{background:var(--ink-2)}.film-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,380px);gap:70px;align-items:center}.film-player{margin:0}.film-player video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:#12100e;border:1px solid #5b3b25;border-radius:12px;box-shadow:0 20px 70px #0007}.film-player figcaption{color:var(--muted);font-size:14px;line-height:1.5;margin-top:12px}.film-links{margin:28px 0}.film-transcript{border-top:1px solid var(--line);padding-top:18px;max-width:55ch}.film-transcript summary{cursor:pointer;color:var(--soft);font-size:15px}.film-transcript p{font-size:15px;color:var(--soft);line-height:1.6}.film-transcript strong{color:var(--white)}.film-transcript summary:focus-visible{outline:2px solid var(--orange);outline-offset:6px}@media(max-width:740px){.film-layout{grid-template-columns:1fr;gap:32px}.film-player{max-width:380px;margin:0 auto;width:100%}.coach-film{padding:64px 0}}
 </style>
-<link rel="stylesheet" href="/assets/ui.css?v=a4209cc9">
-<link rel="stylesheet" href="/assets/motion.css?v=a4209cc9">
-<link rel="stylesheet" href="/assets/coaching-interest.css?v=a4209cc9">
-<link rel="stylesheet" href="/assets/training.css?v=a4209cc9">
+<link rel="stylesheet" href="/assets/ui.css?v=33d3435a">
+<link rel="stylesheet" href="/assets/motion.css?v=33d3435a">
+<link rel="stylesheet" href="/assets/coaching-interest.css?v=33d3435a">
+<link rel="stylesheet" href="/assets/training.css?v=33d3435a">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -263,12 +263,12 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
   <div class="wrap">
     <span id="road" class="anchor-compat" aria-hidden="true"></span>
     <div class="section-intro"><div><p class="kicker">What’s at stake</p>
-    <h2 class="display">Two of these days can end sub-three <span class="o">before Chicago.</span></h2></div><div><p class="body">Sub-three is the goal, but I don’t get to wait until October to find out if it’s still possible. My coach Kai set two checkpoints along the way. If I’m too slow at either one, I run Chicago at a slower goal. If I miss one, you’ll see it here first.</p></div></div>
+    <h2 class="display">Two checkpoints decide if sub-three <span class="o">is still on.</span></h2></div><div><p class="body">Sub-three is the goal, but I don’t get to wait until October to find out if it’s still possible. My coach Kai set two checkpoints along the way, a 10K in May and a half marathon in September. If I’m too slow at either one, I run Chicago at a slower goal. If I miss one, you’ll see it here first.</p></div></div>
     <ol class="road">
       <li><span class="when">Tue Dec 8</span><b>Am I even in?</b><span class="stake">The Chicago drawing picks who gets a spot. If my name isn’t drawn, I have to find another way into the race.</span></li>
-      <li><span class="when">Sat Dec 26</span><b>My first all-out race</b><span class="stake">A 5K. Kai’s target is 22:40. It’s the first honest read on where I really am.</span></li>
-      <li><span class="when">Mid-May</span><b>The first cut</b><span class="stake">A flat 10K. If I’m slower than 41:30, sub-three becomes a stretch goal.</span></li>
-      <li><span class="when">Sun Sep 5</span><b>The last cut</b><span class="stake">A half marathon. If I’m slower than 1:24:30, I run Chicago at a slower pace.</span></li>
+      <li><span class="when">Sat Dec 26</span><b>First all-out race</b><span class="stake">A 5K. Kai’s target is 22:40. It’s the first honest read on where I really am.</span></li>
+      <li class="cut"><span class="when">Mid-May</span><span class="badge">Checkpoint 1</span><b>10K in 41:30</b><span class="stake">Any slower, and sub-three becomes a stretch goal.</span></li>
+      <li class="cut"><span class="when">Sun Sep 5</span><span class="badge">Checkpoint 2</span><b>Half in 1:24:30</b><span class="stake">Any slower, and I run Chicago at a slower pace.</span></li>
       <li class="goal"><span class="when">Sun Oct 10, 2027</span><b>Chicago Marathon</b><span class="stake">2:59:59. Everything before it is practice for this one morning.</span><span class="tgt" data-k="chistatus"></span></li>
     </ol>
     <a class="more" href="/chicago-marathon-2027/">The Chicago plan and my entry status <span aria-hidden="true">→</span></a>
@@ -417,8 +417,8 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
 </footer>
 
 <script src="/assets/charts.js?v=20261125-races"></script>
-<script src="/assets/join.js?v=a4209cc9"></script>
-<script src="/assets/motion.js?v=a4209cc9" defer></script>
+<script src="/assets/join.js?v=33d3435a"></script>
+<script src="/assets/motion.js?v=33d3435a" defer></script>
 <script>
 /* live numbers from data/progress.json (built by the brain's scripts/site_progress.py) */
 (function(){
@@ -499,6 +499,6 @@ footer .links a{display:inline-flex;align-items:center;min-height:44px}
     [].forEach.call(bar.querySelectorAll('a'),function(a){a.tabIndex=on?0:-1;});}
   addEventListener('scroll',f,{passive:true});f();})();
 </script>
-<script src="/assets/training.js?v=a4209cc9" defer></script>
+<script src="/assets/training.js?v=33d3435a" defer></script>
 </body>
 </html>
